@@ -1,4 +1,4 @@
-# Ephesian Journeys
+# Ephesian Tours
 
 *An open door to the lands of the Bible.*
 
@@ -6,7 +6,7 @@ Small-group journeys through the Bible lands of Asia Minor for American church g
 
 **Status:** in development. Preview builds use sample itineraries and pricing.
 
-- Website: https://ephesianjourneys.com (coming soon)
-- Preview: https://miela-labs.github.io/ephesian-journeys-website/
+- Website: https://ephesiantours.com (coming soon)
+- Preview: https://miela-labs.github.io/ephesian-tours-website/
 
 Built by [Miela Labs](https://www.mielalabs.com).
