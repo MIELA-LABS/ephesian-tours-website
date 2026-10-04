@@ -12,7 +12,7 @@ To resolve an item: add `answer` and `answered_on` in `content/pending.yaml`, up
   - Per-person prices for groups of 10, 20, and 30 travelers (double occupancy), the single supplement, and seasonal differences.
   - Updates: `journeys.*.from_price`
   - Sample fields on the site (4): `journeys.seven_churches.from_price`, `journeys.footsteps_of_paul.from_price`, `journeys.best_of_turkey.from_price`, `journeys.catholic.from_price`
-- [ ] **Q-INCL-01: What's included in each journey** (asked Oct 3, 2026)
+- [ ] **Q-INCL-01: What’s included in each journey** (asked Oct 3, 2026)
   - Inclusions and exclusions: hotel class, meals, entrance fees, guides, domestic flights, the Patmos boat, and tips.
   - Updates: `journeys.*.included`, `journeys.*.excluded`
   - Sample fields on the site (8): `journeys.seven_churches.included`, `journeys.seven_churches.excluded`, `journeys.footsteps_of_paul.included`, `journeys.footsteps_of_paul.excluded`, `journeys.best_of_turkey.included`, `journeys.best_of_turkey.excluded`, `journeys.catholic.included`, `journeys.catholic.excluded`
@@ -45,7 +45,7 @@ To resolve an item: add `answer` and `answered_on` in `content/pending.yaml`, up
   - Updates: `faq.entry`
   - Sample fields on the site (1): `faq.entry`
 - [ ] **Q-MASS-01: Mass at the House of the Virgin Mary** (asked Oct 3, 2026)
-  - Whether a group's own priest can celebrate Mass at the House of the Virgin Mary.
+  - Whether a group’s own priest can celebrate Mass at the House of the Virgin Mary.
   - Updates: `journeys.catholic.highlights`, `journeys.catholic.days[2]`
   - Sample fields on the site (2): `journeys.catholic.highlights[0]`, `journeys.catholic.days[2].note`
 - [ ] **Q-WORSHIP-01: Scripture reading and prayer at the sites** (asked Oct 3, 2026)
@@ -53,7 +53,7 @@ To resolve an item: add `answer` and `answered_on` in `content/pending.yaml`, up
   - Updates: `journeys.*.highlights`, `journeys.footsteps_of_paul.days[5]`, `faq.worship`
   - Sample fields on the site (3): `journeys.footsteps_of_paul.highlights[1]`, `journeys.footsteps_of_paul.days[5].note`, `faq.worship`
 - [ ] **Q-ANTAKYA-01: Antioch (Antakya) after the 2023 earthquakes** (asked Oct 3, 2026)
-  - Whether Antioch can be included after the 2023 earthquakes, and whether St. Peter's Cave Church is open to visitors.
+  - Whether Antioch can be included after the 2023 earthquakes, and whether St. Peter’s Cave Church is open to visitors.
   - Updates: `journeys.seven_churches.days[3]`, `journeys.seven_churches.highlights`, `sites.antioch`
   - Sample fields on the site (4): `sites.antioch.note`, `journeys.seven_churches.highlights[1]`, `journeys.seven_churches.days[3]`, `journeys.seven_churches.days[3].note`
 - [ ] **Q-HAGIA-01: Hagia Sophia group visits** (asked Oct 3, 2026)
@@ -84,17 +84,17 @@ To resolve an item: add `answer` and `answered_on` in `content/pending.yaml`, up
   - Updates: `site.form_endpoint`
   - Sample fields on the site (1): `site.form_endpoint`
 - [ ] **ET-HOST-01: Host bio and photo**
-  - Final bio text and a professional portrait for the "Your host" section.
+  - Final bio text and a professional portrait of Hakan and Ece for the “Your hosts” section.
   - Updates: `host.bio`, `host.photo`
   - Sample fields on the site (2): `host.bio`, `host.photo`
-- [ ] **ET-PACKET-01: Pastor's info packet**
-  - Design and publish the pastor's info packet (PDF) and link it from the contact section.
+- [ ] **ET-PACKET-01: Pastor’s info packet**
+  - Design and publish the pastor’s info packet (PDF) and link it from the contact section.
   - Updates: `contact.info_packet`
   - Sample fields on the site (1): `contact.info_packet`
 
 ## Resolved
 
 - [x] **Q-TURSAB-01: TÜRSAB license number** (asked Oct 3, 2026)
-  - The ground operator's TÜRSAB license number, for the verification badge.
-  - **Answer** (Oct 3, 2026): TÜRSAB license no. 938, verifiable through TÜRSAB's digital verification system.
+  - The ground operator’s TÜRSAB license number, for the verification badge.
+  - **Answer** (Oct 3, 2026): TÜRSAB license no. 938, verifiable through TÜRSAB’s digital verification system.
   - Updates: `partner.license_no`

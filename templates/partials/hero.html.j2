@@ -1,0 +1,20 @@
+<section class="hero" id="top" aria-labelledby="hero-title">
+  <div class="hero__media">
+    {{ m.picture(hero.image, sizes="100vw", cls="hero__img", eager=true) }}
+  </div>
+  <div class="container hero__content">
+    <div class="hero__lockup">
+      {{ m.mark("hero__mark") }}
+      <p class="hero__brand">{{ site.brand_name }}</p>
+      <p class="hero__descriptor">{{ site.descriptor }}</p>
+    </div>
+    <h1 class="hero__title" id="hero-title">{{ hero.tagline }}</h1>
+    <p class="hero__lede">{{ hero.value_prop }}</p>
+    <div class="hero__ctas">
+      <a class="button button--light" href="{{ hero.cta_primary.href }}">{{ hero.cta_primary.label }}</a>
+      <a class="button button--accent" href="{{ hero.cta_secondary.href }}">{{ hero.cta_secondary.label }}</a>
+    </div>
+    <p class="hero__brand-line">{{ site.brand_line }} <cite>{{ site.brand_line_ref }}</cite></p>
+    <p class="hero__partner">{{ site.partner_line }}</p>
+  </div>
+</section>

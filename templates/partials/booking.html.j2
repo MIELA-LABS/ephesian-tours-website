@@ -1,0 +1,36 @@
+{% set s = sections.booking %}
+<section class="section section--booking" id="booking" aria-labelledby="booking-title">
+  <div class="container">
+    <header class="section__header reveal">
+      <p class="eyebrow">{{ s.eyebrow }}</p>
+      <h2 id="booking-title">{{ s.heading }}</h2>
+      {% if s.intro %}<p class="section__intro">{{ s.intro }}</p>{% endif %}
+    </header>
+    <ol class="timeline reveal">
+      {% for ms in booking.milestones %}
+      <li class="timeline__item">
+        <span class="timeline__dot" aria-hidden="true"></span>
+        <h3 class="timeline__label">{{ ms.label }}</h3>
+        <p class="timeline__when">{{ m.tracked(ms.when) }}</p>
+        {% if ms.amount %}<p class="timeline__amount">{{ m.tracked(ms.amount) }}</p>{% endif %}
+        {% if ms.body %}<p class="timeline__body">{{ ms.body }}</p>{% endif %}
+      </li>
+      {% endfor %}
+    </ol>
+    <dl class="terms reveal">
+      <div>
+        <dt>Minimum group size</dt>
+        <dd>{{ m.tracked(booking.minimum_group) }}</dd>
+      </div>
+      <div>
+        <dt>Payment methods</dt>
+        <dd>{{ booking.payment_methods.value|join(", ") }}{{ m.badge(booking.payment_methods) }}</dd>
+      </div>
+      <div>
+        <dt>Cancellation</dt>
+        <dd>{{ m.tracked(booking.cancellation) }}</dd>
+      </div>
+    </dl>
+    <p class="callout callout--insurance reveal"><strong>Travel insurance.</strong> {{ m.tracked(booking.insurance_note) }}</p>
+  </div>
+</section>

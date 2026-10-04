@@ -1,0 +1,98 @@
+{% set s = sections.contact %}
+{% set opts = contact.form_options %}
+<section class="section section--contact" id="contact" aria-labelledby="contact-title">
+  <div class="container contact">
+    <div class="contact__intro reveal">
+      <p class="eyebrow">{{ s.eyebrow }}</p>
+      <h2 id="contact-title">{{ s.heading }}</h2>
+      {% if s.intro %}<p class="section__intro">{{ s.intro }}</p>{% endif %}
+
+      <div class="packet">
+        <p class="packet__text">{{ contact.packet_text }}</p>
+        <button class="button button--outline" type="button" data-packet>{{ contact.info_packet.value }}</button>{{ m.badge(contact.info_packet) }}
+      </div>
+
+      <ul class="contact__details">
+        <li><span class="contact__label">Email</span> <a href="mailto:{{ contact.email.value }}">{{ contact.email.value }}</a>{{ m.badge(contact.email) }}</li>
+        <li><span class="contact__label">Phone</span> <a href="tel:+1{{ contact.phone.value|replace('(', '')|replace(')', '')|replace(' ', '')|replace('-', '') }}">{{ contact.phone.value }}</a>{{ m.badge(contact.phone) }}</li>
+        <li><span class="contact__label">Based in</span> {{ contact.location }}</li>
+      </ul>
+    </div>
+
+    <form class="form reveal" action="{{ site.form_endpoint.value }}" method="POST" data-form
+      data-form-live="{{ 'false' if site.form_endpoint.sample else 'true' }}" novalidate>
+      <input type="hidden" name="_subject" value="New trip inquiry: {{ site.brand_name }}">
+      <div class="form__hp" aria-hidden="true">
+        <label>Leave this field empty <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label>
+      </div>
+
+      <div class="form__row">
+        <div class="field">
+          <label for="f-name">Your name <span class="req" aria-hidden="true">*</span></label>
+          <input id="f-name" name="name" type="text" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="f-church">Church</label>
+          <input id="f-church" name="church" type="text" autocomplete="organization">
+        </div>
+      </div>
+      <div class="form__row">
+        <div class="field">
+          <label for="f-role">Your role</label>
+          <select id="f-role" name="role">
+            <option value="">Choose one</option>
+            {% for o in opts.roles %}<option>{{ o }}</option>{% endfor %}
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-size">Group size</label>
+          <select id="f-size" name="group_size">
+            <option value="">Choose one</option>
+            {% for o in opts.group_sizes %}<option>{{ o }}</option>{% endfor %}
+          </select>
+        </div>
+      </div>
+      <div class="form__row">
+        <div class="field">
+          <label for="f-email">Email <span class="req" aria-hidden="true">*</span></label>
+          <input id="f-email" name="email" type="email" autocomplete="email" required>
+        </div>
+        <div class="field">
+          <label for="f-phone">Phone</label>
+          <input id="f-phone" name="phone" type="tel" autocomplete="tel">
+        </div>
+      </div>
+      <div class="form__row">
+        <div class="field">
+          <label for="f-season">Preferred season</label>
+          <select id="f-season" name="season">
+            <option value="">Choose one</option>
+            {% for o in opts.seasons %}<option>{{ o }}</option>{% endfor %}
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-journey">Journey of interest</label>
+          <select id="f-journey" name="journey" data-journey-select>
+            <option value="">Choose one</option>
+            {% for j in journeys %}<option>{{ j.title }}</option>{% endfor %}
+            <option>A custom itinerary</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+      </div>
+      <div class="field">
+        <label for="f-message">Message</label>
+        <textarea id="f-message" name="message" rows="5"></textarea>
+      </div>
+      <div class="field field--check">
+        <input id="f-packet" name="info_packet" type="checkbox" value="Yes, please send the Pastor's Info Packet" data-packet-check>
+        <label for="f-packet">Please send me the Pastor's Info Packet</label>
+      </div>
+      <p class="form__required"><span aria-hidden="true">*</span> Required</p>
+      <button class="button button--accent form__submit" type="submit">Send your inquiry</button>
+      <div class="form__status" role="status" aria-live="polite" data-form-status
+        data-success="{{ contact.form_success }}" data-error="{{ contact.form_error }}"
+        data-fallback="{{ contact.form_fallback }}" data-email="{{ contact.email.value }}"></div>
+    </form>
+  </div>
+</section>

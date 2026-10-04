@@ -1,0 +1,49 @@
+{# Shared helpers. Import with: {% import "partials/_macros.html.j2" as m with context %} #}
+
+{# "Sample" / "Proposed" badge for any Provenance value, shown only in preview mode. #}
+{% macro badge(x) -%}
+  {%- if site.preview_mode and x and x.sample -%}
+    <span class="badge-sample" title="Sample content, pending confirmation">{{ "Proposed" if x.status == "proposed" else "Sample" }}</span>
+  {%- endif -%}
+{%- endmacro %}
+
+{# A Tracked[str] value followed by its badge. #}
+{% macro tracked(x) -%}{{ x.value }}{{ badge(x) }}{%- endmacro %}
+
+{# Scripture references as a compact list. #}
+{% macro refs(items, cls="refs") -%}
+  {%- if items -%}
+    <p class="{{ cls }}"><span class="visually-hidden">Scripture: </span>
+      {%- for r in items %}<cite>{{ r }}</cite>{% if not loop.last %}<span aria-hidden="true"> · </span>{% endif %}{% endfor -%}
+    </p>
+  {%- endif -%}
+{%- endmacro %}
+
+{# Responsive image from media.yaml, or a styled placeholder until it is sourced. #}
+{% macro picture(image_id, sizes="100vw", cls="", eager=false) -%}
+  {%- set img = images_by_id[image_id] -%}
+  {%- if img.ready -%}
+    <img class="{{ cls }}"
+      src="./assets/img/{{ img.file }}-{{ img.widths[1] if img.widths|length > 1 else img.widths[0] }}.webp"
+      srcset="{% for w in img.widths %}./assets/img/{{ img.file }}-{{ w }}.webp {{ w }}w{% if not loop.last %}, {% endif %}{% endfor %}"
+      sizes="{{ sizes }}" alt="{{ img.alt }}"
+      {%- if img.width %} width="{{ img.width }}" height="{{ img.height }}"{% endif %}
+      {%- if img.position != "center" %} style="object-position: {{ img.position }}"{% endif %}
+      {%- if eager %} fetchpriority="high"{% else %} loading="lazy"{% endif %} decoding="async">
+  {%- else -%}
+    <div class="img-placeholder {{ cls }}" role="img" aria-label="{{ img.alt }}">
+      <span aria-hidden="true">{{ img.subject }}</span>
+    </div>
+  {%- endif -%}
+{%- endmacro %}
+
+{# Brand mark: open arched doorway. Uses currentColor so it follows the theme. #}
+{% macro mark(cls="mark", title=none) -%}
+  {% include "partials/_mark.svg.j2" %}
+{%- endmacro %}
+
+{% macro duration(j) -%}
+  {{ j.duration_days }} days{% if j.duration_nights %} · {{ j.duration_nights }} nights{% endif %}
+{%- endmacro %}
+
+{% macro minutes(seconds) -%}{{ seconds // 60 }}:{{ "%02d"|format(seconds % 60) }}{%- endmacro %}

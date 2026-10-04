@@ -22,7 +22,7 @@ pending:
 
   - id: Q-INCL-01
     owner: operator
-    topic: What's included in each journey
+    topic: What’s included in each journey
     question: >-
       Inclusions and exclusions: hotel class, meals, entrance fees, guides, domestic flights,
       the Patmos boat, and tips.
@@ -88,7 +88,7 @@ pending:
   - id: Q-MASS-01
     owner: operator
     topic: Mass at the House of the Virgin Mary
-    question: Whether a group's own priest can celebrate Mass at the House of the Virgin Mary.
+    question: Whether a group’s own priest can celebrate Mass at the House of the Virgin Mary.
     asked_on: 2026-10-03
     updates: ["journeys.catholic.highlights", "journeys.catholic.days[2]"]
 
@@ -105,7 +105,7 @@ pending:
     owner: operator
     topic: Antioch (Antakya) after the 2023 earthquakes
     question: >-
-      Whether Antioch can be included after the 2023 earthquakes, and whether St. Peter's
+      Whether Antioch can be included after the 2023 earthquakes, and whether St. Peter’s
       Cave Church is open to visitors.
     asked_on: 2026-10-03
     updates: ["journeys.seven_churches.days[3]", "journeys.seven_churches.highlights", "sites.antioch"]
@@ -144,9 +144,9 @@ pending:
   - id: Q-TURSAB-01
     owner: operator
     topic: TÜRSAB license number
-    question: The ground operator's TÜRSAB license number, for the verification badge.
+    question: The ground operator’s TÜRSAB license number, for the verification badge.
     asked_on: 2026-10-03
-    answer: TÜRSAB license no. 938, verifiable through TÜRSAB's digital verification system.
+    answer: TÜRSAB license no. 938, verifiable through TÜRSAB’s digital verification system.
     answered_on: 2026-10-03
     updates: ["partner.license_no"]
 
@@ -166,11 +166,11 @@ pending:
   - id: ET-HOST-01
     owner: ephesian
     topic: Host bio and photo
-    question: Final bio text and a professional portrait for the "Your host" section.
+    question: Final bio text and a professional portrait of Hakan and Ece for the “Your hosts” section.
     updates: ["host.bio", "host.photo"]
 
   - id: ET-PACKET-01
     owner: ephesian
-    topic: Pastor's info packet
-    question: Design and publish the pastor's info packet (PDF) and link it from the contact section.
+    topic: Pastor’s info packet
+    question: Design and publish the pastor’s info packet (PDF) and link it from the contact section.
     updates: ["contact.info_packet"]

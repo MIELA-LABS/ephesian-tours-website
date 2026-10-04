@@ -1,0 +1,23 @@
+{% set s = sections.how_it_works %}
+<section class="section section--how" id="how-it-works" aria-labelledby="how-title">
+  <div class="container">
+    <header class="section__header reveal">
+      <p class="eyebrow">{{ s.eyebrow }}</p>
+      <h2 id="how-title">{{ s.heading }}</h2>
+      {% if s.intro %}<p class="section__intro">{{ s.intro }}</p>{% endif %}
+    </header>
+    <ol class="steps">
+      {% for step in how_it_works.steps %}
+      <li class="step reveal">
+        <span class="step__n" aria-hidden="true">{{ loop.index }}</span>
+        <div>
+          <h3 class="step__title"><span class="visually-hidden">Step {{ loop.index }}: </span>{{ step.title }}{{ m.badge(step) }}</h3>
+          <p>{{ step.body }}</p>
+          {% if step.note and step.sample and site.preview_mode %}<p class="step__note">{{ step.note }}</p>{% endif %}
+        </div>
+      </li>
+      {% endfor %}
+    </ol>
+    <p class="callout reveal">{{ m.tracked(how_it_works.leader_note) }}</p>
+  </div>
+</section>

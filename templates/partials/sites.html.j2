@@ -1,0 +1,34 @@
+{% set s = sections.sites %}
+<section class="section section--sites" id="sites" aria-labelledby="sites-title">
+  <div class="container">
+    <header class="section__header reveal">
+      <p class="eyebrow">{{ s.eyebrow }}</p>
+      <h2 id="sites-title">{{ s.heading }}</h2>
+      {% if s.intro %}<p class="section__intro">{{ s.intro }}</p>{% endif %}
+    </header>
+    {% for g in groups %}
+    <div class="site-group">
+      <div class="site-group__header reveal">
+        <h3>{{ g.label }}</h3>
+        {% if g.intro %}<p>{{ g.intro }}</p>{% endif %}
+      </div>
+      <ul class="site-grid">
+        {% for p in sites if p.featured and p.group == g.id %}
+        <li class="site-card reveal{% if not p.image %} site-card--text{% endif %}">
+          {% if p.image %}
+          <div class="site-card__media">{{ m.picture(p.image, sizes="(min-width: 1100px) 22rem, (min-width: 640px) 45vw, 100vw", cls="site-card__img") }}</div>
+          {% endif %}
+          <div class="site-card__body">
+            <h4 class="site-card__name">{{ p.name }}</h4>
+            {% if p.modern_name %}<p class="site-card__modern">{{ p.modern_name }}</p>{% endif %}
+            {{ m.refs(p.refs) }}
+            <p>{{ p.history }}</p>
+            {% if p.note %}<p class="site-card__note">{{ m.tracked(p.note) }}</p>{% endif %}
+          </div>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endfor %}
+  </div>
+</section>

@@ -6,16 +6,16 @@ faq:
   - id: safety
     question: Is Turkey safe for American church groups?
     answer: |-
-      It's a fair question, and we take it seriously. The regions on our itineraries (Istanbul, the Aegean coast, and central Turkey) are long-established destinations that welcome travelers from around the world.
+      It’s a fair question, and we take it seriously. The regions on our itineraries (Istanbul, the Aegean coast, and central Turkey) are long-established destinations that welcome travelers from around the world.
 
-      Before every departure we review the U.S. State Department's travel advisory for Turkey (at [travel.state.gov](https://travel.state.gov/)) for each region on the route and share it with your group, and we encourage every traveler to enroll in the State Department's free [Smart Traveler Enrollment Program (STEP)](https://step.state.gov/). Your group travels with Hakan from DFW and with a professional local guide and driver every day. If conditions change anywhere, we change the route.
+      Before every departure we review the U.S. State Department’s travel advisory for Turkey (at [travel.state.gov](https://travel.state.gov/)) for each region on the route and share it with your group, and we encourage every traveler to enroll in the State Department’s free [Smart Traveler Enrollment Program (STEP)](https://step.state.gov/). Your group travels with Hakan from DFW and with a professional local guide and driver every day. If conditions change anywhere, we change the route.
 
   - id: entry
     question: Do U.S. citizens need a visa to visit Turkey?
     answer: |-
-      Entry rules can change, so we confirm the current requirements for U.S. passport holders before every trip and send them to your group well ahead of departure. Every traveler needs a valid U.S. passport; if you don't have one yet, apply early.
+      Entry rules can change, so we confirm the current requirements for U.S. passport holders before every trip and send them to your group well ahead of departure. Every traveler needs a valid U.S. passport; if you don’t have one yet, apply early.
 
-      Journeys that include Patmos also enter Greece. For the latest official guidance, see the State Department's country page for Turkey at [travel.state.gov](https://travel.state.gov/).
+      Journeys that include Patmos also enter Greece. For the latest official guidance, see the State Department’s country page for Turkey at [travel.state.gov](https://travel.state.gov/).
     status: pending
     resolves_by: Q-VISA-01
 
@@ -24,7 +24,7 @@ faq:
     answer: |-
       A fair amount. The ancient sites are explored on foot, often on uneven marble and stone, sometimes uphill and in the sun. Ephesus, for example, is walked along a long, gently sloping marble street.
 
-      Our pace is unhurried, with rest stops along the way, and the coach takes care of every transfer. Comfortable walking shoes, a hat, and a water bottle make a big difference. If anyone in your group has limited mobility, tell us early and we'll talk through which sites suit them best.
+      Our pace is unhurried, with rest stops along the way, and the coach takes care of every transfer. Comfortable walking shoes, a hat, and a water bottle make a big difference. If anyone in your group has limited mobility, tell us early and we’ll talk through which sites suit them best.
 
   - id: food
     question: What is the food like?
@@ -38,7 +38,7 @@ faq:
     answer: |-
       Yes. Hagia Sophia, completed under Emperor Justinian in AD 537, has been a functioning mosque since 2020, and visitors are welcome outside the daily prayer times. As at any mosque, modest dress is expected: shoulders and knees covered, and women bring a scarf to cover their hair.
 
-      We'll confirm the current visiting arrangements for groups before your trip.
+      We’ll confirm the current visiting arrangements for groups before your trip.
     status: pending
     resolves_by: Q-HAGIA-01
 
@@ -52,14 +52,14 @@ faq:
   - id: custom
     question: Can you build an itinerary just for our church?
     answer: |-
-      Yes. Most groups start from one of our journeys and adjust it: adding or removing sites, changing the pace, or extending to Cappadocia or the West Anatolian coast. Tell us what your congregation is studying, and we'll suggest a route around it.
+      Yes. Most groups start from one of our journeys and adjust it: adding or removing sites, changing the pace, or extending to Cappadocia or the West Anatolian coast. Tell us what your congregation is studying, and we’ll suggest a route around it.
     status: pending
     resolves_by: Q-CUSTOM-01
 
   - id: worship
     question: Can our group worship or read Scripture together at the sites?
     answer: |-
-      Many groups long to read the letter to the Ephesians in Ephesus, or Revelation 3 in Laodicea. We are confirming how short, respectful times of Scripture reading and prayer can be arranged at the archaeological sites, and we'll plan them with you.
+      Many groups long to read the letter to the Ephesians in Ephesus, or Revelation 3 in Laodicea. We are confirming how short, respectful times of Scripture reading and prayer can be arranged at the archaeological sites, and we’ll plan them with you.
     status: pending
     resolves_by: Q-WORSHIP-01
 
@@ -78,7 +78,7 @@ faq:
   - id: payment
     question: How do payments work?
     answer: |-
-      Payments are spread out over the months before departure; see the Booking and Payments timeline above. Accepted payment methods will be confirmed with your group's registration details.
+      Payments are spread out over the months before departure; see the Booking and Payments timeline above. Accepted payment methods will be confirmed with your group’s registration details.
     status: pending
     resolves_by: Q-PAY-01
 

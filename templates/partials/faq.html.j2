@@ -1,0 +1,18 @@
+{% set s = sections.faq %}
+<section class="section section--faq" id="faq" aria-labelledby="faq-title">
+  <div class="container container--narrow">
+    <header class="section__header reveal">
+      <p class="eyebrow">{{ s.eyebrow }}</p>
+      <h2 id="faq-title">{{ s.heading }}</h2>
+      {% if s.intro %}<p class="section__intro">{{ s.intro }}</p>{% endif %}
+    </header>
+    <div class="faq reveal">
+      {% for q in faq %}
+      <details class="faq__item" id="faq-{{ q.id }}">
+        <summary><h3 class="faq__q">{{ q.question }}</h3>{{ m.badge(q) }}</summary>
+        <div class="faq__a">{{ q.answer|md }}</div>
+      </details>
+      {% endfor %}
+    </div>
+  </div>
+</section>

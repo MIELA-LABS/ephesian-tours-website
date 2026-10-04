@@ -43,8 +43,8 @@ images:
     subject: Aegean coast at sunset
     alt: The sun setting over the Aegean Sea along the Turkish coast
   - id: antioch_cave
-    subject: St. Peter's Cave Church, Antakya (pre-2023 photo)
-    alt: The stone façade of St. Peter's Cave Church, set into the hillside at Antakya
+    subject: St. Peter’s Cave Church, Antakya (pre-2023 photo)
+    alt: The stone façade of St. Peter’s Cave Church, set into the hillside at Antakya
   - id: smyrna_agora
     subject: Agora of Smyrna, İzmir
     alt: Columns of the Roman agora of Smyrna in İzmir
@@ -53,10 +53,10 @@ images:
     alt: Ancient ruins of Thyatira in the center of Akhisar
   - id: philadelphia_pillars
     subject: Church of St. John pillars, Alaşehir
-    alt: Massive brick pillars of the Byzantine church at Philadelphia, today's Alaşehir
+    alt: Massive brick pillars of the Byzantine church at Philadelphia, today’s Alaşehir
   - id: tarsus_gate
-    subject: Cleopatra's Gate, Tarsus
-    alt: The stone arch known as Cleopatra's Gate in Tarsus
+    subject: Cleopatra’s Gate, Tarsus
+    alt: The stone arch known as Cleopatra’s Gate in Tarsus
   - id: perge_gate
     subject: Perge Hellenistic gate and colonnaded street
     alt: The round towers of the Hellenistic gate at Perge
@@ -76,7 +76,7 @@ videos:
     author: Yasin İlcebay
     source_url: https://vimeo.com/180284772
     credit: "Video: Yasin İlcebay / Vimeo"
-    license: Embedded via Vimeo's official player; all rights reserved by the author
+    license: Embedded via Vimeo’s official player; all rights reserved by the author
     status: pending
     resolves_by: Q-MEDIA-01
   - id: sardis_vimeo
@@ -87,6 +87,6 @@ videos:
     author: Yasin İlcebay
     source_url: https://vimeo.com/142346598
     credit: "Video: Yasin İlcebay / Vimeo"
-    license: Embedded via Vimeo's official player; all rights reserved by the author
+    license: Embedded via Vimeo’s official player; all rights reserved by the author
     status: pending
     resolves_by: Q-MEDIA-01

@@ -22,11 +22,11 @@ No images sourced yet.
 - `patmos`: Patmos, Chora and the Monastery of St. John
 - `sardis`: Sardis gymnasium
 - `aegean_sunset`: Aegean coast at sunset
-- `antioch_cave`: St. Peter's Cave Church, Antakya (pre-2023 photo)
+- `antioch_cave`: St. Peter’s Cave Church, Antakya (pre-2023 photo)
 - `smyrna_agora`: Agora of Smyrna, İzmir
 - `thyatira_ruins`: Thyatira ruins, Akhisar
 - `philadelphia_pillars`: Church of St. John pillars, Alaşehir
-- `tarsus_gate`: Cleopatra's Gate, Tarsus
+- `tarsus_gate`: Cleopatra’s Gate, Tarsus
 - `perge_gate`: Perge Hellenistic gate and colonnaded street
 - `troas_ruins`: Alexandria Troas ruins
 
@@ -34,5 +34,5 @@ No images sourced yet.
 
 | Video | Author | License | Source |
 |---|---|---|---|
-| Ephesus Ancient City | Celsus Library | Yasin İlcebay | Embedded via Vimeo's official player; all rights reserved by the author | [https://vimeo.com/180284772](https://vimeo.com/180284772) |
-| Sardis Ancient City | Yasin İlcebay | Embedded via Vimeo's official player; all rights reserved by the author | [https://vimeo.com/142346598](https://vimeo.com/142346598) |
+| Ephesus Ancient City | Celsus Library | Yasin İlcebay | Embedded via Vimeo’s official player; all rights reserved by the author | [https://vimeo.com/180284772](https://vimeo.com/180284772) |
+| Sardis Ancient City | Yasin İlcebay | Embedded via Vimeo’s official player; all rights reserved by the author | [https://vimeo.com/142346598](https://vimeo.com/142346598) |

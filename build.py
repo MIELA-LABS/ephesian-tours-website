@@ -17,6 +17,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import shutil
 import sys
@@ -252,10 +253,11 @@ def map_data(c: dict[str, Any]) -> str:
         ]
         for j in c["journeys"]
     }
-    return json.dumps(data, ensure_ascii=False, separators=(",", ":"))
+    # "</" would end the <script> block it is embedded in
+    return json.dumps(data, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
 
 
-def render(c: dict[str, Any]) -> str:
+def render(c: dict[str, Any], base_url: str) -> str:
     env = Environment(
         loader=FileSystemLoader(TEMPLATES),
         undefined=StrictUndefined,
@@ -271,6 +273,7 @@ def render(c: dict[str, Any]) -> str:
         sites_by_id={s.id: s for s in c["sites"]},
         videos_by_id={v.id: v for v in c["videos"]},
         map_data=map_data(c),
+        base_url=base_url,
         build_year=date.today().year,
     )
     return env.get_template("base.html.j2").render(**ctx)
@@ -371,12 +374,19 @@ def write_credits_md(c: dict[str, Any]) -> None:
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--strict", action="store_true", help="treat warnings as errors")
+    parser.add_argument(
+        "--base-url",
+        default=os.environ.get("SITE_BASE_URL"),
+        help="absolute URL the site is served from, for canonical/OG tags "
+        "(default: $SITE_BASE_URL, else site.base_url). The deploy workflow passes the Pages URL.",
+    )
     args = parser.parse_args()
 
     try:
         content = load_content()
         warnings, tagged = cross_check(content)
-        write_dist(render(content))
+        base_url = (args.base_url or str(content["site"].base_url)).rstrip("/") + "/"
+        write_dist(render(content, base_url))
         write_pending_md(content, tagged)
         write_credits_md(content)
     except BuildError as exc:

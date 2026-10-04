@@ -1,0 +1,4 @@
+-r requirements.txt
+# QA screenshots and image processing (not needed to build the site)
+Pillow==12.3.0
+playwright==1.63.0

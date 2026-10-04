@@ -1,19 +1,86 @@
+{% import "partials/_macros.html.j2" as m with context %}
 <!doctype html>
 <html lang="{{ site.lang }}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{ site.brand_name }} | {{ site.descriptor }}</title>
-  <meta name="description" content="{{ site.descriptor }}">
+  <title>{{ site.seo_title }}</title>
+  <meta name="description" content="{{ site.seo_description }}">
   {% if site.preview_mode %}
   <meta name="robots" content="noindex, nofollow">
   {% endif %}
-  <link rel="canonical" href="{{ site.base_url }}">
+  <link rel="canonical" href="{{ base_url }}">
+  <meta name="theme-color" content="#F6F1E7" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#14171C" media="(prefers-color-scheme: dark)">
+  <meta name="color-scheme" content="light dark">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="{{ site.brand_name }}">
+  <meta property="og:title" content="{{ site.brand_name }}: {{ hero.tagline }}">
+  <meta property="og:description" content="{{ site.seo_description }}">
+  <meta property="og:url" content="{{ base_url }}">
+  <meta property="og:image" content="{{ base_url }}{{ site.og_image }}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="{{ site.og_image_alt }}">
+  <meta property="og:locale" content="{{ site.lang|replace('-', '_') }}">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="./assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="./assets/img/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap">
+  <link rel="stylesheet" href="./assets/css/main.css">
+  {% if images_by_id[hero.image].ready %}
+  {% set hi = images_by_id[hero.image] %}
+  <link rel="preload" as="image" imagesrcset="{% for w in hi.widths %}./assets/img/{{ hi.file }}-{{ w }}.webp {{ w }}w{% if not loop.last %}, {% endif %}{% endfor %}" imagesizes="100vw" fetchpriority="high">
+  {% endif %}
+  <script>
+    /* Apply the saved theme before first paint (no flash). */
+    (function () {
+      var d = document.documentElement;
+      d.classList.add("js");
+      try { var t = localStorage.getItem("theme"); if (t === "light" || t === "dark") d.dataset.theme = t; } catch (e) {}
+    })();
+  </script>
+  <script type="application/ld+json">
+  {{ {
+    "@context": "https://schema.org",
+    "@type": "TravelAgency",
+    "name": site.brand_name,
+    "description": site.descriptor,
+    "url": base_url,
+    "slogan": site.brand_line,
+    "areaServed": "United States",
+    "address": {"@type": "PostalAddress", "addressLocality": "McKinney", "addressRegion": "TX", "addressCountry": "US"}
+  }|tojson }}
+  </script>
 </head>
 <body>
-  <main>
-    <h1>{{ site.brand_name }}</h1>
-    <p>{{ site.descriptor }}</p>
+  <a class="skip-link" href="#main">Skip to content</a>
+  {% include "partials/preview_banner.html.j2" %}
+  {% include "partials/header.html.j2" %}
+
+  <main id="main">
+    {% include "partials/hero.html.j2" %}
+    {% include "partials/why_turkey.html.j2" %}
+    {% include "partials/journeys.html.j2" %}
+    {% include "partials/sites.html.j2" %}
+    {% include "partials/how_it_works.html.j2" %}
+    {% include "partials/partner.html.j2" %}
+    {% include "partials/booking.html.j2" %}
+    {% include "partials/faq.html.j2" %}
+    {% include "partials/host.html.j2" %}
+    {% include "partials/contact.html.j2" %}
   </main>
+
+  {% include "partials/footer.html.j2" %}
+
+  <a class="mobile-cta button button--accent is-hidden" href="{{ hero.cta_secondary.href }}">Plan a Trip</a>
+
+  <script type="application/json" id="route-data">{{ map_data|safe }}</script>
+  <script src="./assets/js/main.js" defer></script>
 </body>
 </html>

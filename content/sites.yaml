@@ -6,6 +6,17 @@
 # lat/lng are approximate (WGS84) and only used for the Leaflet route maps.
 # refs: scripture references, en dash for ranges ("Acts 13:13–14").
 
+groups:
+  - id: seven_churches
+    label: The seven churches of Revelation
+    intro: Seven letters, seven cities, all within a few days’ drive of one another.
+  - id: paul
+    label: Paul’s world
+    intro: The cities of the apostle’s birth, his sending church, and his journeys.
+  - id: more
+    label: More places of faith
+    intro: Patmos, Cappadocia, and the great city of Constantinople.
+
 sites:
   # --- The seven churches of Revelation (Rev 2–3) ---------------------------
   - id: ephesus
@@ -33,7 +44,7 @@ sites:
     refs: [Rev 2:8–11]
     image: smyrna_agora
     history: >-
-      A prosperous harbor city, today's İzmir. Smyrna received one of only two letters in
+      A prosperous harbor city, today’s İzmir. Smyrna received one of only two letters in
       Revelation with no rebuke, and its bishop Polycarp was martyred here around AD 155.
       The Roman agora still stands in the heart of the modern city.
 
@@ -48,8 +59,8 @@ sites:
     image: pergamum
     history: >-
       A royal city whose acropolis towers over the plain, with one of the steepest theaters
-      of the ancient world. Christ's letter speaks of the place "where Satan's throne is,"
-      which many interpreters link to the city's great altar of Zeus or its emperor worship.
+      of the ancient world. Christ’s letter speaks of the place “where Satan’s throne is,”
+      which many interpreters link to the city’s great altar of Zeus or its emperor worship.
       Below the hill lies the Asclepion, a famous healing center.
 
   - id: thyatira
@@ -62,7 +73,7 @@ sites:
     refs: [Acts 16:14, Rev 2:18–29]
     image: thyatira_ruins
     history: >-
-      A trade city known for its guilds, including dyers. Lydia, the "seller of purple" who
+      A trade city known for its guilds, including dyers. Lydia, the “seller of purple” who
       welcomed Paul at Philippi, came from Thyatira, and the church here received the longest
       of the seven letters. Its ruins lie in the center of modern Akhisar.
 
@@ -76,8 +87,8 @@ sites:
     refs: [Rev 3:1–6]
     image: sardis
     history: >-
-      Capital of the ancient kingdom of Lydia, where some of the world's first coins were
-      minted. The church here was told, "Wake up." Visitors see the restored marble court of
+      Capital of the ancient kingdom of Lydia, where some of the world’s first coins were
+      minted. The church here was told, “Wake up.” Visitors see the restored marble court of
       the Roman gymnasium and one of the largest ancient synagogues ever found.
 
   - id: philadelphia
@@ -90,8 +101,8 @@ sites:
     refs: [Rev 3:7–13]
     image: philadelphia_pillars
     history: >-
-      A small frontier city, today's Alaşehir. To this faithful church Christ said, "I have
-      set before you an open door," the verse behind our name and our brand line. Massive
+      A small frontier city, today’s Alaşehir. To this faithful church Christ said, “I have
+      set before you an open door,” the verse behind our name and our brand line. Massive
       brick pillars of a Byzantine church still stand in the town center.
 
   - id: laodicea
@@ -105,7 +116,7 @@ sites:
     image: laodicea
     history: >-
       A wealthy city of banking, fine black wool, and medicine for the eyes, details that
-      echo in Christ's letter to a church that was "neither cold nor hot." Paul mentions the
+      echo in Christ’s letter to a church that was “neither cold nor hot.” Paul mentions the
       believers here in his letter to the Colossians. Excavations have restored its
       colonnaded streets, theaters, and early churches.
 
@@ -119,8 +130,8 @@ sites:
     refs: [Acts 21:39, Acts 22:3]
     image: tarsus_gate
     history: >-
-      Paul's birthplace, a proud and learned city on the Cilician plain. Visitors see
-      St. Paul's Well and a stretch of Roman road in the old town, and Cleopatra's Gate,
+      Paul’s birthplace, a proud and learned city on the Cilician plain. Visitors see
+      St. Paul’s Well and a stretch of Roman road in the old town, and Cleopatra’s Gate,
       named for the queen who met Mark Antony here.
 
   - id: antioch
@@ -135,7 +146,7 @@ sites:
     history: >-
       Antioch on the Orontes was one of the great cities of the Roman world. Here the
       disciples were first called Christians, and from here Paul and Barnabas set out on
-      their missionary journeys. St. Peter's Cave Church, on the hillside above the city, is
+      their missionary journeys. St. Peter’s Cave Church, on the hillside above the city, is
       traditionally linked to the apostle Peter.
     note:
       value: >-
@@ -180,7 +191,7 @@ sites:
     lng: 29.2614
     refs: [Col 1:2]
     history: >-
-      The city that received Paul's letter to the Colossians, traditionally the home of
+      The city that received Paul’s letter to the Colossians, traditionally the home of
       Philemon. Unlike its neighbors, Colossae is still a largely unexcavated mound, a quiet
       place to read the letter where it was first heard.
 
@@ -208,8 +219,8 @@ sites:
     refs: [Acts 16:8–10]
     image: troas_ruins
     history: >-
-      In this harbor city Paul saw a vision of a man of Macedonia pleading, "Come over to
-      Macedonia and help us," and the gospel crossed into Europe. Scattered ruins still stand
+      In this harbor city Paul saw a vision of a man of Macedonia pleading, “Come over to
+      Macedonia and help us,” and the gospel crossed into Europe. Scattered ruins still stand
       among the oak trees near the coast.
 
   # --- More places of faith -------------------------------------------------
@@ -223,8 +234,8 @@ sites:
     refs: [Rev 1:9]
     image: patmos
     history: >-
-      A small Greek island in the Aegean, where John was "on the island called Patmos
-      because of the word of God" and received the Revelation. Pilgrims visit the Cave of the
+      A small Greek island in the Aegean, where John was “on the island called Patmos
+      because of the word of God” and received the Revelation. Pilgrims visit the Cave of the
       Apocalypse and the fortified Monastery of St. John, founded in 1088.
 
   - id: house_of_mary
@@ -238,7 +249,7 @@ sites:
     image: house_of_mary
     history: >-
       A small stone chapel on a wooded hillside above Ephesus, venerated by Catholics as
-      Mary's final home, visited by several popes. The tradition draws on Jesus entrusting
+      Mary’s final home, visited by several popes. The tradition draws on Jesus entrusting
       his mother to the beloved disciple, who according to early tradition later lived in
       Ephesus.
 
@@ -267,7 +278,7 @@ sites:
       A landscape of fairy chimneys and soft volcanic rock, carved over the centuries into
       homes, frescoed churches, and underground cities, some used as refuges by Byzantine-era
       Christian communities. People from Cappadocia heard the apostles at Pentecost, and
-      Peter's first letter is addressed to believers here.
+      Peter’s first letter is addressed to believers here.
 
   - id: istanbul
     name: Istanbul

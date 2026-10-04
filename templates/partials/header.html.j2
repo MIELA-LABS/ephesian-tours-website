@@ -1,0 +1,28 @@
+<header class="site-header" data-header>
+  <div class="container site-header__inner">
+    <a class="brand" href="#top" aria-label="{{ site.brand_name }}, back to top">
+      {{ m.mark("brand__mark") }}
+      <span class="brand__name">{{ site.brand_name }}</span>
+    </a>
+
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
+      <span class="nav-toggle__bars" aria-hidden="true"></span>
+      <span class="visually-hidden">Menu</span>
+    </button>
+
+    <nav class="site-nav" id="site-nav" aria-label="Main" data-nav>
+      <ul class="site-nav__list">
+        {% for link in nav %}
+        <li><a href="{{ link.href }}" data-nav-link>{{ link.label }}</a></li>
+        {% endfor %}
+      </ul>
+      <div class="site-nav__actions">
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch color theme">
+          <svg class="icon icon--sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"/></svg>
+          <svg class="icon icon--moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"/></svg>
+        </button>
+        <a class="button button--accent button--small" href="{{ hero.cta_secondary.href }}">Plan a Trip</a>
+      </div>
+    </nav>
+  </div>
+</header>

@@ -202,8 +202,11 @@ class Contact(Strict):
     phone: Tracked[str]
     location: str
     info_packet: Tracked[str]  # CTA label; becomes a PDF link once published
+    packet_text: str
     form_options: FormOptions
     form_fallback: str  # shown instead of submitting while the form endpoint is a sample
+    form_success: str
+    form_error: str
 
 
 class SiteFile(Strict):
@@ -249,7 +252,14 @@ class Place(Strict):
         return self
 
 
+class SiteGroup(Strict):
+    id: Literal["seven_churches", "paul", "more"]
+    label: str
+    intro: str | None = None
+
+
 class SitesFile(Strict):
+    groups: list[SiteGroup]
     sites: list[Place]
 
 
@@ -370,6 +380,9 @@ class Image(Strict):
     alt: str
     file: str | None = None  # basename in assets/img/ without width suffix; None = not sourced yet
     widths: list[int] = [480, 960, 1600]
+    width: int | None = None  # intrinsic size of the largest rendition (set by fetch_images.py)
+    height: int | None = None
+    position: str = "center"  # CSS object-position for cropping
     source_url: HttpUrl | None = None
     author: str | None = None
     license: str | None = None

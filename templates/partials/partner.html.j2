@@ -1,0 +1,24 @@
+{% set s = sections.partner %}
+<section class="section section--partner" id="partner" aria-labelledby="partner-title">
+  <div class="container partner">
+    <div class="partner__text reveal">
+      <p class="eyebrow">{{ s.eyebrow }}</p>
+      <h2 id="partner-title">{{ s.heading }}</h2>
+      {% if s.intro %}<p class="section__intro">{{ s.intro }}</p>{% endif %}
+      <p>{{ partner.summary }}</p>
+      <ul class="checklist">
+        {% for f in partner.facts %}<li>{{ m.tracked(f) }}</li>{% endfor %}
+      </ul>
+    </div>
+    <div class="partner__aside reveal">
+      <p class="partner__since"><span class="partner__since-label">Since</span> <span class="partner__year">{{ partner.founded }}</span></p>
+      <p class="partner__name">{{ partner.name }}<br><span>{{ partner.location }}</span></p>
+      <a class="license" href="{{ partner.verify_url }}" target="_blank" rel="noopener">
+        <span class="license__body">TÜRSAB licensed travel agency</span>
+        <span class="license__no">License no. {{ partner.license_no.value }}{{ m.badge(partner.license_no) }}</span>
+        <span class="license__verify">Verify on TÜRSAB's site <span aria-hidden="true">↗</span><span class="visually-hidden">(opens in a new tab)</span></span>
+      </a>
+      <p class="partner__note">{{ partner.license_body }}</p>
+    </div>
+  </div>
+</section>

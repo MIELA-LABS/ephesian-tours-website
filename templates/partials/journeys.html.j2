@@ -1,0 +1,123 @@
+{% set s = sections.tours %}
+<section class="section section--tours" id="tours" aria-labelledby="tours-title">
+  <div class="container">
+    <header class="section__header reveal">
+      <p class="eyebrow">{{ s.eyebrow }}</p>
+      <h2 id="tours-title">{{ s.heading }}</h2>
+      {% if s.intro %}<p class="section__intro">{{ s.intro }}</p>{% endif %}
+    </header>
+
+    <div class="journeys">
+      {% for j in journeys %}
+      <article class="journey reveal" id="journey-{{ j.id }}" aria-labelledby="journey-{{ j.id }}-title">
+        <div class="journey__top">
+          <div class="journey__media">
+            {{ m.picture(j.image, sizes="(min-width: 960px) 40vw, 100vw", cls="journey__img") }}
+            {% if j.tag %}<p class="journey__tag">{{ j.tag }}</p>{% endif %}
+          </div>
+          <div class="journey__body">
+            <p class="journey__meta">{{ m.duration(j) }}</p>
+            <h3 class="journey__title" id="journey-{{ j.id }}-title">{{ j.title }}{{ m.badge(j) }}</h3>
+            <p class="journey__subtitle">{{ j.subtitle }}</p>
+            <ul class="journey__highlights">
+              {% for h in j.highlights %}
+              <li>{{ m.tracked(h) }}</li>
+              {% endfor %}
+            </ul>
+            <p class="journey__price">
+              <span class="journey__from">from</span>
+              <span class="journey__amount">{{ j.from_price.display }}</span>{{ m.badge(j.from_price) }}
+              <span class="journey__basis">{{ j.from_price.basis }}</span>
+            </p>
+          </div>
+        </div>
+
+        <details class="itinerary" data-journey="{{ j.id }}">
+          <summary class="button button--outline itinerary__toggle">
+            <span class="itinerary__open">View itinerary</span>
+            <span class="itinerary__close">Hide itinerary</span>
+            <span class="visually-hidden">: {{ j.title }}</span>
+          </summary>
+          <div class="itinerary__panel">
+            <p class="itinerary__summary">{{ j.summary }}</p>
+            <div class="itinerary__grid">
+              <ol class="days">
+                {% for d in j.days %}
+                <li class="day">
+                  <p class="day__n">Day {{ d.n }}</p>
+                  <div class="day__body">
+                    <h4 class="day__title">{{ d.title }}{{ m.badge(d) }}</h4>
+                    <p>{{ d.body }}</p>
+                    {{ m.refs(d.refs) }}
+                    {% if d.note %}<p class="day__note">{{ m.tracked(d.note) }}</p>{% endif %}
+                    {% if d.overnight %}<p class="day__overnight">Overnight: {{ d.overnight }}</p>{% endif %}
+                  </div>
+                </li>
+                {% endfor %}
+              </ol>
+
+              <aside class="itinerary__aside" aria-label="{{ j.title }}: map and details">
+                {% set route = j.route %}
+                <figure class="route">
+                  <div class="route__map" data-map="{{ j.id }}" role="img"
+                    aria-label="Route map: {% for r in route %}{{ sites_by_id[r.site].name }}{% if r.by != 'road' %} (by {{ r.by }}){% endif %}{% if not loop.last %}, {% endif %}{% endfor %}">
+                    <p class="route__fallback">The route map loads when you open the itinerary.</p>
+                  </div>
+                  <figcaption>Route: {% for r in route if sites_by_id[r.site].kind == 'site' %}{{ sites_by_id[r.site].name }}{% if not loop.last %} → {% endif %}{% endfor %}</figcaption>
+                </figure>
+
+                {% if j.video %}
+                {% set v = videos_by_id[j.video] %}
+                <figure class="video">
+                  <button class="video__facade" type="button" data-vimeo="{{ v.video_id }}" data-title="{{ v.title }}">
+                    {{ m.picture(v.poster, sizes="(min-width: 960px) 30vw, 100vw", cls="video__poster") }}
+                    <span class="video__play" aria-hidden="true">
+                      <svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg>
+                    </span>
+                    <span class="video__label">Play video: {{ v.title }} <span class="video__time">({{ m.minutes(v.duration_seconds) }})</span></span>
+                  </button>
+                  <figcaption class="video__credit">{{ v.credit }}{{ m.badge(v) }}</figcaption>
+                </figure>
+                {% endif %}
+
+                <div class="included">
+                  <h4>What's included{{ m.badge(j.included) }}</h4>
+                  <ul class="checklist">
+                    {% for item in j.included.value %}<li>{{ item }}</li>{% endfor %}
+                  </ul>
+                  <h4>Not included{{ m.badge(j.excluded) }}</h4>
+                  <ul class="checklist checklist--muted">
+                    {% for item in j.excluded.value %}<li>{{ item }}</li>{% endfor %}
+                  </ul>
+                  {% if j.notes %}
+                  <ul class="notes">
+                    {% for n in j.notes %}<li>{{ m.tracked(n) }}</li>{% endfor %}
+                  </ul>
+                  {% endif %}
+                </div>
+                <a class="button button--accent itinerary__cta" href="#contact" data-journey-cta="{{ j.title }}">Ask about this journey</a>
+              </aside>
+            </div>
+          </div>
+        </details>
+      </article>
+      {% endfor %}
+    </div>
+
+    <aside class="extensions reveal" aria-labelledby="extensions-title">
+      <div class="extensions__intro">
+        <h3 id="extensions-title">{{ extensions.heading }}{{ m.badge(extensions) }}</h3>
+        <p>{{ extensions.intro }}</p>
+      </div>
+      <ul class="extensions__list">
+        {% for x in extensions.items %}
+        <li>
+          <p class="extensions__length">{{ x.length }}</p>
+          <h4>{{ x.title }}</h4>
+          <p>{{ x.body }}</p>
+        </li>
+        {% endfor %}
+      </ul>
+    </aside>
+  </div>
+</section>

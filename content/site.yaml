@@ -64,9 +64,9 @@ sections:
       your people care about most.
   sites:
     eyebrow: The sites
-    heading: Places you've read about all your life
+    heading: Places you’ve read about all your life
     intro: >-
-      From the seven churches of Revelation to the cities of Paul's journeys, these are the
+      From the seven churches of Revelation to the cities of Paul’s journeys, these are the
       places your group will stand, Bible in hand.
   how_it_works:
     eyebrow: For pastors and trip leaders
@@ -86,26 +86,26 @@ sections:
     eyebrow: Questions
     heading: What pastors and travelers ask us
   host:
-    eyebrow: Your host
+    eyebrow: Your hosts
     heading: Traveling with you, every step
   contact:
     eyebrow: Contact
     heading: Plan a trip for your church
     intro: >-
-      Tell us a little about your congregation and the journey you have in mind. We'll reply personally.
+      Tell us a little about your congregation and the journey you have in mind. We’ll reply personally.
 
 why_turkey:
   - place: Tarsus
-    title: Paul's hometown
+    title: Paul’s hometown
     body: >-
-      The apostle Paul was born in Tarsus, on Turkey's southern coast, and called it
-      "no ordinary city."
+      The apostle Paul was born in Tarsus, on Turkey’s southern coast, and called it
+      “no ordinary city.”
     refs: [Acts 21:39, Acts 22:3]
   - place: Antioch
     title: Where believers were first called Christians
     body: >-
-      The church at Antioch gave the name "Christian" to the world and became the home base
-      for Paul's missionary journeys.
+      The church at Antioch gave the name “Christian” to the world and became the home base
+      for Paul’s missionary journeys.
     refs: [Acts 11:26]
   - place: Western Turkey
     title: All seven churches of Revelation
@@ -114,7 +114,7 @@ why_turkey:
       what is now western Turkey. You can visit every one of them.
     refs: [Rev 2–3]
   - place: Ephesus
-    title: Paul's base, John's home
+    title: Paul’s base, John’s home
     body: >-
       Paul ministered in Ephesus for about three years and later wrote to its believers.
       According to early church tradition, the apostle John spent his last years here.
@@ -129,14 +129,14 @@ how_it_works:
     - title: Your congregation registers
       body: >-
         Members sign up individually. We answer their questions, collect their details, and
-        send reminders, so you don't have to.
+        send reminders, so you don’t have to.
     - title: I fly with your group from DFW
       body: >-
         I meet your group at Dallas–Fort Worth, fly with you, and stay with you every day
         of the journey. — Hakan
-    - title: Azim Tours' team meets you in Turkey
+    - title: Azim Tours’ team meets you in Turkey
       body: >-
-        Our partner's team welcomes you on arrival, with licensed, English-speaking guides,
+        Our partner’s team welcomes you on arrival, with licensed, English-speaking guides,
         comfortable coaches, and hotels they have worked with for years.
       status: pending
       resolves_by: Q-OPS-01
@@ -163,7 +163,7 @@ partner:
   license_body: TÜRSAB, the Association of Turkish Travel Agencies
   verify_url: https://www.tursab.org.tr/tr/ddsv
   summary: >-
-    Every journey's arrangements in Turkey (hotels, coaches, guides, entrance tickets, and
+    Every journey’s arrangements in Turkey (hotels, coaches, guides, entrance tickets, and
     ferries) are operated by Azim Tours of Kuşadası, a short drive from Ephesus. Biblical
     and Christian study tours are a core part of their work, and they handle every detail
     from airport to airport.
@@ -177,15 +177,16 @@ partner:
       resolves_by: Q-OPS-01
 
 host:
-  name: Hakan
-  role: Founder and host, Ephesian Tours
+  name: Hakan & Ece Yorgancı
+  role: Founders, Ephesian Tours
   bio:
     value: >-
-      I was born and raised in Turkey and now live in McKinney, Texas. I started Ephesian
-      Tours so that church groups here could walk through the places where so much of the
-      New Testament unfolded, with someone who knows both cultures at their side. I
-      personally escort every group: I'm with you at the gate at DFW, on every day of the
-      journey, and on the flight home.
+      We grew up on Turkey’s Aegean coast, not far from Ephesus, and have called Texas home
+      for about twenty years; today we live in McKinney. We started Ephesian Tours so that
+      church groups here could walk through the places where so much of the New Testament
+      unfolded, with people who know both cultures at their side. Hakan personally escorts
+      every group, from the gate at DFW through every day of the journey and the flight home,
+      and Ece joins selected journeys.
     status: pending
     resolves_by: ET-HOST-01
   photo:
@@ -204,11 +205,18 @@ contact:
     resolves_by: ET-CONTACT-01
   location: McKinney, Texas
   info_packet:
-    value: Request the Pastor's Info Packet
+    value: Request the Pastor’s Info Packet
     status: pending
     resolves_by: ET-PACKET-01
+  packet_text: >-
+    Planning for your church? Our info packet for pastors covers the journeys, sample
+    pricing, and how to share the trip with your congregation.
+  form_success: >-
+    Thank you! Your message is on its way, and we’ll be in touch personally.
+  form_error: >-
+    Sorry, something went wrong sending your message. Please try again, or email us directly.
   form_fallback: >-
-    Our online form isn't connected yet. Please email us instead, and we'll reply personally.
+    Our online form isn’t connected yet. Please email us instead, and we’ll reply personally.
   form_options:
     roles:
       - Pastor

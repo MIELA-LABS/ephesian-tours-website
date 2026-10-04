@@ -1,0 +1,20 @@
+{% set s = sections.why_turkey %}
+<section class="section section--why" id="why-turkey" aria-labelledby="why-title">
+  <div class="container">
+    <header class="section__header reveal">
+      <p class="eyebrow">{{ s.eyebrow }}</p>
+      <h2 id="why-title">{{ s.heading }}</h2>
+      {% if s.intro %}<p class="section__intro">{{ s.intro }}</p>{% endif %}
+    </header>
+    <ol class="why-grid">
+      {% for p in why_turkey %}
+      <li class="why-card reveal">
+        <p class="why-card__place">{{ p.place }}</p>
+        <h3 class="why-card__title">{{ p.title }}</h3>
+        <p>{{ p.body }}</p>
+        {{ m.refs(p.refs) }}
+      </li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>

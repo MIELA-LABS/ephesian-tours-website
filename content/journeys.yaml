@@ -22,7 +22,7 @@ journeys:
     image: theatre_ephesus
     video: sardis_vimeo
     summary: >-
-      The complete journey: Paul's birthplace, the church at Antioch, and every one of the
+      The complete journey: Paul’s birthplace, the church at Antioch, and every one of the
       seven churches addressed in Revelation 2–3, ending at Troas, where the gospel first
       crossed into Europe.
     highlights:
@@ -30,7 +30,7 @@ journeys:
       - value: Antioch, where believers were first called Christians
         status: pending
         resolves_by: Q-ANTAKYA-01
-      - Tarsus, the apostle Paul's birthplace
+      - Tarsus, the apostle Paul’s birthplace
     route:
       - istanbul
       - {site: adana, by: air}
@@ -79,8 +79,8 @@ journeys:
         title: Antioch
         body: >-
           Drive to Antakya, ancient Antioch, where the disciples were first called Christians.
-          Visit St. Peter's Cave Church, traditionally linked to the apostle Peter, and the
-          city's renowned collection of Roman mosaics.
+          Visit St. Peter’s Cave Church, traditionally linked to the apostle Peter, and the
+          city’s renowned collection of Roman mosaics.
         overnight: Adana
         refs: [Acts 11:26]
         status: pending
@@ -94,7 +94,7 @@ journeys:
       - n: 4
         title: Tarsus and the Mediterranean coast
         body: >-
-          In Tarsus, Paul's birthplace, see St. Paul's Well and Cleopatra's Gate, named for
+          In Tarsus, Paul’s birthplace, see St. Paul’s Well and Cleopatra’s Gate, named for
           the queen who met Mark Antony here. Then a scenic coastal drive west to Alanya.
         overnight: Alanya
         refs: [Acts 21:39, Acts 22:3]
@@ -103,15 +103,15 @@ journeys:
         body: >-
           See the remarkably preserved Roman theater at Aspendos, then Perge, where Paul and
           Barnabas passed through and later preached. Continue inland past the mound of
-          Colossae, the city of Paul's letter to the Colossians, to Pamukkale.
+          Colossae, the city of Paul’s letter to the Colossians, to Pamukkale.
         overnight: Pamukkale
         refs: [Acts 13:13–14, Acts 14:25, Col 1:2]
       - n: 6
         title: Hierapolis, Aphrodisias, and Laodicea
         body: >-
-          Walk the ruins of Hierapolis above Pamukkale's white travertine terraces, visit the
+          Walk the ruins of Hierapolis above Pamukkale’s white travertine terraces, visit the
           marble city of Aphrodisias, and end the day at Laodicea, the church that was
-          "neither cold nor hot." Paul mentions the believers of both Laodicea and Hierapolis.
+          “neither cold nor hot.” Paul mentions the believers of both Laodicea and Hierapolis.
         overnight: Pamukkale
         refs: [Col 4:13, Rev 3:14–22]
       - n: 7
@@ -119,7 +119,7 @@ journeys:
         body: >-
           A full day at Ephesus: walk the marble streets past the Library of Celsus to the
           Great Theatre of Acts 19, then visit the Basilica of St. John, built over the
-          apostle's traditional tomb, and the Ephesus Museum.
+          apostle’s traditional tomb, and the Ephesus Museum.
         overnight: İzmir
         refs: [Acts 19, Eph 1:1, Rev 2:1–7]
       - n: 8
@@ -127,7 +127,7 @@ journeys:
         body: >-
           Four of the seven churches in one day: Smyrna (İzmir), home of the martyr-bishop
           Polycarp; Sardis, with its gymnasium and great synagogue; Philadelphia (Alaşehir),
-          the church set before "an open door"; and Thyatira (Akhisar), hometown of Lydia,
+          the church set before “an open door”; and Thyatira (Akhisar), hometown of Lydia,
           the seller of purple.
         overnight: İzmir
         refs: [Rev 2:8–11, Rev 3:1–6, Rev 3:7–13, Acts 16:14, Rev 2:18–29]
@@ -234,7 +234,7 @@ journeys:
         title: Smyrna, Sardis, and Philadelphia
         body: >-
           In Smyrna, remember Polycarp, the bishop martyred here. Then on to Sardis, the
-          church told to "wake up," and Philadelphia, the church set before "an open door,"
+          church told to “wake up,” and Philadelphia, the church set before “an open door,”
           before continuing to Pamukkale.
         overnight: Pamukkale
         refs: [Rev 2:8–11, Rev 3:1–6, Rev 3:7–13]
@@ -242,7 +242,7 @@ journeys:
         title: Hierapolis and Laodicea
         body: >-
           Hierapolis and the white terraces of Pamukkale, then Laodicea, the church that was
-          "neither cold nor hot." In the afternoon, drive to Kuşadası on the Aegean coast.
+          “neither cold nor hot.” In the afternoon, drive to Kuşadası on the Aegean coast.
         overnight: Kuşadası
         refs: [Col 4:13, Rev 3:14–22]
       - n: 5
@@ -308,12 +308,12 @@ journeys:
       resolves_by: Q-PRICE-01
     image: cappadocia
     summary: >-
-      The grand tour: the biblical sites woven together with Cappadocia's rock-cut
+      The grand tour: the biblical sites woven together with Cappadocia’s rock-cut
       churches, the Anatolian heartland, the Turquoise Coast, and the great cities of the
       Aegean.
     highlights:
-      - Cappadocia's rock-cut churches and underground cities
-      - Konya, biblical Iconium, and Antalya, Paul's port of Attalia
+      - Cappadocia’s rock-cut churches and underground cities
+      - Konya, biblical Iconium, and Antalya, Paul’s port of Attalia
       - Ephesus, Laodicea, and Pergamum
     route:
       - istanbul
@@ -357,7 +357,7 @@ journeys:
       - n: 3
         title: Ankara
         body: >-
-          Travel to Ankara, Turkey's capital and ancient Ancyra, capital of the Roman province
+          Travel to Ankara, Turkey’s capital and ancient Ancyra, capital of the Roman province
           of Galatia. Visit the Museum of Anatolian Civilizations and Anıtkabir, the
           mausoleum of Atatürk.
         overnight: Ankara
@@ -373,7 +373,7 @@ journeys:
         body: >-
           An optional sunrise balloon flight, then the Göreme Open-Air Museum, whose rock-cut
           churches are covered in Byzantine frescoes, and the valleys and fairy chimneys of
-          Zelve. People from Cappadocia heard the apostles at Pentecost, and Peter's first
+          Zelve. People from Cappadocia heard the apostles at Pentecost, and Peter’s first
           letter is addressed to believers here.
         overnight: Cappadocia
         refs: [Acts 2:9, 1 Pet 1:1]
@@ -397,7 +397,7 @@ journeys:
         title: Pamukkale, Hierapolis, and Laodicea
         body: >-
           The white travertine terraces of Pamukkale, the ruins of Hierapolis above them, and
-          Laodicea, the church that was "neither cold nor hot."
+          Laodicea, the church that was “neither cold nor hot.”
         overnight: Pamukkale
         refs: [Col 4:13, Rev 3:14–22]
       - n: 9
@@ -411,7 +411,7 @@ journeys:
         body: >-
           Ephesus: the Library of Celsus, the Temple of Hadrian, and the Great Theatre. See
           the lone column that marks the Temple of Artemis, then visit the House of the
-          Virgin Mary, venerated by Catholics as Mary's final home, visited by several popes.
+          Virgin Mary, venerated by Catholics as Mary’s final home, visited by several popes.
         overnight: Kuşadası
         refs: [Acts 19, Eph 1:1, John 19:26–27]
       - n: 11
@@ -504,8 +504,8 @@ journeys:
       - n: 2
         title: The House of the Virgin Mary and Ephesus
         body: >-
-          Morning at the House of the Virgin Mary, venerated by Catholics as Mary's final
-          home, visited by several popes, with Mass celebrated by your group's own priest.
+          Morning at the House of the Virgin Mary, venerated by Catholics as Mary’s final
+          home, visited by several popes, with Mass celebrated by your group’s own priest.
           Afternoon walking the marble streets of Ephesus.
         overnight: Kuşadası
         refs: [John 19:26–27, Acts 19]
@@ -516,7 +516,7 @@ journeys:
       - n: 3
         title: The Basilica of St. John and Şirince
         body: >-
-          The Basilica of St. John in Selçuk, raised by Emperor Justinian over the apostle's
+          The Basilica of St. John in Selçuk, raised by Emperor Justinian over the apostle’s
           traditional tomb; the site of the Temple of Artemis; and the Ephesus Museum.
           Afternoon in the hillside village of Şirince.
         overnight: Kuşadası
@@ -530,7 +530,7 @@ journeys:
       - n: 5
         title: Laodicea and Pamukkale
         body: >-
-          Drive inland to Laodicea, the church that was "neither cold nor hot," and on to the
+          Drive inland to Laodicea, the church that was “neither cold nor hot,” and on to the
           white travertine terraces of Pamukkale.
         overnight: Pamukkale
         refs: [Col 4:13, Rev 3:14–22]
@@ -590,7 +590,7 @@ extensions:
     - title: Istanbul & Cappadocia
       length: 8 days
       body: >-
-        More time in Istanbul, plus Cappadocia's frescoed rock churches and the underground
+        More time in Istanbul, plus Cappadocia’s frescoed rock churches and the underground
         cities of Derinkuyu and Kaymaklı.
     - title: West Anatolia
       length: 8 days
