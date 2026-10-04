@@ -55,6 +55,7 @@ nav:
   - {label: Tours, href: "#tours"}
   - {label: Sites, href: "#sites"}
   - {label: How It Works, href: "#how-it-works"}
+  - {label: Your Hosts, href: "#hosts"}
   - {label: Our Partner, href: "#partner"}
   - {label: FAQ, href: "#faq"}
   - {label: Contact, href: "#contact"}
@@ -95,7 +96,7 @@ sections:
   faq:
     eyebrow: Questions
     heading: What pastors and travelers ask us
-  host:
+  hosts:
     eyebrow: Your hosts
     heading: Traveling with you, every step
   contact:
@@ -146,7 +147,9 @@ how_it_works:
       title: I fly with your group from DFW
       body: >-
         I meet your group at Dallas–Fort Worth, fly with you, and stay with you every day
-        of the journey. — Hakan
+        of the journey.
+      signature: Hakan
+      photo: hakan_avatar
     - icon: guide
       title: Azim Tours’ team meets you in Turkey
       body: >-
@@ -190,23 +193,56 @@ partner:
       status: pending
       resolves_by: Q-OPS-01
 
-host:
-  name: Hakan & Ece Yorgancı
-  role: Founders, Ephesian Tours
-  bio:
+hosts:
+  intro:
     value: >-
-      We grew up on Turkey’s Aegean coast, not far from Ephesus, and have called Texas home
-      for about twenty years; today we live in McKinney. We started Ephesian Tours so that
-      church groups here could walk through the places where so much of the New Testament
-      unfolded, with people who know both cultures at their side. Hakan personally escorts
-      every group, from the gate at DFW through every day of the journey and the flight home,
-      and Ece joins selected journeys.
-    status: pending
+      We are Hakan and Ece Yorgancı. We both grew up on Turkey’s Aegean coast, the same region
+      as Ephesus and the seven churches, and have made our home in McKinney, Texas, for about
+      twenty years, where we are raising our two daughters. Our families have known the
+      founder of Azim Tours, our partner in Türkiye, for decades. Hakan personally escorts
+      every group from DFW; Ece joins selected journeys.
+    status: confirmed
     resolves_by: ET-HOST-01
-  photo:
-    value: null
-    status: pending
-    resolves_by: ET-HOST-01
+  people:
+    - id: hakan
+      name: Hakan Yorgancı
+      role: Founder & Host
+      bio:
+        value: >-
+          Hakan was born and raised in İzmir, the biblical Smyrna and one of the seven
+          churches of Revelation, and has called Texas home for about twenty years. For more
+          than fifteen years his work has been making sure complex things don’t fail when it
+          matters. He led a 20-engineer quality team at Samsung through the Galaxy, Note and
+          Fold launches, then led AI reliability programs at Deloitte for clients including
+          Meta, Pfizer, the U.S. Department of Veterans Affairs and Ascension Health. He brings
+          the same care for detail to every journey, and he personally escorts each group from
+          DFW to Türkiye and back. He holds a master’s degree in Digital Media Design from
+          Harvard University and an MBA.
+        status: confirmed
+        resolves_by: ET-HOST-01
+      credentials: Harvard University · MBA · Samsung · Deloitte
+      photo:
+        value: hakan
+        status: confirmed
+        resolves_by: ET-HOST-01
+    - id: ece
+      name: Ece Yorgancı
+      role: Co-founder
+      bio:
+        value: >-
+          Ece’s family comes from Kuşadası and Nazilli, a short drive from Ephesus. She has
+          spent her career making complex things simple and welcoming for people: as a project
+          consultant and content strategist for UNICEF, on Google’s ads quality team, and today
+          on multilingual AI research at the University of Pennsylvania. At Ephesian Tours she
+          shapes how every journey is planned and explained, so your congregation always knows
+          what to expect. She holds an MBA.
+        status: confirmed
+        resolves_by: ET-HOST-01
+      credentials: MBA · UNICEF · Google · University of Pennsylvania
+      photo:
+        value: ece
+        status: confirmed
+        resolves_by: ET-HOST-01
 
 contact:
   email:
@@ -219,12 +255,16 @@ contact:
     resolves_by: ET-CONTACT-01
   location: McKinney, Texas
   info_packet:
-    value: Request the Pastor’s Info Packet
-    status: pending
+    value: Download the Pastor’s Info Packet (PDF)
+    status: confirmed
     resolves_by: ET-PACKET-01
+  packet_file: ephesian-tours-pastor-packet.pdf
+  personal_note: I read and answer every message myself.
+  personal_note_by: Hakan
+  personal_note_photo: hakan_avatar
   packet_text: >-
-    Planning for your church? Our info packet for pastors covers the journeys, sample
-    pricing, and how to share the trip with your congregation.
+    Planning for your church? Our info packet for pastors covers every journey, how a trip
+    comes together, and who will travel with you. Download it, or ask for a copy below.
   form_success: >-
     Thank you! Your message is on its way, and we’ll be in touch personally.
   form_error: >-
@@ -251,3 +291,23 @@ contact:
       - Fall (September–November)
       - Winter (December–February)
       - Flexible
+
+# Wording for the pastor's info packet PDF (scripts/make_packet.py, templates/packet.html.j2).
+# The packet is generated from the same content as the site, so it never drifts.
+packet:
+  title: Pastor’s Info Packet
+  subtitle: Small-group journeys to the lands of the New Testament, personally escorted from DFW
+  why_title: Why Türkiye
+  pricing_on_request: Pricing on request for your group’s size and dates
+  to_be_confirmed: to be confirmed
+  proposed_label: Proposed program, being finalized with our partner in Türkiye
+  days_heading: Day by day
+  included_heading: What’s typically included
+  discover_title: Discover Turkey
+  discover_intro: >-
+    Broader tours that weave biblical sites together with Istanbul, Cappadocia, and the
+    Turquoise Coast. Full day-by-day itineraries are on our website.
+  edition_label: Preview edition
+  contact_intro: >-
+    Tell us about your congregation and the journey you have in mind, and we’ll plan it
+    together.

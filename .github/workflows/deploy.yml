@@ -17,7 +17,9 @@ concurrency:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    # pinned: ubuntu-latest moves to Ubuntu 26 on 2026-10-19; Playwright's --with-deps
+    # installer is verified on 24.04
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v7
 
@@ -26,8 +28,18 @@ jobs:
           python-version: "3.13"
           cache: pip
 
+      # Dev requirements include Playwright and Pillow, used to print the pastor's packet PDF.
       - name: Install build dependencies
-        run: pip install -r requirements.txt
+        run: pip install -r requirements-dev.txt
+
+      - name: Cache Playwright browsers
+        uses: actions/cache@v6
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ hashFiles('requirements-dev.txt') }}
+
+      - name: Install Chromium for the PDF
+        run: python -m playwright install --with-deps chromium
 
       - name: Leak guard (no private files or business terms in the public repo)
         run: python scripts/check_public.py
@@ -37,8 +49,13 @@ jobs:
 
       # base_url is the Pages URL (or the custom domain once one is attached),
       # used for canonical and Open Graph tags.
-      - name: Build site
-        run: python build.py --base-url "${{ steps.pages.outputs.base_url }}"
+      # --packet also renders dist/ephesian-tours-pastor-packet.pdf from the same content;
+      # the build fails if the PDF cannot be made (missing image, fonts not loaded, ...).
+      - name: Build site and pastor's packet
+        run: python build.py --packet --base-url "${{ steps.pages.outputs.base_url }}"
+
+      - name: Check the packet is in the artifact
+        run: test -s dist/ephesian-tours-pastor-packet.pdf
 
       - uses: actions/upload-pages-artifact@v5
         with:
@@ -46,7 +63,7 @@ jobs:
 
   deploy:
     needs: build
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

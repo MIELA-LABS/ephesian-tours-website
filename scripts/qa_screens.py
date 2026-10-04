@@ -70,6 +70,7 @@ def main() -> int:
                   window.scrollTo(0, 0);
                 }""")
                 page.wait_for_load_state("networkidle")
+                page.wait_for_function("[...document.images].every(i => i.complete)", timeout=15000)
                 if args.open_itinerary:
                     page.evaluate("document.querySelector('details.itinerary').open = true")
                     page.wait_for_timeout(2500)  # Leaflet + tiles

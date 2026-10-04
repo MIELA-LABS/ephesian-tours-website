@@ -80,6 +80,20 @@ site:
 
 This removes the “Sample” badges, the preview banner, and the `noindex, nofollow` robots tag (so search engines can index the site). Run `.venv/bin/python build.py --strict` first: in strict mode the build fails while anything is still pending, so nothing sample goes live by accident.
 
+## Pastor’s info packet (PDF)
+
+`.venv/bin/python build.py --packet` renders `templates/packet.html.j2` from the same `content/*.yaml` as the site and prints it to `dist/ephesian-tours-pastor-packet.pdf` (US Letter, about 10 pages) with Playwright/Chromium. Because it is generated from the same data, it cannot drift from the site:
+
+- While any price is pending, the packet shows **no prices**: “Pricing on request for your group’s size and dates”. Other pending terms read “to be confirmed”. No Sample badges.
+- While `preview_mode` is on, every page footer says “Preview edition · <month year>”. The footer also shows `site.base_url` and page numbers.
+- Wording specific to the packet lives under `packet:` in `content/site.yaml`.
+
+**Deploy:** the PDF is generated in GitHub Actions on every deploy (not committed), so a content change can never ship with a stale packet; if it cannot be generated, the deploy fails instead. Locally, `build.py` without `--packet` warns that the download link will 404 in that build.
+
+## Hosts’ photos
+
+Originals stay outside the repo in `internal/photos/` (gitignored). `scripts/process_host_photos.py` crops them, applies only a light global color balance (no retouching), converts to sRGB, and writes metadata-free WebP files to `assets/img/hosts/`. `scripts/check_public.py` fails if any `*-original.*` file is about to be committed, or if any public image still contains EXIF, GPS, or XMP data.
+
 ## Images, brand assets, and QA
 
 Development tools live in `requirements-dev.txt`:

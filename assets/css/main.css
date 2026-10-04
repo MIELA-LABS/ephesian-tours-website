@@ -574,17 +574,26 @@ ul, ol { margin: 0; padding: 0; }
 .verse blockquote p { font-family: var(--font-display); font-size: clamp(1.9rem, 1.3rem + 2.6vw, 3.2rem); font-style: italic; font-weight: 500; line-height: 1.2; text-wrap: balance; }
 .verse figcaption { margin-top: 1rem; font-size: .95rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
 
-/* ---------- Host ---------- */
-.host { display: grid; gap: 2.5rem; align-items: center; }
-@media (min-width: 800px) { .host { grid-template-columns: minmax(0, 20rem) minmax(0, 1fr); gap: 4rem; } }
-.host__photo { position: relative; max-width: 20rem; }
-.host__img, .host__placeholder { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: var(--radius-lg); }
-.host__placeholder { display: grid; place-items: center; background: linear-gradient(160deg, var(--bg-alt), var(--placeholder-a)); color: var(--primary); }
-.host__mark { width: 40%; height: auto; opacity: .7; }
-.host__photo > .badge-sample { position: absolute; top: .75rem; left: .25rem; }
-.host__name { margin: 0; font-family: var(--font-display); font-size: 2rem; font-weight: 600; line-height: 1.1; }
-.host__role { color: var(--accent); font-weight: 700; }
-.host__bio { font-size: 1.15rem; max-width: 42rem; }
+/* ---------- Hosts ---------- */
+.hosts { display: grid; gap: 1.75rem; }
+@media (min-width: 900px) { .hosts { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; } }
+.host-card { display: grid; gap: 1.25rem; padding: clamp(1.25rem, 3vw, 1.75rem); background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); box-shadow: var(--shadow); }
+@media (min-width: 600px) { .host-card { grid-template-columns: minmax(0, 13rem) minmax(0, 1fr); align-items: start; } }
+@media (min-width: 900px) and (max-width: 1199px) { .host-card { grid-template-columns: 1fr; } .host-card__photo { max-width: 16rem; } }
+.host-card__photo { position: relative; }
+.host-card__img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; border-radius: var(--radius); }
+.host-card__photo > .badge-sample { position: absolute; top: .5rem; left: .5rem; margin: 0; }
+.host-card__name { margin: 0; font-size: clamp(1.7rem, 1.4rem + 1vw, 2rem); }
+.host-card__role { margin: .15rem 0 .9rem; color: var(--accent); font-weight: 700; }
+.host-card__bio { font-size: 1.05rem; }
+.host-card__credentials { margin-top: 1rem; padding-top: .75rem; border-top: 1px solid var(--border); color: var(--text-muted); font-size: .95rem; font-weight: 600; letter-spacing: .02em; }
+
+/* small round photo beside Hakan's personal lines */
+.signature { display: flex; align-items: center; gap: .75rem; margin-top: .9rem; font-style: italic; }
+.avatar { flex: none; width: 56px; height: 56px; border-radius: 50%; object-fit: cover; border: 2px solid var(--surface); box-shadow: 0 0 0 1px var(--border); }
+.section--how .signature { color: var(--band-text); }
+.section--how .avatar { border-color: var(--band); box-shadow: 0 0 0 2px #F0AC86; }
+.signature--contact { margin: 0 0 1.5rem; font-size: 1.1rem; }
 
 /* ---------- Contact ---------- */
 .section--contact { background: var(--bg-alt); }
@@ -592,6 +601,8 @@ ul, ol { margin: 0; padding: 0; }
 @media (min-width: 960px) { .contact { grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: 4rem; align-items: start; } }
 .packet { margin: 2rem 0; padding: 1.4rem; background: var(--surface); border-radius: var(--radius-lg); border-left: 4px solid var(--olive); }
 .packet .button { margin-top: .25rem; }
+.packet__alt { margin-top: .9rem; color: var(--text-muted); font-size: .98rem; }
+.link-button { padding: 0; border: 0; background: none; color: var(--primary); font: inherit; text-decoration: underline; text-underline-offset: .18em; cursor: pointer; }
 .contact__details { list-style: none; display: grid; gap: .6rem; }
 .contact__label { display: inline-block; min-width: 5.5rem; color: var(--text-muted); font-weight: 600; }
 

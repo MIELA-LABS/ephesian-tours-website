@@ -156,8 +156,9 @@ def cross_check(c: dict[str, Any]) -> tuple[list[str], dict[str, list[str]]]:
     image_refs += [(f"journeys.{j.id}.image", j.image) for j in c["journeys"]]
     image_refs += [(f"sites.{s.id}.image", s.image) for s in c["sites"] if s.image]
     image_refs += [(f"videos.{v.id}.poster", v.poster) for v in c["videos"]]
-    if c["host"].photo.value:
-        image_refs.append(("host.photo", c["host"].photo.value))
+    image_refs += [(f"hosts.people.{p.id}.photo", p.photo.value) for p in c["hosts"].people]
+    image_refs += [(f"how_it_works.steps[{i}].photo", s.photo) for i, s in enumerate(c["how_it_works"].steps) if s.photo]
+    image_refs.append(("contact.personal_note_photo", c["contact"].personal_note_photo))
     for where, image_id in image_refs:
         if image_id not in image_ids:
             errors.append(f"{where}: unknown image '{image_id}' (add it to media.yaml)")
@@ -265,7 +266,8 @@ def map_data(c: dict[str, Any]) -> str:
     return json.dumps(data, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
 
 
-def render(c: dict[str, Any], base_url: str) -> str:
+def jinja_env() -> Environment:
+    """Shared by the site and the pastor's packet (scripts/make_packet.py)."""
     env = Environment(
         loader=FileSystemLoader(TEMPLATES),
         undefined=StrictUndefined,
@@ -275,7 +277,11 @@ def render(c: dict[str, Any], base_url: str) -> str:
     )
     env.filters["md"] = md_inline
     env.filters["us_date"] = us_date
-    ctx = dict(
+    return env
+
+
+def template_context(c: dict[str, Any], base_url: str) -> dict[str, Any]:
+    return dict(
         c,
         images_by_id={i.id: i for i in c["images"]},
         sites_by_id={s.id: s for s in c["sites"]},
@@ -284,7 +290,10 @@ def render(c: dict[str, Any], base_url: str) -> str:
         base_url=base_url,
         build_year=date.today().year,
     )
-    return env.get_template("base.html.j2").render(**ctx)
+
+
+def render(c: dict[str, Any], base_url: str) -> str:
+    return jinja_env().get_template("base.html.j2").render(**template_context(c, base_url))
 
 
 def write_dist(html: str) -> None:
@@ -361,7 +370,8 @@ def write_credits_md(c: dict[str, Any]) -> None:
         lines += ["| Image | Subject | Author | License | Source |", "|---|---|---|---|---|"]
         for i in ready:
             lic = f"[{i.license}]({i.license_url})" if i.license_url else i.license
-            lines.append(f"| `{i.file}` | {i.subject} | {i.author} | {lic} | [link](<{i.source_url}>) |")
+            src = f"[link](<{i.source_url}>)" if i.source_url else "our own photo"
+            lines.append(f"| `{i.file}` | {i.subject} | {i.author} | {lic} | {src} |")
     else:
         lines.append("No images sourced yet.")
     pending_imgs = [i for i in c["images"] if not i.ready]
@@ -388,6 +398,10 @@ def main() -> int:
         help="absolute URL the site is served from, for canonical/OG tags "
         "(default: $SITE_BASE_URL, else site.base_url). The deploy workflow passes the Pages URL.",
     )
+    parser.add_argument(
+        "--packet", action="store_true",
+        help="also generate the pastor's info packet PDF into dist/ (needs Playwright + Chromium)",
+    )
     args = parser.parse_args()
 
     try:
@@ -395,6 +409,19 @@ def main() -> int:
         warnings, tagged = cross_check(content)
         base_url = (args.base_url or str(content["site"].base_url)).rstrip("/") + "/"
         write_dist(render(content, base_url))
+        packet_pdf = DIST / content["contact"].packet_file
+        if args.packet:
+            sys.path.insert(0, str(ROOT / "scripts"))
+            from make_packet import make_packet  # imported lazily: needs Playwright
+
+            pages = make_packet(content, packet_pdf)
+            if not packet_pdf.exists() or packet_pdf.stat().st_size < 50_000:
+                raise BuildError(f"packet PDF missing or too small: {packet_pdf.relative_to(ROOT)}")
+            print(f"built {packet_pdf.relative_to(ROOT)} ({pages} pages, {packet_pdf.stat().st_size // 1024} KB)")
+        elif not content["contact"].info_packet.sample:
+            warnings.append(
+                f"{packet_pdf.name} not generated (run with --packet); the packet download link 404s in this build"
+            )
         write_pending_md(content, tagged)
         write_credits_md(content)
     except BuildError as exc:

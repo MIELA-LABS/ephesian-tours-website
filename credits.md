@@ -36,6 +36,9 @@ Every image and video used on the site, with its source and license.
 | `aspendos` | Roman theater, Aspendos | Lee Vilenski | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [link](<https://commons.wikimedia.org/wiki/File:Aspendos_Theatre,_Turkey_(86552).jpg>) |
 | `uchisar` | Uçhisar, Cappadocia | Bernard Gagnon | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) | [link](<https://commons.wikimedia.org/wiki/File:U%C3%A7hisar_Castle_03.jpg>) |
 | `bosphorus` | Istanbul from the Bosphorus | Moonik | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) | [link](<https://commons.wikimedia.org/wiki/File:Sultanahmet_ferry_on_the_Bosphorus_in_Istanbul,_Turkey_001.jpg>) |
+| `hosts/hakan` | Hakan Yorgancı | Hakan & Ece Yorgancı | © Ephesian Tours. All rights reserved. | our own photo |
+| `hosts/ece` | Ece Yorgancı | Hakan & Ece Yorgancı | © Ephesian Tours. All rights reserved. | our own photo |
+| `hosts/hakan-avatar` | Hakan Yorgancı (small) | Hakan & Ece Yorgancı | © Ephesian Tours. All rights reserved. | our own photo |
 
 ## Videos
 

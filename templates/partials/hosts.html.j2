@@ -1,0 +1,26 @@
+{% set s = sections.hosts %}
+<section class="section section--hosts" id="hosts" aria-labelledby="hosts-title">
+  <div class="container">
+    <header class="section__header reveal">
+      <p class="eyebrow">{{ s.eyebrow }}</p>
+      <h2 id="hosts-title">{{ s.heading }}</h2>
+      <p class="section__intro">{{ m.tracked(hosts.intro) }}</p>
+    </header>
+    <div class="hosts">
+      {% for p in hosts.people %}
+      <article class="host-card reveal" aria-labelledby="host-{{ p.id }}">
+        <div class="host-card__photo">
+          {{ m.picture(p.photo.value, sizes="(min-width: 900px) 18rem, (min-width: 600px) 40vw, 80vw", cls="host-card__img") }}
+          {{ m.badge(p.photo) }}
+        </div>
+        <div class="host-card__body">
+          <h3 class="host-card__name" id="host-{{ p.id }}">{{ p.name }}</h3>
+          <p class="host-card__role">{{ p.role }}</p>
+          <p class="host-card__bio">{{ m.tracked(p.bio) }}</p>
+          <p class="host-card__credentials">{{ p.credentials }}</p>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>

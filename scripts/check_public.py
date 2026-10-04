@@ -4,8 +4,9 @@
     python scripts/check_public.py
 
 Fails (exit 1) if
-  * a private path (CLAUDE.md, internal/, ...) is tracked or would be added, or
-  * a public file mentions private business terms (partnership model, rates, fam trip, ...).
+  * a private path (CLAUDE.md, internal/, original photos, ...) is tracked or would be added,
+  * a public file mentions private business terms (partnership model, rates, fam trip, ...), or
+  * a public image still carries EXIF/GPS/XMP metadata (the hosts' photos were taken at home).
 """
 
 from __future__ import annotations
@@ -18,7 +19,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 SELF = Path(__file__).resolve().relative_to(ROOT).as_posix()
 
-PRIVATE_PATHS = re.compile(r"^(CLAUDE\.md|CLAUDE\.local\.md|internal/|\.env)")
+PRIVATE_PATHS = re.compile(r"^(CLAUDE\.md|CLAUDE\.local\.md|internal/|\.env)|-original\.(jpe?g|png|heic|webp)$", re.I)
 
 # Business terms that must never appear in public files.
 FORBIDDEN = [
@@ -42,13 +43,41 @@ def candidate_files() -> list[str]:
     return sorted(set(out.split()))
 
 
+def image_metadata(path: Path) -> list[str]:
+    """Metadata blocks found in a WebP/JPEG/PNG file (dependency-free byte check)."""
+    data = path.read_bytes()
+    found = []
+    if data[:4] == b"RIFF" and data[8:12] == b"WEBP":
+        i = 12
+        while i + 8 <= len(data):
+            tag, size = data[i:i + 4], int.from_bytes(data[i + 4:i + 8], "little")
+            if tag in (b"EXIF", b"XMP "):
+                found.append(tag.decode().strip())
+            i += 8 + size + (size & 1)
+    elif data[:2] == b"\xff\xd8":
+        if b"Exif\x00\x00" in data:
+            found.append("EXIF")
+        if b"http://ns.adobe.com/xap/" in data:
+            found.append("XMP")
+    elif data[:8] == b"\x89PNG\r\n\x1a\n" and (b"eXIf" in data or b"iTXtXML:com.adobe.xmp" in data):
+        found.append("EXIF/XMP")
+    return found
+
+
 def main() -> int:
     problems: list[str] = []
     files = candidate_files()
 
     for path in files:
-        if PRIVATE_PATHS.match(path):
+        if PRIVATE_PATHS.search(path):
             problems.append(f"PRIVATE FILE tracked or addable: {path}")
+
+    for path in files:
+        p = ROOT / path
+        if p.suffix.lower() in {".webp", ".jpg", ".jpeg", ".png"} and p.is_file():
+            meta = image_metadata(p)
+            if meta:
+                problems.append(f"{path}: image metadata present ({', '.join(meta)}); strip it before publishing")
 
     for path in files:
         p = ROOT / path

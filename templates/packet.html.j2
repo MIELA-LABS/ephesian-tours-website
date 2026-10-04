@@ -1,0 +1,332 @@
+{#- Pastor's info packet: rendered to PDF (US Letter) by scripts/make_packet.py from the same
+    content as the site. No "Sample" badges: pending prices read "pricing on request",
+    other pending terms read "to be confirmed". -#}
+{% import "partials/_icons.html.j2" as ic %}
+{% set pk = packet %}
+{% macro term(x) -%}{{ pk.to_be_confirmed if x.sample else x.value }}{%- endmacro %}
+{% macro text(x) -%}{{ x.value }}{% if x.sample %} <em class="tbc">({{ pk.to_be_confirmed }})</em>{% endif %}{%- endmacro %}
+{% macro price(j) -%}
+  {%- if prices_on_request or j.from_price.sample -%}{{ pk.pricing_on_request }}
+  {%- else -%}From {{ j.from_price.display }} {{ j.from_price.basis }}{%- endif -%}
+{%- endmacro %}
+{% macro img(id, w=None) -%}{{ img_src(id, w) }}{%- endmacro %}
+{% macro mark(color) -%}
+<span style="color: {{ color }}; display: inline-block">{% with cls = "", title = none %}{% include "partials/_mark.svg.j2" %}{% endwith %}</span>
+{%- endmacro %}
+<!doctype html>
+<html lang="{{ site.lang }}">
+<head>
+<meta charset="utf-8">
+<title>{{ site.brand_name }} · {{ pk.title }}</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=block">
+<style>
+  @page { size: Letter; margin: 0.6in 0.65in 0.8in; }
+  @page :first { margin: 0 0 0.55in; }
+  :root {
+    --bg: #F6F1E7; --bg-alt: #EEE6D6; --text: #2B2622; --muted: #5A5048; --primary: #1F4E79;
+    --accent: #A3471F; --olive: #5E6B3A; --border: #D8CCB8;
+    --display: "Cormorant Garamond", Georgia, serif; --body: "Source Sans 3", "Segoe UI", sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { margin: 0; color: var(--text); font: 10.5pt/1.5 var(--body); }
+  h1, h2, h3 { font-family: var(--display); font-weight: 600; line-height: 1.1; margin: 0 0 .35em; font-variant-numeric: lining-nums; }
+  h2 { font-size: 27pt; }
+  h3 { font-size: 16pt; }
+  h4 { margin: 0 0 .3em; font-size: 10.5pt; font-weight: 700; }
+  p { margin: 0 0 .6em; }
+  ul { margin: 0; padding: 0; list-style: none; }
+  .page { break-after: page; position: relative; }
+  .page:last-child { break-after: auto; }
+  .eyebrow { margin-bottom: .3em; color: var(--accent); font-size: 8.5pt; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+  .lede { color: var(--muted); font-size: 11.5pt; }
+  .refs { color: var(--olive); font-size: 9pt; font-weight: 700; }
+  .tbc { color: var(--muted); font-style: italic; }
+  .rule { border: 0; border-top: 1px solid var(--border); margin: .9em 0; }
+
+  /* cover */
+  .cover { height: 10.45in; position: relative; color: #FFFDF8; overflow: hidden; }
+  .cover__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 35%; }
+  .cover::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgb(14 18 24 / .35) 0%, rgb(14 18 24 / .15) 35%, rgb(14 18 24 / .85) 100%); }
+  .cover__inner { position: absolute; inset: .7in .75in .8in; z-index: 1; display: flex; flex-direction: column; justify-content: space-between; }
+  .lockup { display: flex; align-items: center; gap: 12pt; }
+  .lockup svg { width: 46pt; height: 46pt; }
+  .lockup__name { font: 600 26pt/1 var(--display); }
+  .lockup__desc { font-size: 10pt; opacity: .92; margin-top: 3pt; }
+  .cover__label { display: inline-block; margin-bottom: 12pt; padding: 4pt 10pt; border: 1px solid rgb(255 253 248 / .7); border-radius: 999px; font-size: 9pt; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+  .cover h1 { font-size: 44pt; max-width: 5.6in; margin-bottom: 10pt; }
+  .cover__sub { font-size: 12.5pt; max-width: 5.6in; }
+  .cover__partner { margin-top: 18pt; font-size: 9.5pt; opacity: .9; }
+
+  /* why */
+  .points { display: grid; grid-template-columns: 1fr 1fr; gap: 14pt; margin-top: 16pt; }
+  .point { padding: 12pt 14pt; background: var(--bg); border-top: 3px solid var(--primary); border-radius: 4pt; }
+  .point__place { color: var(--accent); font-size: 8pt; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+  .verse { margin-top: 26pt; padding: 18pt 22pt; background: var(--bg-alt); border-radius: 6pt; text-align: center; }
+  .verse p { margin: 0 0 6pt; font: italic 500 17pt/1.3 var(--display); }
+
+  /* journey pages */
+  .banner { height: 2.35in; margin-bottom: 14pt; border-radius: 6pt; overflow: hidden; }
+  .banner img { width: 100%; height: 100%; object-fit: cover; }
+  .jmeta { display: flex; justify-content: space-between; align-items: baseline; gap: 12pt; }
+  .jmeta .eyebrow { margin: 0; }
+  .price { margin: 6pt 0 10pt; padding: 7pt 10pt; background: var(--bg); border-left: 3px solid var(--accent); font-weight: 600; }
+  .proposed { color: var(--accent); font-style: italic; font-size: 9.5pt; margin-bottom: 6pt; }
+  .cols { display: grid; grid-template-columns: 1.55fr 1fr; gap: 18pt; }
+  .days li { display: grid; grid-template-columns: 34pt 1fr; gap: 6pt; padding: 3.5pt 0; border-bottom: 1px solid var(--border); font-size: 9.5pt; line-height: 1.35; }
+  .days .n { color: var(--accent); font-weight: 700; }
+  .days .t { font-weight: 600; }
+  .days .o { color: var(--muted); font-style: italic; }
+  .side h4 { margin-top: 10pt; }
+  .side h4:first-child { margin-top: 0; }
+  .ticks li { position: relative; padding-left: 12pt; margin-bottom: 3pt; font-size: 9.5pt; line-height: 1.35; }
+  .ticks li::before { content: ""; position: absolute; left: 0; top: .45em; width: 5pt; height: 5pt; background: var(--accent); transform: rotate(45deg); }
+
+  /* discover table */
+  table { width: 100%; border-collapse: collapse; margin-top: 12pt; font-size: 9.5pt; }
+  th { text-align: left; color: var(--muted); font-size: 8pt; letter-spacing: .1em; text-transform: uppercase; padding: 0 8pt 6pt 0; border-bottom: 2px solid var(--primary); }
+  td { vertical-align: top; padding: 9pt 8pt 9pt 0; border-bottom: 1px solid var(--border); }
+  td.thumb { width: 1.25in; }
+  td.thumb img { width: 1.15in; height: .8in; object-fit: cover; border-radius: 3pt; }
+  td.name { width: 1.9in; }
+  td.name strong { display: block; font: 600 13pt/1.15 var(--display); }
+
+  /* how it works */
+  .steps li { display: grid; grid-template-columns: 34pt 1fr; gap: 12pt; padding: 10pt 0; border-bottom: 1px solid var(--border); }
+  .steps .icon { display: grid; place-items: center; width: 30pt; height: 30pt; border: 1.2pt solid var(--accent); border-radius: 50%; color: var(--primary); }
+  .steps .icon svg { width: 17pt; height: 17pt; }
+  .steps .num { color: var(--accent); font-size: 8pt; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+  .steps h3 { font-size: 14.5pt; margin-bottom: 2pt; }
+  .sig { display: flex; align-items: center; gap: 7pt; margin-top: 4pt; font-style: italic; }
+  .sig img { width: 26pt; height: 26pt; border-radius: 50%; object-fit: cover; }
+  .callout { margin-top: 14pt; padding: 10pt 12pt; background: var(--bg); border-left: 3px solid var(--accent); }
+
+  /* hosts */
+  .hosts { display: grid; grid-template-columns: 1fr 1fr; gap: 16pt; margin-top: 12pt; }
+  .host img { width: 100%; height: 3.2in; object-fit: cover; object-position: center 35%; border-radius: 5pt; margin-bottom: 8pt; }
+  .host h3 { margin-bottom: 0; }
+  .host .role { color: var(--accent); font-weight: 700; font-size: 9.5pt; margin-bottom: 5pt; }
+  .host .bio { font-size: 9.2pt; line-height: 1.42; }
+  .host .cred { padding-top: 5pt; border-top: 1px solid var(--border); color: var(--muted); font-size: 8.5pt; font-weight: 600; }
+
+  /* partner */
+  .partner { display: grid; grid-template-columns: 1.5fr 1fr; gap: 20pt; align-items: start; }
+  .partner .box { padding: 16pt; background: var(--bg); border-radius: 6pt; text-align: center; }
+  .partner .since { color: var(--muted); font-size: 8pt; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+  .partner .year { font: 600 40pt/1 var(--display); color: var(--primary); font-variant-numeric: lining-nums; }
+  .partner .lic { margin-top: 10pt; padding: 8pt; border: 1.5pt solid var(--primary); border-radius: 4pt; font: 600 13pt var(--display); font-variant-numeric: lining-nums; }
+  .facts li { position: relative; padding-left: 14pt; margin-bottom: 5pt; }
+  .facts li::before { content: "✓"; position: absolute; left: 0; color: var(--olive); font-weight: 700; }
+
+  /* booking + contact */
+  .timeline { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10pt; margin: 12pt 0; }
+  .ms { padding: 10pt; background: var(--bg); border-top: 3px solid var(--primary); border-radius: 4pt; font-size: 9.2pt; }
+  .ms:last-child { border-top-color: var(--accent); }
+  .ms h4 { font: 600 13pt/1.1 var(--display); margin-bottom: 4pt; }
+  .terms { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10pt; font-size: 9.2pt; }
+  .terms strong { display: block; }
+  .contact { margin-top: 16pt; padding: 16pt 18pt; background: var(--primary); color: #FFFDF8; border-radius: 6pt; }
+  .contact h2 { font-size: 22pt; }
+  .contact dl { display: grid; grid-template-columns: 1.1in 1fr; gap: 3pt 8pt; margin: 8pt 0 0; }
+  .contact dt { font-weight: 700; opacity: .85; }
+  .contact dd { margin: 0; }
+  .contact .sig img { width: 30pt; height: 30pt; border: 1.5pt solid #F0AC86; }
+  .fine { margin-top: 12pt; color: var(--muted); font-size: 7.5pt; line-height: 1.4; }
+</style>
+</head>
+<body>
+
+{# ---------------- 1. Cover ---------------- #}
+<section class="page cover">
+  <img class="cover__img" src="{{ img(hero.image) }}" alt="">
+  <div class="cover__inner">
+    <div class="lockup">
+      {{ mark("#FFFDF8") }}
+      <div><div class="lockup__name">{{ site.brand_name }}</div><div class="lockup__desc">{{ site.descriptor }}</div></div>
+    </div>
+    <div>
+      <span class="cover__label">{{ pk.title }}</span>
+      <h1>{{ hero.tagline }}</h1>
+      <p class="cover__sub">{{ pk.subtitle }}</p>
+      <p class="cover__partner">{{ site.partner_line }}</p>
+    </div>
+  </div>
+</section>
+
+{# ---------------- 2. Why Türkiye ---------------- #}
+<section class="page">
+  <p class="eyebrow">{{ pk.why_title }}</p>
+  <h2>{{ sections.why_turkey.heading }}</h2>
+  <p class="lede">{{ sections.why_turkey.intro }}</p>
+  <div class="points">
+    {% for p in why_turkey %}
+    <div class="point">
+      <div class="point__place">{{ p.place }}</div>
+      <h3>{{ p.title }}</h3>
+      <p>{{ p.body }}</p>
+      <div class="refs">{{ p.refs|join(" · ") }}</div>
+    </div>
+    {% endfor %}
+  </div>
+  <div class="verse">
+    <p>“{{ verse.text }}”</p>
+    <div class="refs">{{ verse.ref }}</div>
+  </div>
+</section>
+
+{# ---------------- 3–5. Bible journeys ---------------- #}
+{% for j in journeys if j.group == "bible" %}
+<section class="page">
+  <div class="banner"><img src="{{ img(j.image) }}" alt=""></div>
+  <div class="jmeta">
+    <p class="eyebrow">{{ journey_groups[0].label }}{% if j.tag %} · {{ j.tag }}{% endif %}</p>
+    <p class="eyebrow">{{ j.duration_days }} days{% if j.duration_nights %} · {{ j.duration_nights }} nights{% endif %}</p>
+  </div>
+  <h2>{{ j.title }}</h2>
+  {% if j.status == "proposed" %}<p class="proposed">{{ pk.proposed_label }}</p>{% endif %}
+  <p class="lede">{{ j.summary }}</p>
+  <p class="price">{{ price(j) }}</p>
+  <div class="cols">
+    <div>
+      <h4>{{ pk.days_heading }}</h4>
+      <ul class="days">
+        {% for d in j.days %}
+        <li><span class="n">Day {{ d.n }}</span>
+          <span><span class="t">{{ d.title }}</span>{% if d.sample %} <em class="tbc">({{ pk.to_be_confirmed }})</em>{% endif %}{% if d.overnight %} <span class="o">· {{ d.overnight }}</span>{% endif %}{% if d.refs %}<br><span class="refs">{{ d.refs|join(" · ") }}</span>{% endif %}</span></li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="side">
+      <h4>Highlights</h4>
+      <ul class="ticks">{% for h in j.highlights %}<li>{{ text(h) }}</li>{% endfor %}</ul>
+      <h4>{{ pk.included_heading }}</h4>
+      <ul class="ticks">{% for i in j.included.value %}<li>{{ i }}</li>{% endfor %}</ul>
+      {% if j.included.sample %}<p class="tbc" style="font-size:8.5pt;margin-top:4pt">Final inclusions {{ pk.to_be_confirmed }}.</p>{% endif %}
+    </div>
+  </div>
+</section>
+{% endfor %}
+
+{# ---------------- 6. Discover Turkey overview ---------------- #}
+<section class="page">
+  <p class="eyebrow">{{ journey_groups[1].label }}</p>
+  <h2>{{ pk.discover_title }}</h2>
+  <p class="lede">{{ pk.discover_intro }}</p>
+  <table>
+    <thead><tr><th></th><th>Journey</th><th>Highlights</th></tr></thead>
+    <tbody>
+      {% for j in journeys if j.group == "discover" %}
+      <tr>
+        <td class="thumb"><img src="{{ img(j.image, 480) }}" alt=""></td>
+        <td class="name"><strong>{{ j.title }}</strong>{{ j.duration_days }} days</td>
+        <td><ul class="ticks">{% for h in j.highlights %}<li>{{ text(h) }}</li>{% endfor %}</ul></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <p style="margin-top:14pt"><strong>{{ custom_note.value }}</strong>{% if custom_note.sample %} <em class="tbc">(details {{ pk.to_be_confirmed }})</em>{% endif %}</p>
+  <p class="price" style="display:inline-block">{{ pk.pricing_on_request }}</p>
+</section>
+
+{# ---------------- 7. How it works ---------------- #}
+<section class="page">
+  <p class="eyebrow">{{ sections.how_it_works.eyebrow }}</p>
+  <h2>{{ sections.how_it_works.heading }}</h2>
+  <p class="lede">{{ sections.how_it_works.intro }}</p>
+  <ol class="steps" style="list-style:none;margin:0;padding:0">
+    {% for s in how_it_works.steps %}
+    <li>
+      <span class="icon">{{ ic.icon(s.icon, "") }}</span>
+      <div>
+        <div class="num">Step {{ loop.index }}</div>
+        <h3>{{ s.title }}</h3>
+        <p style="margin:0">{{ s.body }}{% if s.sample %} <em class="tbc">({{ s.note or pk.to_be_confirmed }})</em>{% endif %}</p>
+        {% if s.signature %}<div class="sig">{% if s.photo %}<img src="{{ img(s.photo) }}" alt="">{% endif %}— {{ s.signature }}</div>{% endif %}
+      </div>
+    </li>
+    {% endfor %}
+  </ol>
+  <p class="callout">{{ text(how_it_works.leader_note) }}</p>
+</section>
+
+{# ---------------- 8. Your hosts ---------------- #}
+<section class="page">
+  <p class="eyebrow">{{ sections.hosts.eyebrow }}</p>
+  <h2>{{ sections.hosts.heading }}</h2>
+  <p class="lede" style="font-size:10.5pt">{{ text(hosts.intro) }}</p>
+  <div class="hosts">
+    {% for p in hosts.people %}
+    <div class="host">
+      <img src="{{ img(p.photo.value) }}" alt="">
+      <h3>{{ p.name }}</h3>
+      <div class="role">{{ p.role }}</div>
+      <p class="bio">{{ text(p.bio) }}</p>
+      <div class="cred">{{ p.credentials }}</div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+{# ---------------- 9. Our partner ---------------- #}
+<section class="page">
+  <p class="eyebrow">{{ sections.partner.eyebrow }}</p>
+  <h2>{{ sections.partner.heading }}</h2>
+  <div class="partner">
+    <div>
+      <p class="lede">{{ partner.summary }}</p>
+      <ul class="facts">{% for f in partner.facts %}<li>{{ text(f) }}</li>{% endfor %}</ul>
+    </div>
+    <div class="box">
+      <div class="since">Since</div>
+      <div class="year">{{ partner.founded }}</div>
+      <div style="font:600 15pt var(--display);margin-top:6pt">{{ partner.name }}</div>
+      <div style="color:var(--muted)">{{ partner.location }}</div>
+      <div class="lic">TÜRSAB license no. {{ partner.license_no.value }}</div>
+      <div style="color:var(--muted);font-size:8.5pt;margin-top:6pt">{{ partner.license_body }}</div>
+    </div>
+  </div>
+  <hr class="rule">
+  <p style="color:var(--muted);font-size:9.5pt">{{ site.partner_line }}. Land arrangements operated by {{ partner.name }}, {{ partner.location }} (TÜRSAB license no. {{ partner.license_no.value }}).</p>
+</section>
+
+{# ---------------- 10. Booking + contact ---------------- #}
+<section class="page">
+  <p class="eyebrow">{{ sections.booking.eyebrow }}</p>
+  <h2>{{ sections.booking.heading }}</h2>
+  <p class="lede">{{ sections.booking.intro }}</p>
+  <div class="timeline">
+    {% for ms in booking.milestones %}
+    <div class="ms">
+      <h4>{{ ms.label }}</h4>
+      <div>{% if ms.when.sample %}<span class="tbc">Timing {{ pk.to_be_confirmed }}</span>{% else %}{{ ms.when.value }}{% endif %}</div>
+      {% if ms.amount %}<div>{% if ms.amount.sample %}<span class="tbc">Amount {{ pk.to_be_confirmed }}</span>{% else %}<strong>{{ ms.amount.value }}</strong>{% endif %}</div>{% endif %}
+      {% if ms.body %}<div style="color:var(--muted);margin-top:3pt">{{ ms.body }}</div>{% endif %}
+    </div>
+    {% endfor %}
+  </div>
+  <div class="terms">
+    <div><strong>Minimum group size</strong>{{ term(booking.minimum_group) }}</div>
+    <div><strong>Payment methods</strong>{{ pk.to_be_confirmed if booking.payment_methods.sample else booking.payment_methods.value|join(", ") }}</div>
+    <div><strong>Cancellation</strong>{{ term(booking.cancellation) }}</div>
+  </div>
+  <p class="callout" style="font-size:9.5pt"><strong>Travel insurance.</strong> {{ booking.insurance_note.value }}</p>
+
+  <div class="contact">
+    <p class="eyebrow" style="color:#F0AC86">{{ sections.contact.eyebrow }}</p>
+    <h2>{{ sections.contact.heading }}</h2>
+    <p>{{ pk.contact_intro }}</p>
+    <dl>
+      <dt>Website</dt><dd>{{ base_url }}</dd>
+      <dt>Email</dt><dd>{{ term(contact.email) }}</dd>
+      <dt>Phone</dt><dd>{{ term(contact.phone) }}</dd>
+      <dt>Based in</dt><dd>{{ contact.location }}</dd>
+    </dl>
+    <div class="sig" style="margin-top:10pt"><img src="{{ img(contact.personal_note_photo) }}" alt="">{{ contact.personal_note }} — {{ contact.personal_note_by }}</div>
+  </div>
+
+  <p class="fine">{{ site.scripture_notice }}<br>
+    Photos: {% for c in packet_credits %}{{ c.subject }} by {{ c.author }} ({{ c.license }}, Wikimedia Commons){% if not loop.last %}; {% endif %}{% endfor %}.</p>
+</section>
+
+</body>
+</html>

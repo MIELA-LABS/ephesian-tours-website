@@ -11,7 +11,6 @@
       <ul>
         {% for link in nav %}<li><a href="{{ link.href }}">{{ link.label }}</a></li>{% endfor %}
         <li><a href="#booking">Booking &amp; Payments</a></li>
-        <li><a href="#about">Your Hosts</a></li>
       </ul>
     </nav>
     <div class="site-footer__contact">
@@ -27,7 +26,7 @@
       <summary>Photo, map, and video credits</summary>
       <ul>
         {% for i in images if i.ready %}
-        <li>{{ i.subject }}: {{ i.author }}, <a href="{{ i.source_url }}" target="_blank" rel="noopener">source</a>, {% if i.license_url %}<a href="{{ i.license_url }}" target="_blank" rel="noopener">{{ i.license }}</a>{% else %}{{ i.license }}{% endif %}</li>
+        <li>{{ i.subject }}: {{ i.author }}, {% if i.source_url %}<a href="{{ i.source_url }}" target="_blank" rel="noopener">source</a>, {% endif %}{% if i.license_url %}<a href="{{ i.license_url }}" target="_blank" rel="noopener">{{ i.license }}</a>{% else %}{{ i.license }}{% endif %}</li>
         {% endfor %}
         {% for v in videos %}
         <li>{{ v.title }}: {{ v.author }}, <a href="{{ v.source_url }}" target="_blank" rel="noopener">Vimeo</a></li>

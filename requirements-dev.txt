@@ -4,3 +4,4 @@ Pillow==12.3.0
 playwright==1.63.0
 fonttools==4.66.1
 uharfbuzz==0.56.2
+pymupdf==1.28.2  # QA only: rasterize packet pages to PNG for review

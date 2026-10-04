@@ -291,6 +291,35 @@ images:
     license: CC BY-SA 3.0
     license_url: https://creativecommons.org/licenses/by-sa/3.0
 
+  # --- Our own photos (no source URL; originals are kept outside the repo) ---
+  - id: hakan
+    subject: Hakan Yorgancı
+    alt: Portrait of Hakan Yorgancı, smiling, in front of a brick wall
+    file: hosts/hakan
+    widths: [480, 960]
+    width: 960
+    height: 1200
+    author: "Hakan & Ece Yorgancı"
+    license: © Ephesian Tours. All rights reserved.
+  - id: ece
+    subject: Ece Yorgancı
+    alt: Portrait of Ece Yorgancı, smiling, with her hair in braids
+    file: hosts/ece
+    widths: [480, 960]
+    width: 960
+    height: 1200
+    author: "Hakan & Ece Yorgancı"
+    license: © Ephesian Tours. All rights reserved.
+  - id: hakan_avatar
+    subject: Hakan Yorgancı (small)
+    alt: Hakan Yorgancı
+    file: hosts/hakan-avatar
+    widths: [112, 168]
+    width: 168
+    height: 168
+    author: "Hakan & Ece Yorgancı"
+    license: © Ephesian Tours. All rights reserved.
+
 videos:
   # These are NOT Azim Tours' own footage: Azim's site embeds them from the videographer's
   # Vimeo account. Embedded via Vimeo's official player (embedding enabled by the uploader),

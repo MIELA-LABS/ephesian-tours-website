@@ -173,12 +173,16 @@ pending:
 
   - id: ET-HOST-01
     owner: ephesian
-    topic: Host bio and photo
-    question: Final bio text and a professional portrait of Hakan and Ece for the “Your hosts” section.
-    updates: ["host.bio", "host.photo"]
+    topic: Host bios and photos
+    question: Final bio text and portraits of Hakan and Ece for the “Your hosts” section.
+    answer: Bios and photos provided by Hakan and Ece.
+    answered_on: 2026-10-04
+    updates: ["hosts"]
 
   - id: ET-PACKET-01
     owner: ephesian
     topic: Pastor’s info packet
     question: Design and publish the pastor’s info packet (PDF) and link it from the contact section.
+    answer: Generated from the site content by scripts/make_packet.py on every deploy.
+    answered_on: 2026-10-04
     updates: ["contact.info_packet"]

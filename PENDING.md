@@ -2,7 +2,7 @@
 
 # Pending items
 
-21 open items · 1 resolved · 94 fields on the site currently show a **Sample** badge in preview mode.
+19 open items · 3 resolved · 91 fields on the site currently show a **Sample** badge in preview mode.
 
 To resolve an item: add `answer` and `answered_on` in `content/pending.yaml`, update the fields listed under it with real values and `status: confirmed`, then run `python build.py`.
 
@@ -87,14 +87,6 @@ To resolve an item: add `answer` and `answered_on` in `content/pending.yaml`, up
   - Create the Formspree form and add its endpoint URL.
   - Updates: `site.form_endpoint`
   - Sample fields on the site (1): `site.form_endpoint`
-- [ ] **ET-HOST-01: Host bio and photo**
-  - Final bio text and a professional portrait of Hakan and Ece for the “Your hosts” section.
-  - Updates: `host.bio`, `host.photo`
-  - Sample fields on the site (2): `host.bio`, `host.photo`
-- [ ] **ET-PACKET-01: Pastor’s info packet**
-  - Design and publish the pastor’s info packet (PDF) and link it from the contact section.
-  - Updates: `contact.info_packet`
-  - Sample fields on the site (1): `contact.info_packet`
 
 ## Resolved
 
@@ -102,3 +94,11 @@ To resolve an item: add `answer` and `answered_on` in `content/pending.yaml`, up
   - The ground operator’s TÜRSAB license number.
   - **Answer** (Oct 3, 2026): TÜRSAB license no. 938.
   - Updates: `partner.license_no`
+- [x] **ET-HOST-01: Host bios and photos**
+  - Final bio text and portraits of Hakan and Ece for the “Your hosts” section.
+  - **Answer** (Oct 4, 2026): Bios and photos provided by Hakan and Ece.
+  - Updates: `hosts`
+- [x] **ET-PACKET-01: Pastor’s info packet**
+  - Design and publish the pastor’s info packet (PDF) and link it from the contact section.
+  - **Answer** (Oct 4, 2026): Generated from the site content by scripts/make_packet.py on every deploy.
+  - Updates: `contact.info_packet`

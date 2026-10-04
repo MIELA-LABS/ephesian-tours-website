@@ -159,7 +159,7 @@ class Sections(Strict):
     partner: SectionCopy
     booking: SectionCopy
     faq: SectionCopy
-    host: SectionCopy
+    hosts: SectionCopy
     contact: SectionCopy
 
 
@@ -179,6 +179,8 @@ class Step(Provenance):
     title: str
     body: str
     note: str | None = None  # explanatory note shown when the step is a sample
+    signature: str | None = None  # e.g. "Hakan", shown with a small round photo
+    photo: str | None = None  # image id for the signature avatar
 
 
 class HowItWorks(Strict):
@@ -196,11 +198,18 @@ class Partner(Strict):
     facts: list[Tracked[str]]
 
 
-class Host(Strict):
+class Person(Strict):
+    id: SlugId
     name: str
     role: str
     bio: Tracked[str]
-    photo: Tracked[str | None]  # image id once a real photo exists
+    credentials: str  # plain-text names only, separated by " · " (no logos)
+    photo: Tracked[str]  # image id
+
+
+class Hosts(Strict):
+    intro: Tracked[str]
+    people: list[Person] = Field(min_length=1)
 
 
 class FormOptions(Strict):
@@ -213,12 +222,33 @@ class Contact(Strict):
     email: Tracked[str]
     phone: Tracked[str]
     location: str
-    info_packet: Tracked[str]  # CTA label; becomes a PDF link once published
+    info_packet: Tracked[str]  # CTA label for the packet PDF download
+    packet_file: str  # file name in dist/, written by scripts/make_packet.py
     packet_text: str
+    personal_note: str
+    personal_note_by: str
+    personal_note_photo: str  # image id
     form_options: FormOptions
     form_fallback: str  # shown instead of submitting while the form endpoint is a sample
     form_success: str
     form_error: str
+
+
+class Packet(Strict):
+    """Wording for the pastor's info packet PDF (templates/packet.html.j2)."""
+
+    title: str
+    subtitle: str
+    why_title: str
+    pricing_on_request: str  # shown instead of any price that is still pending
+    to_be_confirmed: str  # shown instead of any other pending term
+    proposed_label: str
+    days_heading: str
+    included_heading: str
+    discover_title: str
+    discover_intro: str
+    edition_label: str  # footer label while preview_mode is on, e.g. "Preview edition"
+    contact_intro: str
 
 
 class SiteFile(Strict):
@@ -230,8 +260,9 @@ class SiteFile(Strict):
     why_turkey: list[WhyPoint] = Field(min_length=3, max_length=4)
     how_it_works: HowItWorks
     partner: Partner
-    host: Host
+    hosts: Hosts
     contact: Contact
+    packet: Packet
 
 
 # --- sites.yaml ------------------------------------------------------------
@@ -400,8 +431,9 @@ class Image(Strict):
 
     @model_validator(mode="after")
     def _sourced_needs_credit(self) -> Image:
-        if self.file and not (self.source_url and self.author and self.license):
-            raise ValueError(f"image '{self.id}' has a file but no source_url/author/license")
+        # source_url may be omitted only for our own photos (e.g. the hosts' portraits)
+        if self.file and not (self.author and self.license):
+            raise ValueError(f"image '{self.id}' has a file but no author/license")
         return self
 
     @property
