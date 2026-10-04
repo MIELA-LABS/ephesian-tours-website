@@ -132,26 +132,31 @@ why_turkey:
 
 how_it_works:
   steps:
-    - title: We plan the itinerary with you
+    - icon: map
+      title: We plan the itinerary with you
       body: >-
         Start from one of our journeys, or tell us what matters most to your congregation.
         Together we shape the route, the pace, and the budget.
-    - title: Your congregation registers
+    - icon: people
+      title: Your congregation registers
       body: >-
         Members sign up individually. We answer their questions, collect their details, and
         send reminders, so you don’t have to.
-    - title: I fly with your group from DFW
+    - icon: plane
+      title: I fly with your group from DFW
       body: >-
         I meet your group at Dallas–Fort Worth, fly with you, and stay with you every day
         of the journey. — Hakan
-    - title: Azim Tours’ team meets you in Turkey
+    - icon: guide
+      title: Azim Tours’ team meets you in Turkey
       body: >-
         Our partner’s team welcomes you on arrival, with licensed, English-speaking guides,
         comfortable coaches, and hotels they have worked with for years.
       status: pending
       resolves_by: Q-OPS-01
       note: Arrival and guide arrangements are being confirmed.
-    - title: We come home together
+    - icon: home
+      title: We come home together
       body: >-
         We fly home as one group, with photos, friendships, and a Bible that will never read
         quite the same again.

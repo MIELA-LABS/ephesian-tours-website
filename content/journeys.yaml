@@ -4,10 +4,22 @@
 # route: ordered site ids from sites.yaml; `by` = how the group arrives (road | air | sea)
 # days[].note / highlights / notes: plain text = confirmed, or {value, status, resolves_by}
 # video: id from media.yaml (click-to-play, nothing loads from Vimeo before the click)
+# group: bible | discover (see journey_groups)
+
+journey_groups:
+  - id: bible
+    label: Bible Journeys
+    intro: Journeys built around the churches, letters, and travels of the New Testament.
+  - id: discover
+    label: Discover Turkey
+    intro: >-
+      Broader tours that weave biblical sites together with Istanbul, Cappadocia, and the
+      Turquoise Coast.
 
 journeys:
   # =========================================================================
   - id: seven_churches
+    group: bible
     title: Seven Churches of Revelation
     subtitle: From Istanbul to Antioch, Tarsus, and all seven churches of Asia
     tag: Our signature journey
@@ -174,8 +186,10 @@ journeys:
         status: pending
         resolves_by: Q-FOC-01
 
+
   # =========================================================================
   - id: footsteps_of_paul
+    group: bible
     title: In the Footsteps of St. Paul
     subtitle: Istanbul, the churches of Revelation, Ephesus, and Patmos
     tag: Shorter journey
@@ -293,8 +307,137 @@ journeys:
         status: pending
         resolves_by: Q-FOC-01
 
+
+  # =========================================================================
+  - id: catholic
+    group: bible
+    title: Ephesus & the House of Mary
+    subtitle: A Catholic pilgrimage to Ephesus, Patmos, and Istanbul
+    tag: Catholic pilgrimage
+    status: proposed
+    resolves_by: Q-CATHOLIC-01
+    duration_days: 8
+    duration_nights: 7
+    from_price:
+      value: 2995
+      currency: USD
+      basis: per person, double occupancy, land + DFW airfare
+      status: pending
+      resolves_by: Q-PRICE-01
+    image: house_of_mary
+    summary: >-
+      A pilgrimage for parishes, based in Kuşadası: Ephesus, the House of the Virgin Mary,
+      the Basilica of St. John, Patmos, and Laodicea, with a final day in Istanbul.
+    highlights:
+      - value: Mass at the House of the Virgin Mary, celebrated by your own priest
+        status: pending
+        resolves_by: Q-MASS-01
+      - Ephesus and the Basilica of St. John
+      - A day on Patmos, where John received the Revelation
+    route:
+      - {site: smyrna, by: air}
+      - kusadasi
+      - house_of_mary
+      - ephesus
+      - st_john_basilica
+      - sirince
+      - {site: patmos, by: sea}
+      - {site: kusadasi, by: sea}
+      - laodicea
+      - hierapolis
+      - {site: istanbul, by: air}
+    days:
+      - n: 1
+        title: Arrive in İzmir
+        body: >-
+          Fly from Dallas–Fort Worth to İzmir via Istanbul and transfer to our hotel in
+          Kuşadası, our home for the first four nights.
+        overnight: Kuşadası
+        note:
+          value: Airport welcome arrangements are being confirmed.
+          status: pending
+          resolves_by: Q-OPS-01
+      - n: 2
+        title: The House of the Virgin Mary and Ephesus
+        body: >-
+          Morning at the House of the Virgin Mary, venerated by Catholics as Mary’s final
+          home, visited by several popes, with Mass celebrated by your group’s own priest.
+          Afternoon walking the marble streets of Ephesus.
+        overnight: Kuşadası
+        refs: [John 19:26–27, Acts 19]
+        note:
+          value: Mass at the House of the Virgin Mary is being confirmed.
+          status: pending
+          resolves_by: Q-MASS-01
+      - n: 3
+        title: The Basilica of St. John and Şirince
+        body: >-
+          The Basilica of St. John in Selçuk, raised by Emperor Justinian over the apostle’s
+          traditional tomb; the site of the Temple of Artemis; and the Ephesus Museum.
+          Afternoon in the hillside village of Şirince.
+        overnight: Kuşadası
+      - n: 4
+        title: Patmos
+        body: >-
+          A day trip by boat to Patmos, where John received the Revelation: the Cave of the
+          Apocalypse and the Monastery of St. John.
+        overnight: Kuşadası
+        refs: [Rev 1:9]
+      - n: 5
+        title: Laodicea and Pamukkale
+        body: >-
+          Drive inland to Laodicea, the church that was “neither cold nor hot,” and on to the
+          white travertine terraces of Pamukkale.
+        overnight: Pamukkale
+        refs: [Col 4:13, Rev 3:14–22]
+      - n: 6
+        title: Hierapolis, then fly to Istanbul
+        body: >-
+          Morning at Hierapolis and the shrine honoring the apostle Philip, martyred here
+          according to tradition. Afternoon flight to Istanbul.
+        overnight: Istanbul
+        refs: [Col 4:13]
+      - n: 7
+        title: Istanbul
+        body: >-
+          Hagia Sophia, completed in AD 537 and a functioning mosque since 2020, where
+          visitors are welcome outside prayer times; the Hippodrome; and the Blue Mosque.
+          Farewell dinner.
+        overnight: Istanbul
+        note:
+          value: Group visiting arrangements at Hagia Sophia are being confirmed.
+          status: pending
+          resolves_by: Q-HAGIA-01
+      - n: 8
+        title: Fly home
+        body: Transfer to Istanbul Airport for our flight home to Dallas–Fort Worth.
+    included:
+      value:
+        - Round-trip group airfare from DFW and domestic flights in Turkey
+        - Hotels for 7 nights, double occupancy
+        - Daily breakfast and dinner
+        - Licensed English-speaking guide and private air-conditioned coach
+        - Entrance fees for all sites on the itinerary
+        - Boat to Patmos
+        - Hakan as your escort from DFW and back
+      status: pending
+      resolves_by: Q-INCL-01
+    excluded:
+      value:
+        - Lunches and drinks
+        - Tips for guides and drivers
+        - Travel insurance
+        - Personal expenses
+      status: pending
+      resolves_by: Q-INCL-01
+    notes:
+      - value: One complimentary place for your priest or group leader, depending on group size.
+        status: pending
+        resolves_by: Q-FOC-01
+
   # =========================================================================
   - id: best_of_turkey
+    group: discover
     title: Best of Turkey
     subtitle: Istanbul, Cappadocia, Iconium, Ephesus, and Gallipoli
     tag: Bible and history
@@ -453,13 +596,377 @@ journeys:
         status: pending
         resolves_by: Q-FOC-01
 
+
   # =========================================================================
-  - id: catholic
-    title: Ephesus & the House of Mary
-    subtitle: A Catholic pilgrimage to Ephesus, Patmos, and Istanbul
-    tag: Catholic pilgrimage
-    status: proposed
-    resolves_by: Q-CATHOLIC-01
+  - id: taste_of_turkey
+    group: discover
+    title: Taste of Turkey
+    subtitle: Ephesus, Pergamum, Troy, Gallipoli, and Istanbul
+    tag: Shorter journey
+    duration_days: 6
+    duration_nights: null  # Day 6 ends with an overnight in Istanbul; flight home the next morning
+    from_price:
+      value: 2395
+      currency: USD
+      basis: per person, double occupancy, land + DFW airfare
+      status: pending
+      resolves_by: Q-PRICE-01
+    image: bosphorus
+    summary: >-
+      A short first taste of Turkey: Ephesus and Pergamum on the Aegean, legendary Troy and
+      the Gallipoli peninsula, and two days in Istanbul.
+    highlights:
+      - Ephesus, where Paul ministered for about three years
+      - Pergamum, one of the seven churches of Revelation
+      - Two days in Istanbul, with Hagia Sophia and the Blue Mosque
+    route:
+      - {site: smyrna, by: air}
+      - kusadasi
+      - ephesus
+      - pergamum
+      - troy
+      - canakkale
+      - {site: gallipoli, by: sea}
+      - istanbul
+    days:
+      - n: 1
+        title: Arrive in İzmir, on to Kuşadası
+        body: >-
+          Fly from Dallas–Fort Worth via Istanbul to İzmir, ancient Smyrna, home of one of the
+          seven churches, and continue to Kuşadası on the Aegean coast.
+        overnight: Kuşadası
+        refs: [Rev 2:8–11]
+        note:
+          value: Airport welcome arrangements are being confirmed.
+          status: pending
+          resolves_by: Q-OPS-01
+      - n: 2
+        title: Ephesus
+        body: >-
+          Walk the marble streets of Ephesus past the Library of Celsus, the Temple of Hadrian,
+          and the Great Theatre, and see the lone column that marks the Temple of Artemis.
+          Optional afternoon: the Ephesus Museum, the Basilica of St. John, and the hillside
+          village of Şirince.
+        overnight: Kuşadası
+        refs: [Acts 19, Eph 1:1]
+      - n: 3
+        title: Pergamum and Troy
+        body: >-
+          At Pergamum, the Red Basilica, a vast brick temple later converted into a church, and
+          the Asclepion, the ancient healing center. Then on to Troy, the legendary city of
+          Homer’s Iliad.
+        overnight: Çanakkale
+        refs: [Rev 2:12–17]
+      - n: 4
+        title: The Dardanelles, Gallipoli, and Istanbul
+        body: >-
+          Cross the Dardanelles by ferry to the Gallipoli peninsula and its World War I
+          memorials, then drive on to Istanbul.
+        overnight: Istanbul
+      - n: 5
+        title: Istanbul at leisure
+        body: >-
+          A free day in Istanbul. Optional: a cruise on the Bosphorus and a visit to the Spice
+          Bazaar, and an evening of Turkish dinner and folk music.
+        overnight: Istanbul
+      - n: 6
+        title: Istanbul
+        body: >-
+          The Blue Mosque and Hagia Sophia, completed in AD 537 and a functioning mosque since
+          2020, where visitors are welcome outside prayer times. Optional: Topkapı Palace and
+          the Grand Bazaar.
+        overnight: Istanbul
+        note:
+          value: Group visiting arrangements at Hagia Sophia are being confirmed.
+          status: pending
+          resolves_by: Q-HAGIA-01
+    included:
+      value:
+        - Round-trip group airfare from DFW and the domestic flight to İzmir
+        - Hotels throughout, double occupancy
+        - Daily breakfast and dinner
+        - Licensed English-speaking guide and private air-conditioned coach
+        - Entrance fees for the sites on the itinerary
+        - Ferry across the Dardanelles
+        - Hakan as your escort from DFW and back
+      status: pending
+      resolves_by: Q-INCL-01
+    excluded:
+      value:
+        - Optional excursions (Ephesus Museum and Şirince, Bosphorus cruise, evening show, Topkapı Palace)
+        - Lunches and drinks
+        - Tips for guides and drivers
+        - Travel insurance
+        - Personal expenses
+      status: pending
+      resolves_by: Q-INCL-01
+    notes:
+      - value: The flight home to DFW departs the morning after Day 6; timing is being confirmed.
+        status: pending
+        resolves_by: Q-AIR-01
+      - value: One complimentary place for the pastor or group leader, depending on group size.
+        status: pending
+        resolves_by: Q-FOC-01
+
+  # =========================================================================
+  - id: west_anatolia
+    group: discover
+    title: West Anatolia
+    subtitle: Istanbul, Bursa, Pergamum, Ephesus, and the Ionian coast
+    tag: Cultural tour
+    duration_days: 8
+    duration_nights: 7
+    from_price:
+      value: 2795
+      currency: USD
+      basis: per person, double occupancy, land + DFW airfare
+      status: pending
+      resolves_by: Q-PRICE-01
+    image: priene
+    summary: >-
+      Three days in Istanbul, the first Ottoman capital at Bursa, and the Aegean coast:
+      Pergamum, Smyrna, Ephesus, and the Ionian cities of Miletus, Priene, and Didyma.
+    highlights:
+      - Miletus, where Paul said farewell to the Ephesian elders
+      - Ephesus, the Basilica of St. John, and the House of the Virgin Mary
+      - Pergamum and Smyrna, two of the seven churches
+    route:
+      - istanbul
+      - bursa
+      - pergamum
+      - smyrna
+      - st_john_basilica
+      - house_of_mary
+      - ephesus
+      - kusadasi
+      - priene
+      - miletus
+      - didyma
+      - kusadasi
+      - smyrna
+    days:
+      - n: 1
+        title: Arrive in Istanbul
+        body: >-
+          After the overnight flight from Dallas–Fort Worth, we transfer to our hotel along
+          the Golden Horn. Dinner together.
+        overnight: Istanbul
+        note:
+          value: Airport welcome arrangements are being confirmed.
+          status: pending
+          resolves_by: Q-OPS-01
+      - n: 2
+        title: Istanbul
+        body: Topkapı Palace, the Blue Mosque, and the Hippodrome.
+        overnight: Istanbul
+      - n: 3
+        title: Istanbul and the Bosphorus
+        body: >-
+          Hagia Sophia, completed in AD 537 and a functioning mosque since 2020, where visitors
+          are welcome outside prayer times. Then the Süleymaniye Mosque, the Istanbul
+          Archaeology Museums, the Grand Bazaar, and a cruise on the Bosphorus.
+        overnight: Istanbul
+        note:
+          value: Group visiting arrangements at Hagia Sophia are being confirmed.
+          status: pending
+          resolves_by: Q-HAGIA-01
+      - n: 4
+        title: Bursa
+        body: >-
+          Drive to Bursa, the first capital of the Ottoman Empire, for an afternoon tour of its
+          historic center.
+        overnight: Bursa
+      - n: 5
+        title: Pergamum and Smyrna
+        body: >-
+          At Pergamum, the Asclepion, the acropolis, and the museum. Continue to İzmir, ancient
+          Smyrna, to see the Roman agora and the bazaar.
+        overnight: İzmir
+        refs: [Rev 2:12–17, Rev 2:8–11]
+      - n: 6
+        title: Ephesus and the House of the Virgin Mary
+        body: >-
+          In Selçuk, the Basilica of St. John and the Ephesus Museum. After lunch, the House of
+          the Virgin Mary, venerated by Catholics as Mary’s final home, visited by several
+          popes, and the ruins of Ephesus.
+        overnight: Kuşadası
+        refs: [Acts 19, Eph 1:1]
+      - n: 7
+        title: Miletus, Priene, and Didyma
+        body: >-
+          A day among the great Ionian cities: Miletus, where Paul sent for the elders of the
+          church at Ephesus and said farewell to them; Priene, with its Temple of Athena; and
+          the vast Temple of Apollo at Didyma.
+        overnight: Kuşadası
+        refs: [Acts 20:15–38]
+      - n: 8
+        title: Fly home, or on to the Greek islands
+        body: >-
+          Transfer to İzmir airport for the flight home, or continue on a cruise to the Greek
+          islands and Athens.
+        note:
+          value: Return flights to DFW, and the cruise option, are being confirmed.
+          status: pending
+          resolves_by: Q-AIR-01
+    included:
+      value:
+        - Round-trip group airfare from DFW
+        - Hotels for 7 nights, double occupancy
+        - Daily breakfast and dinner
+        - Licensed English-speaking guide and private air-conditioned coach
+        - Entrance fees for all sites on the itinerary
+        - Bosphorus cruise
+        - Hakan as your escort from DFW and back
+      status: pending
+      resolves_by: Q-INCL-01
+    excluded:
+      value:
+        - Greek islands cruise option
+        - Lunches and drinks
+        - Tips for guides and drivers
+        - Travel insurance
+        - Personal expenses
+      status: pending
+      resolves_by: Q-INCL-01
+    notes:
+      - value: One complimentary place for the pastor or group leader, depending on group size.
+        status: pending
+        resolves_by: Q-FOC-01
+
+  # =========================================================================
+  - id: istanbul_cappadocia
+    group: discover
+    title: Istanbul & Cappadocia
+    subtitle: Istanbul, Cappadocia, Iconium, Hierapolis, and Ephesus
+    tag: Cultural tour
+    duration_days: 8
+    duration_nights: 7
+    from_price:
+      value: 2895
+      currency: USD
+      basis: per person, double occupancy, land + DFW airfare
+      status: pending
+      resolves_by: Q-PRICE-01
+    image: uchisar
+    summary: >-
+      Istanbul and the rock-cut churches of Cappadocia, then west through Konya, biblical
+      Iconium, to Hierapolis and Ephesus.
+    highlights:
+      - Cappadocia’s rock-cut churches and underground cities
+      - Konya, biblical Iconium, where Paul and Barnabas preached
+      - Hierapolis and Ephesus
+    itinerary_note:
+      value: The day order and overnight stops for this journey are being confirmed.
+      status: pending
+      resolves_by: Q-ORDER-01
+    route:
+      - istanbul
+      - {site: kayseri, by: air}
+      - uchisar
+      - cappadocia
+      - derinkuyu
+      - konya
+      - hierapolis
+      - aphrodisias
+      - kusadasi
+      - ephesus
+      - st_john_basilica
+      - smyrna
+    days:
+      - n: 1
+        title: Arrive in Istanbul
+        body: >-
+          After the overnight flight from Dallas–Fort Worth, we transfer to our hotel along
+          the Golden Horn. Dinner together.
+        overnight: Istanbul
+        note:
+          value: Airport welcome arrangements are being confirmed.
+          status: pending
+          resolves_by: Q-OPS-01
+      - n: 2
+        title: Istanbul
+        body: >-
+          Hagia Sophia, completed in AD 537 and a functioning mosque since 2020, where visitors
+          are welcome outside prayer times; Topkapı Palace; the Blue Mosque; and the Hippodrome.
+        overnight: Istanbul
+        note:
+          value: Group visiting arrangements at Hagia Sophia are being confirmed.
+          status: pending
+          resolves_by: Q-HAGIA-01
+      - n: 3
+        title: To Cappadocia
+        body: >-
+          Fly to Kayseri and visit Uçhisar, the Göreme valley, and Zelve, where Christians
+          carved churches and homes into the soft volcanic rock. People from Cappadocia heard
+          the apostles at Pentecost, and Peter’s first letter is addressed to believers here.
+        overnight: Cappadocia
+        refs: [Acts 2:9, 1 Pet 1:1]
+      - n: 4
+        title: Underground cities, then Konya
+        body: >-
+          Ürgüp and the underground cities of Derinkuyu and Kaymaklı, used for centuries as
+          places of refuge, including by Byzantine-era Christians. Then drive to Konya,
+          biblical Iconium, where Paul and Barnabas preached.
+        overnight: Konya
+        refs: [Acts 14:1–6]
+      - n: 5
+        title: Konya to Pamukkale
+        body: Visit the Mevlana Museum, then drive west to Pamukkale.
+        overnight: Pamukkale
+      - n: 6
+        title: Hierapolis and Aphrodisias
+        body: >-
+          Hierapolis, above Pamukkale’s white travertine terraces, whose believers Paul
+          mentions in his letter to the Colossians; then the marble city of Aphrodisias, and on
+          to Kuşadası.
+        overnight: Kuşadası
+        refs: [Col 4:13]
+      - n: 7
+        title: Ephesus
+        body: >-
+          Ephesus, the Ephesus Museum, and the Basilica of St. John, built over the apostle’s
+          traditional tomb.
+        overnight: Kuşadası
+        refs: [Acts 19, Eph 1:1]
+      - n: 8
+        title: Fly home, or on to the Greek islands
+        body: >-
+          Transfer to İzmir airport for the flight home, or embark on a cruise to the Greek
+          islands.
+        note:
+          value: Return flights to DFW, and the cruise option, are being confirmed.
+          status: pending
+          resolves_by: Q-AIR-01
+    included:
+      value:
+        - Round-trip group airfare from DFW and the domestic flight to Kayseri
+        - Hotels for 7 nights, double occupancy
+        - Daily breakfast and dinner
+        - Licensed English-speaking guide and private air-conditioned coach
+        - Entrance fees for all sites on the itinerary
+        - Hakan as your escort from DFW and back
+      status: pending
+      resolves_by: Q-INCL-01
+    excluded:
+      value:
+        - Greek islands cruise option
+        - Lunches and drinks
+        - Tips for guides and drivers
+        - Travel insurance
+        - Personal expenses
+      status: pending
+      resolves_by: Q-INCL-01
+    notes:
+      - value: One complimentary place for the pastor or group leader, depending on group size.
+        status: pending
+        resolves_by: Q-FOC-01
+
+  # =========================================================================
+  - id: istanbul_cappadocia_antalya
+    group: discover
+    title: Istanbul, Cappadocia & Antalya
+    subtitle: Istanbul, Cappadocia, Iconium, and Paul’s port of Attalia
+    tag: Cultural tour
     duration_days: 8
     duration_nights: 7
     from_price:
@@ -468,93 +975,91 @@ journeys:
       basis: per person, double occupancy, land + DFW airfare
       status: pending
       resolves_by: Q-PRICE-01
-    image: house_of_mary
+    image: aspendos
     summary: >-
-      A pilgrimage for parishes, based in Kuşadası: Ephesus, the House of the Virgin Mary,
-      the Basilica of St. John, Patmos, and Laodicea, with a final day in Istanbul.
+      Istanbul, Cappadocia, and Konya, biblical Iconium, then the Turquoise Coast around
+      Antalya, the Attalia of Paul’s first journey, with Perge, Aspendos, and Side.
     highlights:
-      - value: Mass at the House of the Virgin Mary, celebrated by your own priest
-        status: pending
-        resolves_by: Q-MASS-01
-      - Ephesus and the Basilica of St. John
-      - A day on Patmos, where John received the Revelation
+      - Cappadocia’s rock-cut churches and underground cities
+      - Perge and Antalya, on Paul’s first missionary journey
+      - The Roman theater at Aspendos
     route:
-      - {site: smyrna, by: air}
-      - kusadasi
-      - house_of_mary
-      - ephesus
-      - st_john_basilica
-      - sirince
-      - {site: patmos, by: sea}
-      - {site: kusadasi, by: sea}
-      - laodicea
-      - hierapolis
+      - istanbul
+      - {site: kayseri, by: air}
+      - uchisar
+      - cappadocia
+      - avanos
+      - derinkuyu
+      - konya
+      - antalya
+      - perge
+      - aspendos
+      - side
+      - manavgat
+      - antalya
       - {site: istanbul, by: air}
     days:
       - n: 1
-        title: Arrive in İzmir
+        title: Arrive in Istanbul
         body: >-
-          Fly from Dallas–Fort Worth to İzmir via Istanbul and transfer to our hotel in
-          Kuşadası, our home for the first four nights.
-        overnight: Kuşadası
+          After the overnight flight from Dallas–Fort Worth, we transfer to our hotel for a
+          first look at the city. Dinner together.
+        overnight: Istanbul
         note:
           value: Airport welcome arrangements are being confirmed.
           status: pending
           resolves_by: Q-OPS-01
       - n: 2
-        title: The House of the Virgin Mary and Ephesus
-        body: >-
-          Morning at the House of the Virgin Mary, venerated by Catholics as Mary’s final
-          home, visited by several popes, with Mass celebrated by your group’s own priest.
-          Afternoon walking the marble streets of Ephesus.
-        overnight: Kuşadası
-        refs: [John 19:26–27, Acts 19]
-        note:
-          value: Mass at the House of the Virgin Mary is being confirmed.
-          status: pending
-          resolves_by: Q-MASS-01
-      - n: 3
-        title: The Basilica of St. John and Şirince
-        body: >-
-          The Basilica of St. John in Selçuk, raised by Emperor Justinian over the apostle’s
-          traditional tomb; the site of the Temple of Artemis; and the Ephesus Museum.
-          Afternoon in the hillside village of Şirince.
-        overnight: Kuşadası
-      - n: 4
-        title: Patmos
-        body: >-
-          A day trip by boat to Patmos, where John received the Revelation: the Cave of the
-          Apocalypse and the Monastery of St. John.
-        overnight: Kuşadası
-        refs: [Rev 1:9]
-      - n: 5
-        title: Laodicea and Pamukkale
-        body: >-
-          Drive inland to Laodicea, the church that was “neither cold nor hot,” and on to the
-          white travertine terraces of Pamukkale.
-        overnight: Pamukkale
-        refs: [Col 4:13, Rev 3:14–22]
-      - n: 6
-        title: Hierapolis, then fly to Istanbul
-        body: >-
-          Morning at Hierapolis and the shrine honoring the apostle Philip, martyred here
-          according to tradition. Afternoon flight to Istanbul.
-        overnight: Istanbul
-        refs: [Col 4:13]
-      - n: 7
         title: Istanbul
         body: >-
-          Hagia Sophia, completed in AD 537 and a functioning mosque since 2020, where
-          visitors are welcome outside prayer times; the Hippodrome; and the Blue Mosque.
-          Farewell dinner.
+          Topkapı Palace; Hagia Sophia, completed in AD 537 and a functioning mosque since
+          2020, where visitors are welcome outside prayer times; the Blue Mosque; and the
+          Hippodrome.
         overnight: Istanbul
         note:
           value: Group visiting arrangements at Hagia Sophia are being confirmed.
           status: pending
           resolves_by: Q-HAGIA-01
+      - n: 3
+        title: To Cappadocia
+        body: >-
+          Morning flight to Kayseri, then Uçhisar, the Göreme valley, and Zelve, with their
+          rock-cut churches. People from Cappadocia heard the apostles at Pentecost, and Peter’s
+          first letter is addressed to believers here.
+        overnight: Avanos
+        refs: [Acts 2:9, 1 Pet 1:1]
+      - n: 4
+        title: Underground cities, then Konya
+        body: >-
+          Ürgüp and the underground cities of Derinkuyu and Kaymaklı, then drive to Konya,
+          biblical Iconium, where Paul and Barnabas preached.
+        overnight: Konya
+        refs: [Acts 14:1–6]
+      - n: 5
+        title: Konya to Antalya
+        body: >-
+          The Mevlana Museum, then over the Taurus Mountains to Antalya, biblical Attalia, where
+          Paul and Barnabas came down to the coast at the end of their first journey.
+        overnight: Antalya
+        refs: [Acts 14:25]
+      - n: 6
+        title: Perge, Aspendos, and Side
+        body: >-
+          Perge, where Paul and Barnabas passed through and later preached; the remarkably
+          preserved Roman theater at Aspendos; and the seaside ruins of Side.
+        overnight: Antalya
+        refs: [Acts 13:13–14]
+      - n: 7
+        title: Manavgat Waterfall and Antalya
+        body: A morning visit to the Manavgat Waterfall, then a free afternoon in Antalya.
+        overnight: Antalya
       - n: 8
-        title: Fly home
-        body: Transfer to Istanbul Airport for our flight home to Dallas–Fort Worth.
+        title: Fly to Istanbul and home
+        body: Transfer to Antalya airport for the flight to Istanbul and on home to Dallas–Fort Worth.
+        note:
+          value: Return flight timing to DFW is being confirmed.
+          status: pending
+          resolves_by: Q-AIR-01
     included:
       value:
         - Round-trip group airfare from DFW and domestic flights in Turkey
@@ -562,7 +1067,6 @@ journeys:
         - Daily breakfast and dinner
         - Licensed English-speaking guide and private air-conditioned coach
         - Entrance fees for all sites on the itinerary
-        - Boat to Patmos
         - Hakan as your escort from DFW and back
       status: pending
       resolves_by: Q-INCL-01
@@ -575,25 +1079,11 @@ journeys:
       status: pending
       resolves_by: Q-INCL-01
     notes:
-      - value: One complimentary place for your priest or group leader, depending on group size.
+      - value: One complimentary place for the pastor or group leader, depending on group size.
         status: pending
         resolves_by: Q-FOC-01
 
-extensions:
-  heading: Extend your journey
-  intro: >-
-    Add a few days before or after any journey, or build your own around the places that
-    matter most to your church.
+custom_note:
+  value: Every journey can be combined with another or customized for your church.
   status: pending
   resolves_by: Q-CUSTOM-01
-  items:
-    - title: Istanbul & Cappadocia
-      length: 8 days
-      body: >-
-        More time in Istanbul, plus Cappadocia’s frescoed rock churches and the underground
-        cities of Derinkuyu and Kaymaklı.
-    - title: West Anatolia
-      length: 8 days
-      body: >-
-        Istanbul, Bursa, Pergamum, Ephesus, and the House of the Virgin Mary, with the Ionian
-        cities of Miletus, Priene, and Didyma.

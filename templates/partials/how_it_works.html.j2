@@ -1,3 +1,4 @@
+{% import "partials/_icons.html.j2" as ic %}
 {% set s = sections.how_it_works %}
 <section class="section section--how" id="how-it-works" aria-labelledby="how-title">
   <div class="container">
@@ -9,11 +10,14 @@
     <ol class="steps">
       {% for step in how_it_works.steps %}
       <li class="step reveal">
-        <span class="step__n" aria-hidden="true">{{ loop.index }}</span>
-        <div>
-          <h3 class="step__title"><span class="visually-hidden">Step {{ loop.index }}: </span>{{ step.title }}{{ m.badge(step) }}</h3>
+        <span class="step__icon">{{ ic.icon(step.icon, "step__svg") }}</span>
+        <div class="step__body">
+          <p class="step__n">Step {{ loop.index }}</p>
+          <h3 class="step__title">{{ step.title }}</h3>
           <p>{{ step.body }}</p>
-          {% if step.note and step.sample and site.preview_mode %}<p class="step__note">{{ step.note }}</p>{% endif %}
+          {% if step.sample and site.preview_mode %}
+          <p class="step__status">{{ m.badge(step) }}{% if step.note %} <span>{{ step.note }}</span>{% endif %}</p>
+          {% endif %}
         </div>
       </li>
       {% endfor %}

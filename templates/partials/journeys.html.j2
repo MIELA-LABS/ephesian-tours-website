@@ -7,8 +7,14 @@
       {% if s.intro %}<p class="section__intro">{{ s.intro }}</p>{% endif %}
     </header>
 
-    <div class="journeys">
-      {% for j in journeys %}
+    {% for g in journey_groups %}
+    <div class="journey-group" id="tours-{{ g.id }}">
+      <div class="journey-group__header reveal">
+        <h3>{{ g.label }}</h3>
+        {% if g.intro %}<p>{{ g.intro }}</p>{% endif %}
+      </div>
+      <div class="journeys">
+      {% for j in journeys if j.group == g.id %}
       <article class="journey reveal" id="journey-{{ j.id }}" aria-labelledby="journey-{{ j.id }}-title">
         <div class="journey__top">
           <div class="journey__media">
@@ -17,7 +23,7 @@
           </div>
           <div class="journey__body">
             <p class="journey__meta">{{ m.duration(j) }}</p>
-            <h3 class="journey__title" id="journey-{{ j.id }}-title">{{ j.title }}{{ m.badge(j) }}</h3>
+            <h4 class="journey__title" id="journey-{{ j.id }}-title">{{ j.title }}{{ m.badge(j) }}</h4>
             <p class="journey__subtitle">{{ j.subtitle }}</p>
             <ul class="journey__highlights">
               {% for h in j.highlights %}
@@ -40,13 +46,14 @@
           </summary>
           <div class="itinerary__panel">
             <p class="itinerary__summary">{{ j.summary }}</p>
+            {% if j.itinerary_note %}<p class="itinerary__note">{{ m.tracked(j.itinerary_note) }}</p>{% endif %}
             <div class="itinerary__grid">
               <ol class="days">
                 {% for d in j.days %}
                 <li class="day">
                   <p class="day__n">Day {{ d.n }}</p>
                   <div class="day__body">
-                    <h4 class="day__title">{{ d.title }}{{ m.badge(d) }}</h4>
+                    <h5 class="day__title">{{ d.title }}{{ m.badge(d) }}</h5>
                     <p>{{ d.body }}</p>
                     {{ m.refs(d.refs) }}
                     {% if d.note %}<p class="day__note">{{ m.tracked(d.note) }}</p>{% endif %}
@@ -81,11 +88,11 @@
                 {% endif %}
 
                 <div class="included">
-                  <h4>What's included{{ m.badge(j.included) }}</h4>
+                  <h5>What's included{{ m.badge(j.included) }}</h5>
                   <ul class="checklist">
                     {% for item in j.included.value %}<li>{{ item }}</li>{% endfor %}
                   </ul>
-                  <h4>Not included{{ m.badge(j.excluded) }}</h4>
+                  <h5>Not included{{ m.badge(j.excluded) }}</h5>
                   <ul class="checklist checklist--muted">
                     {% for item in j.excluded.value %}<li>{{ item }}</li>{% endfor %}
                   </ul>
@@ -102,22 +109,10 @@
         </details>
       </article>
       {% endfor %}
-    </div>
-
-    <div class="extensions reveal">
-      <div class="extensions__intro">
-        <h3 id="extensions-title">{{ extensions.heading }}{{ m.badge(extensions) }}</h3>
-        <p>{{ extensions.intro }}</p>
       </div>
-      <ul class="extensions__list">
-        {% for x in extensions.items %}
-        <li>
-          <p class="extensions__length">{{ x.length }}</p>
-          <h4>{{ x.title }}</h4>
-          <p>{{ x.body }}</p>
-        </li>
-        {% endfor %}
-      </ul>
     </div>
+    {% endfor %}
+
+    <p class="custom-note reveal">{{ m.tracked(custom_note) }}</p>
   </div>
 </section>

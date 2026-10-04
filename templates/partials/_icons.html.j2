@@ -1,0 +1,16 @@
+{# Single-stroke line icons in the style of the logo mark (24x24, currentColor). #}
+{% macro icon(name, cls="icon") -%}
+<svg class="{{ cls }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+{%- if name == "map" -%}
+  <path d="M3 6.2l5.5-2.4 7 2.8 5.5-2.4v13.6l-5.5 2.4-7-2.8L3 19.8z"/><path d="M8.5 3.8v13.6M15.5 6.6v13.6"/>
+{%- elif name == "people" -%}
+  <circle cx="9" cy="8" r="3"/><path d="M3.5 19.5c.6-3.3 2.8-5.2 5.5-5.2s4.9 1.9 5.5 5.2"/><circle cx="16.6" cy="8.8" r="2.4"/><path d="M15.6 13.9c2.7-.2 4.6 1.5 5 4.6"/>
+{%- elif name == "plane" -%}
+  <path d="M10.6 3.6c0-.9.6-1.6 1.4-1.6s1.4.7 1.4 1.6V9l7.6 4.6V16l-7.6-2.4v4.6l2.4 1.9v1.5L12 20.7l-3.8.9v-1.5l2.4-1.9v-4.6L3 16v-2.4L10.6 9z"/>
+{%- elif name == "guide" -%}
+  <circle cx="8" cy="6.5" r="2.5"/><path d="M3.5 21v-5.2A4.5 4.5 0 0 1 8 11.3c1.6 0 3 .8 3.8 2.1"/><path d="M15.5 21V4.5"/><path d="M15.5 4.5H21l-1.6 2.6L21 9.7h-5.5"/>
+{%- elif name == "home" -%}
+  <path d="M3.5 11.2L12 4l8.5 7.2"/><path d="M5.6 9.5V20h12.8V9.5"/><path d="M10 20v-5.5h4V20"/>
+{%- endif -%}
+</svg>
+{%- endmacro %}

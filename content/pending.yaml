@@ -60,7 +60,7 @@ pending:
       How group airfare from DFW to Istanbul is booked, with option deadlines, name-change
       rules, and cancellation terms; return routing for journeys ending on Patmos.
     asked_on: 2026-10-03
-    updates: ["faq.flights", "journeys.*.notes", "journeys.footsteps_of_paul.days[6]"]
+    updates: ["faq.flights", "journeys.*.notes", "journeys.*.days"]
 
   - id: Q-OPS-01
     owner: operator
@@ -131,7 +131,15 @@ pending:
     topic: Custom itineraries and extensions
     question: Custom itineraries for individual churches, and pre- and post-journey extensions.
     asked_on: 2026-10-03
-    updates: ["faq.custom", "extensions"]
+    updates: ["faq.custom", "custom_note"]
+
+  - id: Q-ORDER-01
+    owner: operator
+    topic: Confirm day order for Istanbul & Cappadocia
+    question: >-
+      Confirm the day order and overnight stops for the Istanbul & Cappadocia itinerary
+      (Cappadocia on Day 3, Konya on Day 4, Pamukkale on Day 5).
+    updates: ["journeys.istanbul_cappadocia.days", "journeys.istanbul_cappadocia.itinerary_note"]
 
   - id: Q-MEDIA-01
     owner: operator

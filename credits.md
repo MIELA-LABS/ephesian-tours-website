@@ -27,6 +27,15 @@ Every image and video used on the site, with its source and license.
 | `tarsus-gate` | Cleopatra’s Gate, Tarsus | Dosseman | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [link](<https://commons.wikimedia.org/wiki/File:Tarsus_Cleopatra_gate_in_2005_4434.jpg>) |
 | `perge-gate` | Perge Hellenistic gate and colonnaded street | Dosseman | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [link](<https://commons.wikimedia.org/wiki/File:Perge_Hellenistic_Gate_in_1992_02.jpg>) |
 | `troas-ruins` | Alexandria Troas ruins | Horacio36 | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) | [link](<https://commons.wikimedia.org/wiki/File:Troas_Therme_2.JPG>) |
+| `st-john` | Basilica of St. John, Selçuk | Giorgio Galeotti | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [link](<https://commons.wikimedia.org/wiki/File:Basilica_of_St._John_-_Sel%C3%A7uk,_%C4%B0zmir_Province,_Turkey_-_October_7,_2025_03.jpg>) |
+| `iconium` | Mevlana Museum, Konya (biblical Iconium) | Bernard Gagnon | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) | [link](<https://commons.wikimedia.org/wiki/File:Mevlana_M%C3%BCzesi_01.jpg>) |
+| `colossae` | The mound of Colossae near Honaz | Sakaryonca | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [link](<https://commons.wikimedia.org/wiki/File:Colossae_Antik_Tiyatrosu.jpg>) |
+| `miletus` | Theater of Miletus | Bernard Gagnon | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) | [link](<https://commons.wikimedia.org/wiki/File:Miletus_-_Ancient_Greek_theatre_02.jpg>) |
+| `attalia` | Antalya old harbor (biblical Attalia) | REHBER0770 | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [link](<https://commons.wikimedia.org/wiki/File:Antalya_kalei%C3%A7i_2.jpg>) |
+| `priene` | Temple of Athena, Priene | Tomisti | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [link](<https://commons.wikimedia.org/wiki/File:Athena_Temple_Priene_1.jpg>) |
+| `aspendos` | Roman theater, Aspendos | Lee Vilenski | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [link](<https://commons.wikimedia.org/wiki/File:Aspendos_Theatre,_Turkey_(86552).jpg>) |
+| `uchisar` | Uçhisar, Cappadocia | Bernard Gagnon | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) | [link](<https://commons.wikimedia.org/wiki/File:U%C3%A7hisar_Castle_03.jpg>) |
+| `bosphorus` | Istanbul from the Bosphorus | Moonik | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) | [link](<https://commons.wikimedia.org/wiki/File:Sultanahmet_ferry_on_the_Bosphorus_in_Istanbul,_Turkey_001.jpg>) |
 
 ## Videos
 

@@ -2,7 +2,7 @@
 
 # Pending items
 
-20 open items · 1 resolved · 65 fields on the site currently show a **Sample** badge in preview mode.
+21 open items · 1 resolved · 94 fields on the site currently show a **Sample** badge in preview mode.
 
 To resolve an item: add `answer` and `answered_on` in `content/pending.yaml`, update the fields listed under it with real values and `status: confirmed`, then run `python build.py`.
 
@@ -11,11 +11,11 @@ To resolve an item: add `answer` and `answered_on` in `content/pending.yaml`, up
 - [ ] **Q-PRICE-01: Final per-person pricing** (asked Oct 3, 2026)
   - Per-person prices for groups of 10, 20, and 30 travelers (double occupancy), the single supplement, and seasonal differences.
   - Updates: `journeys.*.from_price`
-  - Sample fields on the site (4): `journeys.seven_churches.from_price`, `journeys.footsteps_of_paul.from_price`, `journeys.best_of_turkey.from_price`, `journeys.catholic.from_price`
+  - Sample fields on the site (8): `journeys.seven_churches.from_price`, `journeys.footsteps_of_paul.from_price`, `journeys.catholic.from_price`, `journeys.best_of_turkey.from_price`, `journeys.taste_of_turkey.from_price`, `journeys.west_anatolia.from_price`, `journeys.istanbul_cappadocia.from_price`, `journeys.istanbul_cappadocia_antalya.from_price`
 - [ ] **Q-INCL-01: What’s included in each journey** (asked Oct 3, 2026)
   - Inclusions and exclusions: hotel class, meals, entrance fees, guides, domestic flights, the Patmos boat, and tips.
   - Updates: `journeys.*.included`, `journeys.*.excluded`
-  - Sample fields on the site (8): `journeys.seven_churches.included`, `journeys.seven_churches.excluded`, `journeys.footsteps_of_paul.included`, `journeys.footsteps_of_paul.excluded`, `journeys.best_of_turkey.included`, `journeys.best_of_turkey.excluded`, `journeys.catholic.included`, `journeys.catholic.excluded`
+  - Sample fields on the site (16): `journeys.seven_churches.included`, `journeys.seven_churches.excluded`, `journeys.footsteps_of_paul.included`, `journeys.footsteps_of_paul.excluded`, `journeys.catholic.included`, `journeys.catholic.excluded`, `journeys.best_of_turkey.included`, `journeys.best_of_turkey.excluded`, `journeys.taste_of_turkey.included`, `journeys.taste_of_turkey.excluded`, `journeys.west_anatolia.included`, `journeys.west_anatolia.excluded`, `journeys.istanbul_cappadocia.included`, `journeys.istanbul_cappadocia.excluded`, `journeys.istanbul_cappadocia_antalya.included`, `journeys.istanbul_cappadocia_antalya.excluded`
 - [ ] **Q-TERMS-01: Deposit, payment schedule, and cancellation terms** (asked Oct 3, 2026)
   - Deposit amount, payment schedule, cancellation policy, and minimum group size.
   - Updates: `booking.milestones`, `booking.minimum_group`, `booking.cancellation`, `faq.group_size`
@@ -27,15 +27,15 @@ To resolve an item: add `answer` and `answered_on` in `content/pending.yaml`, up
 - [ ] **Q-FOC-01: Complimentary places for pastors and group leaders** (asked Oct 3, 2026)
   - How many complimentary places are offered for pastors and group leaders at each group size, including smaller groups and group airfare.
   - Updates: `how_it_works.leader_note`, `journeys.*.notes`
-  - Sample fields on the site (5): `how_it_works.leader_note`, `journeys.seven_churches.notes[1]`, `journeys.footsteps_of_paul.notes[0]`, `journeys.best_of_turkey.notes[1]`, `journeys.catholic.notes[0]`
+  - Sample fields on the site (9): `how_it_works.leader_note`, `journeys.seven_churches.notes[1]`, `journeys.footsteps_of_paul.notes[0]`, `journeys.catholic.notes[0]`, `journeys.best_of_turkey.notes[1]`, `journeys.taste_of_turkey.notes[1]`, `journeys.west_anatolia.notes[0]`, `journeys.istanbul_cappadocia.notes[0]`, `journeys.istanbul_cappadocia_antalya.notes[0]`
 - [ ] **Q-AIR-01: Group airfare from DFW** (asked Oct 3, 2026)
   - How group airfare from DFW to Istanbul is booked, with option deadlines, name-change rules, and cancellation terms; return routing for journeys ending on Patmos.
-  - Updates: `faq.flights`, `journeys.*.notes`, `journeys.footsteps_of_paul.days[6]`
-  - Sample fields on the site (4): `journeys.seven_churches.notes[0]`, `journeys.footsteps_of_paul.days[6].note`, `journeys.best_of_turkey.notes[0]`, `faq.flights`
+  - Updates: `faq.flights`, `journeys.*.notes`, `journeys.*.days`
+  - Sample fields on the site (8): `journeys.seven_churches.notes[0]`, `journeys.footsteps_of_paul.days[6].note`, `journeys.best_of_turkey.notes[0]`, `journeys.taste_of_turkey.notes[0]`, `journeys.west_anatolia.days[8].note`, `journeys.istanbul_cappadocia.days[8].note`, `journeys.istanbul_cappadocia_antalya.days[8].note`, `faq.flights`
 - [ ] **Q-OPS-01: Arrival welcome and guides** (asked Oct 3, 2026)
   - Meet-and-greet arrangements on arrival (Istanbul or İzmir), and English-speaking licensed guides with biblical knowledge.
   - Updates: `how_it_works.steps`, `partner.facts`, `journeys.*.days[1]`
-  - Sample fields on the site (6): `how_it_works.steps[3]`, `partner.facts[4]`, `journeys.seven_churches.days[1].note`, `journeys.footsteps_of_paul.days[1].note`, `journeys.best_of_turkey.days[1].note`, `journeys.catholic.days[1].note`
+  - Sample fields on the site (10): `how_it_works.steps[3]`, `partner.facts[4]`, `journeys.seven_churches.days[1].note`, `journeys.footsteps_of_paul.days[1].note`, `journeys.catholic.days[1].note`, `journeys.best_of_turkey.days[1].note`, `journeys.taste_of_turkey.days[1].note`, `journeys.west_anatolia.days[1].note`, `journeys.istanbul_cappadocia.days[1].note`, `journeys.istanbul_cappadocia_antalya.days[1].note`
 - [ ] **Q-INS-01: Travel insurance and emergency support** (asked Oct 3, 2026)
   - Recommended travel and health insurance, and emergency procedures during the trip.
   - Updates: `booking.insurance_note`, `faq.insurance`
@@ -59,15 +59,19 @@ To resolve an item: add `answer` and `answered_on` in `content/pending.yaml`, up
 - [ ] **Q-HAGIA-01: Hagia Sophia group visits** (asked Oct 3, 2026)
   - How group visits to Hagia Sophia are currently arranged.
   - Updates: `faq.hagia_sophia`, `journeys.*.days`
-  - Sample fields on the site (5): `journeys.seven_churches.days[2].note`, `journeys.footsteps_of_paul.days[2].note`, `journeys.best_of_turkey.days[2].note`, `journeys.catholic.days[7].note`, `faq.hagia_sophia`
+  - Sample fields on the site (9): `journeys.seven_churches.days[2].note`, `journeys.footsteps_of_paul.days[2].note`, `journeys.catholic.days[7].note`, `journeys.best_of_turkey.days[2].note`, `journeys.taste_of_turkey.days[6].note`, `journeys.west_anatolia.days[3].note`, `journeys.istanbul_cappadocia.days[2].note`, `journeys.istanbul_cappadocia_antalya.days[2].note`, `faq.hagia_sophia`
 - [ ] **Q-CATHOLIC-01: Catholic pilgrimage program** (asked Oct 3, 2026)
   - Confirmation of a 7–8 day Catholic pilgrimage: Ephesus, the House of the Virgin Mary, the Basilica of St. John, Patmos, Laodicea, and Istanbul.
   - Updates: `journeys.catholic`
   - Sample fields on the site (1): `journeys.catholic`
 - [ ] **Q-CUSTOM-01: Custom itineraries and extensions** (asked Oct 3, 2026)
   - Custom itineraries for individual churches, and pre- and post-journey extensions.
-  - Updates: `faq.custom`, `extensions`
-  - Sample fields on the site (2): `extensions`, `faq.custom`
+  - Updates: `faq.custom`, `custom_note`
+  - Sample fields on the site (2): `custom_note`, `faq.custom`
+- [ ] **Q-ORDER-01: Confirm day order for Istanbul & Cappadocia**
+  - Confirm the day order and overnight stops for the Istanbul & Cappadocia itinerary (Cappadocia on Day 3, Konya on Day 4, Pamukkale on Day 5).
+  - Updates: `journeys.istanbul_cappadocia.days`, `journeys.istanbul_cappadocia.itinerary_note`
+  - Sample fields on the site (1): `journeys.istanbul_cappadocia.itinerary_note`
 - [ ] **Q-MEDIA-01: Photos, videos, and references** (asked Oct 3, 2026)
   - Original photos and videos for the site, and references from past U.S. church groups.
   - Updates: `videos`

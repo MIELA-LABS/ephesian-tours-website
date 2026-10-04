@@ -6,7 +6,7 @@
       <h2 id="sites-title">{{ s.heading }}</h2>
       {% if s.intro %}<p class="section__intro">{{ s.intro }}</p>{% endif %}
     </header>
-    {% for g in groups %}
+    {% for g in site_groups %}
     <div class="site-group">
       <div class="site-group__header reveal">
         <h3>{{ g.label }}</h3>

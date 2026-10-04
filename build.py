@@ -169,6 +169,14 @@ def cross_check(c: dict[str, Any]) -> tuple[list[str], dict[str, list[str]]]:
         if j.video and j.video not in video_ids:
             errors.append(f"journeys.{j.id}.video: unknown video '{j.video}' (add it to media.yaml)")
 
+    for s in c["sites"]:
+        if s.featured and not s.image:
+            errors.append(f"sites.{s.id}: featured site has no image (every site card needs a photo)")
+    group_ids = {g.id for g in c["journey_groups"]}
+    for j in c["journeys"]:
+        if j.group not in group_ids:
+            errors.append(f"journeys.{j.id}.group: '{j.group}' is not in journey_groups")
+
     for img in c["images"]:
         if img.ready:
             for w in img.widths:

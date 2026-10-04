@@ -200,6 +200,97 @@ images:
     license: CC BY-SA 3.0
     license_url: https://creativecommons.org/licenses/by-sa/3.0
 
+  - id: st_john
+    subject: Basilica of St. John, Selçuk
+    alt: Marble column capitals and the restored columns of the Basilica of St. John on Ayasuluk Hill
+    file: st-john
+    width: 1600
+    height: 1067
+    source_url: https://commons.wikimedia.org/wiki/File:Basilica_of_St._John_-_Sel%C3%A7uk,_%C4%B0zmir_Province,_Turkey_-_October_7,_2025_03.jpg
+    author: "Giorgio Galeotti"
+    license: CC BY-SA 4.0
+    license_url: https://creativecommons.org/licenses/by-sa/4.0
+  - id: iconium
+    subject: Mevlana Museum, Konya (biblical Iconium)
+    alt: The green-tiled dome and minaret of the Mevlana Museum in Konya
+    file: iconium
+    width: 1600
+    height: 1132
+    source_url: https://commons.wikimedia.org/wiki/File:Mevlana_M%C3%BCzesi_01.jpg
+    author: "Bernard Gagnon"
+    license: CC BY-SA 3.0
+    license_url: https://creativecommons.org/licenses/by-sa/3.0
+  - id: colossae
+    subject: The mound of Colossae near Honaz
+    alt: The grassy, largely unexcavated mound of ancient Colossae, with the Honaz mountains behind
+    file: colossae
+    width: 1600
+    height: 1200
+    source_url: https://commons.wikimedia.org/wiki/File:Colossae_Antik_Tiyatrosu.jpg
+    author: "Sakaryonca"
+    license: CC BY-SA 4.0
+    license_url: https://creativecommons.org/licenses/by-sa/4.0
+  - id: miletus
+    subject: Theater of Miletus
+    alt: The great theater of Miletus under a summer sky
+    file: miletus
+    width: 1600
+    height: 1076
+    source_url: https://commons.wikimedia.org/wiki/File:Miletus_-_Ancient_Greek_theatre_02.jpg
+    author: "Bernard Gagnon"
+    license: CC BY-SA 3.0
+    license_url: https://creativecommons.org/licenses/by-sa/3.0
+  - id: attalia
+    subject: Antalya old harbor (biblical Attalia)
+    alt: The old harbor of Antalya, biblical Attalia, below the walled town and the turquoise sea
+    file: attalia
+    width: 1600
+    height: 1200
+    source_url: https://commons.wikimedia.org/wiki/File:Antalya_kalei%C3%A7i_2.jpg
+    author: "REHBER0770"
+    license: CC BY-SA 4.0
+    license_url: https://creativecommons.org/licenses/by-sa/4.0
+  - id: priene
+    subject: Temple of Athena, Priene
+    alt: Standing Ionic columns of the Temple of Athena at Priene below a rocky cliff
+    file: priene
+    width: 1600
+    height: 1200
+    source_url: https://commons.wikimedia.org/wiki/File:Athena_Temple_Priene_1.jpg
+    author: "Tomisti"
+    license: CC BY-SA 4.0
+    license_url: https://creativecommons.org/licenses/by-sa/4.0
+  - id: aspendos
+    subject: Roman theater, Aspendos
+    alt: The remarkably preserved Roman theater at Aspendos, its seats and arcaded gallery intact
+    file: aspendos
+    width: 1600
+    height: 1200
+    source_url: https://commons.wikimedia.org/wiki/File:Aspendos_Theatre,_Turkey_(86552).jpg
+    author: "Lee Vilenski"
+    license: CC BY-SA 4.0
+    license_url: https://creativecommons.org/licenses/by-sa/4.0
+  - id: uchisar
+    subject: Uçhisar, Cappadocia
+    alt: The rock citadel of Uçhisar rising above the fairy chimneys of Cappadocia
+    file: uchisar
+    width: 1600
+    height: 1067
+    source_url: https://commons.wikimedia.org/wiki/File:U%C3%A7hisar_Castle_03.jpg
+    author: "Bernard Gagnon"
+    license: CC BY-SA 3.0
+    license_url: https://creativecommons.org/licenses/by-sa/3.0
+  - id: bosphorus
+    subject: Istanbul from the Bosphorus
+    alt: A ferry on the Bosphorus with the domes and minarets of Hagia Sophia behind it
+    file: bosphorus
+    width: 1600
+    height: 1062
+    source_url: https://commons.wikimedia.org/wiki/File:Sultanahmet_ferry_on_the_Bosphorus_in_Istanbul,_Turkey_001.jpg
+    author: "Moonik"
+    license: CC BY-SA 3.0
+    license_url: https://creativecommons.org/licenses/by-sa/3.0
+
 videos:
   # These are NOT Azim Tours' own footage: Azim's site embeds them from the videographer's
   # Vimeo account. Embedded via Vimeo's official player (embedding enabled by the uploader),

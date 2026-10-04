@@ -175,6 +175,7 @@ class WhyPoint(Strict):
 
 
 class Step(Provenance):
+    icon: Literal["map", "people", "plane", "guide", "home"]
     title: str
     body: str
     note: str | None = None  # explanatory note shown when the step is a sample
@@ -271,7 +272,7 @@ class SiteGroup(Strict):
 
 
 class SitesFile(Strict):
-    groups: list[SiteGroup]
+    site_groups: list[SiteGroup]
     sites: list[Place]
 
 
@@ -302,8 +303,15 @@ class Day(Provenance):
         return _check_refs(v)
 
 
+class JourneyGroup(Strict):
+    id: Literal["bible", "discover"]
+    label: str
+    intro: str | None = None
+
+
 class Journey(Provenance):
     id: SlugId
+    group: Literal["bible", "discover"]
     title: str
     subtitle: str
     tag: str | None = None
@@ -318,6 +326,7 @@ class Journey(Provenance):
     included: Tracked[list[str]]
     excluded: Tracked[list[str]]
     notes: list[Tracked[str]] = []
+    itinerary_note: Tracked[str] | None = None  # caveat shown above the day-by-day list
     video: str | None = None
 
     @model_validator(mode="after")
@@ -330,21 +339,10 @@ class Journey(Provenance):
         return self
 
 
-class Extension(Strict):
-    title: str
-    length: str
-    body: str
-
-
-class Extensions(Provenance):
-    heading: str
-    intro: str
-    items: list[Extension]
-
-
 class JourneysFile(Strict):
+    journey_groups: list[JourneyGroup]
     journeys: list[Journey]
-    extensions: Extensions
+    custom_note: Tracked[str]  # one line under the journeys: every journey can be combined or customized
 
 
 # --- faq.yaml --------------------------------------------------------------

@@ -6,7 +6,7 @@
 # lat/lng are approximate (WGS84) and only used for the Leaflet route maps.
 # refs: scripture references, en dash for ranges ("Acts 13:13–14").
 
-groups:
+site_groups:
   - id: seven_churches
     label: The seven churches of Revelation
     intro: Seven letters, seven cities, all within a few days’ drive of one another.
@@ -169,6 +169,20 @@ sites:
       left them, and preached here on their way home. Its towered gate and long colonnaded
       street are among the best preserved in Turkey.
 
+  - id: antalya
+    name: Attalia
+    modern_name: Antalya
+    group: paul
+    featured: true
+    lat: 36.8841
+    lng: 30.7056
+    refs: [Acts 14:25]
+    image: attalia
+    history: >-
+      Paul and Barnabas came down to this harbor at the end of their first missionary journey.
+      Today’s Antalya keeps its walled old town, Kaleiçi, its Roman harbor, and the triple
+      arch of Hadrian’s Gate, built for the emperor’s visit in AD 130.
+
   - id: konya
     name: Iconium
     modern_name: Konya
@@ -177,6 +191,7 @@ sites:
     lat: 37.8708
     lng: 32.5048
     refs: [Acts 14:1–6]
+    image: iconium
     history: >-
       Biblical Iconium, where Paul and Barnabas preached on their first missionary journey
       until opposition drove them on to Lystra and Derbe. Today Konya is a large city, best
@@ -190,6 +205,7 @@ sites:
     lat: 37.7881
     lng: 29.2614
     refs: [Col 1:2]
+    image: colossae
     history: >-
       The city that received Paul’s letter to the Colossians, traditionally the home of
       Philemon. Unlike its neighbors, Colossae is still a largely unexcavated mound, a quiet
@@ -208,6 +224,20 @@ sites:
       A spa city built above the white travertine terraces of Pamukkale. Paul mentions its
       believers alongside those of Laodicea, and according to tradition the apostle Philip
       was martyred here; an octagonal shrine in his honor still stands on the hillside.
+
+  - id: miletus
+    name: Miletus
+    modern_name: near Didim
+    group: paul
+    featured: true
+    lat: 37.5306
+    lng: 27.2780
+    refs: [Acts 20:15–38]
+    image: miletus
+    history: >-
+      Once a great Ionian harbor city, now miles inland as the river silted up. On his way to
+      Jerusalem, Paul stopped at Miletus and sent for the elders of the church at Ephesus,
+      giving them a moving farewell on the shore. Its vast theater still stands.
 
   - id: troas
     name: Alexandria Troas
@@ -260,6 +290,7 @@ sites:
     featured: true
     lat: 37.9519
     lng: 27.3681
+    image: st_john
     history: >-
       In the sixth century Emperor Justinian built a great basilica over the traditional
       tomb of the apostle John on Ayasuluk Hill. Its restored columns and baptistery look
@@ -300,7 +331,13 @@ sites:
   - {id: troy, name: Troy, lat: 39.9573, lng: 26.2389}
   - {id: gallipoli, name: Gallipoli, lat: 40.1840, lng: 26.3570}
   - {id: ankara, name: Ankara, lat: 39.9250, lng: 32.8369}
-  - {id: antalya, name: Antalya, lat: 36.8841, lng: 30.7056}
+  - {id: bursa, name: Bursa, lat: 40.1830, lng: 29.0670}
+  - {id: priene, name: Priene, lat: 37.6592, lng: 27.2975}
+  - {id: didyma, name: Didyma, lat: 37.3847, lng: 27.2561}
+  - {id: uchisar, name: Uçhisar, lat: 38.6303, lng: 34.8051}
+  - {id: derinkuyu, name: Derinkuyu, lat: 38.3737, lng: 34.7346}
+  - {id: side, name: Side, lat: 36.7672, lng: 31.3889}
+  - {id: manavgat, name: Manavgat Waterfall, lat: 36.8140, lng: 31.4490}
   - {id: sirince, name: Şirince, lat: 37.9441, lng: 27.4325}
 
   # --- Overnight towns and airports (route waypoints) ------------------------
@@ -308,3 +345,5 @@ sites:
   - {id: alanya, name: Alanya, kind: stop, lat: 36.5437, lng: 31.9998}
   - {id: kusadasi, name: Kuşadası, kind: stop, lat: 37.8579, lng: 27.2610}
   - {id: canakkale, name: Çanakkale, kind: stop, lat: 40.1467, lng: 26.4086}
+  - {id: kayseri, name: Kayseri, kind: stop, lat: 38.7312, lng: 35.4787}
+  - {id: avanos, name: Avanos, kind: stop, lat: 38.7148, lng: 34.8466}
