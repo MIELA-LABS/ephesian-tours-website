@@ -1,0 +1,15 @@
+.DS_Store
+.env
+__pycache__/
+*.pyc
+.venv/
+dist/
+node_modules/
+*.log
+.vscode/
+.idea/
+
+# Private business notes: NEVER commit (public repo)
+CLAUDE.md
+CLAUDE.local.md
+internal/
