@@ -95,6 +95,6 @@ To resolve an item: add `answer` and `answered_on` in `content/pending.yaml`, up
 ## Resolved
 
 - [x] **Q-TURSAB-01: TÜRSAB license number** (asked Oct 3, 2026)
-  - The ground operator’s TÜRSAB license number, for the verification badge.
-  - **Answer** (Oct 3, 2026): TÜRSAB license no. 938, verifiable through TÜRSAB’s digital verification system.
+  - The ground operator’s TÜRSAB license number.
+  - **Answer** (Oct 3, 2026): TÜRSAB license no. 938.
   - Updates: `partner.license_no`

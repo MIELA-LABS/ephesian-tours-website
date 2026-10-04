@@ -191,7 +191,6 @@ class Partner(Strict):
     founded: int
     license_no: Tracked[str]
     license_body: str
-    verify_url: HttpUrl
     summary: str
     facts: list[Tracked[str]]
 

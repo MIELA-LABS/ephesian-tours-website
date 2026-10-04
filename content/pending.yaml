@@ -144,9 +144,9 @@ pending:
   - id: Q-TURSAB-01
     owner: operator
     topic: TÜRSAB license number
-    question: The ground operator’s TÜRSAB license number, for the verification badge.
+    question: The ground operator’s TÜRSAB license number.
     asked_on: 2026-10-03
-    answer: TÜRSAB license no. 938, verifiable through TÜRSAB’s digital verification system.
+    answer: TÜRSAB license no. 938.
     answered_on: 2026-10-03
     updates: ["partner.license_no"]
 

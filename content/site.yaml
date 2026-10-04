@@ -171,7 +171,6 @@ partner:
     status: confirmed
     resolves_by: Q-TURSAB-01
   license_body: TÜRSAB, the Association of Turkish Travel Agencies
-  verify_url: https://www.tursab.org.tr/tr/ddsv
   summary: >-
     Every journey’s arrangements in Turkey (hotels, coaches, guides, entrance tickets, and
     ferries) are operated by Azim Tours of Kuşadası, a short drive from Ephesus. Biblical
