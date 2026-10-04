@@ -79,7 +79,9 @@
 
   {% include "partials/footer.html.j2" %}
 
-  <a class="mobile-cta button button--accent is-hidden" href="{{ hero.cta_secondary.href }}">Plan a Trip</a>
+  <nav class="mobile-cta-wrap" aria-label="Plan a trip">
+    <a class="mobile-cta button button--accent is-hidden" href="{{ hero.cta_secondary.href }}">Plan a Trip</a>
+  </nav>
 
   <script type="application/json" id="route-data">{{ map_data|safe }}</script>
   <script src="./assets/js/main.js" defer></script>

@@ -56,10 +56,10 @@
                 {% endfor %}
               </ol>
 
-              <aside class="itinerary__aside" aria-label="{{ j.title }}: map and details">
+              <div class="itinerary__aside">
                 {% set route = j.route %}
                 <figure class="route">
-                  <div class="route__map" data-map="{{ j.id }}" role="img"
+                  <div class="route__map" data-map="{{ j.id }}" role="region"
                     aria-label="Route map: {% for r in route %}{{ sites_by_id[r.site].name }}{% if r.by != 'road' %} (by {{ r.by }}){% endif %}{% if not loop.last %}, {% endif %}{% endfor %}">
                     <p class="route__fallback">The route map loads when you open the itinerary.</p>
                   </div>
@@ -96,7 +96,7 @@
                   {% endif %}
                 </div>
                 <a class="button button--accent itinerary__cta" href="#contact" data-journey-cta="{{ j.title }}">Ask about this journey</a>
-              </aside>
+              </div>
             </div>
           </div>
         </details>
@@ -104,7 +104,7 @@
       {% endfor %}
     </div>
 
-    <aside class="extensions reveal" aria-labelledby="extensions-title">
+    <div class="extensions reveal">
       <div class="extensions__intro">
         <h3 id="extensions-title">{{ extensions.heading }}{{ m.badge(extensions) }}</h3>
         <p>{{ extensions.intro }}</p>
@@ -118,6 +118,6 @@
         </li>
         {% endfor %}
       </ul>
-    </aside>
+    </div>
   </div>
 </section>

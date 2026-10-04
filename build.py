@@ -353,7 +353,7 @@ def write_credits_md(c: dict[str, Any]) -> None:
         lines += ["| Image | Subject | Author | License | Source |", "|---|---|---|---|---|"]
         for i in ready:
             lic = f"[{i.license}]({i.license_url})" if i.license_url else i.license
-            lines.append(f"| `{i.file}` | {i.subject} | {i.author} | {lic} | [link]({i.source_url}) |")
+            lines.append(f"| `{i.file}` | {i.subject} | {i.author} | {lic} | [link](<{i.source_url}>) |")
     else:
         lines.append("No images sourced yet.")
     pending_imgs = [i for i in c["images"] if not i.ready]
@@ -363,7 +363,7 @@ def write_credits_md(c: dict[str, Any]) -> None:
     if c["videos"]:
         lines += ["", "## Videos", "", "| Video | Author | License | Source |", "|---|---|---|---|"]
         for v in c["videos"]:
-            lines.append(f"| {v.title} | {v.author} | {v.license} | [{v.source_url}]({v.source_url}) |")
+            lines.append(f"| {v.title} | {v.author} | {v.license} | [{v.source_url}](<{v.source_url}>) |")
     lines.append("")
     (ROOT / "credits.md").write_text("\n".join(lines), encoding="utf-8")
 

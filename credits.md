@@ -8,29 +8,29 @@ Every image and video used on the site, with its source and license.
 
 | Image | Subject | Author | License | Source |
 |---|---|---|---|---|
-| `celsus` | Library of Celsus, Ephesus | Carole Raddato from FRANKFURT, Germany | [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0) | [link](https://commons.wikimedia.org/wiki/File:Facade_of_the_Library_of_Celsus,_Ephesus,_Turkey_(16514959884).jpg) |
-| `theatre-ephesus` | Great Theatre of Ephesus | Dosseman | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [link](https://commons.wikimedia.org/wiki/File:Ephesus_Great_Theatre_seats_in_1992_066.jpg) |
-| `pamukkale` | Pamukkale travertines | Slyronit | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [link](https://commons.wikimedia.org/wiki/File:The_Travertine_terraces_of_Pamukkale.jpg) |
-| `hierapolis` | Hierapolis ruins | Carole Raddato from FRANKFURT, Germany | [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0) | [link](https://commons.wikimedia.org/wiki/File:The_Roman_theatre,_built_in_the_2nd_century_AD_under_Hadrian_on_the_ruins_of_an_earlier_theatre,_later_renovated_under_Septimius_Severus,_Hierapolis,_Turkey_(17033619498).jpg) |
-| `cappadocia` | Cappadocia balloons and fairy chimneys | Michael Day | [CC BY 2.0](https://creativecommons.org/licenses/by/2.0) | [link](https://commons.wikimedia.org/wiki/File:Fairy_Chimneys_(6648807241).jpg) |
-| `house-of-mary` | House of the Virgin Mary exterior | eleesege | [CC BY 3.0](https://creativecommons.org/licenses/by/3.0) | [link](https://commons.wikimedia.org/wiki/File:Virgin_Marys_House_near_Ephesus_-_panoramio.jpg) |
-| `hagia-sophia` | Hagia Sophia exterior | Arild Vågen | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) | [link](https://commons.wikimedia.org/wiki/File:Hagia_Sophia_Mars_2013.jpg) |
-| `laodicea` | Laodicea columns | Dosseman | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [link](https://commons.wikimedia.org/wiki/File:Laodikeia_ad_Lycum_Syria_street_4752.jpg) |
-| `pergamum` | Pergamum acropolis and theater | Antoloji | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [link](https://commons.wikimedia.org/wiki/File:Acropolis_amphitheatre_of_Pergamon_(2020).jpg) |
-| `patmos` | Patmos, Chora and the Monastery of St. John | Valeria Casali | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [link](https://commons.wikimedia.org/wiki/File:Chora_di_Patmos_con_il_Monastero_di_San_Giovanni_il_teologo_2.jpg) |
-| `sardis` | Sardis gymnasium | Carole Raddato from FRANKFURT, Germany | [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0) | [link](https://commons.wikimedia.org/wiki/File:The_Bath-Gymnasium_complex_at_Sardis,_late_2nd_-_early_3rd_century_AD,_Sardis,_Turkey_(16391012853).jpg) |
-| `aegean-sunset` | Aegean coast at sunset | Zeynel Cebeci | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [link](https://commons.wikimedia.org/wiki/File:Sunset_at_Aegean_Sea,_%C4%B0zmir_06.jpg) |
-| `antioch-cave` | St. Peter’s Cave Church, Antakya (pre-2023 photo) | Dosseman | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [link](https://commons.wikimedia.org/wiki/File:Antakya_Church_of_St._Peter_exterior_%C4%B1n_2004_01.jpg) |
-| `smyrna-agora` | Agora of Smyrna, İzmir | 31774 (Wikimedia Commons user) | [CC0](http://creativecommons.org/publicdomain/zero/1.0/deed.en) | [link](https://commons.wikimedia.org/wiki/File:Agora_of_%C4%B0zmir,_July_2012.jpg) |
-| `thyatira-ruins` | Thyatira ruins, Akhisar | Klaus-Peter Simon | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) | [link](https://commons.wikimedia.org/wiki/File:ThyatiraBasilika.jpg) |
-| `philadelphia-pillars` | Church of St. John pillars, Alaşehir | simonjenkins’ photos (Flickr) | [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0) | [link](https://commons.wikimedia.org/wiki/File:Ala%C5%9Fehir_Church_of_St._John_2.jpg) |
-| `tarsus-gate` | Cleopatra’s Gate, Tarsus | Dosseman | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [link](https://commons.wikimedia.org/wiki/File:Tarsus_Cleopatra_gate_in_2005_4434.jpg) |
-| `perge-gate` | Perge Hellenistic gate and colonnaded street | Dosseman | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [link](https://commons.wikimedia.org/wiki/File:Perge_Hellenistic_Gate_in_1992_02.jpg) |
-| `troas-ruins` | Alexandria Troas ruins | Horacio36 | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) | [link](https://commons.wikimedia.org/wiki/File:Troas_Therme_2.JPG) |
+| `celsus` | Library of Celsus, Ephesus | Carole Raddato from FRANKFURT, Germany | [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0) | [link](<https://commons.wikimedia.org/wiki/File:Facade_of_the_Library_of_Celsus,_Ephesus,_Turkey_(16514959884).jpg>) |
+| `theatre-ephesus` | Great Theatre of Ephesus | Dosseman | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [link](<https://commons.wikimedia.org/wiki/File:Ephesus_Great_Theatre_seats_in_1992_066.jpg>) |
+| `pamukkale` | Pamukkale travertines | Slyronit | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [link](<https://commons.wikimedia.org/wiki/File:The_Travertine_terraces_of_Pamukkale.jpg>) |
+| `hierapolis` | Hierapolis ruins | Carole Raddato from FRANKFURT, Germany | [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0) | [link](<https://commons.wikimedia.org/wiki/File:The_Roman_theatre,_built_in_the_2nd_century_AD_under_Hadrian_on_the_ruins_of_an_earlier_theatre,_later_renovated_under_Septimius_Severus,_Hierapolis,_Turkey_(17033619498).jpg>) |
+| `cappadocia` | Cappadocia balloons and fairy chimneys | Michael Day | [CC BY 2.0](https://creativecommons.org/licenses/by/2.0) | [link](<https://commons.wikimedia.org/wiki/File:Fairy_Chimneys_(6648807241).jpg>) |
+| `house-of-mary` | House of the Virgin Mary exterior | eleesege | [CC BY 3.0](https://creativecommons.org/licenses/by/3.0) | [link](<https://commons.wikimedia.org/wiki/File:Virgin_Marys_House_near_Ephesus_-_panoramio.jpg>) |
+| `hagia-sophia` | Hagia Sophia exterior | Arild Vågen | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) | [link](<https://commons.wikimedia.org/wiki/File:Hagia_Sophia_Mars_2013.jpg>) |
+| `laodicea` | Laodicea columns | Dosseman | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [link](<https://commons.wikimedia.org/wiki/File:Laodikeia_ad_Lycum_Syria_street_4752.jpg>) |
+| `pergamum` | Pergamum acropolis and theater | Antoloji | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [link](<https://commons.wikimedia.org/wiki/File:Acropolis_amphitheatre_of_Pergamon_(2020).jpg>) |
+| `patmos` | Patmos, Chora and the Monastery of St. John | Valeria Casali | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [link](<https://commons.wikimedia.org/wiki/File:Chora_di_Patmos_con_il_Monastero_di_San_Giovanni_il_teologo_2.jpg>) |
+| `sardis` | Sardis gymnasium | Carole Raddato from FRANKFURT, Germany | [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0) | [link](<https://commons.wikimedia.org/wiki/File:The_Bath-Gymnasium_complex_at_Sardis,_late_2nd_-_early_3rd_century_AD,_Sardis,_Turkey_(16391012853).jpg>) |
+| `aegean-sunset` | Aegean coast at sunset | Zeynel Cebeci | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [link](<https://commons.wikimedia.org/wiki/File:Sunset_at_Aegean_Sea,_%C4%B0zmir_06.jpg>) |
+| `antioch-cave` | St. Peter’s Cave Church, Antakya (pre-2023 photo) | Dosseman | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [link](<https://commons.wikimedia.org/wiki/File:Antakya_Church_of_St._Peter_exterior_%C4%B1n_2004_01.jpg>) |
+| `smyrna-agora` | Agora of Smyrna, İzmir | 31774 (Wikimedia Commons user) | [CC0](http://creativecommons.org/publicdomain/zero/1.0/deed.en) | [link](<https://commons.wikimedia.org/wiki/File:Agora_of_%C4%B0zmir,_July_2012.jpg>) |
+| `thyatira-ruins` | Thyatira ruins, Akhisar | Klaus-Peter Simon | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) | [link](<https://commons.wikimedia.org/wiki/File:ThyatiraBasilika.jpg>) |
+| `philadelphia-pillars` | Church of St. John pillars, Alaşehir | simonjenkins’ photos (Flickr) | [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0) | [link](<https://commons.wikimedia.org/wiki/File:Ala%C5%9Fehir_Church_of_St._John_2.jpg>) |
+| `tarsus-gate` | Cleopatra’s Gate, Tarsus | Dosseman | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [link](<https://commons.wikimedia.org/wiki/File:Tarsus_Cleopatra_gate_in_2005_4434.jpg>) |
+| `perge-gate` | Perge Hellenistic gate and colonnaded street | Dosseman | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [link](<https://commons.wikimedia.org/wiki/File:Perge_Hellenistic_Gate_in_1992_02.jpg>) |
+| `troas-ruins` | Alexandria Troas ruins | Horacio36 | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) | [link](<https://commons.wikimedia.org/wiki/File:Troas_Therme_2.JPG>) |
 
 ## Videos
 
 | Video | Author | License | Source |
 |---|---|---|---|
-| Ephesus Ancient City | Celsus Library | Yasin İlcebay | Embedded via Vimeo’s official player; all rights reserved by the author | [https://vimeo.com/180284772](https://vimeo.com/180284772) |
-| Sardis Ancient City | Yasin İlcebay | Embedded via Vimeo’s official player; all rights reserved by the author | [https://vimeo.com/142346598](https://vimeo.com/142346598) |
+| Ephesus Ancient City | Celsus Library | Yasin İlcebay | Embedded via Vimeo’s official player; all rights reserved by the author | [https://vimeo.com/180284772](<https://vimeo.com/180284772>) |
+| Sardis Ancient City | Yasin İlcebay | Embedded via Vimeo’s official player; all rights reserved by the author | [https://vimeo.com/142346598](<https://vimeo.com/142346598>) |
