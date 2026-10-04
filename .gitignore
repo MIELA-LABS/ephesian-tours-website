@@ -16,3 +16,4 @@ internal/
 
 # QA screenshots
 qa/
+.cache/

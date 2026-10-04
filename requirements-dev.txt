@@ -1,4 +1,6 @@
 -r requirements.txt
-# QA screenshots and image processing (not needed to build the site)
+# QA screenshots, image processing, and brand-asset generation (not needed to build the site)
 Pillow==12.3.0
 playwright==1.63.0
+fonttools==4.66.1
+uharfbuzz==0.56.2
