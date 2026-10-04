@@ -555,6 +555,16 @@ ul, ol { margin: 0; padding: 0; }
 .faq__item > summary .badge-sample { margin-left: 0; }
 .faq__a { padding: 0 0 1.4rem; max-width: 46rem; }
 
+/* ---------- Verse band ---------- */
+.verse { position: relative; isolation: isolate; display: grid; place-items: center; min-height: clamp(20rem, 45vw, 30rem); padding-block: 4rem; color: #FFFDF8; text-align: center; background: #2B2622; }
+.verse__media { position: absolute; inset: 0; z-index: -2; }
+.verse__img, .verse__media .img-placeholder { width: 100%; height: 100%; object-fit: cover; }
+.verse::after { content: ""; position: absolute; inset: 0; z-index: -1; background: rgb(14 18 24 / .5); }
+.verse__body { margin: 0 auto; max-width: 52rem; }
+.verse blockquote { margin: 0; }
+.verse blockquote p { font-family: var(--font-display); font-size: clamp(1.9rem, 1.3rem + 2.6vw, 3.2rem); font-style: italic; font-weight: 500; line-height: 1.2; text-wrap: balance; }
+.verse figcaption { margin-top: 1rem; font-size: .95rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+
 /* ---------- Host ---------- */
 .host { display: grid; gap: 2.5rem; align-items: center; }
 @media (min-width: 800px) { .host { grid-template-columns: minmax(0, 20rem) minmax(0, 1fr); gap: 4rem; } }
@@ -618,6 +628,7 @@ ul, ol { margin: 0; padding: 0; }
 .site-footer__legal { margin-top: 3rem; color: #C9BFAE; font-size: .95rem; }
 .site-footer__legal-inner { padding-top: 1.5rem; border-top: 1px solid #3A352F; }
 .site-footer__operator { color: #EDE6D9; }
+.site-footer__notice { font-size: .9rem; }
 .credits { margin: 1rem 0; }
 .credits summary { cursor: pointer; font-weight: 600; }
 .credits ul { list-style: none; display: grid; gap: .3rem; margin-top: .75rem; }

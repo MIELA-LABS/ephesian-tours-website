@@ -9,60 +9,196 @@ images:
   - id: celsus
     subject: Library of Celsus, Ephesus
     alt: The two-story marble façade of the Library of Celsus at Ephesus
+    file: celsus
+    width: 2000
+    height: 1330
+    widths: [800, 1400, 2000]
+    position: center 35%
+    source_url: https://commons.wikimedia.org/wiki/File:Facade_of_the_Library_of_Celsus,_Ephesus,_Turkey_(16514959884).jpg
+    author: "Carole Raddato from FRANKFURT, Germany"
+    license: CC BY-SA 2.0
+    license_url: https://creativecommons.org/licenses/by-sa/2.0
   - id: theatre_ephesus
     subject: Great Theatre of Ephesus
-    alt: The Great Theatre of Ephesus, its stone seats rising up the hillside
+    alt: The Great Theatre of Ephesus seen from its upper seats, with the Arcadian Way leading toward the old harbor
+    file: theatre-ephesus
+    width: 1600
+    height: 1038
+    position: center 60%
+    source_url: https://commons.wikimedia.org/wiki/File:Ephesus_Great_Theatre_seats_in_1992_066.jpg
+    author: "Dosseman"
+    license: CC BY-SA 4.0
+    license_url: https://creativecommons.org/licenses/by-sa/4.0
   - id: pamukkale
     subject: Pamukkale travertines
-    alt: White travertine terraces filled with turquoise water at Pamukkale
+    alt: White travertine terraces and pools at Pamukkale
+    file: pamukkale
+    width: 1600
+    height: 1200
+    source_url: https://commons.wikimedia.org/wiki/File:The_Travertine_terraces_of_Pamukkale.jpg
+    author: "Slyronit"
+    license: CC BY-SA 4.0
+    license_url: https://creativecommons.org/licenses/by-sa/4.0
   - id: hierapolis
     subject: Hierapolis ruins
-    alt: Ruins of the ancient city of Hierapolis above Pamukkale
+    alt: The Roman theater of Hierapolis, its stage building restored, above the Pamukkale plain
+    file: hierapolis
+    width: 1600
+    height: 1061
+    source_url: https://commons.wikimedia.org/wiki/File:The_Roman_theatre,_built_in_the_2nd_century_AD_under_Hadrian_on_the_ruins_of_an_earlier_theatre,_later_renovated_under_Septimius_Severus,_Hierapolis,_Turkey_(17033619498).jpg
+    author: "Carole Raddato from FRANKFURT, Germany"
+    license: CC BY-SA 2.0
+    license_url: https://creativecommons.org/licenses/by-sa/2.0
   - id: cappadocia
     subject: Cappadocia balloons and fairy chimneys
-    alt: Hot-air balloons over the fairy chimneys of Cappadocia at sunrise
+    alt: Hot-air balloons drifting over the rock valleys and fairy chimneys of Cappadocia
+    file: cappadocia
+    width: 1600
+    height: 1067
+    source_url: https://commons.wikimedia.org/wiki/File:Fairy_Chimneys_(6648807241).jpg
+    author: "Michael Day"
+    license: CC BY 2.0
+    license_url: https://creativecommons.org/licenses/by/2.0
   - id: house_of_mary
     subject: House of the Virgin Mary exterior
     alt: The small stone chapel known as the House of the Virgin Mary, near Ephesus
+    file: house-of-mary
+    width: 1600
+    height: 1200
+    source_url: https://commons.wikimedia.org/wiki/File:Virgin_Marys_House_near_Ephesus_-_panoramio.jpg
+    author: "eleesege"
+    license: CC BY 3.0
+    license_url: https://creativecommons.org/licenses/by/3.0
   - id: hagia_sophia
     subject: Hagia Sophia exterior
     alt: The domes and minarets of Hagia Sophia in Istanbul
+    file: hagia-sophia
+    width: 1600
+    height: 1068
+    source_url: https://commons.wikimedia.org/wiki/File:Hagia_Sophia_Mars_2013.jpg
+    author: "Arild Vågen"
+    license: CC BY-SA 3.0
+    license_url: https://creativecommons.org/licenses/by-sa/3.0
   - id: laodicea
     subject: Laodicea columns
-    alt: Restored marble columns along a colonnaded street at Laodicea
+    alt: Columns lining the restored Syria Street at Laodicea
+    file: laodicea
+    width: 1600
+    height: 1065
+    source_url: https://commons.wikimedia.org/wiki/File:Laodikeia_ad_Lycum_Syria_street_4752.jpg
+    author: "Dosseman"
+    license: CC BY-SA 4.0
+    license_url: https://creativecommons.org/licenses/by-sa/4.0
   - id: pergamum
     subject: Pergamum acropolis and theater
-    alt: The steep hillside theater on the acropolis of Pergamum
+    alt: The steep theater carved into the acropolis hillside at Pergamum
+    file: pergamum
+    width: 1600
+    height: 1200
+    source_url: https://commons.wikimedia.org/wiki/File:Acropolis_amphitheatre_of_Pergamon_(2020).jpg
+    author: "Antoloji"
+    license: CC BY-SA 4.0
+    license_url: https://creativecommons.org/licenses/by-sa/4.0
   - id: patmos
     subject: Patmos, Chora and the Monastery of St. John
     alt: The Monastery of St. John above the whitewashed town of Chora on Patmos
+    file: patmos
+    width: 1600
+    height: 1200
+    source_url: https://commons.wikimedia.org/wiki/File:Chora_di_Patmos_con_il_Monastero_di_San_Giovanni_il_teologo_2.jpg
+    author: "Valeria Casali"
+    license: CC BY-SA 4.0
+    license_url: https://creativecommons.org/licenses/by-sa/4.0
   - id: sardis
     subject: Sardis gymnasium
-    alt: The restored marble court of the Roman gymnasium at Sardis
+    alt: The restored two-story marble court of the Roman bath-gymnasium at Sardis
+    file: sardis
+    width: 1600
+    height: 1054
+    source_url: https://commons.wikimedia.org/wiki/File:The_Bath-Gymnasium_complex_at_Sardis,_late_2nd_-_early_3rd_century_AD,_Sardis,_Turkey_(16391012853).jpg
+    author: "Carole Raddato from FRANKFURT, Germany"
+    license: CC BY-SA 2.0
+    license_url: https://creativecommons.org/licenses/by-sa/2.0
   - id: aegean_sunset
     subject: Aegean coast at sunset
-    alt: The sun setting over the Aegean Sea along the Turkish coast
+    alt: The sun setting over the Aegean Sea, framed by a pine tree on the İzmir coast
+    file: aegean-sunset
+    width: 1600
+    height: 1067
+    source_url: https://commons.wikimedia.org/wiki/File:Sunset_at_Aegean_Sea,_%C4%B0zmir_06.jpg
+    author: "Zeynel Cebeci"
+    license: CC BY-SA 4.0
+    license_url: https://creativecommons.org/licenses/by-sa/4.0
   - id: antioch_cave
     subject: St. Peter’s Cave Church, Antakya (pre-2023 photo)
-    alt: The stone façade of St. Peter’s Cave Church, set into the hillside at Antakya
+    alt: The stone façade of St. Peter’s Cave Church, built into the hillside at Antakya (photographed before the 2023 earthquakes)
+    file: antioch-cave
+    width: 1600
+    height: 1064
+    source_url: https://commons.wikimedia.org/wiki/File:Antakya_Church_of_St._Peter_exterior_%C4%B1n_2004_01.jpg
+    author: "Dosseman"
+    license: CC BY-SA 4.0
+    license_url: https://creativecommons.org/licenses/by-sa/4.0
   - id: smyrna_agora
     subject: Agora of Smyrna, İzmir
-    alt: Columns of the Roman agora of Smyrna in İzmir
+    alt: A row of Roman columns in the agora of Smyrna, in modern İzmir
+    file: smyrna-agora
+    width: 1600
+    height: 1200
+    source_url: https://commons.wikimedia.org/wiki/File:Agora_of_%C4%B0zmir,_July_2012.jpg
+    author: "31774 (Wikimedia Commons user)"
+    license: CC0
+    license_url: http://creativecommons.org/publicdomain/zero/1.0/deed.en
   - id: thyatira_ruins
     subject: Thyatira ruins, Akhisar
-    alt: Ancient ruins of Thyatira in the center of Akhisar
+    alt: Remains of the Roman basilica at Thyatira, in the center of Akhisar
+    file: thyatira-ruins
+    width: 1600
+    height: 1067
+    source_url: https://commons.wikimedia.org/wiki/File:ThyatiraBasilika.jpg
+    author: "Klaus-Peter Simon"
+    license: CC BY-SA 3.0
+    license_url: https://creativecommons.org/licenses/by-sa/3.0
   - id: philadelphia_pillars
     subject: Church of St. John pillars, Alaşehir
     alt: Massive brick pillars of the Byzantine church at Philadelphia, today’s Alaşehir
+    file: philadelphia-pillars
+    width: 1600
+    height: 1071
+    source_url: https://commons.wikimedia.org/wiki/File:Ala%C5%9Fehir_Church_of_St._John_2.jpg
+    author: "simonjenkins’ photos (Flickr)"
+    license: CC BY-SA 2.0
+    license_url: https://creativecommons.org/licenses/by-sa/2.0
   - id: tarsus_gate
     subject: Cleopatra’s Gate, Tarsus
     alt: The stone arch known as Cleopatra’s Gate in Tarsus
+    file: tarsus-gate
+    width: 1600
+    height: 1064
+    source_url: https://commons.wikimedia.org/wiki/File:Tarsus_Cleopatra_gate_in_2005_4434.jpg
+    author: "Dosseman"
+    license: CC BY-SA 4.0
+    license_url: https://creativecommons.org/licenses/by-sa/4.0
   - id: perge_gate
     subject: Perge Hellenistic gate and colonnaded street
     alt: The round towers of the Hellenistic gate at Perge
+    file: perge-gate
+    width: 1600
+    height: 964
+    source_url: https://commons.wikimedia.org/wiki/File:Perge_Hellenistic_Gate_in_1992_02.jpg
+    author: "Dosseman"
+    license: CC BY-SA 4.0
+    license_url: https://creativecommons.org/licenses/by-sa/4.0
   - id: troas_ruins
     subject: Alexandria Troas ruins
-    alt: Ruined arches of Alexandria Troas among oak trees
+    alt: The ruined brick arch of the Roman baths at Alexandria Troas
+    file: troas-ruins
+    width: 1600
+    height: 1200
+    source_url: https://commons.wikimedia.org/wiki/File:Troas_Therme_2.JPG
+    author: "Horacio36"
+    license: CC BY-SA 3.0
+    license_url: https://creativecommons.org/licenses/by-sa/3.0
 
 videos:
   # These are NOT Azim Tours' own footage: Azim's site embeds them from the videographer's

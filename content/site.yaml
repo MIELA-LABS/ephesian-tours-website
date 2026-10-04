@@ -19,6 +19,10 @@ site:
 
   brand_line: An open door to the lands of the Bible.
   brand_line_ref: Rev 3:8
+  scripture_notice: >-
+    Scripture quotations are from the ESV® Bible (The Holy Bible, English Standard Version®),
+    © 2001 by Crossway, a publishing ministry of Good News Publishers. Used by permission.
+    All rights reserved.
   partner_line: In partnership with Azim Tours — serving pilgrims in Turkey since 1975
 
   # Formspree endpoint for the contact form, e.g. https://formspree.io/f/abcdwxyz
@@ -40,6 +44,12 @@ hero:
   image: celsus
   cta_primary: {label: Explore Our Tours, href: "#tours"}
   cta_secondary: {label: Plan a Trip for Your Church, href: "#contact"}
+
+# Full-width verse band between the FAQ and "Your hosts" (ESV wording).
+verse:
+  text: Behold, I have set before you an open door, which no one is able to shut.
+  ref: Rev 3:8
+  image: aegean_sunset
 
 nav:
   - {label: Tours, href: "#tours"}
@@ -99,7 +109,7 @@ why_turkey:
     title: Paul’s hometown
     body: >-
       The apostle Paul was born in Tarsus, on Turkey’s southern coast, and called it
-      “no ordinary city.”
+      “no obscure city.”
     refs: [Acts 21:39, Acts 22:3]
   - place: Antioch
     title: Where believers were first called Christians

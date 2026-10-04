@@ -113,6 +113,7 @@ class SiteSettings(Strict):
     brand_line: str
     brand_line_ref: str
     partner_line: str
+    scripture_notice: str
     form_endpoint: Tracked[HttpUrl]
     seo_title: str
     seo_description: str = Field(max_length=170)
@@ -131,6 +132,17 @@ class Hero(Strict):
     image: str
     cta_primary: Link
     cta_secondary: Link
+
+
+class Verse(Strict):
+    text: str
+    ref: str
+    image: str
+
+    @field_validator("ref")
+    @classmethod
+    def check_ref(cls, v: str) -> str:
+        return _check_refs([v])[0]
 
 
 class SectionCopy(Strict):
@@ -212,6 +224,7 @@ class Contact(Strict):
 class SiteFile(Strict):
     site: SiteSettings
     hero: Hero
+    verse: Verse
     nav: list[Link]
     sections: Sections
     why_turkey: list[WhyPoint] = Field(min_length=3, max_length=4)

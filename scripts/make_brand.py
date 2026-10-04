@@ -171,7 +171,9 @@ def render_rasters(c: dict) -> None:
 
     site, hero = c["site"], c["hero"]
     img = {i.id: i for i in c["images"]}[hero.image]
-    photo = IMG / f"{img.file}-1600.webp" if img.ready else None
+    photo = IMG / f"{img.file}-{img.widths[-1]}.webp" if img.ready else None
+    if photo and not photo.exists():
+        raise SystemExit(f"{photo} missing: run scripts/fetch_images.py first")
     with sync_playwright() as pw:
         browser = pw.chromium.launch()
         page = browser.new_page(viewport={"width": 1200, "height": 630})

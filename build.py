@@ -152,7 +152,7 @@ def cross_check(c: dict[str, Any]) -> tuple[list[str], dict[str, list[str]]]:
     unique("pending", [p.id for p in c["pending"]])
 
     # images, videos, routes
-    image_refs = [("hero.image", c["hero"].image)]
+    image_refs = [("hero.image", c["hero"].image), ("verse.image", c["verse"].image)]
     image_refs += [(f"journeys.{j.id}.image", j.image) for j in c["journeys"]]
     image_refs += [(f"sites.{s.id}.image", s.image) for s in c["sites"] if s.image]
     image_refs += [(f"videos.{v.id}.poster", v.poster) for v in c["videos"]]

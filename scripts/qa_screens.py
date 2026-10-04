@@ -64,6 +64,12 @@ def main() -> int:
                 page.on("pageerror", lambda e, errors=errors: errors.append(str(e)))
                 page.goto(f"http://127.0.0.1:{port}/", wait_until="networkidle")
                 page.evaluate("document.querySelectorAll('.reveal').forEach(e => e.classList.add('is-visible'))")
+                # scroll through the page so lazy images load, then return to the top
+                page.evaluate("""async () => {
+                  for (let y = 0; y < document.body.scrollHeight; y += 700) { window.scrollTo(0, y); await new Promise(r => setTimeout(r, 60)); }
+                  window.scrollTo(0, 0);
+                }""")
+                page.wait_for_load_state("networkidle")
                 if args.open_itinerary:
                     page.evaluate("document.querySelector('details.itinerary').open = true")
                     page.wait_for_timeout(2500)  # Leaflet + tiles
