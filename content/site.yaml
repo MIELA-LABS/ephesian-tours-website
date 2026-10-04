@@ -1,10 +1,231 @@
-# Site-wide settings. Phase 1 scaffold: filled out in Phase 2.
-brand_name: Ephesian Tours
-descriptor: Small-group journeys through the Bible lands of Asia Minor
-domain: ephesiantours.com
-base_url: https://ephesiantours.com/
-lang: en-US
+# Site-wide settings and section copy.
+#
+# Provenance: any value written as {value, status, resolves_by} is tracked.
+#   status: confirmed | pending | proposed
+#   resolves_by: an id from content/pending.yaml
+# Pending/proposed values show a "Sample" badge while site.preview_mode is true.
 
-# true  -> "Sample" badges, preview banner, and noindex robots meta
-# false -> clean production page (build warns if anything is still pending)
-preview_mode: true
+site:
+  brand_name: Ephesian Tours
+  descriptor: Small-group journeys through the Bible lands of Asia Minor
+  domain: ephesiantours.com
+  base_url: https://ephesiantours.com/
+  lang: en-US
+
+  # true  -> "Sample" badges, preview banner, and <meta name="robots" content="noindex, nofollow">
+  # false -> clean production page (the build warns if anything is still pending)
+  preview_mode: true
+  preview_banner: Preview — itineraries and pricing are samples pending confirmation.
+
+  brand_line: An open door to the lands of the Bible.
+  brand_line_ref: Rev 3:8
+  partner_line: In partnership with Azim Tours — serving pilgrims in Turkey since 1975
+
+  # Formspree endpoint for the contact form, e.g. https://formspree.io/f/abcdwxyz
+  form_endpoint:
+    value: https://formspree.io/f/REPLACE_ME
+    status: pending
+    resolves_by: ET-FORM-01
+
+  seo_title: Ephesian Tours | Small-Group Bible Tours of Turkey from DFW
+  seo_description: >-
+    Small-group church journeys to the Seven Churches of Revelation, Ephesus,
+    and the footsteps of Paul in Turkey. Personally escorted from Dallas–Fort Worth.
+  og_image: assets/img/og-image.jpg
+  og_image_alt: The Library of Celsus at Ephesus with the Ephesian Tours wordmark
+
+hero:
+  tagline: Walk where the early church was born.
+  value_prop: Small church groups. Personally escorted from DFW. Expert local guides.
+  image: celsus
+  cta_primary: {label: Explore Our Tours, href: "#tours"}
+  cta_secondary: {label: Plan a Trip for Your Church, href: "#contact"}
+
+nav:
+  - {label: Tours, href: "#tours"}
+  - {label: Sites, href: "#sites"}
+  - {label: How It Works, href: "#how-it-works"}
+  - {label: Our Partner, href: "#partner"}
+  - {label: FAQ, href: "#faq"}
+  - {label: Contact, href: "#contact"}
+
+sections:
+  why_turkey:
+    eyebrow: Why Turkey
+    heading: Where the New Testament comes alive
+    intro: >-
+      Much of the New Testament story unfolds in Asia Minor, the land we now call Turkey.
+      Here the letters you read on Sunday were sent, received, and read aloud for the first time.
+  tours:
+    eyebrow: Featured tours
+    heading: Journeys for your congregation
+    intro: >-
+      Each journey can be shaped around your church: its pace, its budget, and the passages
+      your people care about most.
+  sites:
+    eyebrow: The sites
+    heading: Places you've read about all your life
+    intro: >-
+      From the seven churches of Revelation to the cities of Paul's journeys, these are the
+      places your group will stand, Bible in hand.
+  how_it_works:
+    eyebrow: For pastors and trip leaders
+    heading: How it works
+    intro: >-
+      You lead your people. We take care of everything else, from the first planning call
+      to the flight home.
+  partner:
+    eyebrow: Your local partner
+    heading: Azim Tours, on the ground in Turkey
+  booking:
+    eyebrow: Booking and payments
+    heading: A simple, predictable timeline
+    intro: >-
+      Payments are spread out over the months before departure, so families can plan ahead.
+  faq:
+    eyebrow: Questions
+    heading: What pastors and travelers ask us
+  host:
+    eyebrow: Your host
+    heading: Traveling with you, every step
+  contact:
+    eyebrow: Contact
+    heading: Plan a trip for your church
+    intro: >-
+      Tell us a little about your congregation and the journey you have in mind. We'll reply personally.
+
+why_turkey:
+  - place: Tarsus
+    title: Paul's hometown
+    body: >-
+      The apostle Paul was born in Tarsus, on Turkey's southern coast, and called it
+      "no ordinary city."
+    refs: [Acts 21:39, Acts 22:3]
+  - place: Antioch
+    title: Where believers were first called Christians
+    body: >-
+      The church at Antioch gave the name "Christian" to the world and became the home base
+      for Paul's missionary journeys.
+    refs: [Acts 11:26]
+  - place: Western Turkey
+    title: All seven churches of Revelation
+    body: >-
+      Ephesus, Smyrna, Pergamum, Thyatira, Sardis, Philadelphia, and Laodicea all stood in
+      what is now western Turkey. You can visit every one of them.
+    refs: [Rev 2–3]
+  - place: Ephesus
+    title: Paul's base, John's home
+    body: >-
+      Paul ministered in Ephesus for about three years and later wrote to its believers.
+      According to early church tradition, the apostle John spent his last years here.
+    refs: [Acts 19–20, Eph 1:1]
+
+how_it_works:
+  steps:
+    - title: We plan the itinerary with you
+      body: >-
+        Start from one of our journeys, or tell us what matters most to your congregation.
+        Together we shape the route, the pace, and the budget.
+    - title: Your congregation registers
+      body: >-
+        Members sign up individually. We answer their questions, collect their details, and
+        send reminders, so you don't have to.
+    - title: I fly with your group from DFW
+      body: >-
+        I meet your group at Dallas–Fort Worth, fly with you, and stay with you every day
+        of the journey. — Hakan
+    - title: Azim Tours' team meets you in Turkey
+      body: >-
+        Our partner's team welcomes you on arrival, with licensed, English-speaking guides,
+        comfortable coaches, and hotels they have worked with for years.
+      status: pending
+      resolves_by: Q-OPS-01
+      note: Arrival and guide arrangements are being confirmed.
+    - title: We come home together
+      body: >-
+        We fly home as one group, with photos, friendships, and a Bible that will never read
+        quite the same again.
+  leader_note:
+    value: >-
+      Complimentary places for pastors and group leaders are available. The number depends
+      on the size of your group.
+    status: pending
+    resolves_by: Q-FOC-01
+
+partner:
+  name: Azim Tours
+  location: Kuşadası, Türkiye
+  founded: 1975
+  license_no:
+    value: "938"
+    status: confirmed
+    resolves_by: Q-TURSAB-01
+  license_body: TÜRSAB, the Association of Turkish Travel Agencies
+  verify_url: https://www.tursab.org.tr/tr/ddsv
+  summary: >-
+    Every journey's arrangements in Turkey (hotels, coaches, guides, entrance tickets, and
+    ferries) are operated by Azim Tours of Kuşadası, a short drive from Ephesus. Biblical
+    and Christian study tours are a core part of their work, and they handle every detail
+    from airport to airport.
+  facts:
+    - In business in Kuşadası since 1975
+    - A veteran team, with an operations manager who has been with the company since 1985
+    - Ferry and island services to Samos and Patmos since 1987
+    - Their own vehicles, professional guides, and long-standing hotel relationships
+    - value: English-speaking licensed guides with a deep knowledge of the biblical sites
+      status: pending
+      resolves_by: Q-OPS-01
+
+host:
+  name: Hakan
+  role: Founder and host, Ephesian Tours
+  bio:
+    value: >-
+      I was born and raised in Turkey and now live in McKinney, Texas. I started Ephesian
+      Tours so that church groups here could walk through the places where so much of the
+      New Testament unfolded, with someone who knows both cultures at their side. I
+      personally escort every group: I'm with you at the gate at DFW, on every day of the
+      journey, and on the flight home.
+    status: pending
+    resolves_by: ET-HOST-01
+  photo:
+    value: null
+    status: pending
+    resolves_by: ET-HOST-01
+
+contact:
+  email:
+    value: hello@ephesiantours.com
+    status: pending
+    resolves_by: ET-CONTACT-01
+  phone:
+    value: (469) 555-0142
+    status: pending
+    resolves_by: ET-CONTACT-01
+  location: McKinney, Texas
+  info_packet:
+    value: Request the Pastor's Info Packet
+    status: pending
+    resolves_by: ET-PACKET-01
+  form_fallback: >-
+    Our online form isn't connected yet. Please email us instead, and we'll reply personally.
+  form_options:
+    roles:
+      - Pastor
+      - Priest
+      - Church staff or trip coordinator
+      - Bible study leader
+      - Church member
+      - Other
+    group_sizes:
+      - Under 10
+      - 10–19
+      - 20–29
+      - 30 or more
+      - Not sure yet
+    seasons:
+      - Spring (March–May)
+      - Summer (June–August)
+      - Fall (September–November)
+      - Winter (December–February)
+      - Flexible

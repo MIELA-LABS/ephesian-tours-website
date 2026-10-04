@@ -1,0 +1,92 @@
+# Every image and video used on the site. credits.md is generated from this file.
+#
+# Images: Wikimedia Commons (CC BY / CC BY-SA / CC0 / public domain), Unsplash, or
+# azimtours.com (owner's permission) ONLY. No watermarked or unlicensed images.
+# file: null means "not sourced yet"; the page shows a styled placeholder and the
+# build warns. scripts/fetch_images.py fills in assets/img/<file>-<width>.webp.
+
+images:
+  - id: celsus
+    subject: Library of Celsus, Ephesus
+    alt: The two-story marble façade of the Library of Celsus at Ephesus
+  - id: theatre_ephesus
+    subject: Great Theatre of Ephesus
+    alt: The Great Theatre of Ephesus, its stone seats rising up the hillside
+  - id: pamukkale
+    subject: Pamukkale travertines
+    alt: White travertine terraces filled with turquoise water at Pamukkale
+  - id: hierapolis
+    subject: Hierapolis ruins
+    alt: Ruins of the ancient city of Hierapolis above Pamukkale
+  - id: cappadocia
+    subject: Cappadocia balloons and fairy chimneys
+    alt: Hot-air balloons over the fairy chimneys of Cappadocia at sunrise
+  - id: house_of_mary
+    subject: House of the Virgin Mary exterior
+    alt: The small stone chapel known as the House of the Virgin Mary, near Ephesus
+  - id: hagia_sophia
+    subject: Hagia Sophia exterior
+    alt: The domes and minarets of Hagia Sophia in Istanbul
+  - id: laodicea
+    subject: Laodicea columns
+    alt: Restored marble columns along a colonnaded street at Laodicea
+  - id: pergamum
+    subject: Pergamum acropolis and theater
+    alt: The steep hillside theater on the acropolis of Pergamum
+  - id: patmos
+    subject: Patmos, Chora and the Monastery of St. John
+    alt: The Monastery of St. John above the whitewashed town of Chora on Patmos
+  - id: sardis
+    subject: Sardis gymnasium
+    alt: The restored marble court of the Roman gymnasium at Sardis
+  - id: aegean_sunset
+    subject: Aegean coast at sunset
+    alt: The sun setting over the Aegean Sea along the Turkish coast
+  - id: antioch_cave
+    subject: St. Peter's Cave Church, Antakya (pre-2023 photo)
+    alt: The stone façade of St. Peter's Cave Church, set into the hillside at Antakya
+  - id: smyrna_agora
+    subject: Agora of Smyrna, İzmir
+    alt: Columns of the Roman agora of Smyrna in İzmir
+  - id: thyatira_ruins
+    subject: Thyatira ruins, Akhisar
+    alt: Ancient ruins of Thyatira in the center of Akhisar
+  - id: philadelphia_pillars
+    subject: Church of St. John pillars, Alaşehir
+    alt: Massive brick pillars of the Byzantine church at Philadelphia, today's Alaşehir
+  - id: tarsus_gate
+    subject: Cleopatra's Gate, Tarsus
+    alt: The stone arch known as Cleopatra's Gate in Tarsus
+  - id: perge_gate
+    subject: Perge Hellenistic gate and colonnaded street
+    alt: The round towers of the Hellenistic gate at Perge
+  - id: troas_ruins
+    subject: Alexandria Troas ruins
+    alt: Ruined arches of Alexandria Troas among oak trees
+
+videos:
+  # These are NOT Azim Tours' own footage: Azim's site embeds them from the videographer's
+  # Vimeo account. Embedded via Vimeo's official player (embedding enabled by the uploader),
+  # with visible credit. To be replaced with Azim's own footage (Q-MEDIA-01).
+  - id: ephesus_vimeo
+    video_id: "180284772"
+    title: Ephesus Ancient City | Celsus Library
+    duration_seconds: 149
+    poster: celsus
+    author: Yasin İlcebay
+    source_url: https://vimeo.com/180284772
+    credit: "Video: Yasin İlcebay / Vimeo"
+    license: Embedded via Vimeo's official player; all rights reserved by the author
+    status: pending
+    resolves_by: Q-MEDIA-01
+  - id: sardis_vimeo
+    video_id: "142346598"
+    title: Sardis Ancient City
+    duration_seconds: 106
+    poster: sardis
+    author: Yasin İlcebay
+    source_url: https://vimeo.com/142346598
+    credit: "Video: Yasin İlcebay / Vimeo"
+    license: Embedded via Vimeo's official player; all rights reserved by the author
+    status: pending
+    resolves_by: Q-MEDIA-01

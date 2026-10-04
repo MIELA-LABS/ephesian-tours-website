@@ -1,0 +1,176 @@
+# Open items that affect what the site shows. PUBLIC FILE: neutral wording only.
+# PENDING.md is generated from this file by build.py.
+#
+# owner: operator  -> answer comes from our ground operator in Turkey
+#        ephesian  -> Ephesian Tours' own to-do
+# updates: content paths this answer will change. Syntax: file-level key, then fields;
+#   list items by id (journeys.catholic), days by number (days[3]), * = any item.
+#
+# When an answer arrives: fill in `answer` and `answered_on`, update the listed fields
+# with the real values and status: confirmed, then rebuild.
+
+pending:
+  # --- From our ground operator ----------------------------------------------
+  - id: Q-PRICE-01
+    owner: operator
+    topic: Final per-person pricing
+    question: >-
+      Per-person prices for groups of 10, 20, and 30 travelers (double occupancy), the single
+      supplement, and seasonal differences.
+    asked_on: 2026-10-03
+    updates: ["journeys.*.from_price"]
+
+  - id: Q-INCL-01
+    owner: operator
+    topic: What's included in each journey
+    question: >-
+      Inclusions and exclusions: hotel class, meals, entrance fees, guides, domestic flights,
+      the Patmos boat, and tips.
+    asked_on: 2026-10-03
+    updates: ["journeys.*.included", "journeys.*.excluded"]
+
+  - id: Q-TERMS-01
+    owner: operator
+    topic: Deposit, payment schedule, and cancellation terms
+    question: >-
+      Deposit amount, payment schedule, cancellation policy, and minimum group size.
+    asked_on: 2026-10-03
+    updates: ["booking.milestones", "booking.minimum_group", "booking.cancellation", "faq.group_size"]
+
+  - id: Q-PAY-01
+    owner: operator
+    topic: Accepted payment methods
+    question: Which payment methods travelers can use (for example, bank transfer or credit card).
+    asked_on: 2026-10-03
+    updates: ["booking.payment_methods", "faq.payment"]
+
+  - id: Q-FOC-01
+    owner: operator
+    topic: Complimentary places for pastors and group leaders
+    question: >-
+      How many complimentary places are offered for pastors and group leaders at each group
+      size, including smaller groups and group airfare.
+    asked_on: 2026-10-03
+    updates: ["how_it_works.leader_note", "journeys.*.notes"]
+
+  - id: Q-AIR-01
+    owner: operator
+    topic: Group airfare from DFW
+    question: >-
+      How group airfare from DFW to Istanbul is booked, with option deadlines, name-change
+      rules, and cancellation terms; return routing for journeys ending on Patmos.
+    asked_on: 2026-10-03
+    updates: ["faq.flights", "journeys.*.notes", "journeys.footsteps_of_paul.days[6]"]
+
+  - id: Q-OPS-01
+    owner: operator
+    topic: Arrival welcome and guides
+    question: >-
+      Meet-and-greet arrangements on arrival (Istanbul or İzmir), and English-speaking
+      licensed guides with biblical knowledge.
+    asked_on: 2026-10-03
+    updates: ["how_it_works.steps", "partner.facts", "journeys.*.days[1]"]
+
+  - id: Q-INS-01
+    owner: operator
+    topic: Travel insurance and emergency support
+    question: Recommended travel and health insurance, and emergency procedures during the trip.
+    asked_on: 2026-10-03
+    updates: ["booking.insurance_note", "faq.insurance"]
+
+  - id: Q-VISA-01
+    owner: operator
+    topic: Entry requirements for U.S. citizens
+    question: Current entry and visa requirements for U.S. passport holders.
+    asked_on: 2026-10-03
+    updates: ["faq.entry"]
+
+  - id: Q-MASS-01
+    owner: operator
+    topic: Mass at the House of the Virgin Mary
+    question: Whether a group's own priest can celebrate Mass at the House of the Virgin Mary.
+    asked_on: 2026-10-03
+    updates: ["journeys.catholic.highlights", "journeys.catholic.days[2]"]
+
+  - id: Q-WORSHIP-01
+    owner: operator
+    topic: Scripture reading and prayer at the sites
+    question: >-
+      Whether groups can hold a short time of worship or Scripture reading at the theater in
+      Ephesus or at Laodicea.
+    asked_on: 2026-10-03
+    updates: ["journeys.*.highlights", "journeys.footsteps_of_paul.days[5]", "faq.worship"]
+
+  - id: Q-ANTAKYA-01
+    owner: operator
+    topic: Antioch (Antakya) after the 2023 earthquakes
+    question: >-
+      Whether Antioch can be included after the 2023 earthquakes, and whether St. Peter's
+      Cave Church is open to visitors.
+    asked_on: 2026-10-03
+    updates: ["journeys.seven_churches.days[3]", "journeys.seven_churches.highlights", "sites.antioch"]
+
+  - id: Q-HAGIA-01
+    owner: operator
+    topic: Hagia Sophia group visits
+    question: How group visits to Hagia Sophia are currently arranged.
+    asked_on: 2026-10-03
+    updates: ["faq.hagia_sophia", "journeys.*.days"]
+
+  - id: Q-CATHOLIC-01
+    owner: operator
+    topic: Catholic pilgrimage program
+    question: >-
+      Confirmation of a 7–8 day Catholic pilgrimage: Ephesus, the House of the Virgin Mary,
+      the Basilica of St. John, Patmos, Laodicea, and Istanbul.
+    asked_on: 2026-10-03
+    updates: ["journeys.catholic"]
+
+  - id: Q-CUSTOM-01
+    owner: operator
+    topic: Custom itineraries and extensions
+    question: Custom itineraries for individual churches, and pre- and post-journey extensions.
+    asked_on: 2026-10-03
+    updates: ["faq.custom", "extensions"]
+
+  - id: Q-MEDIA-01
+    owner: operator
+    topic: Photos, videos, and references
+    question: >-
+      Original photos and videos for the site, and references from past U.S. church groups.
+    asked_on: 2026-10-03
+    updates: ["videos"]
+
+  - id: Q-TURSAB-01
+    owner: operator
+    topic: TÜRSAB license number
+    question: The ground operator's TÜRSAB license number, for the verification badge.
+    asked_on: 2026-10-03
+    answer: TÜRSAB license no. 938, verifiable through TÜRSAB's digital verification system.
+    answered_on: 2026-10-03
+    updates: ["partner.license_no"]
+
+  # --- Ephesian Tours to-do ----------------------------------------------------
+  - id: ET-CONTACT-01
+    owner: ephesian
+    topic: Contact email and phone
+    question: Final public email address and phone number for inquiries.
+    updates: ["contact.email", "contact.phone"]
+
+  - id: ET-FORM-01
+    owner: ephesian
+    topic: Contact form connection
+    question: Create the Formspree form and add its endpoint URL.
+    updates: ["site.form_endpoint"]
+
+  - id: ET-HOST-01
+    owner: ephesian
+    topic: Host bio and photo
+    question: Final bio text and a professional portrait for the "Your host" section.
+    updates: ["host.bio", "host.photo"]
+
+  - id: ET-PACKET-01
+    owner: ephesian
+    topic: Pastor's info packet
+    question: Design and publish the pastor's info packet (PDF) and link it from the contact section.
+    updates: ["contact.info_packet"]

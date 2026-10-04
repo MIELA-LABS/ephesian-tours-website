@@ -1,0 +1,299 @@
+# Biblical sites glossary and route waypoints.
+#
+# kind: site  -> a place visitors see (can be featured in "The Sites" grid)
+# kind: stop  -> an overnight town or airport, used only to draw route maps
+# group: seven_churches | paul | more   (grid grouping)
+# lat/lng are approximate (WGS84) and only used for the Leaflet route maps.
+# refs: scripture references, en dash for ranges ("Acts 13:13–14").
+
+sites:
+  # --- The seven churches of Revelation (Rev 2–3) ---------------------------
+  - id: ephesus
+    name: Ephesus
+    modern_name: near Selçuk
+    group: seven_churches
+    featured: true
+    lat: 37.9395
+    lng: 27.3417
+    refs: [Acts 19, Eph 1:1, Rev 2:1–7]
+    image: celsus
+    history: >-
+      The capital of Roman Asia and one of the great cities of the empire. Paul taught here
+      for about three years, and the uproar of the silversmiths filled its Great Theatre.
+      Today you walk its marble streets past the Library of Celsus, completed in the second
+      century.
+
+  - id: smyrna
+    name: Smyrna
+    modern_name: İzmir
+    group: seven_churches
+    featured: true
+    lat: 38.4189
+    lng: 27.1393
+    refs: [Rev 2:8–11]
+    image: smyrna_agora
+    history: >-
+      A prosperous harbor city, today's İzmir. Smyrna received one of only two letters in
+      Revelation with no rebuke, and its bishop Polycarp was martyred here around AD 155.
+      The Roman agora still stands in the heart of the modern city.
+
+  - id: pergamum
+    name: Pergamum
+    modern_name: Bergama
+    group: seven_churches
+    featured: true
+    lat: 39.1323
+    lng: 27.1841
+    refs: [Rev 2:12–17]
+    image: pergamum
+    history: >-
+      A royal city whose acropolis towers over the plain, with one of the steepest theaters
+      of the ancient world. Christ's letter speaks of the place "where Satan's throne is,"
+      which many interpreters link to the city's great altar of Zeus or its emperor worship.
+      Below the hill lies the Asclepion, a famous healing center.
+
+  - id: thyatira
+    name: Thyatira
+    modern_name: Akhisar
+    group: seven_churches
+    featured: true
+    lat: 38.9185
+    lng: 27.8378
+    refs: [Acts 16:14, Rev 2:18–29]
+    image: thyatira_ruins
+    history: >-
+      A trade city known for its guilds, including dyers. Lydia, the "seller of purple" who
+      welcomed Paul at Philippi, came from Thyatira, and the church here received the longest
+      of the seven letters. Its ruins lie in the center of modern Akhisar.
+
+  - id: sardis
+    name: Sardis
+    modern_name: Sart
+    group: seven_churches
+    featured: true
+    lat: 38.4882
+    lng: 28.0404
+    refs: [Rev 3:1–6]
+    image: sardis
+    history: >-
+      Capital of the ancient kingdom of Lydia, where some of the world's first coins were
+      minted. The church here was told, "Wake up." Visitors see the restored marble court of
+      the Roman gymnasium and one of the largest ancient synagogues ever found.
+
+  - id: philadelphia
+    name: Philadelphia
+    modern_name: Alaşehir
+    group: seven_churches
+    featured: true
+    lat: 38.3505
+    lng: 28.5180
+    refs: [Rev 3:7–13]
+    image: philadelphia_pillars
+    history: >-
+      A small frontier city, today's Alaşehir. To this faithful church Christ said, "I have
+      set before you an open door," the verse behind our name and our brand line. Massive
+      brick pillars of a Byzantine church still stand in the town center.
+
+  - id: laodicea
+    name: Laodicea
+    modern_name: near Denizli
+    group: seven_churches
+    featured: true
+    lat: 37.8358
+    lng: 29.1075
+    refs: [Col 4:13, Rev 3:14–22]
+    image: laodicea
+    history: >-
+      A wealthy city of banking, fine black wool, and medicine for the eyes, details that
+      echo in Christ's letter to a church that was "neither cold nor hot." Paul mentions the
+      believers here in his letter to the Colossians. Excavations have restored its
+      colonnaded streets, theaters, and early churches.
+
+  # --- Paul's world ---------------------------------------------------------
+  - id: tarsus
+    name: Tarsus
+    group: paul
+    featured: true
+    lat: 36.9188
+    lng: 34.8933
+    refs: [Acts 21:39, Acts 22:3]
+    image: tarsus_gate
+    history: >-
+      Paul's birthplace, a proud and learned city on the Cilician plain. Visitors see
+      St. Paul's Well and a stretch of Roman road in the old town, and Cleopatra's Gate,
+      named for the queen who met Mark Antony here.
+
+  - id: antioch
+    name: Antioch
+    modern_name: Antakya
+    group: paul
+    featured: true
+    lat: 36.2108
+    lng: 36.1772
+    refs: [Acts 11:26]
+    image: antioch_cave
+    history: >-
+      Antioch on the Orontes was one of the great cities of the Roman world. Here the
+      disciples were first called Christians, and from here Paul and Barnabas set out on
+      their missionary journeys. St. Peter's Cave Church, on the hillside above the city, is
+      traditionally linked to the apostle Peter.
+    note:
+      value: >-
+        Antakya was heavily damaged by the February 2023 earthquakes. Visits are subject to
+        confirmation.
+      status: pending
+      resolves_by: Q-ANTAKYA-01
+
+  - id: perge
+    name: Perge
+    modern_name: near Antalya
+    group: paul
+    featured: true
+    lat: 36.9614
+    lng: 30.8540
+    refs: [Acts 13:13–14, Acts 14:25]
+    image: perge_gate
+    history: >-
+      Paul and Barnabas came through Perge on their first missionary journey, where John Mark
+      left them, and preached here on their way home. Its towered gate and long colonnaded
+      street are among the best preserved in Turkey.
+
+  - id: konya
+    name: Iconium
+    modern_name: Konya
+    group: paul
+    featured: true
+    lat: 37.8708
+    lng: 32.5048
+    refs: [Acts 14:1–6]
+    history: >-
+      Biblical Iconium, where Paul and Barnabas preached on their first missionary journey
+      until opposition drove them on to Lystra and Derbe. Today Konya is a large city, best
+      known for the Mevlana Museum.
+
+  - id: colossae
+    name: Colossae
+    modern_name: near Honaz
+    group: paul
+    featured: true
+    lat: 37.7881
+    lng: 29.2614
+    refs: [Col 1:2]
+    history: >-
+      The city that received Paul's letter to the Colossians, traditionally the home of
+      Philemon. Unlike its neighbors, Colossae is still a largely unexcavated mound, a quiet
+      place to read the letter where it was first heard.
+
+  - id: hierapolis
+    name: Hierapolis
+    modern_name: Pamukkale
+    group: paul
+    featured: true
+    lat: 37.9256
+    lng: 29.1259
+    refs: [Col 4:13]
+    image: hierapolis
+    history: >-
+      A spa city built above the white travertine terraces of Pamukkale. Paul mentions its
+      believers alongside those of Laodicea, and according to tradition the apostle Philip
+      was martyred here; an octagonal shrine in his honor still stands on the hillside.
+
+  - id: troas
+    name: Alexandria Troas
+    modern_name: near Çanakkale
+    group: paul
+    featured: true
+    lat: 39.7520
+    lng: 26.1600
+    refs: [Acts 16:8–10]
+    image: troas_ruins
+    history: >-
+      In this harbor city Paul saw a vision of a man of Macedonia pleading, "Come over to
+      Macedonia and help us," and the gospel crossed into Europe. Scattered ruins still stand
+      among the oak trees near the coast.
+
+  # --- More places of faith -------------------------------------------------
+  - id: patmos
+    name: Patmos
+    modern_name: Greece
+    group: more
+    featured: true
+    lat: 37.3089
+    lng: 26.5479
+    refs: [Rev 1:9]
+    image: patmos
+    history: >-
+      A small Greek island in the Aegean, where John was "on the island called Patmos
+      because of the word of God" and received the Revelation. Pilgrims visit the Cave of the
+      Apocalypse and the fortified Monastery of St. John, founded in 1088.
+
+  - id: house_of_mary
+    name: House of the Virgin Mary
+    modern_name: near Selçuk
+    group: more
+    featured: true
+    lat: 37.9117
+    lng: 27.3336
+    refs: [John 19:26–27]
+    image: house_of_mary
+    history: >-
+      A small stone chapel on a wooded hillside above Ephesus, venerated by Catholics as
+      Mary's final home, visited by several popes. The tradition draws on Jesus entrusting
+      his mother to the beloved disciple, who according to early tradition later lived in
+      Ephesus.
+
+  - id: st_john_basilica
+    name: Basilica of St. John
+    modern_name: Selçuk
+    group: more
+    featured: true
+    lat: 37.9519
+    lng: 27.3681
+    history: >-
+      In the sixth century Emperor Justinian built a great basilica over the traditional
+      tomb of the apostle John on Ayasuluk Hill. Its restored columns and baptistery look
+      out over the plain of Ephesus.
+
+  - id: cappadocia
+    name: Cappadocia
+    modern_name: Göreme
+    group: more
+    featured: true
+    lat: 38.6431
+    lng: 34.8289
+    refs: [Acts 2:9, 1 Pet 1:1]
+    image: cappadocia
+    history: >-
+      A landscape of fairy chimneys and soft volcanic rock, carved over the centuries into
+      homes, frescoed churches, and underground cities, some used as refuges by Byzantine-era
+      Christian communities. People from Cappadocia heard the apostles at Pentecost, and
+      Peter's first letter is addressed to believers here.
+
+  - id: istanbul
+    name: Istanbul
+    modern_name: ancient Constantinople
+    group: more
+    featured: true
+    lat: 41.0086
+    lng: 28.9802
+    image: hagia_sophia
+    history: >-
+      As Constantinople, this city was the capital of the Christian Roman (Byzantine) Empire
+      for more than a thousand years. Its crowning landmark, Hagia Sophia, was completed
+      under Emperor Justinian in AD 537 and has been a functioning mosque since 2020;
+      visitors are welcome outside prayer times.
+
+  # --- Other places on the routes (not in the grid) --------------------------
+  - {id: aspendos, name: Aspendos, lat: 36.9389, lng: 31.1722}
+  - {id: aphrodisias, name: Aphrodisias, lat: 37.7086, lng: 28.7239}
+  - {id: troy, name: Troy, lat: 39.9573, lng: 26.2389}
+  - {id: gallipoli, name: Gallipoli, lat: 40.1840, lng: 26.3570}
+  - {id: ankara, name: Ankara, lat: 39.9250, lng: 32.8369}
+  - {id: antalya, name: Antalya, lat: 36.8841, lng: 30.7056}
+  - {id: sirince, name: Şirince, lat: 37.9441, lng: 27.4325}
+
+  # --- Overnight towns and airports (route waypoints) ------------------------
+  - {id: adana, name: Adana, kind: stop, lat: 36.9914, lng: 35.3308}
+  - {id: alanya, name: Alanya, kind: stop, lat: 36.5437, lng: 31.9998}
+  - {id: kusadasi, name: Kuşadası, kind: stop, lat: 37.8579, lng: 27.2610}
+  - {id: canakkale, name: Çanakkale, kind: stop, lat: 40.1467, lng: 26.4086}

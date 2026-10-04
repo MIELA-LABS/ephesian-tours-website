@@ -1,0 +1,92 @@
+# Frequently asked questions, in display order.
+# answer: paragraphs separated by a blank line; [link text](https://...) and **bold** are allowed.
+# Answers that depend on unconfirmed details carry status: pending + resolves_by.
+
+faq:
+  - id: safety
+    question: Is Turkey safe for American church groups?
+    answer: |-
+      It's a fair question, and we take it seriously. The regions on our itineraries (Istanbul, the Aegean coast, and central Turkey) are long-established destinations that welcome travelers from around the world.
+
+      Before every departure we review the U.S. State Department's travel advisory for Turkey (at [travel.state.gov](https://travel.state.gov/)) for each region on the route and share it with your group, and we encourage every traveler to enroll in the State Department's free [Smart Traveler Enrollment Program (STEP)](https://step.state.gov/). Your group travels with Hakan from DFW and with a professional local guide and driver every day. If conditions change anywhere, we change the route.
+
+  - id: entry
+    question: Do U.S. citizens need a visa to visit Turkey?
+    answer: |-
+      Entry rules can change, so we confirm the current requirements for U.S. passport holders before every trip and send them to your group well ahead of departure. Every traveler needs a valid U.S. passport; if you don't have one yet, apply early.
+
+      Journeys that include Patmos also enter Greece. For the latest official guidance, see the State Department's country page for Turkey at [travel.state.gov](https://travel.state.gov/).
+    status: pending
+    resolves_by: Q-VISA-01
+
+  - id: fitness
+    question: How much walking is involved?
+    answer: |-
+      A fair amount. The ancient sites are explored on foot, often on uneven marble and stone, sometimes uphill and in the sun. Ephesus, for example, is walked along a long, gently sloping marble street.
+
+      Our pace is unhurried, with rest stops along the way, and the coach takes care of every transfer. Comfortable walking shoes, a hat, and a water bottle make a big difference. If anyone in your group has limited mobility, tell us early and we'll talk through which sites suit them best.
+
+  - id: food
+    question: What is the food like?
+    answer: |-
+      Turkish food is a highlight for most travelers: fresh vegetables and salads, grilled meats and fish, yogurt, warm bread, and dishes cooked in olive oil. Hotel breakfasts are generous buffets. Pork is rarely served.
+
+      Vegetarian, gluten-free, diabetic, and other dietary needs can be accommodated with advance notice. Which meals are included is listed with each journey. We recommend bottled water, which is easy to find everywhere.
+
+  - id: hagia_sophia
+    question: Can we visit Hagia Sophia?
+    answer: |-
+      Yes. Hagia Sophia, completed under Emperor Justinian in AD 537, has been a functioning mosque since 2020, and visitors are welcome outside the daily prayer times. As at any mosque, modest dress is expected: shoulders and knees covered, and women bring a scarf to cover their hair.
+
+      We'll confirm the current visiting arrangements for groups before your trip.
+    status: pending
+    resolves_by: Q-HAGIA-01
+
+  - id: group_size
+    question: How large are the groups?
+    answer: |-
+      Our journeys are built for small church groups, usually your own congregation, family, and friends, from about 10 to 30 travelers. Smaller groups are welcome to ask; the minimum group size and pricing for each size are being finalized.
+    status: pending
+    resolves_by: Q-TERMS-01
+
+  - id: custom
+    question: Can you build an itinerary just for our church?
+    answer: |-
+      Yes. Most groups start from one of our journeys and adjust it: adding or removing sites, changing the pace, or extending to Cappadocia or the West Anatolian coast. Tell us what your congregation is studying, and we'll suggest a route around it.
+    status: pending
+    resolves_by: Q-CUSTOM-01
+
+  - id: worship
+    question: Can our group worship or read Scripture together at the sites?
+    answer: |-
+      Many groups long to read the letter to the Ephesians in Ephesus, or Revelation 3 in Laodicea. We are confirming how short, respectful times of Scripture reading and prayer can be arranged at the archaeological sites, and we'll plan them with you.
+    status: pending
+    resolves_by: Q-WORSHIP-01
+
+  - id: denominations
+    question: Do you welcome churches of every denomination?
+    answer: |-
+      Absolutely. Our journeys are designed for Baptist, nondenominational, Methodist, Presbyterian, Lutheran, Catholic, and Orthodox groups alike. Catholic parishes can choose our pilgrimage to Ephesus and the House of the Virgin Mary, which includes the option of a Mass celebrated by your own priest.
+
+  - id: flights
+    question: Do you arrange flights from Dallas–Fort Worth?
+    answer: |-
+      Yes. The plan is for your group to fly together from DFW to Istanbul on a group fare, with Hakan on the same flights. Booking deadlines, name changes, and cancellation rules for group airfare are being confirmed.
+    status: pending
+    resolves_by: Q-AIR-01
+
+  - id: payment
+    question: How do payments work?
+    answer: |-
+      Payments are spread out over the months before departure; see the Booking and Payments timeline above. Accepted payment methods will be confirmed with your group's registration details.
+    status: pending
+    resolves_by: Q-PAY-01
+
+  - id: insurance
+    question: Do we need travel insurance?
+    answer: |-
+      We strongly recommend comprehensive travel insurance, including trip cancellation, medical, and emergency evacuation coverage. Most U.S. health plans, including Medicare, provide little or no coverage abroad.
+
+      Details on recommended coverage and our emergency procedures will be shared with your group.
+    status: pending
+    resolves_by: Q-INS-01

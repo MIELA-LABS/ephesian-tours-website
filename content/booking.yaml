@@ -1,0 +1,64 @@
+# Booking and payment timeline. ALL VALUES ARE SAMPLES until Q-TERMS-01 / Q-PAY-01 / Q-INS-01
+# are answered. Shown as a visual timeline: deposit -> interim -> final -> departure.
+
+booking:
+  milestones:
+    - id: deposit
+      label: Deposit
+      when:
+        value: At registration, about 9–10 months before departure
+        status: pending
+        resolves_by: Q-TERMS-01
+      amount:
+        value: $400 per person
+        status: pending
+        resolves_by: Q-TERMS-01
+      body: Reserves your place in the group.
+
+    - id: interim
+      label: Second payment
+      when:
+        value: About 4–5 months before departure
+        status: pending
+        resolves_by: Q-TERMS-01
+      amount:
+        value: Amount to be confirmed
+        status: pending
+        resolves_by: Q-TERMS-01
+
+    - id: final
+      label: Final balance
+      when:
+        value: 60–90 days before departure
+        status: pending
+        resolves_by: Q-TERMS-01
+      body: Group airline tickets are issued at this stage.
+
+    - id: departure
+      label: Departure from DFW
+      when: The day your journey begins
+      body: Hakan meets your group at the airport and flies with you.
+
+  payment_methods:
+    value: [Bank transfer, Credit card]
+    status: pending
+    resolves_by: Q-PAY-01
+
+  minimum_group:
+    value: 10 travelers
+    status: pending
+    resolves_by: Q-TERMS-01
+
+  cancellation:
+    value: >-
+      Cancellation terms follow the same timeline: the closer to departure, the larger the
+      share of the payment that is non-refundable.
+    status: pending
+    resolves_by: Q-TERMS-01
+
+  insurance_note:
+    value: >-
+      We strongly recommend travel insurance that covers trip cancellation, medical care
+      abroad, and emergency evacuation, purchased soon after your deposit.
+    status: pending
+    resolves_by: Q-INS-01

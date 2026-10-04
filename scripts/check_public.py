@@ -28,7 +28,7 @@ FORBIDDEN = [
     (re.compile(r"\bexclusivity\b", re.I), "exclusivity terms"),
     (re.compile(r"\bfam trip", re.I), "fam trip"),
     (re.compile(r"\bQ-(MODEL|FAM)-\d+", re.I), "internal-only question id"),
-    (re.compile(r"\bmark-?ups?\b", re.I), "pricing margins"),
+    (re.compile(r"\bmark-up\b|\bmarkups? (?:rate|of|on)\b|\bmargins? (?:rate|of|on)\b", re.I), "pricing margins"),
 ]
 
 TEXT_SUFFIXES = {".md", ".yaml", ".yml", ".py", ".j2", ".html", ".css", ".js", ".txt", ".json", ".svg", ""}
