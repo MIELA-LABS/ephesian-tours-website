@@ -1,0 +1,10 @@
+# Site-wide settings. Phase 1 scaffold: filled out in Phase 2.
+brand_name: Ephesian Tours
+descriptor: Small-group journeys through the Bible lands of Asia Minor
+domain: ephesiantours.com
+base_url: https://ephesiantours.com/
+lang: en-US
+
+# true  -> "Sample" badges, preview banner, and noindex robots meta
+# false -> clean production page (build warns if anything is still pending)
+preview_mode: true
