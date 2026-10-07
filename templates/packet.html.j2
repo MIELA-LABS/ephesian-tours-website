@@ -81,7 +81,8 @@
   .side h4 { margin-top: 10pt; }
   .side h4:first-child { margin-top: 0; }
   .ticks li { position: relative; padding-left: 12pt; margin-bottom: 3pt; font-size: 9.5pt; line-height: 1.35; }
-  .ticks li::before { content: ""; position: absolute; left: 0; top: .45em; width: 5pt; height: 5pt; background: var(--accent); transform: rotate(45deg); }
+  /* marker centred on the first line (line-height 1.35 -> middle at .675em), also for wrapped items */
+  .ticks li::before { content: ""; position: absolute; left: 0; top: .675em; width: 5pt; height: 5pt; background: var(--accent); transform: translateY(-50%) rotate(45deg); }
 
   /* discover table */
   table { width: 100%; border-collapse: collapse; margin-top: 12pt; font-size: 9.5pt; }
@@ -98,8 +99,6 @@
   .steps .icon svg { width: 17pt; height: 17pt; }
   .steps .num { color: var(--accent); font-size: 8pt; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
   .steps h3 { font-size: 14.5pt; margin-bottom: 2pt; }
-  .sig { display: flex; align-items: center; gap: 7pt; margin-top: 4pt; font-style: italic; }
-  .sig img { width: 26pt; height: 26pt; border-radius: 50%; object-fit: cover; }
   .callout { margin-top: 14pt; padding: 10pt 12pt; background: var(--bg); border-left: 3px solid var(--accent); }
 
   /* hosts */
@@ -143,7 +142,6 @@
   .contact dl { display: grid; grid-template-columns: 1.1in 1fr; gap: 3pt 8pt; margin: 8pt 0 0; }
   .contact dt { font-weight: 700; opacity: .85; }
   .contact dd { margin: 0; }
-  .contact .sig img { width: 30pt; height: 30pt; border: 1.5pt solid #F0AC86; }
   .fine { margin-top: 12pt; color: var(--muted); font-size: 7.5pt; line-height: 1.4; }
 </style>
 </head>
@@ -292,7 +290,6 @@
         <div class="num">Step {{ loop.index }}</div>
         <h3>{{ s.title }}</h3>
         <p style="margin:0">{{ s.body }}{% if s.sample %} <em class="tbc">({{ s.note or pk.to_be_confirmed }})</em>{% endif %}</p>
-        {% if s.signature %}<div class="sig">{% if s.photo %}<img src="{{ img(s.photo) }}" alt="">{% endif %}— {{ s.signature }}</div>{% endif %}
       </div>
     </li>
     {% endfor %}
@@ -373,7 +370,7 @@
       <dt>Phone</dt><dd>{{ term(contact.phone) }}</dd>
       <dt>Based in</dt><dd>{{ contact.location }}</dd>
     </dl>
-    <div class="sig" style="margin-top:10pt"><img src="{{ img(contact.personal_note_photo) }}" alt="">{{ contact.personal_note }} — {{ contact.personal_note_by }}</div>
+    <p style="margin:10pt 0 0;font-style:italic">{{ contact.team_note }}</p>
   </div>
 
   <p class="fine">{{ site.scripture_notice }}<br>

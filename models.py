@@ -187,8 +187,6 @@ class Step(Provenance):
     title: str
     body: str
     note: str | None = None  # explanatory note shown when the step is a sample
-    signature: str | None = None  # e.g. "Hakan", shown with a small round photo
-    photo: str | None = None  # image id for the signature avatar
 
 
 class HowItWorks(Strict):
@@ -233,9 +231,7 @@ class Contact(Strict):
     info_packet: Tracked[str]  # CTA label for the packet PDF download
     packet_file: str  # file name in dist/, written by scripts/make_packet.py
     packet_text: str
-    personal_note: str
-    personal_note_by: str
-    personal_note_photo: str  # image id
+    team_note: str  # one line in the company voice beside the contact details
     form_options: FormOptions
     form_fallback: str  # shown instead of submitting while the form endpoint is a sample
     form_success: str

@@ -144,12 +144,10 @@ how_it_works:
         Members sign up individually. We answer their questions, collect their details, and
         send reminders, so you don’t have to.
     - icon: plane
-      title: I fly with your group from DFW
+      title: Your host flies with you from DFW
       body: >-
-        I meet your group at Dallas–Fort Worth, fly with you, and stay with you every day
-        of the journey.
-      signature: Hakan
-      photo: hakan_avatar
+        Your Ephesian Tours host meets your group at Dallas–Fort Worth, flies with you, and
+        stays with the group every day of the journey.
     - icon: guide
       title: Azim Tours’ team meets you in Turkey
       body: >-
@@ -253,9 +251,9 @@ contact:
     status: confirmed
     resolves_by: ET-PACKET-01
   packet_file: ephesian-tours-pastor-packet.pdf
-  personal_note: I read and answer every message myself.
-  personal_note_by: Hakan
-  personal_note_photo: hakan_avatar
+  team_note: >-
+    Every inquiry is read by our own team, and we reply personally with the care your
+    congregation deserves.
   packet_text: >-
     Planning for your church? Our info packet for pastors covers every journey, how a trip
     comes together, and who will travel with you. Download it, or ask for a copy below.

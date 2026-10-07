@@ -212,14 +212,20 @@ ul, ol { margin: 0; padding: 0; }
 }
 
 .checklist { list-style: none; display: grid; gap: .45rem; }
-.checklist li { position: relative; padding-left: 1.7rem; }
+.checklist li { position: relative; padding-left: 1.7rem; line-height: 1.6; }
+/* Markers are centred on the FIRST line of each item (line-height 1.6 -> its middle is 0.8em down),
+   so they stay level with the first line even when an item wraps. */
 .checklist li::before {
-  content: ""; position: absolute; left: 0; top: .35em;
-  width: 1.05rem; height: .6rem;
+  content: ""; position: absolute; left: .1rem; top: .8em;
+  width: 1rem; height: .55rem;
   border-left: 3px solid var(--olive); border-bottom: 3px solid var(--olive);
-  transform: rotate(-45deg) translate(1px, -1px);
+  transform: translateY(-70%) rotate(-45deg);
 }
-.checklist--muted li::before { border-left: 0; border-bottom-width: 3px; border-color: var(--text-muted); transform: none; top: .7em; width: .8rem; }
+.checklist--muted li::before {
+  left: .2rem; width: .75rem; height: 0;
+  border-left: 0; border-bottom: 3px solid var(--text-muted);
+  transform: translateY(-50%);
+}
 
 .callout {
   max-width: 50rem;
@@ -595,12 +601,7 @@ ul, ol { margin: 0; padding: 0; }
 .host-card__bio { font-size: 1.05rem; }
 .host-card__credentials { margin-top: 1rem; padding-top: .75rem; border-top: 1px solid var(--border); color: var(--text-muted); font-size: .95rem; font-weight: 600; letter-spacing: .02em; }
 
-/* small round photo beside Hakan's personal lines */
-.signature { display: flex; align-items: center; gap: .75rem; margin-top: .9rem; font-style: italic; }
-.avatar { flex: none; width: 56px; height: 56px; border-radius: 50%; object-fit: cover; border: 2px solid var(--surface); box-shadow: 0 0 0 1px var(--border); }
-.section--how .signature { color: var(--band-text); }
-.section--how .avatar { border-color: var(--band); box-shadow: 0 0 0 2px #F0AC86; }
-.signature--contact { margin: 0 0 1.5rem; font-size: 1.1rem; }
+.contact__team { margin: 0 0 1.5rem; font-size: 1.1rem; font-style: italic; }
 
 /* ---------- Contact ---------- */
 .section--contact { background: var(--bg-alt); }

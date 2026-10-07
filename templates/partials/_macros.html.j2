@@ -46,12 +46,4 @@
   {{ j.duration_days }} days{% if j.duration_nights %} · {{ j.duration_nights }} nights{% endif %}
 {%- endmacro %}
 
-{# Small round photo (about 56px) used beside Hakan's personal lines. #}
-{% macro avatar(image_id, cls="avatar") -%}
-  {%- set img = images_by_id[image_id] -%}
-  <img class="{{ cls }}" src="./assets/img/{{ img.file }}-{{ img.widths[0] }}.webp"
-    srcset="{% for w in img.widths %}./assets/img/{{ img.file }}-{{ w }}.webp {{ w }}w{% if not loop.last %}, {% endif %}{% endfor %}"
-    sizes="56px" width="56" height="56" alt="" loading="lazy" decoding="async">
-{%- endmacro %}
-
 {% macro minutes(seconds) -%}{{ seconds // 60 }}:{{ "%02d"|format(seconds % 60) }}{%- endmacro %}

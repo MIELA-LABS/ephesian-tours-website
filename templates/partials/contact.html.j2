@@ -13,7 +13,7 @@
         <p class="packet__alt">Prefer a copy by email? <button class="link-button" type="button" data-packet>Ask for it in the form below</button>.</p>
       </div>
 
-      <p class="signature signature--contact">{{ m.avatar(contact.personal_note_photo) }}<span>{{ contact.personal_note }} — {{ contact.personal_note_by }}</span></p>
+      <p class="contact__team">{{ contact.team_note }}</p>
 
       <ul class="contact__details">
         <li><span class="contact__label">Email</span> <a href="mailto:{{ contact.email.value }}">{{ contact.email.value }}</a>{{ m.badge(contact.email) }}</li>

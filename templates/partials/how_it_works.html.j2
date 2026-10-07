@@ -15,9 +15,6 @@
           <p class="step__n">Step {{ loop.index }}</p>
           <h3 class="step__title">{{ step.title }}</h3>
           <p>{{ step.body }}</p>
-          {% if step.signature %}
-          <p class="signature">{% if step.photo %}{{ m.avatar(step.photo) }}{% endif %}<span>— {{ step.signature }}</span></p>
-          {% endif %}
           {% if step.sample and site.preview_mode %}
           <p class="step__status">{{ m.badge(step) }}{% if step.note %} <span>{{ step.note }}</span>{% endif %}</p>
           {% endif %}

@@ -157,8 +157,6 @@ def cross_check(c: dict[str, Any]) -> tuple[list[str], dict[str, list[str]]]:
     image_refs += [(f"sites.{s.id}.image", s.image) for s in c["sites"] if s.image]
     image_refs += [(f"videos.{v.id}.poster", v.poster) for v in c["videos"]]
     image_refs += [(f"hosts.people.{p.id}.photo", p.photo.value) for p in c["hosts"].people]
-    image_refs += [(f"how_it_works.steps[{i}].photo", s.photo) for i, s in enumerate(c["how_it_works"].steps) if s.photo]
-    image_refs.append(("contact.personal_note_photo", c["contact"].personal_note_photo))
     for where, image_id in image_refs:
         if image_id not in image_ids:
             errors.append(f"{where}: unknown image '{image_id}' (add it to media.yaml)")
