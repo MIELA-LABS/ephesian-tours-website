@@ -54,7 +54,7 @@ booking:
         status: pending
         resolves_by: ET-TERMS-01
       amount:
-        value: $400 per person
+        value: To be confirmed
         status: pending
         resolves_by: ET-TERMS-01
       body: Reserves your place in the group.
