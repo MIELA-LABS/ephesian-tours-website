@@ -1,18 +1,62 @@
-# Booking and payment timeline. ALL VALUES ARE SAMPLES until Q-TERMS-01 / Q-PAY-01 / Q-INS-01
-# are answered. Shown as a visual timeline: deposit -> interim -> final -> departure.
+# Pricing, what's included, add-ons, and the payment timeline.
+#
+# The included / not-included lists are shared by every journey (a journey can add its own
+# lines in journeys.yaml: included_extra / excluded_extra). Source: Azim Tours, 2026-10-06.
+# The payment timeline and cancellation terms are OUR policy, still being finalized
+# (ET-TERMS-01, ET-PAY-01): they stay samples until then.
 
 booking:
+  pricing_title: Pricing on request
+  pricing_note: >-
+    We prepare a written quote for your dates and group size, including round-trip flights
+    from DFW.
+
+  included:
+    - value: Round-trip group airfare from DFW, including domestic flights within Türkiye
+      status: proposed
+      resolves_by: ET-AIR-01
+    - 5-star hotels, mostly international chain hotels, centrally located; double or twin rooms
+    - Breakfast and dinner every day (half board)
+    - The same experienced English-speaking guide for the whole journey, a specialist in Christian groups
+    - A private coach sized to your group, with air conditioning and Wi-Fi, and experienced drivers
+    - Entrance fees for every site on the itinerary
+    - Your guide meets the group at the airport where the journey begins
+    - Hakan as your escort from DFW and back
+
+  excluded:
+    - Lunches and drinks. Plan on about $15–20 per person for lunch, more in Istanbul.
+    - Tips for the guide and driver. Plan on about $15 per person per day in total.
+    - value: Travel and health insurance (strongly recommended)
+      status: pending
+      resolves_by: ET-INS-01
+    - Optional additions, such as a day on Patmos
+    - Personal expenses and optional shopping
+
+  add_ons:
+    - id: patmos
+      title: Add a day on Patmos
+      body: >-
+        We take your group by private boat from Kuşadası to the Greek island where John
+        received the Revelation. Best suited to larger groups; priced in your quote. Patmos is
+        in Greece, so bring your passport; EU entry requirements in force at the time of travel
+        apply.
+    - id: house_of_mary
+      title: Add the House of Mary
+      body: >-
+        Add a visit to the House of the Virgin Mary near Ephesus (makes the Ephesus day a full
+        day).
+
   milestones:
     - id: deposit
       label: Deposit
       when:
         value: At registration, about 9–10 months before departure
         status: pending
-        resolves_by: Q-TERMS-01
+        resolves_by: ET-TERMS-01
       amount:
         value: $400 per person
         status: pending
-        resolves_by: Q-TERMS-01
+        resolves_by: ET-TERMS-01
       body: Reserves your place in the group.
 
     - id: interim
@@ -20,18 +64,18 @@ booking:
       when:
         value: About 4–5 months before departure
         status: pending
-        resolves_by: Q-TERMS-01
+        resolves_by: ET-TERMS-01
       amount:
         value: Amount to be confirmed
         status: pending
-        resolves_by: Q-TERMS-01
+        resolves_by: ET-TERMS-01
 
     - id: final
       label: Final balance
       when:
         value: 60–90 days before departure
         status: pending
-        resolves_by: Q-TERMS-01
+        resolves_by: ET-TERMS-01
       body: Group airline tickets are issued at this stage.
 
     - id: departure
@@ -42,23 +86,21 @@ booking:
   payment_methods:
     value: [Bank transfer, Credit card]
     status: pending
-    resolves_by: Q-PAY-01
+    resolves_by: ET-PAY-01
 
   minimum_group:
-    value: 10 travelers
-    status: pending
-    resolves_by: Q-TERMS-01
+    value: >-
+      10 travelers for the best per-person price; smaller groups can still travel, at a higher
+      per-person price
 
   cancellation:
-    value: >-
-      Cancellation terms follow the same timeline: the closer to departure, the larger the
-      share of the payment that is non-refundable.
+    value: Your payment schedule and cancellation terms are set out in your written agreement.
     status: pending
-    resolves_by: Q-TERMS-01
+    resolves_by: ET-TERMS-01
 
   insurance_note:
     value: >-
-      We strongly recommend travel insurance that covers trip cancellation, medical care
-      abroad, and emergency evacuation, purchased soon after your deposit.
+      We strongly recommend travel and health insurance that covers trip cancellation, medical
+      care abroad, and emergency evacuation, purchased soon after your deposit.
     status: pending
-    resolves_by: Q-INS-01
+    resolves_by: ET-INS-01

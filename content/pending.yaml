@@ -6,159 +6,90 @@
 # updates: content paths this answer will change. Syntax: file-level key, then fields;
 #   list items by id (journeys.catholic), days by number (days[3]), * = any item.
 #
-# When an answer arrives: fill in `answer` and `answered_on`, update the listed fields
-# with the real values and status: confirmed, then rebuild.
+# When an answer arrives: fill in `answer`, `answered_on` and `source`, update the listed
+# fields with the real values and status: confirmed, then rebuild.
 
 pending:
-  # --- From our ground operator ----------------------------------------------
+  # --- Open: from our ground operator ------------------------------------------
   - id: Q-PRICE-01
     owner: operator
-    topic: Final per-person pricing
+    topic: Written sample quote
     question: >-
-      Per-person prices for groups of 10, 20, and 30 travelers (double occupancy), the single
-      supplement, and seasonal differences.
+      A written sample quote for one journey, with per-person prices by group size and the
+      single-room supplement.
     asked_on: 2026-10-03
     updates: ["journeys.*.from_price"]
 
-  - id: Q-INCL-01
+  - id: Q-HOTELS-01
     owner: operator
-    topic: What’s included in each journey
-    question: >-
-      Inclusions and exclusions: hotel class, meals, entrance fees, guides, domestic flights,
-      the Patmos boat, and tips.
-    asked_on: 2026-10-03
-    updates: ["journeys.*.included", "journeys.*.excluded"]
-
-  - id: Q-TERMS-01
-    owner: operator
-    topic: Deposit, payment schedule, and cancellation terms
-    question: >-
-      Deposit amount, payment schedule, cancellation policy, and minimum group size.
-    asked_on: 2026-10-03
-    updates: ["booking.milestones", "booking.minimum_group", "booking.cancellation", "faq.group_size"]
-
-  - id: Q-PAY-01
-    owner: operator
-    topic: Accepted payment methods
-    question: Which payment methods travelers can use (for example, bank transfer or credit card).
-    asked_on: 2026-10-03
-    updates: ["booking.payment_methods", "faq.payment"]
-
-  - id: Q-FOC-01
-    owner: operator
-    topic: Complimentary places for pastors and group leaders
-    question: >-
-      How many complimentary places are offered for pastors and group leaders at each group
-      size, including smaller groups and group airfare.
-    asked_on: 2026-10-03
-    updates: ["how_it_works.leader_note", "journeys.*.notes"]
-
-  - id: Q-AIR-01
-    owner: operator
-    topic: Group airfare from DFW
-    question: >-
-      How group airfare from DFW to Istanbul is booked, with option deadlines, name-change
-      rules, and cancellation terms; return routing for journeys ending on Patmos.
-    asked_on: 2026-10-03
-    updates: ["faq.flights", "journeys.*.notes", "journeys.*.days"]
-
-  - id: Q-OPS-01
-    owner: operator
-    topic: Arrival welcome and guides
-    question: >-
-      Meet-and-greet arrangements on arrival (Istanbul or İzmir), and English-speaking
-      licensed guides with biblical knowledge.
-    asked_on: 2026-10-03
-    updates: ["how_it_works.steps", "partner.facts", "journeys.*.days[1]"]
-
-  - id: Q-INS-01
-    owner: operator
-    topic: Travel insurance and emergency support
-    question: Recommended travel and health insurance, and emergency procedures during the trip.
-    asked_on: 2026-10-03
-    updates: ["booking.insurance_note", "faq.insurance"]
-
-  - id: Q-VISA-01
-    owner: operator
-    topic: Entry requirements for U.S. citizens
-    question: Current entry and visa requirements for U.S. passport holders.
-    asked_on: 2026-10-03
-    updates: ["faq.entry"]
-
-  - id: Q-MASS-01
-    owner: operator
-    topic: Mass at the House of the Virgin Mary
-    question: Whether a group’s own priest can celebrate Mass at the House of the Virgin Mary.
-    asked_on: 2026-10-03
-    updates: ["journeys.catholic.highlights", "journeys.catholic.days[2]"]
-
-  - id: Q-WORSHIP-01
-    owner: operator
-    topic: Scripture reading and prayer at the sites
-    question: >-
-      Whether groups can hold a short time of worship or Scripture reading at the theater in
-      Ephesus or at Laodicea.
-    asked_on: 2026-10-03
-    updates: ["journeys.*.highlights", "journeys.footsteps_of_paul.days[5]", "faq.worship"]
-
-  - id: Q-ANTAKYA-01
-    owner: operator
-    topic: Antioch (Antakya) after the 2023 earthquakes
-    question: >-
-      Whether Antioch can be included after the 2023 earthquakes, and whether St. Peter’s
-      Cave Church is open to visitors.
-    asked_on: 2026-10-03
-    updates: ["journeys.seven_churches.days[3]", "journeys.seven_churches.highlights", "sites.antioch"]
-
-  - id: Q-HAGIA-01
-    owner: operator
-    topic: Hagia Sophia group visits
-    question: How group visits to Hagia Sophia are currently arranged.
-    asked_on: 2026-10-03
-    updates: ["faq.hagia_sophia", "journeys.*.days"]
-
-  - id: Q-CATHOLIC-01
-    owner: operator
-    topic: Catholic pilgrimage program
-    question: >-
-      Confirmation of a 7–8 day Catholic pilgrimage: Ephesus, the House of the Virgin Mary,
-      the Basilica of St. John, Patmos, Laodicea, and Istanbul.
-    asked_on: 2026-10-03
-    updates: ["journeys.catholic"]
-
-  - id: Q-CUSTOM-01
-    owner: operator
-    topic: Custom itineraries and extensions
-    question: Custom itineraries for individual churches, and pre- and post-journey extensions.
-    asked_on: 2026-10-03
-    updates: ["faq.custom", "custom_note"]
+    topic: Hotel names by city
+    question: The hotels used in each city, by name.
+    asked_on: 2026-10-06
+    updates: ["faq.hotels.pending_note"]
 
   - id: Q-ORDER-01
     owner: operator
-    topic: Confirm day order for Istanbul & Cappadocia
+    topic: Istanbul & Cappadocia day order
     question: >-
-      Confirm the day order and overnight stops for the Istanbul & Cappadocia itinerary
-      (Cappadocia on Day 3, Konya on Day 4, Pamukkale on Day 5).
-    updates: ["journeys.istanbul_cappadocia.days", "journeys.istanbul_cappadocia.itinerary_note"]
+      Confirm the day order and overnight stops for the Istanbul & Cappadocia journey,
+      including a night in Konya.
+    asked_on: 2026-10-06
+    updates: ["journeys.istanbul_cappadocia"]
+
+  - id: Q-CATHOLIC-02
+    owner: operator
+    topic: Catholic pilgrimage day order
+    question: Confirm the day order of our 7-day Ephesus & the House of Mary pilgrimage.
+    asked_on: 2026-10-06
+    updates: ["journeys.catholic"]
+
+  - id: Q-SHOP-01
+    owner: operator
+    topic: Shopping time
+    question: Whether a group can leave out shopping time on its journey.
+    asked_on: 2026-10-06
+    updates: ["faq.shopping.pending_note"]
 
   - id: Q-MEDIA-01
     owner: operator
-    topic: Photos, videos, and references
+    topic: Photos and videos
     question: >-
-      Original photos and videos for the site, and references from past U.S. church groups.
+      Original photos and videos for the site. Until then, the two videos remain credited
+      embeds from their author’s own Vimeo account.
     asked_on: 2026-10-03
     updates: ["videos"]
 
-  - id: Q-TURSAB-01
-    owner: operator
-    topic: TÜRSAB license number
-    question: The ground operator’s TÜRSAB license number.
-    asked_on: 2026-10-03
-    answer: TÜRSAB license no. 938.
-    answered_on: 2026-10-03
-    updates: ["partner.license_no"]
+  # --- Open: Ephesian Tours to-do ----------------------------------------------
+  - id: ET-AIR-01
+    owner: ephesian
+    topic: Group airfare
+    question: Group fares from DFW, including domestic flights within Türkiye, and the flight schedule.
+    updates: ["booking.included", "faq.flights", "journeys.*.notes", "journeys.*.days"]
 
-  # --- Ephesian Tours to-do ----------------------------------------------------
+  - id: ET-TERMS-01
+    owner: ephesian
+    topic: Our payment schedule and cancellation policy
+    question: Final payment schedule and cancellation policy for our written agreement.
+    updates: ["booking.milestones", "booking.cancellation", "faq.payment"]
+
+  - id: ET-PAY-01
+    owner: ephesian
+    topic: Payment methods
+    question: Accepted payment methods, once the company’s accounts are set up.
+    updates: ["booking.payment_methods", "faq.payment.pending_note"]
+
+  - id: ET-INS-01
+    owner: ephesian
+    topic: Travel insurance
+    question: Whether travel and health insurance is required or recommended.
+    updates: ["booking.excluded", "booking.insurance_note", "faq.insurance"]
+
+  - id: ET-LEADER-01
+    owner: ephesian
+    topic: Complimentary place for the group leader
+    question: Final wording for the complimentary place offered to a pastor or group leader.
+    updates: ["how_it_works.leader_note", "journeys.*.notes"]
+
   - id: ET-CONTACT-01
     owner: ephesian
     topic: Contact email and phone
@@ -170,6 +101,118 @@ pending:
     topic: Contact form connection
     question: Create the Formspree form and add its endpoint URL.
     updates: ["site.form_endpoint"]
+
+  # --- Resolved --------------------------------------------------------------------
+  - id: Q-INCL-01
+    owner: operator
+    topic: What’s included in each journey
+    question: Inclusions and exclusions for each journey.
+    asked_on: 2026-10-03
+    answer: >-
+      Hotels (5-star, mostly international chains), breakfast and dinner daily, the same
+      English-speaking guide throughout, a private coach, and entrance fees are included;
+      lunches, tips, and insurance are not.
+    answered_on: 2026-10-06
+    source: Ground operator, by email and phone
+    updates: ["booking.included", "booking.excluded"]
+
+  - id: Q-OPS-01
+    owner: operator
+    topic: Arrival welcome and guides
+    question: Arrival arrangements and English-speaking guides.
+    asked_on: 2026-10-03
+    answer: >-
+      The guide meets the group at the arrival airport and stays with it for the whole
+      journey; guides are experienced, English-speaking, and specialize in Christian groups.
+    answered_on: 2026-10-06
+    source: Ground operator, by email and phone
+    updates: ["how_it_works.steps", "partner.facts"]
+
+  - id: Q-VISA-01
+    owner: operator
+    topic: Entry requirements for U.S. citizens
+    question: Current entry and visa requirements for U.S. passport holders.
+    asked_on: 2026-10-03
+    answer: >-
+      No visa is needed for tourist visits of 90 days or less; the passport must be valid six
+      months beyond entry with one blank page (U.S. Department of State).
+    answered_on: 2026-10-06
+    source: U.S. Department of State, checked 2026-10-06; ground operator by phone
+    updates: ["faq.entry"]
+
+  - id: Q-MASS-01
+    owner: operator
+    topic: Mass at the House of the Virgin Mary
+    question: Whether a group’s own priest can celebrate Mass at the House of the Virgin Mary.
+    asked_on: 2026-10-03
+    answer: Yes. It can be added to any journey; there is no fee, and a donation is customary.
+    answered_on: 2026-10-06
+    source: Ground operator, by email and phone
+    updates: ["journeys.catholic"]
+
+  - id: Q-WORSHIP-01
+    owner: operator
+    topic: Scripture reading and prayer at the sites
+    question: Whether groups can hold a short time of worship or Scripture reading at the sites.
+    asked_on: 2026-10-03
+    answer: >-
+      Yes. A quiet place inside Ephesus is found for a short service, and Sunday services at a
+      local church in Istanbul or İzmir can be arranged.
+    answered_on: 2026-10-06
+    source: Ground operator, by email and phone
+    updates: ["faq.worship", "journeys.footsteps_of_paul"]
+
+  - id: Q-ANTAKYA-01
+    owner: operator
+    topic: Antioch (Antakya) after the 2023 earthquakes
+    question: Whether Antioch can be included, and whether St. Peter’s Cave Church is open.
+    asked_on: 2026-10-03
+    answer: Antakya is active on the itinerary, and St. Peter’s Cave Church is open.
+    answered_on: 2026-10-06
+    source: Ground operator, by email
+    updates: ["journeys.seven_churches", "sites.antioch"]
+
+  - id: Q-HAGIA-01
+    owner: operator
+    topic: Hagia Sophia group visits
+    question: How group visits to Hagia Sophia are arranged.
+    asked_on: 2026-10-03
+    answer: Groups visit with a group reservation.
+    answered_on: 2026-10-06
+    source: Ground operator, by email
+    updates: ["faq.hagia_sophia"]
+
+  - id: Q-CATHOLIC-01
+    owner: operator
+    topic: Catholic pilgrimage program
+    question: Whether a Catholic pilgrimage program can be offered.
+    asked_on: 2026-10-03
+    answer: >-
+      Yes. Any journey can become a Catholic pilgrimage by adding the House of the Virgin
+      Mary with Mass. (Our 7-day day order is tracked under Q-CATHOLIC-02.)
+    answered_on: 2026-10-06
+    source: Ground operator, by email and phone
+    updates: ["journeys.catholic"]
+
+  - id: Q-CUSTOM-01
+    owner: operator
+    topic: Custom itineraries
+    question: Custom itineraries for individual churches.
+    asked_on: 2026-10-03
+    answer: Yes. Anything a church would like can be added or changed.
+    answered_on: 2026-10-06
+    source: Ground operator, by email
+    updates: ["faq.custom", "custom_note"]
+
+  - id: Q-TURSAB-01
+    owner: operator
+    topic: TÜRSAB license number
+    question: The ground operator’s TÜRSAB license number.
+    asked_on: 2026-10-03
+    answer: TÜRSAB license no. 938 (confirmed again by phone on 2026-10-06).
+    answered_on: 2026-10-03
+    source: Ground operator
+    updates: ["partner.license_no"]
 
   - id: ET-HOST-01
     owner: ephesian

@@ -153,22 +153,18 @@ how_it_works:
     - icon: guide
       title: Azim Tours’ team meets you in Turkey
       body: >-
-        Our partner’s team welcomes you on arrival, with licensed, English-speaking guides,
-        comfortable coaches, and hotels they have worked with for years.
-      status: pending
-      resolves_by: Q-OPS-01
-      note: Arrival and guide arrangements are being confirmed.
+        Your guide meets the group at the airport and stays with you the whole way: the same
+        experienced English-speaking guide, a specialist in Christian groups, with a private
+        air-conditioned coach and 5-star hotels.
     - icon: home
       title: We come home together
       body: >-
         We fly home as one group, with photos, friendships, and a Bible that will never read
         quite the same again.
   leader_note:
-    value: >-
-      Complimentary places for pastors and group leaders are available. The number depends
-      on the size of your group.
-    status: pending
-    resolves_by: Q-FOC-01
+    value: Ask about a complimentary place for your pastor or group leader.
+    status: proposed
+    resolves_by: ET-LEADER-01
 
 partner:
   name: Azim Tours
@@ -189,9 +185,7 @@ partner:
     - A veteran team, with an operations manager who has been with the company since 1985
     - Ferry and island services to Samos and Patmos since 1987
     - Their own vehicles, professional guides, and long-standing hotel relationships
-    - value: English-speaking licensed guides with a deep knowledge of the biblical sites
-      status: pending
-      resolves_by: Q-OPS-01
+    - The same experienced English-speaking guide for your whole journey, a specialist in Christian groups
 
 hosts:
   intro:
@@ -308,6 +302,7 @@ packet:
     Broader tours that weave biblical sites together with Istanbul, Cappadocia, and the
     Turquoise Coast. Full day-by-day itineraries are on our website.
   edition_label: Preview edition
+  good_to_know: [fitness, food, hotels, tips, shopping]
   contact_intro: >-
     Tell us about your congregation and the journey you have in mind, and we’ll plan it
     together.

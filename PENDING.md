@@ -2,83 +2,59 @@
 
 # Pending items
 
-19 open items · 3 resolved · 91 fields on the site currently show a **Sample** badge in preview mode.
+13 open items · 12 resolved · 48 fields on the site currently show a **Sample** badge in preview mode.
 
 To resolve an item: add `answer` and `answered_on` in `content/pending.yaml`, update the fields listed under it with real values and `status: confirmed`, then run `python build.py`.
 
 ## Awaiting our ground operator
 
-- [ ] **Q-PRICE-01: Final per-person pricing** (asked Oct 3, 2026)
-  - Per-person prices for groups of 10, 20, and 30 travelers (double occupancy), the single supplement, and seasonal differences.
+- [ ] **Q-PRICE-01: Written sample quote** (asked Oct 3, 2026)
+  - A written sample quote for one journey, with per-person prices by group size and the single-room supplement.
   - Updates: `journeys.*.from_price`
   - Sample fields on the site (8): `journeys.seven_churches.from_price`, `journeys.footsteps_of_paul.from_price`, `journeys.catholic.from_price`, `journeys.best_of_turkey.from_price`, `journeys.taste_of_turkey.from_price`, `journeys.west_anatolia.from_price`, `journeys.istanbul_cappadocia.from_price`, `journeys.istanbul_cappadocia_antalya.from_price`
-- [ ] **Q-INCL-01: What’s included in each journey** (asked Oct 3, 2026)
-  - Inclusions and exclusions: hotel class, meals, entrance fees, guides, domestic flights, the Patmos boat, and tips.
-  - Updates: `journeys.*.included`, `journeys.*.excluded`
-  - Sample fields on the site (16): `journeys.seven_churches.included`, `journeys.seven_churches.excluded`, `journeys.footsteps_of_paul.included`, `journeys.footsteps_of_paul.excluded`, `journeys.catholic.included`, `journeys.catholic.excluded`, `journeys.best_of_turkey.included`, `journeys.best_of_turkey.excluded`, `journeys.taste_of_turkey.included`, `journeys.taste_of_turkey.excluded`, `journeys.west_anatolia.included`, `journeys.west_anatolia.excluded`, `journeys.istanbul_cappadocia.included`, `journeys.istanbul_cappadocia.excluded`, `journeys.istanbul_cappadocia_antalya.included`, `journeys.istanbul_cappadocia_antalya.excluded`
-- [ ] **Q-TERMS-01: Deposit, payment schedule, and cancellation terms** (asked Oct 3, 2026)
-  - Deposit amount, payment schedule, cancellation policy, and minimum group size.
-  - Updates: `booking.milestones`, `booking.minimum_group`, `booking.cancellation`, `faq.group_size`
-  - Sample fields on the site (8): `faq.group_size`, `booking.milestones.deposit.when`, `booking.milestones.deposit.amount`, `booking.milestones.interim.when`, `booking.milestones.interim.amount`, `booking.milestones.final.when`, `booking.minimum_group`, `booking.cancellation`
-- [ ] **Q-PAY-01: Accepted payment methods** (asked Oct 3, 2026)
-  - Which payment methods travelers can use (for example, bank transfer or credit card).
-  - Updates: `booking.payment_methods`, `faq.payment`
-  - Sample fields on the site (2): `faq.payment`, `booking.payment_methods`
-- [ ] **Q-FOC-01: Complimentary places for pastors and group leaders** (asked Oct 3, 2026)
-  - How many complimentary places are offered for pastors and group leaders at each group size, including smaller groups and group airfare.
-  - Updates: `how_it_works.leader_note`, `journeys.*.notes`
-  - Sample fields on the site (9): `how_it_works.leader_note`, `journeys.seven_churches.notes[1]`, `journeys.footsteps_of_paul.notes[0]`, `journeys.catholic.notes[0]`, `journeys.best_of_turkey.notes[1]`, `journeys.taste_of_turkey.notes[1]`, `journeys.west_anatolia.notes[0]`, `journeys.istanbul_cappadocia.notes[0]`, `journeys.istanbul_cappadocia_antalya.notes[0]`
-- [ ] **Q-AIR-01: Group airfare from DFW** (asked Oct 3, 2026)
-  - How group airfare from DFW to Istanbul is booked, with option deadlines, name-change rules, and cancellation terms; return routing for journeys ending on Patmos.
-  - Updates: `faq.flights`, `journeys.*.notes`, `journeys.*.days`
-  - Sample fields on the site (8): `journeys.seven_churches.notes[0]`, `journeys.footsteps_of_paul.days[6].note`, `journeys.best_of_turkey.notes[0]`, `journeys.taste_of_turkey.notes[0]`, `journeys.west_anatolia.days[8].note`, `journeys.istanbul_cappadocia.days[8].note`, `journeys.istanbul_cappadocia_antalya.days[8].note`, `faq.flights`
-- [ ] **Q-OPS-01: Arrival welcome and guides** (asked Oct 3, 2026)
-  - Meet-and-greet arrangements on arrival (Istanbul or İzmir), and English-speaking licensed guides with biblical knowledge.
-  - Updates: `how_it_works.steps`, `partner.facts`, `journeys.*.days[1]`
-  - Sample fields on the site (10): `how_it_works.steps[3]`, `partner.facts[4]`, `journeys.seven_churches.days[1].note`, `journeys.footsteps_of_paul.days[1].note`, `journeys.catholic.days[1].note`, `journeys.best_of_turkey.days[1].note`, `journeys.taste_of_turkey.days[1].note`, `journeys.west_anatolia.days[1].note`, `journeys.istanbul_cappadocia.days[1].note`, `journeys.istanbul_cappadocia_antalya.days[1].note`
-- [ ] **Q-INS-01: Travel insurance and emergency support** (asked Oct 3, 2026)
-  - Recommended travel and health insurance, and emergency procedures during the trip.
-  - Updates: `booking.insurance_note`, `faq.insurance`
-  - Sample fields on the site (2): `faq.insurance`, `booking.insurance_note`
-- [ ] **Q-VISA-01: Entry requirements for U.S. citizens** (asked Oct 3, 2026)
-  - Current entry and visa requirements for U.S. passport holders.
-  - Updates: `faq.entry`
-  - Sample fields on the site (1): `faq.entry`
-- [ ] **Q-MASS-01: Mass at the House of the Virgin Mary** (asked Oct 3, 2026)
-  - Whether a group’s own priest can celebrate Mass at the House of the Virgin Mary.
-  - Updates: `journeys.catholic.highlights`, `journeys.catholic.days[2]`
-  - Sample fields on the site (2): `journeys.catholic.highlights[0]`, `journeys.catholic.days[2].note`
-- [ ] **Q-WORSHIP-01: Scripture reading and prayer at the sites** (asked Oct 3, 2026)
-  - Whether groups can hold a short time of worship or Scripture reading at the theater in Ephesus or at Laodicea.
-  - Updates: `journeys.*.highlights`, `journeys.footsteps_of_paul.days[5]`, `faq.worship`
-  - Sample fields on the site (3): `journeys.footsteps_of_paul.highlights[1]`, `journeys.footsteps_of_paul.days[5].note`, `faq.worship`
-- [ ] **Q-ANTAKYA-01: Antioch (Antakya) after the 2023 earthquakes** (asked Oct 3, 2026)
-  - Whether Antioch can be included after the 2023 earthquakes, and whether St. Peter’s Cave Church is open to visitors.
-  - Updates: `journeys.seven_churches.days[3]`, `journeys.seven_churches.highlights`, `sites.antioch`
-  - Sample fields on the site (4): `sites.antioch.note`, `journeys.seven_churches.highlights[1]`, `journeys.seven_churches.days[3]`, `journeys.seven_churches.days[3].note`
-- [ ] **Q-HAGIA-01: Hagia Sophia group visits** (asked Oct 3, 2026)
-  - How group visits to Hagia Sophia are currently arranged.
-  - Updates: `faq.hagia_sophia`, `journeys.*.days`
-  - Sample fields on the site (9): `journeys.seven_churches.days[2].note`, `journeys.footsteps_of_paul.days[2].note`, `journeys.catholic.days[7].note`, `journeys.best_of_turkey.days[2].note`, `journeys.taste_of_turkey.days[6].note`, `journeys.west_anatolia.days[3].note`, `journeys.istanbul_cappadocia.days[2].note`, `journeys.istanbul_cappadocia_antalya.days[2].note`, `faq.hagia_sophia`
-- [ ] **Q-CATHOLIC-01: Catholic pilgrimage program** (asked Oct 3, 2026)
-  - Confirmation of a 7–8 day Catholic pilgrimage: Ephesus, the House of the Virgin Mary, the Basilica of St. John, Patmos, Laodicea, and Istanbul.
+- [ ] **Q-HOTELS-01: Hotel names by city** (asked Oct 6, 2026)
+  - The hotels used in each city, by name.
+  - Updates: `faq.hotels.pending_note`
+  - Sample fields on the site (1): `faq.hotels.pending_note`
+- [ ] **Q-ORDER-01: Istanbul & Cappadocia day order** (asked Oct 6, 2026)
+  - Confirm the day order and overnight stops for the Istanbul & Cappadocia journey, including a night in Konya.
+  - Updates: `journeys.istanbul_cappadocia`
+  - Sample fields on the site (2): `journeys.istanbul_cappadocia`, `journeys.istanbul_cappadocia.itinerary_note`
+- [ ] **Q-CATHOLIC-02: Catholic pilgrimage day order** (asked Oct 6, 2026)
+  - Confirm the day order of our 7-day Ephesus & the House of Mary pilgrimage.
   - Updates: `journeys.catholic`
   - Sample fields on the site (1): `journeys.catholic`
-- [ ] **Q-CUSTOM-01: Custom itineraries and extensions** (asked Oct 3, 2026)
-  - Custom itineraries for individual churches, and pre- and post-journey extensions.
-  - Updates: `faq.custom`, `custom_note`
-  - Sample fields on the site (2): `custom_note`, `faq.custom`
-- [ ] **Q-ORDER-01: Confirm day order for Istanbul & Cappadocia**
-  - Confirm the day order and overnight stops for the Istanbul & Cappadocia itinerary (Cappadocia on Day 3, Konya on Day 4, Pamukkale on Day 5).
-  - Updates: `journeys.istanbul_cappadocia.days`, `journeys.istanbul_cappadocia.itinerary_note`
-  - Sample fields on the site (1): `journeys.istanbul_cappadocia.itinerary_note`
-- [ ] **Q-MEDIA-01: Photos, videos, and references** (asked Oct 3, 2026)
-  - Original photos and videos for the site, and references from past U.S. church groups.
+- [ ] **Q-SHOP-01: Shopping time** (asked Oct 6, 2026)
+  - Whether a group can leave out shopping time on its journey.
+  - Updates: `faq.shopping.pending_note`
+  - Sample fields on the site (1): `faq.shopping.pending_note`
+- [ ] **Q-MEDIA-01: Photos and videos** (asked Oct 3, 2026)
+  - Original photos and videos for the site. Until then, the two videos remain credited embeds from their author’s own Vimeo account.
   - Updates: `videos`
   - Sample fields on the site (2): `videos.ephesus_vimeo`, `videos.sardis_vimeo`
 
 ## Ephesian Tours to-do
 
+- [ ] **ET-AIR-01: Group airfare**
+  - Group fares from DFW, including domestic flights within Türkiye, and the flight schedule.
+  - Updates: `booking.included`, `faq.flights`, `journeys.*.notes`, `journeys.*.days`
+  - Sample fields on the site (9): `journeys.seven_churches.notes[0]`, `journeys.footsteps_of_paul.days[6].note`, `journeys.best_of_turkey.notes[0]`, `journeys.taste_of_turkey.notes[0]`, `journeys.west_anatolia.days[8].note`, `journeys.istanbul_cappadocia.days[8].note`, `journeys.istanbul_cappadocia_antalya.days[8].note`, `faq.flights`, `booking.included[0]`
+- [ ] **ET-TERMS-01: Our payment schedule and cancellation policy**
+  - Final payment schedule and cancellation policy for our written agreement.
+  - Updates: `booking.milestones`, `booking.cancellation`, `faq.payment`
+  - Sample fields on the site (7): `faq.payment`, `booking.milestones.deposit.when`, `booking.milestones.deposit.amount`, `booking.milestones.interim.when`, `booking.milestones.interim.amount`, `booking.milestones.final.when`, `booking.cancellation`
+- [ ] **ET-PAY-01: Payment methods**
+  - Accepted payment methods, once the company’s accounts are set up.
+  - Updates: `booking.payment_methods`, `faq.payment.pending_note`
+  - Sample fields on the site (2): `faq.payment.pending_note`, `booking.payment_methods`
+- [ ] **ET-INS-01: Travel insurance**
+  - Whether travel and health insurance is required or recommended.
+  - Updates: `booking.excluded`, `booking.insurance_note`, `faq.insurance`
+  - Sample fields on the site (3): `faq.insurance`, `booking.excluded[2]`, `booking.insurance_note`
+- [ ] **ET-LEADER-01: Complimentary place for the group leader**
+  - Final wording for the complimentary place offered to a pastor or group leader.
+  - Updates: `how_it_works.leader_note`, `journeys.*.notes`
+  - Sample fields on the site (9): `how_it_works.leader_note`, `journeys.seven_churches.notes[1]`, `journeys.footsteps_of_paul.notes[0]`, `journeys.catholic.notes[1]`, `journeys.best_of_turkey.notes[1]`, `journeys.taste_of_turkey.notes[1]`, `journeys.west_anatolia.notes[0]`, `journeys.istanbul_cappadocia.notes[0]`, `journeys.istanbul_cappadocia_antalya.notes[0]`
 - [ ] **ET-CONTACT-01: Contact email and phone**
   - Final public email address and phone number for inquiries.
   - Updates: `contact.email`, `contact.phone`
@@ -90,9 +66,45 @@ To resolve an item: add `answer` and `answered_on` in `content/pending.yaml`, up
 
 ## Resolved
 
+- [x] **Q-INCL-01: What’s included in each journey** (asked Oct 3, 2026)
+  - Inclusions and exclusions for each journey.
+  - **Answer** (Oct 6, 2026; source: Ground operator, by email and phone): Hotels (5-star, mostly international chains), breakfast and dinner daily, the same English-speaking guide throughout, a private coach, and entrance fees are included; lunches, tips, and insurance are not.
+  - Updates: `booking.included`, `booking.excluded`
+- [x] **Q-OPS-01: Arrival welcome and guides** (asked Oct 3, 2026)
+  - Arrival arrangements and English-speaking guides.
+  - **Answer** (Oct 6, 2026; source: Ground operator, by email and phone): The guide meets the group at the arrival airport and stays with it for the whole journey; guides are experienced, English-speaking, and specialize in Christian groups.
+  - Updates: `how_it_works.steps`, `partner.facts`
+- [x] **Q-VISA-01: Entry requirements for U.S. citizens** (asked Oct 3, 2026)
+  - Current entry and visa requirements for U.S. passport holders.
+  - **Answer** (Oct 6, 2026; source: U.S. Department of State, checked 2026-10-06; ground operator by phone): No visa is needed for tourist visits of 90 days or less; the passport must be valid six months beyond entry with one blank page (U.S. Department of State).
+  - Updates: `faq.entry`
+- [x] **Q-MASS-01: Mass at the House of the Virgin Mary** (asked Oct 3, 2026)
+  - Whether a group’s own priest can celebrate Mass at the House of the Virgin Mary.
+  - **Answer** (Oct 6, 2026; source: Ground operator, by email and phone): Yes. It can be added to any journey; there is no fee, and a donation is customary.
+  - Updates: `journeys.catholic`
+- [x] **Q-WORSHIP-01: Scripture reading and prayer at the sites** (asked Oct 3, 2026)
+  - Whether groups can hold a short time of worship or Scripture reading at the sites.
+  - **Answer** (Oct 6, 2026; source: Ground operator, by email and phone): Yes. A quiet place inside Ephesus is found for a short service, and Sunday services at a local church in Istanbul or İzmir can be arranged.
+  - Updates: `faq.worship`, `journeys.footsteps_of_paul`
+- [x] **Q-ANTAKYA-01: Antioch (Antakya) after the 2023 earthquakes** (asked Oct 3, 2026)
+  - Whether Antioch can be included, and whether St. Peter’s Cave Church is open.
+  - **Answer** (Oct 6, 2026; source: Ground operator, by email): Antakya is active on the itinerary, and St. Peter’s Cave Church is open.
+  - Updates: `journeys.seven_churches`, `sites.antioch`
+- [x] **Q-HAGIA-01: Hagia Sophia group visits** (asked Oct 3, 2026)
+  - How group visits to Hagia Sophia are arranged.
+  - **Answer** (Oct 6, 2026; source: Ground operator, by email): Groups visit with a group reservation.
+  - Updates: `faq.hagia_sophia`
+- [x] **Q-CATHOLIC-01: Catholic pilgrimage program** (asked Oct 3, 2026)
+  - Whether a Catholic pilgrimage program can be offered.
+  - **Answer** (Oct 6, 2026; source: Ground operator, by email and phone): Yes. Any journey can become a Catholic pilgrimage by adding the House of the Virgin Mary with Mass. (Our 7-day day order is tracked under Q-CATHOLIC-02.)
+  - Updates: `journeys.catholic`
+- [x] **Q-CUSTOM-01: Custom itineraries** (asked Oct 3, 2026)
+  - Custom itineraries for individual churches.
+  - **Answer** (Oct 6, 2026; source: Ground operator, by email): Yes. Anything a church would like can be added or changed.
+  - Updates: `faq.custom`, `custom_note`
 - [x] **Q-TURSAB-01: TÜRSAB license number** (asked Oct 3, 2026)
   - The ground operator’s TÜRSAB license number.
-  - **Answer** (Oct 3, 2026): TÜRSAB license no. 938.
+  - **Answer** (Oct 3, 2026; source: Ground operator): TÜRSAB license no. 938 (confirmed again by phone on 2026-10-06).
   - Updates: `partner.license_no`
 - [x] **ET-HOST-01: Host bios and photos**
   - Final bio text and portraits of Hakan and Ece for the “Your hosts” section.

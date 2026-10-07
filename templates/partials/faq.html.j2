@@ -10,7 +10,7 @@
       {% for q in faq %}
       <details class="faq__item" id="faq-{{ q.id }}">
         <summary><h3 class="faq__q">{{ q.question }}</h3>{{ m.badge(q) }}</summary>
-        <div class="faq__a">{{ q.answer|md }}</div>
+        <div class="faq__a">{{ q.answer|md }}{% if q.pending_note %}<p class="faq__note">{{ m.tracked(q.pending_note) }}</p>{% endif %}</div>
       </details>
       {% endfor %}
     </div>

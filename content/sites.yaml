@@ -148,12 +148,9 @@ sites:
       disciples were first called Christians, and from here Paul and Barnabas set out on
       their missionary journeys. St. Peter’s Cave Church, on the hillside above the city, is
       traditionally linked to the apostle Peter.
-    note:
-      value: >-
-        Antakya was heavily damaged by the February 2023 earthquakes. Visits are subject to
-        confirmation.
-      status: pending
-      resolves_by: Q-ANTAKYA-01
+    note: >-
+      Antakya is rebuilding after the February 2023 earthquakes; St. Peter’s Cave Church is
+      open to visitors.
 
   - id: perge
     name: Perge

@@ -333,7 +333,8 @@ def write_pending_md(c: dict[str, Any], tagged: dict[str, list[str]]) -> None:
             head += f" (asked {us_date(p.asked_on)})"
         out = [head, f"  - {p.question}"]
         if p.resolved:
-            out.append(f"  - **Answer** ({us_date(p.answered_on)}): {p.answer}")
+            src = f"; source: {p.source}" if p.source else ""
+            out.append(f"  - **Answer** ({us_date(p.answered_on)}{src}): {p.answer}")
         out.append("  - Updates: " + ", ".join(f"`{u}`" for u in p.updates))
         fields = tagged.get(p.id, [])
         if fields and not p.resolved:

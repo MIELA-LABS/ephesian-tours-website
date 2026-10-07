@@ -64,13 +64,15 @@ def main() -> int:
                 page.on("pageerror", lambda e, errors=errors: errors.append(str(e)))
                 page.goto(f"http://127.0.0.1:{port}/", wait_until="networkidle")
                 page.evaluate("document.querySelectorAll('.reveal').forEach(e => e.classList.add('is-visible'))")
+                # QA only: load every lazy image now, so full-page captures show them
+                page.evaluate("document.querySelectorAll('img[loading=lazy]').forEach(i => { i.loading = 'eager'; })")
                 # scroll through the page so lazy images load, then return to the top
                 page.evaluate("""async () => {
                   for (let y = 0; y < document.body.scrollHeight; y += 700) { window.scrollTo(0, y); await new Promise(r => setTimeout(r, 60)); }
                   window.scrollTo(0, 0);
                 }""")
                 page.wait_for_load_state("networkidle")
-                page.wait_for_function("[...document.images].every(i => i.complete)", timeout=15000)
+                page.wait_for_function("[...document.images].filter(i => i.getClientRects().length).every(i => i.complete)", timeout=20000)
                 if args.open_itinerary:
                     page.evaluate("document.querySelector('details.itinerary').open = true")
                     page.wait_for_timeout(2500)  # Leaflet + tiles

@@ -31,9 +31,14 @@
               {% endfor %}
             </ul>
             <p class="journey__price">
+              {% if j.from_price.display %}
               <span class="journey__from">from</span>
               <span class="journey__amount">{{ j.from_price.display }}</span>{{ m.badge(j.from_price) }}
               <span class="journey__basis">{{ j.from_price.basis }}</span>
+              {% else %}
+              <span class="journey__on-request">{{ booking.pricing_title }}</span>
+              <span class="journey__basis">{{ booking.pricing_note }}</span>
+              {% endif %}
             </p>
           </div>
         </div>
@@ -88,13 +93,13 @@
                 {% endif %}
 
                 <div class="included">
-                  <h5>What's included{{ m.badge(j.included) }}</h5>
+                  <h5>What’s included</h5>
                   <ul class="checklist">
-                    {% for item in j.included.value %}<li>{{ item }}</li>{% endfor %}
+                    {% for item in booking.included + j.included_extra %}<li>{{ m.tracked(item) }}</li>{% endfor %}
                   </ul>
-                  <h5>Not included{{ m.badge(j.excluded) }}</h5>
+                  <h5>Not included</h5>
                   <ul class="checklist checklist--muted">
-                    {% for item in j.excluded.value %}<li>{{ item }}</li>{% endfor %}
+                    {% for item in booking.excluded + j.excluded_extra %}<li>{{ m.tracked(item) }}</li>{% endfor %}
                   </ul>
                   {% if j.notes %}
                   <ul class="notes">
@@ -102,6 +107,17 @@
                   </ul>
                   {% endif %}
                 </div>
+                {% if j.add_ons %}
+                <div class="add-ons">
+                  <h5>Optional additions</h5>
+                  {% for a in booking.add_ons if a.id in j.add_ons %}
+                  <div class="add-on">
+                    <p class="add-on__title">{{ a.title }}{{ m.badge(a) }}</p>
+                    <p>{{ a.body }}</p>
+                  </div>
+                  {% endfor %}
+                </div>
+                {% endif %}
                 <a class="button button--accent itinerary__cta" href="#contact" data-journey-cta="{{ j.title }}">Ask about this journey</a>
               </div>
             </div>

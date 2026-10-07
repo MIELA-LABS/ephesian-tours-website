@@ -1,6 +1,7 @@
 # Frequently asked questions, in display order.
 # answer: paragraphs separated by a blank line; [link text](https://...) and **bold** are allowed.
-# Answers that depend on unconfirmed details carry status: pending + resolves_by.
+# pending_note: an unconfirmed line shown after the answer, with its own Sample badge.
+# Practical details below come from our partner in Türkiye (2026-10-06) unless marked pending.
 
 faq:
   - id: safety
@@ -10,83 +11,122 @@ faq:
 
       Before every departure we review the U.S. State Department’s travel advisory for Turkey (at [travel.state.gov](https://travel.state.gov/)) for each region on the route and share it with your group, and we encourage every traveler to enroll in the State Department’s free [Smart Traveler Enrollment Program (STEP)](https://step.state.gov/). Your group travels with Hakan from DFW and with a professional local guide and driver every day. If conditions change anywhere, we change the route.
 
+  - id: cost
+    question: How much does a journey cost?
+    answer: |-
+      Every group receives a written quote, because prices depend on your dates, the size of your group, and the hotel season.
+
+      Your quote covers round-trip flights from DFW, hotels, breakfast and dinner every day, your guide, the coach, and entrance fees. Groups of 10 or more get the best per-person price.
+
   - id: entry
     question: Do U.S. citizens need a visa to visit Turkey?
     answer: |-
-      Entry rules can change, so we confirm the current requirements for U.S. passport holders before every trip and send them to your group well ahead of departure. Every traveler needs a valid U.S. passport; if you don’t have one yet, apply early.
+      No. U.S. citizens do not need a visa for tourist visits of 90 days or less, according to the [U.S. Department of State](https://travel.state.gov/content/travel/en/international-travel/International-Travel-Country-Information-Pages/Turkey.html). Your passport must be valid for at least six months beyond the date you enter Türkiye and have at least one blank page. If you don’t have a passport yet, apply early.
 
-      Journeys that include Patmos also enter Greece. For the latest official guidance, see the State Department’s country page for Turkey at [travel.state.gov](https://travel.state.gov/).
-    status: pending
+      If your group adds a day on Patmos, Greece’s entry requirements apply, because Patmos is in Greece. Rules can change, so we check them again before your trip.
+    status: confirmed
     resolves_by: Q-VISA-01
 
   - id: fitness
     question: How much walking is involved?
     answer: |-
-      A fair amount. The ancient sites are explored on foot, often on uneven marble and stone, sometimes uphill and in the sun. Ephesus, for example, is walked along a long, gently sloping marble street.
+      A fair amount. The ancient sites are explored on foot, often on uneven marble and stone, sometimes uphill and in the sun. Ephesus takes at least an hour and a half on foot, and two and a half to three hours if your group pauses for teaching or worship inside the site. Ephesus is a half day, or a full day with the House of Mary.
 
-      Our pace is unhurried, with rest stops along the way, and the coach takes care of every transfer. Comfortable walking shoes, a hat, and a water bottle make a big difference. If anyone in your group has limited mobility, tell us early and we’ll talk through which sites suit them best.
+      Our pace is unhurried, with rest stops along the way, and the coach takes care of every transfer. Comfortable walking shoes, a hat, and a water bottle make a big difference. Wheelchairs can be arranged on request, but the ancient streets are uneven marble, so please tell us about mobility needs when you register and we’ll talk through which sites suit everyone best.
 
   - id: food
     question: What is the food like?
     answer: |-
-      Turkish food is a highlight for most travelers: fresh vegetables and salads, grilled meats and fish, yogurt, warm bread, and dishes cooked in olive oil. Hotel breakfasts are generous buffets. Pork is rarely served.
+      Turkish food is a highlight for most travelers: fresh vegetables and salads, grilled meats and fish, yogurt, warm bread, and dishes cooked in olive oil. Pork is rarely served.
 
-      Vegetarian, gluten-free, diabetic, and other dietary needs can be accommodated with advance notice. Which meals are included is listed with each journey. We recommend bottled water, which is easy to find everywhere.
+      Breakfast and dinner are included every day at your hotels. Lunch is on your own: plan on about $15–20 per person, more in Istanbul. For vegetarian, gluten-free, or allergy needs, tell your guide, who arranges them with the restaurants ahead of time. We recommend bottled water, which is easy to find everywhere.
+
+  - id: hotels
+    question: Where do we stay?
+    answer: |-
+      In 5-star hotels, mostly international chains, centrally located. Travelers who share a room but aren’t couples get twin rooms with two beds.
+
+      On your last day, rooms must be vacated by noon; your luggage can be stored at the hotel until you leave.
+    pending_note:
+      value: The hotels for your journey are listed in your quote.
+      status: pending
+      resolves_by: Q-HOTELS-01
+
+  - id: shopping
+    question: Will there be shopping stops?
+    answer: |-
+      Some days include relaxed shopping time at local workshops and boutiques, such as carpets, ceramics, leather, and jewelry. It’s entirely optional and never pressured: browse, buy, or simply enjoy a cup of tea.
+    pending_note:
+      value: Ask us if your group would rather skip shopping time.
+      status: pending
+      resolves_by: Q-SHOP-01
+
+  - id: tips
+    question: How much should we plan for tips?
+    answer: |-
+      About $15 per person per day in total: around $10 for your guide and $4–5 for your driver.
 
   - id: hagia_sophia
     question: Can we visit Hagia Sophia?
     answer: |-
       Yes. Hagia Sophia, completed under Emperor Justinian in AD 537, has been a functioning mosque since 2020, and visitors are welcome outside the daily prayer times. As at any mosque, modest dress is expected: shoulders and knees covered, and women bring a scarf to cover their hair.
 
-      We’ll confirm the current visiting arrangements for groups before your trip.
-    status: pending
+      Our groups visit with a group reservation.
+    status: confirmed
     resolves_by: Q-HAGIA-01
 
   - id: group_size
     question: How large are the groups?
     answer: |-
-      Our journeys are built for small church groups, usually your own congregation, family, and friends, from about 10 to 30 travelers. Smaller groups are welcome to ask; the minimum group size and pricing for each size are being finalized.
-    status: pending
-    resolves_by: Q-TERMS-01
+      Our journeys are built for small church groups, usually your own congregation, family, and friends. Groups of 10 or more get the best price. Smaller groups can still travel, at a higher per-person price.
 
   - id: custom
     question: Can you build an itinerary just for our church?
     answer: |-
-      Yes. Most groups start from one of our journeys and adjust it: adding or removing sites, changing the pace, or extending to Cappadocia or the West Anatolian coast. Tell us what your congregation is studying, and we’ll suggest a route around it.
-    status: pending
+      Yes. Most groups start from one of our journeys and adjust it: adding or removing sites, changing the pace, or combining two journeys. Tell us what your congregation is studying, and we’ll suggest a route around it.
+    status: confirmed
     resolves_by: Q-CUSTOM-01
 
   - id: worship
     question: Can our group worship or read Scripture together at the sites?
     answer: |-
-      Many groups long to read the letter to the Ephesians in Ephesus, or Revelation 3 in Laodicea. We are confirming how short, respectful times of Scripture reading and prayer can be arranged at the archaeological sites, and we’ll plan them with you.
-    status: pending
+      Yes. Many groups long to read the letter to the Ephesians in Ephesus, or Revelation 3 in Laodicea. We can find a quiet place inside Ephesus for a short service, and Catholic groups can celebrate Mass at the House of the Virgin Mary.
+
+      On Sunday, we can arrange for your group to attend a service at a local church in Istanbul or İzmir.
+    status: confirmed
     resolves_by: Q-WORSHIP-01
 
   - id: denominations
     question: Do you welcome churches of every denomination?
     answer: |-
-      Absolutely. Our journeys are designed for Baptist, nondenominational, Methodist, Presbyterian, Lutheran, Catholic, and Orthodox groups alike. Catholic parishes can choose our pilgrimage to Ephesus and the House of the Virgin Mary, which includes the option of a Mass celebrated by your own priest.
+      Absolutely. Our journeys are designed for Baptist, nondenominational, Methodist, Presbyterian, Lutheran, Catholic, and Orthodox groups alike. Catholic parishes can choose our pilgrimage to Ephesus and the House of the Virgin Mary, and Mass at the House of Mary can be added to any of our journeys.
 
   - id: flights
     question: Do you arrange flights from Dallas–Fort Worth?
     answer: |-
-      Yes. The plan is for your group to fly together from DFW to Istanbul on a group fare, with Hakan on the same flights. Booking deadlines, name changes, and cancellation rules for group airfare are being confirmed.
+      Yes. We book all flights for your group, including the domestic connections within Türkiye, and Hakan flies with you. Group fare details are being finalized.
     status: pending
-    resolves_by: Q-AIR-01
+    resolves_by: ET-AIR-01
+
+  - id: health
+    question: What happens if someone gets sick on the journey?
+    answer: |-
+      Our local partner’s staff can be reached at any hour, and a doctor can be called when needed. Hakan travels with your group the whole way, so you are never on your own.
 
   - id: payment
     question: How do payments work?
     answer: |-
-      Payments are spread out over the months before departure; see the Booking and Payments timeline above. Accepted payment methods will be confirmed with your group’s registration details.
+      Payments are spread out over the months before departure; see the Booking and Payments timeline above. Your payment schedule and cancellation terms are set out in your written agreement.
     status: pending
-    resolves_by: Q-PAY-01
+    resolves_by: ET-TERMS-01
+    pending_note:
+      value: Accepted payment methods will be confirmed with your group’s registration details.
+      status: pending
+      resolves_by: ET-PAY-01
 
   - id: insurance
     question: Do we need travel insurance?
     answer: |-
-      We strongly recommend comprehensive travel insurance, including trip cancellation, medical, and emergency evacuation coverage. Most U.S. health plans, including Medicare, provide little or no coverage abroad.
-
-      Details on recommended coverage and our emergency procedures will be shared with your group.
+      We strongly recommend comprehensive travel and health insurance, including trip cancellation, medical, and emergency evacuation coverage. Most U.S. health plans, including Medicare, provide little or no coverage abroad.
     status: pending
-    resolves_by: Q-INS-01
+    resolves_by: ET-INS-01

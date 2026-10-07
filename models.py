@@ -85,13 +85,21 @@ class Tracked(Provenance, Generic[T]):
 
 
 class Price(Provenance):
-    value: int = Field(gt=0)
+    value: int | None = Field(default=None, gt=0)  # None = no figure published ("Pricing on request")
     currency: Literal["USD"] = "USD"
-    basis: str
+    basis: str | None = None
+
+    @model_validator(mode="after")
+    def _empty_only_while_open(self) -> Price:
+        if self.value is None and not self.sample:
+            raise ValueError("a confirmed price needs a value")
+        if self.value is not None and not self.basis:
+            raise ValueError("a price with a value needs a basis (e.g. per person, double occupancy)")
+        return self
 
     @property
-    def display(self) -> str:
-        return f"${self.value:,}"
+    def display(self) -> str | None:
+        return f"${self.value:,}" if self.value is not None else None
 
 
 class Link(Strict):
@@ -248,6 +256,7 @@ class Packet(Strict):
     discover_title: str
     discover_intro: str
     edition_label: str  # footer label while preview_mode is on, e.g. "Preview edition"
+    good_to_know: list[str] = []  # faq ids printed in the packet's "Good to know" block
     contact_intro: str
 
 
@@ -354,8 +363,10 @@ class Journey(Provenance):
     highlights: list[Tracked[str]] = Field(min_length=3, max_length=3)
     route: list[RouteStop] = Field(min_length=2)
     days: list[Day]
-    included: Tracked[list[str]]
-    excluded: Tracked[list[str]]
+    # the shared lists live in booking.yaml; these add journey-specific lines
+    included_extra: list[Tracked[str]] = []
+    excluded_extra: list[Tracked[str]] = []
+    add_ons: list[str] = []  # ids from booking.add_ons
     notes: list[Tracked[str]] = []
     itinerary_note: Tracked[str] | None = None  # caveat shown above the day-by-day list
     video: str | None = None
@@ -383,6 +394,7 @@ class FaqItem(Provenance):
     id: SlugId
     question: str
     answer: str  # paragraphs separated by blank lines; [text](url) and **bold** allowed
+    pending_note: Tracked[str] | None = None  # an unconfirmed line shown after the answer
 
 
 class FaqFile(Strict):
@@ -400,7 +412,18 @@ class Milestone(Strict):
     body: str | None = None
 
 
+class AddOn(Provenance):
+    id: SlugId
+    title: str
+    body: str
+
+
 class Booking(Strict):
+    pricing_title: str  # e.g. "Pricing on request"
+    pricing_note: str  # one line under it on every journey
+    included: list[Tracked[str]]  # shared by every journey
+    excluded: list[Tracked[str]]
+    add_ons: list[AddOn] = []
     milestones: list[Milestone]
     payment_methods: Tracked[list[str]]
     minimum_group: Tracked[str]
@@ -470,6 +493,7 @@ class PendingItem(Strict):
     asked_on: date | None = None
     answer: str | None = None
     answered_on: date | None = None
+    source: str | None = None  # where the answer came from (neutral wording)
     updates: list[str] = Field(min_length=1)  # content paths, e.g. journeys.*.from_price
 
     @property

@@ -26,9 +26,6 @@ journeys:
     duration_days: 11
     duration_nights: 10
     from_price:
-      value: 3895
-      currency: USD
-      basis: per person, double occupancy, land + DFW airfare
       status: pending
       resolves_by: Q-PRICE-01
     image: theatre_ephesus
@@ -39,9 +36,7 @@ journeys:
       crossed into Europe.
     highlights:
       - All seven churches of Revelation 2–3
-      - value: Antioch, where believers were first called Christians
-        status: pending
-        resolves_by: Q-ANTAKYA-01
+      - Antioch, where believers were first called Christians
       - Tarsus, the apostle Paul’s birthplace
     route:
       - istanbul
@@ -69,13 +64,9 @@ journeys:
       - n: 1
         title: Arrive in Istanbul
         body: >-
-          After the overnight flight from Dallas–Fort Worth, we are welcomed at Istanbul
-          Airport and transferred to our hotel. Dinner together.
+          After the overnight flight from Dallas–Fort Worth, our guide meets us at Istanbul
+          Airport and we transfer to our hotel. Dinner together.
         overnight: Istanbul
-        note:
-          value: Airport welcome arrangements are being confirmed.
-          status: pending
-          resolves_by: Q-OPS-01
       - n: 2
         title: Istanbul, then fly to Adana
         body: >-
@@ -83,10 +74,6 @@ journeys:
           Hagia Sophia, completed in AD 537 and a functioning mosque since 2020, where
           visitors are welcome outside prayer times. Afternoon flight to Adana.
         overnight: Adana
-        note:
-          value: Group visiting arrangements at Hagia Sophia are being confirmed.
-          status: pending
-          resolves_by: Q-HAGIA-01
       - n: 3
         title: Antioch
         body: >-
@@ -95,14 +82,9 @@ journeys:
           city’s renowned collection of Roman mosaics.
         overnight: Adana
         refs: [Acts 11:26]
-        status: pending
-        resolves_by: Q-ANTAKYA-01
-        note:
-          value: >-
-            Antakya was heavily damaged by the February 2023 earthquakes. This day is subject
-            to confirmation; if needed, an alternative visit will be offered.
-          status: pending
-          resolves_by: Q-ANTAKYA-01
+        note: >-
+          Antakya is rebuilding after the February 2023 earthquakes; St. Peter’s Cave Church is
+          open to visitors.
       - n: 4
         title: Tarsus and the Mediterranean coast
         body: >-
@@ -160,58 +142,36 @@ journeys:
       - n: 11
         title: Fly home
         body: Transfer to Istanbul Airport for our flight home to Dallas–Fort Worth.
-    included:
-      value:
-        - Round-trip group airfare from DFW and domestic flights in Turkey
-        - Hotels for 10 nights, double occupancy
-        - Daily breakfast and dinner
-        - Licensed English-speaking guide and private air-conditioned coach
-        - Entrance fees for all sites on the itinerary
-        - Hakan as your escort from DFW and back
-      status: pending
-      resolves_by: Q-INCL-01
-    excluded:
-      value:
-        - Lunches and drinks
-        - Tips for guides and drivers
-        - Travel insurance
-        - Personal expenses
-      status: pending
-      resolves_by: Q-INCL-01
+    add_ons: [house_of_mary]
     notes:
       - value: Group flights depart DFW the evening before Day 1.
         status: pending
-        resolves_by: Q-AIR-01
-      - value: One complimentary place for the pastor or group leader, depending on group size.
-        status: pending
-        resolves_by: Q-FOC-01
+        resolves_by: ET-AIR-01
+      - value: Ask about a complimentary place for your pastor or group leader.
+        status: proposed
+        resolves_by: ET-LEADER-01
 
 
   # =========================================================================
   - id: footsteps_of_paul
     group: bible
     title: In the Footsteps of St. Paul
-    subtitle: Istanbul, the churches of Revelation, Ephesus, and Patmos
+    subtitle: Istanbul, the churches of Revelation, Hierapolis, and Ephesus
     tag: Shorter journey
     duration_days: 6
     duration_nights: 5
     from_price:
-      value: 2495
-      currency: USD
-      basis: per person, double occupancy, land + DFW airfare
       status: pending
       resolves_by: Q-PRICE-01
     image: pamukkale
     video: ephesus_vimeo
     summary: >-
-      A focused journey for groups with less time: Istanbul, three of the seven churches,
-      Hierapolis, a full day in Ephesus, and the island where John received the Revelation.
+      A focused journey for groups with less time: Istanbul, Hierapolis, and five of the seven
+      churches of Revelation, ending with a day walking the streets of Ephesus.
     highlights:
       - Walk the marble street of Ephesus, where Paul ministered for about three years
-      - value: Scripture reading in the Great Theatre of Ephesus
-        status: pending
-        resolves_by: Q-WORSHIP-01
-      - By boat to Patmos, where John received the Revelation
+      - Time for Scripture and prayer together inside ancient Ephesus
+      - "Five of the seven churches: Ephesus, Smyrna, Sardis, Philadelphia, and Laodicea"
     route:
       - istanbul
       - {site: smyrna, by: air}
@@ -221,18 +181,14 @@ journeys:
       - laodicea
       - kusadasi
       - ephesus
-      - {site: patmos, by: sea}
+      - smyrna
     days:
       - n: 1
         title: Arrive in Istanbul
         body: >-
-          After the overnight flight from Dallas–Fort Worth, we are welcomed at Istanbul
-          Airport and transferred to our hotel.
+          After the overnight flight from Dallas–Fort Worth, our guide meets us at Istanbul
+          Airport and we transfer to our hotel.
         overnight: Istanbul
-        note:
-          value: Airport welcome arrangements are being confirmed.
-          status: pending
-          resolves_by: Q-OPS-01
       - n: 2
         title: Istanbul, then fly to İzmir
         body: >-
@@ -240,10 +196,6 @@ journeys:
           visitors are welcome outside prayer times; the Hippodrome; Topkapı Palace; the Blue
           Mosque; and the Grand Bazaar. Evening flight to İzmir.
         overnight: İzmir
-        note:
-          value: Group visiting arrangements at Hagia Sophia are being confirmed.
-          status: pending
-          resolves_by: Q-HAGIA-01
       - n: 3
         title: Smyrna, Sardis, and Philadelphia
         body: >-
@@ -267,82 +219,50 @@ journeys:
           out. Paul spent about three years in this city.
         overnight: Kuşadası
         refs: [Acts 19–20, Eph 1:1]
-        note:
-          value: Time for a short Scripture reading together at the theater is being confirmed.
-          status: pending
-          resolves_by: Q-WORSHIP-01
+        note: We can find a quiet place inside the site for a short service or Scripture reading.
       - n: 6
-        title: Patmos
+        title: Fly home
         body: >-
-          Board the boat from Kuşadası to the Greek island of Patmos, where John received the
-          Revelation. Visit the Cave of the Apocalypse and the Monastery of St. John. Option
-          to continue on to Athens.
-        refs: [Rev 1:9]
+          Transfer to İzmir airport and fly home to Dallas–Fort Worth via Istanbul.
         note:
-          value: Return travel to DFW from Patmos or Athens is being confirmed.
+          value: Return flight timing is confirmed with your quote.
           status: pending
-          resolves_by: Q-AIR-01
-    included:
-      value:
-        - Round-trip group airfare from DFW and the domestic flight to İzmir
-        - Hotels for 5 nights, double occupancy
-        - Daily breakfast and dinner
-        - Licensed English-speaking guide and private air-conditioned coach
-        - Entrance fees for all sites on the itinerary
-        - Boat to Patmos
-        - Hakan as your escort from DFW and back
-      status: pending
-      resolves_by: Q-INCL-01
-    excluded:
-      value:
-        - Lunches and drinks
-        - Tips for guides and drivers
-        - Travel insurance
-        - Optional Athens extension
-        - Personal expenses
-      status: pending
-      resolves_by: Q-INCL-01
+          resolves_by: ET-AIR-01
+    add_ons: [house_of_mary, patmos]
     notes:
-      - value: One complimentary place for the pastor or group leader, depending on group size.
-        status: pending
-        resolves_by: Q-FOC-01
+      - value: Ask about a complimentary place for your pastor or group leader.
+        status: proposed
+        resolves_by: ET-LEADER-01
 
 
   # =========================================================================
   - id: catholic
     group: bible
     title: Ephesus & the House of Mary
-    subtitle: A Catholic pilgrimage to Ephesus, Patmos, and Istanbul
+    subtitle: A Catholic pilgrimage to Ephesus, the House of Mary, and Istanbul
     tag: Catholic pilgrimage
     status: proposed
-    resolves_by: Q-CATHOLIC-01
-    duration_days: 8
-    duration_nights: 7
+    resolves_by: Q-CATHOLIC-02
+    duration_days: 7
+    duration_nights: 6
     from_price:
-      value: 2995
-      currency: USD
-      basis: per person, double occupancy, land + DFW airfare
       status: pending
       resolves_by: Q-PRICE-01
     image: house_of_mary
     summary: >-
-      A pilgrimage for parishes, based in Kuşadası: Ephesus, the House of the Virgin Mary,
-      the Basilica of St. John, Patmos, and Laodicea, with a final day in Istanbul.
+      A pilgrimage for parishes, based in Kuşadası: Ephesus and the House of the Virgin Mary,
+      the Basilica of St. John, Laodicea and Hierapolis, with a final day in Istanbul.
     highlights:
-      - value: Mass at the House of the Virgin Mary, celebrated by your own priest
-        status: pending
-        resolves_by: Q-MASS-01
+      - Mass at the House of the Virgin Mary, celebrated by your own priest
       - Ephesus and the Basilica of St. John
-      - A day on Patmos, where John received the Revelation
+      - Laodicea and Hierapolis, two cities of Paul’s letter to the Colossians
     route:
       - {site: smyrna, by: air}
       - kusadasi
-      - house_of_mary
       - ephesus
+      - house_of_mary
       - st_john_basilica
       - sirince
-      - {site: patmos, by: sea}
-      - {site: kusadasi, by: sea}
       - laodicea
       - hierapolis
       - {site: istanbul, by: air}
@@ -350,25 +270,17 @@ journeys:
       - n: 1
         title: Arrive in İzmir
         body: >-
-          Fly from Dallas–Fort Worth to İzmir via Istanbul and transfer to our hotel in
-          Kuşadası, our home for the first four nights.
+          Fly from Dallas–Fort Worth to İzmir via Istanbul. Our guide meets us at the airport
+          and we transfer to our hotel in Kuşadası, our home for the first three nights.
         overnight: Kuşadası
-        note:
-          value: Airport welcome arrangements are being confirmed.
-          status: pending
-          resolves_by: Q-OPS-01
       - n: 2
-        title: The House of the Virgin Mary and Ephesus
+        title: Ephesus and the House of the Virgin Mary
         body: >-
-          Morning at the House of the Virgin Mary, venerated by Catholics as Mary’s final
-          home, visited by several popes, with Mass celebrated by your group’s own priest.
-          Afternoon walking the marble streets of Ephesus.
+          A full day. In the morning, walk the marble streets of Ephesus. Then the House of
+          the Virgin Mary, venerated by Catholics as Mary’s final home, visited by several
+          popes, with Mass celebrated by your group’s own priest.
         overnight: Kuşadası
-        refs: [John 19:26–27, Acts 19]
-        note:
-          value: Mass at the House of the Virgin Mary is being confirmed.
-          status: pending
-          resolves_by: Q-MASS-01
+        refs: [Acts 19, John 19:26–27]
       - n: 3
         title: The Basilica of St. John and Şirince
         body: >-
@@ -377,63 +289,35 @@ journeys:
           Afternoon in the hillside village of Şirince.
         overnight: Kuşadası
       - n: 4
-        title: Patmos
-        body: >-
-          A day trip by boat to Patmos, where John received the Revelation: the Cave of the
-          Apocalypse and the Monastery of St. John.
-        overnight: Kuşadası
-        refs: [Rev 1:9]
-      - n: 5
         title: Laodicea and Pamukkale
         body: >-
           Drive inland to Laodicea, the church that was “neither cold nor hot,” and on to the
           white travertine terraces of Pamukkale.
         overnight: Pamukkale
         refs: [Col 4:13, Rev 3:14–22]
-      - n: 6
+      - n: 5
         title: Hierapolis, then fly to Istanbul
         body: >-
           Morning at Hierapolis and the shrine honoring the apostle Philip, martyred here
           according to tradition. Afternoon flight to Istanbul.
         overnight: Istanbul
         refs: [Col 4:13]
-      - n: 7
+      - n: 6
         title: Istanbul
         body: >-
           Hagia Sophia, completed in AD 537 and a functioning mosque since 2020, where
           visitors are welcome outside prayer times; the Hippodrome; and the Blue Mosque.
           Farewell dinner.
         overnight: Istanbul
-        note:
-          value: Group visiting arrangements at Hagia Sophia are being confirmed.
-          status: pending
-          resolves_by: Q-HAGIA-01
-      - n: 8
+      - n: 7
         title: Fly home
         body: Transfer to Istanbul Airport for our flight home to Dallas–Fort Worth.
-    included:
-      value:
-        - Round-trip group airfare from DFW and domestic flights in Turkey
-        - Hotels for 7 nights, double occupancy
-        - Daily breakfast and dinner
-        - Licensed English-speaking guide and private air-conditioned coach
-        - Entrance fees for all sites on the itinerary
-        - Boat to Patmos
-        - Hakan as your escort from DFW and back
-      status: pending
-      resolves_by: Q-INCL-01
-    excluded:
-      value:
-        - Lunches and drinks
-        - Tips for guides and drivers
-        - Travel insurance
-        - Personal expenses
-      status: pending
-      resolves_by: Q-INCL-01
+    add_ons: [patmos]
     notes:
-      - value: One complimentary place for your priest or group leader, depending on group size.
-        status: pending
-        resolves_by: Q-FOC-01
+      - Mass at the House of Mary can be added to any of our journeys. There is no fee; groups customarily leave a donation.
+      - value: Ask about a complimentary place for your priest or group leader.
+        status: proposed
+        resolves_by: ET-LEADER-01
 
   # =========================================================================
   - id: best_of_turkey
@@ -444,9 +328,6 @@ journeys:
     duration_days: 12
     duration_nights: null  # Day 12 ends with an overnight in Istanbul; flight home the next morning
     from_price:
-      value: 3995
-      currency: USD
-      basis: per person, double occupancy, land + DFW airfare
       status: pending
       resolves_by: Q-PRICE-01
     image: cappadocia
@@ -479,13 +360,9 @@ journeys:
       - n: 1
         title: Welcome to Istanbul
         body: >-
-          After the overnight flight from Dallas–Fort Worth, we are welcomed at Istanbul
-          Airport and transferred to our hotel. Welcome dinner together.
+          After the overnight flight from Dallas–Fort Worth, our guide meets us at Istanbul
+          Airport and we transfer to our hotel. Welcome dinner together.
         overnight: Istanbul
-        note:
-          value: Airport welcome arrangements are being confirmed.
-          status: pending
-          resolves_by: Q-OPS-01
       - n: 2
         title: Istanbul
         body: >-
@@ -493,10 +370,6 @@ journeys:
           2020, where visitors are welcome outside prayer times; and the Grand Bazaar.
           Optional: Topkapı Palace.
         overnight: Istanbul
-        note:
-          value: Group visiting arrangements at Hagia Sophia are being confirmed.
-          status: pending
-          resolves_by: Q-HAGIA-01
       - n: 3
         title: Ankara
         body: >-
@@ -569,32 +442,15 @@ journeys:
           Cross the Dardanelles to the Gallipoli peninsula and its memorials, then return to
           Istanbul. Optional Bosphorus cruise. Farewell dinner.
         overnight: Istanbul
-    included:
-      value:
-        - Round-trip group airfare from DFW
-        - Hotels throughout, double occupancy
-        - Daily breakfast and dinner
-        - Licensed English-speaking guide and private air-conditioned coach
-        - Entrance fees for all sites on the itinerary
-        - Hakan as your escort from DFW and back
-      status: pending
-      resolves_by: Q-INCL-01
-    excluded:
-      value:
-        - Optional excursions (balloon flight, Topkapı Palace, Perge and Aspendos, Bosphorus cruise)
-        - Lunches and drinks
-        - Tips for guides and drivers
-        - Travel insurance
-        - Personal expenses
-      status: pending
-      resolves_by: Q-INCL-01
+    excluded_extra:
+      - Optional excursions (balloon flight, Topkapı Palace, Perge and Aspendos, Bosphorus cruise)
     notes:
       - value: The flight home to DFW departs the morning after Day 12; timing is being confirmed.
         status: pending
-        resolves_by: Q-AIR-01
-      - value: One complimentary place for the pastor or group leader, depending on group size.
-        status: pending
-        resolves_by: Q-FOC-01
+        resolves_by: ET-AIR-01
+      - value: Ask about a complimentary place for your pastor or group leader.
+        status: proposed
+        resolves_by: ET-LEADER-01
 
 
   # =========================================================================
@@ -606,9 +462,6 @@ journeys:
     duration_days: 6
     duration_nights: null  # Day 6 ends with an overnight in Istanbul; flight home the next morning
     from_price:
-      value: 2395
-      currency: USD
-      basis: per person, double occupancy, land + DFW airfare
       status: pending
       resolves_by: Q-PRICE-01
     image: bosphorus
@@ -636,10 +489,6 @@ journeys:
           seven churches, and continue to Kuşadası on the Aegean coast.
         overnight: Kuşadası
         refs: [Rev 2:8–11]
-        note:
-          value: Airport welcome arrangements are being confirmed.
-          status: pending
-          resolves_by: Q-OPS-01
       - n: 2
         title: Ephesus
         body: >-
@@ -660,8 +509,8 @@ journeys:
       - n: 4
         title: The Dardanelles, Gallipoli, and Istanbul
         body: >-
-          Cross the Dardanelles by ferry to the Gallipoli peninsula and its World War I
-          memorials, then drive on to Istanbul.
+          Cross the Dardanelles to the Gallipoli peninsula and its World War I memorials, then
+          drive on to Istanbul.
         overnight: Istanbul
       - n: 5
         title: Istanbul at leisure
@@ -676,37 +525,16 @@ journeys:
           2020, where visitors are welcome outside prayer times. Optional: Topkapı Palace and
           the Grand Bazaar.
         overnight: Istanbul
-        note:
-          value: Group visiting arrangements at Hagia Sophia are being confirmed.
-          status: pending
-          resolves_by: Q-HAGIA-01
-    included:
-      value:
-        - Round-trip group airfare from DFW and the domestic flight to İzmir
-        - Hotels throughout, double occupancy
-        - Daily breakfast and dinner
-        - Licensed English-speaking guide and private air-conditioned coach
-        - Entrance fees for the sites on the itinerary
-        - Ferry across the Dardanelles
-        - Hakan as your escort from DFW and back
-      status: pending
-      resolves_by: Q-INCL-01
-    excluded:
-      value:
-        - Optional excursions (Ephesus Museum and Şirince, Bosphorus cruise, evening show, Topkapı Palace)
-        - Lunches and drinks
-        - Tips for guides and drivers
-        - Travel insurance
-        - Personal expenses
-      status: pending
-      resolves_by: Q-INCL-01
+    excluded_extra:
+      - Optional excursions (Ephesus Museum and Şirince, Bosphorus cruise, evening show, Topkapı Palace)
+    add_ons: [house_of_mary]
     notes:
       - value: The flight home to DFW departs the morning after Day 6; timing is being confirmed.
         status: pending
-        resolves_by: Q-AIR-01
-      - value: One complimentary place for the pastor or group leader, depending on group size.
-        status: pending
-        resolves_by: Q-FOC-01
+        resolves_by: ET-AIR-01
+      - value: Ask about a complimentary place for your pastor or group leader.
+        status: proposed
+        resolves_by: ET-LEADER-01
 
   # =========================================================================
   - id: west_anatolia
@@ -717,9 +545,6 @@ journeys:
     duration_days: 8
     duration_nights: 7
     from_price:
-      value: 2795
-      currency: USD
-      basis: per person, double occupancy, land + DFW airfare
       status: pending
       resolves_by: Q-PRICE-01
     image: priene
@@ -751,10 +576,6 @@ journeys:
           After the overnight flight from Dallas–Fort Worth, we transfer to our hotel along
           the Golden Horn. Dinner together.
         overnight: Istanbul
-        note:
-          value: Airport welcome arrangements are being confirmed.
-          status: pending
-          resolves_by: Q-OPS-01
       - n: 2
         title: Istanbul
         body: Topkapı Palace, the Blue Mosque, and the Hippodrome.
@@ -766,10 +587,6 @@ journeys:
           are welcome outside prayer times. Then the Süleymaniye Mosque, the Istanbul
           Archaeology Museums, the Grand Bazaar, and a cruise on the Bosphorus.
         overnight: Istanbul
-        note:
-          value: Group visiting arrangements at Hagia Sophia are being confirmed.
-          status: pending
-          resolves_by: Q-HAGIA-01
       - n: 4
         title: Bursa
         body: >-
@@ -807,44 +624,27 @@ journeys:
         note:
           value: Return flights to DFW, and the cruise option, are being confirmed.
           status: pending
-          resolves_by: Q-AIR-01
-    included:
-      value:
-        - Round-trip group airfare from DFW
-        - Hotels for 7 nights, double occupancy
-        - Daily breakfast and dinner
-        - Licensed English-speaking guide and private air-conditioned coach
-        - Entrance fees for all sites on the itinerary
-        - Bosphorus cruise
-        - Hakan as your escort from DFW and back
-      status: pending
-      resolves_by: Q-INCL-01
-    excluded:
-      value:
-        - Greek islands cruise option
-        - Lunches and drinks
-        - Tips for guides and drivers
-        - Travel insurance
-        - Personal expenses
-      status: pending
-      resolves_by: Q-INCL-01
+          resolves_by: ET-AIR-01
+    included_extra:
+      - Bosphorus cruise
+    excluded_extra:
+      - Greek islands cruise option
     notes:
-      - value: One complimentary place for the pastor or group leader, depending on group size.
-        status: pending
-        resolves_by: Q-FOC-01
+      - value: Ask about a complimentary place for your pastor or group leader.
+        status: proposed
+        resolves_by: ET-LEADER-01
 
   # =========================================================================
   - id: istanbul_cappadocia
     group: discover
+    status: proposed
+    resolves_by: Q-ORDER-01
     title: Istanbul & Cappadocia
     subtitle: Istanbul, Cappadocia, Iconium, Hierapolis, and Ephesus
     tag: Cultural tour
     duration_days: 8
     duration_nights: 7
     from_price:
-      value: 2895
-      currency: USD
-      basis: per person, double occupancy, land + DFW airfare
       status: pending
       resolves_by: Q-PRICE-01
     image: uchisar
@@ -856,8 +656,10 @@ journeys:
       - Konya, biblical Iconium, where Paul and Barnabas preached
       - Hierapolis and Ephesus
     itinerary_note:
-      value: The day order and overnight stops for this journey are being confirmed.
-      status: pending
+      value: >-
+        We’ve added a night in Konya to break up the long drive west. Final day order is
+        confirmed with your quote.
+      status: proposed
       resolves_by: Q-ORDER-01
     route:
       - istanbul
@@ -879,20 +681,12 @@ journeys:
           After the overnight flight from Dallas–Fort Worth, we transfer to our hotel along
           the Golden Horn. Dinner together.
         overnight: Istanbul
-        note:
-          value: Airport welcome arrangements are being confirmed.
-          status: pending
-          resolves_by: Q-OPS-01
       - n: 2
         title: Istanbul
         body: >-
           Hagia Sophia, completed in AD 537 and a functioning mosque since 2020, where visitors
           are welcome outside prayer times; Topkapı Palace; the Blue Mosque; and the Hippodrome.
         overnight: Istanbul
-        note:
-          value: Group visiting arrangements at Hagia Sophia are being confirmed.
-          status: pending
-          resolves_by: Q-HAGIA-01
       - n: 3
         title: To Cappadocia
         body: >-
@@ -936,30 +730,14 @@ journeys:
         note:
           value: Return flights to DFW, and the cruise option, are being confirmed.
           status: pending
-          resolves_by: Q-AIR-01
-    included:
-      value:
-        - Round-trip group airfare from DFW and the domestic flight to Kayseri
-        - Hotels for 7 nights, double occupancy
-        - Daily breakfast and dinner
-        - Licensed English-speaking guide and private air-conditioned coach
-        - Entrance fees for all sites on the itinerary
-        - Hakan as your escort from DFW and back
-      status: pending
-      resolves_by: Q-INCL-01
-    excluded:
-      value:
-        - Greek islands cruise option
-        - Lunches and drinks
-        - Tips for guides and drivers
-        - Travel insurance
-        - Personal expenses
-      status: pending
-      resolves_by: Q-INCL-01
+          resolves_by: ET-AIR-01
+    excluded_extra:
+      - Greek islands cruise option
+    add_ons: [house_of_mary]
     notes:
-      - value: One complimentary place for the pastor or group leader, depending on group size.
-        status: pending
-        resolves_by: Q-FOC-01
+      - value: Ask about a complimentary place for your pastor or group leader.
+        status: proposed
+        resolves_by: ET-LEADER-01
 
   # =========================================================================
   - id: istanbul_cappadocia_antalya
@@ -970,9 +748,6 @@ journeys:
     duration_days: 8
     duration_nights: 7
     from_price:
-      value: 2995
-      currency: USD
-      basis: per person, double occupancy, land + DFW airfare
       status: pending
       resolves_by: Q-PRICE-01
     image: aspendos
@@ -1005,10 +780,6 @@ journeys:
           After the overnight flight from Dallas–Fort Worth, we transfer to our hotel for a
           first look at the city. Dinner together.
         overnight: Istanbul
-        note:
-          value: Airport welcome arrangements are being confirmed.
-          status: pending
-          resolves_by: Q-OPS-01
       - n: 2
         title: Istanbul
         body: >-
@@ -1016,10 +787,6 @@ journeys:
           2020, where visitors are welcome outside prayer times; the Blue Mosque; and the
           Hippodrome.
         overnight: Istanbul
-        note:
-          value: Group visiting arrangements at Hagia Sophia are being confirmed.
-          status: pending
-          resolves_by: Q-HAGIA-01
       - n: 3
         title: To Cappadocia
         body: >-
@@ -1059,31 +826,10 @@ journeys:
         note:
           value: Return flight timing to DFW is being confirmed.
           status: pending
-          resolves_by: Q-AIR-01
-    included:
-      value:
-        - Round-trip group airfare from DFW and domestic flights in Turkey
-        - Hotels for 7 nights, double occupancy
-        - Daily breakfast and dinner
-        - Licensed English-speaking guide and private air-conditioned coach
-        - Entrance fees for all sites on the itinerary
-        - Hakan as your escort from DFW and back
-      status: pending
-      resolves_by: Q-INCL-01
-    excluded:
-      value:
-        - Lunches and drinks
-        - Tips for guides and drivers
-        - Travel insurance
-        - Personal expenses
-      status: pending
-      resolves_by: Q-INCL-01
+          resolves_by: ET-AIR-01
     notes:
-      - value: One complimentary place for the pastor or group leader, depending on group size.
-        status: pending
-        resolves_by: Q-FOC-01
+      - value: Ask about a complimentary place for your pastor or group leader.
+        status: proposed
+        resolves_by: ET-LEADER-01
 
-custom_note:
-  value: Every journey can be combined with another or customized for your church.
-  status: pending
-  resolves_by: Q-CUSTOM-01
+custom_note: Every journey can be combined with another or customized for your church.

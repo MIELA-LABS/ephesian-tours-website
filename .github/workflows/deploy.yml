@@ -57,6 +57,9 @@ jobs:
       - name: Check the packet is in the artifact
         run: test -s dist/ephesian-tours-pastor-packet.pdf
 
+      - name: Leak guard on the built site and PDF
+        run: python scripts/check_public.py --dist
+
       - uses: actions/upload-pages-artifact@v5
         with:
           path: dist
