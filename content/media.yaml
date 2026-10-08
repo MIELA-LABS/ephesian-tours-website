@@ -270,16 +270,6 @@ images:
     author: "Bernard Gagnon"
     license: CC BY-SA 3.0
     license_url: https://creativecommons.org/licenses/by-sa/3.0
-  - id: bosphorus
-    subject: Istanbul from the Bosphorus
-    alt: A ferry on the Bosphorus with the domes and minarets of Hagia Sophia behind it
-    file: bosphorus
-    width: 1600
-    height: 1062
-    source_url: https://commons.wikimedia.org/wiki/File:Sultanahmet_ferry_on_the_Bosphorus_in_Istanbul,_Turkey_001.jpg
-    author: "Moonik"
-    license: CC BY-SA 3.0
-    license_url: https://creativecommons.org/licenses/by-sa/3.0
 
   - id: curetes
     subject: Curetes Street, Ephesus
@@ -299,6 +289,18 @@ images:
     height: 1328
     widths: [800, 1400, 2000]
     source_url: https://commons.wikimedia.org/wiki/File:Central_nave_-_Hagia_Sophia_(8291196158).jpg
+    author: "Jorge Láscar"
+    license: CC BY 2.0
+    license_url: https://creativecommons.org/licenses/by/2.0
+
+  - id: hagia_sophia_dome
+    subject: Hagia Sophia, the great dome and semidomes
+    alt: Looking up into Hagia Sophia's great dome, ringed with windows, framed by golden semidomes
+    file: hagia-sophia-dome
+    width: 2000
+    height: 1328
+    widths: [800, 1400, 2000]
+    source_url: https://commons.wikimedia.org/wiki/File:Hagia_Sophia%27s_30.6m_%E2%8C%80_main_dome_and_semidomes_(8393605687).jpg
     author: "Jorge Láscar"
     license: CC BY 2.0
     license_url: https://creativecommons.org/licenses/by/2.0
