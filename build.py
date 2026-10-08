@@ -171,6 +171,20 @@ def cross_check(c: dict[str, Any]) -> tuple[list[str], dict[str, list[str]]]:
     for s in c["sites"]:
         if s.featured and not s.image:
             errors.append(f"sites.{s.id}: featured site has no image (every site card needs a photo)")
+    hotel_cities = {h.city for h in c["hotels"]}
+    for j in c["journeys"]:
+        for d in j.days:
+            if d.overnight and d.overnight not in hotel_cities:
+                errors.append(f"journeys.{j.id}.days[{d.n}]: overnight '{d.overnight}' has no entry in sites.yaml hotels")
+    # the FAQ quotes "from" prices in prose: keep them in step with the price data
+    priced = [j for j in c["journeys"] if j.prices]
+    if priced:
+        cost = next((q for q in c["faq"] if q.id == "cost"), None)
+        lowest = min(j.prices.winter for j in priced)
+        seven = next((j for j in priced if j.id == "seven_churches"), None)
+        for amount in [lowest] + ([seven.prices.winter] if seven else []):
+            if cost and f"${amount:,}" not in cost.answer:
+                errors.append(f"faq.cost: should quote ${amount:,} (a current 'from' price); update the answer")
     group_ids = {g.id for g in c["journey_groups"]}
     for j in c["journeys"]:
         if j.group not in group_ids:
@@ -284,6 +298,7 @@ def template_context(c: dict[str, Any], base_url: str) -> dict[str, Any]:
         images_by_id={i.id: i for i in c["images"]},
         sites_by_id={s.id: s for s in c["sites"]},
         videos_by_id={v.id: v for v in c["videos"]},
+        hotels_by_city={h.city: h for h in c["hotels"]},
         map_data=map_data(c),
         base_url=base_url,
         build_year=date.today().year,

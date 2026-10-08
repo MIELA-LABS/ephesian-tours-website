@@ -2,20 +2,16 @@
 
 # Pending items
 
-13 open items · 12 resolved · 48 fields on the site currently show a **Sample** badge in preview mode.
+12 open items · 13 resolved · 55 fields on the site currently show a **Sample** badge in preview mode.
 
 To resolve an item: add `answer` and `answered_on` in `content/pending.yaml`, update the fields listed under it with real values and `status: confirmed`, then run `python build.py`.
 
 ## Awaiting our ground operator
 
-- [ ] **Q-PRICE-01: Written sample quote** (asked Oct 3, 2026)
-  - A written sample quote for one journey, with per-person prices by group size and the single-room supplement.
-  - Updates: `journeys.*.from_price`
-  - Sample fields on the site (8): `journeys.seven_churches.from_price`, `journeys.footsteps_of_paul.from_price`, `journeys.catholic.from_price`, `journeys.best_of_turkey.from_price`, `journeys.taste_of_turkey.from_price`, `journeys.west_anatolia.from_price`, `journeys.istanbul_cappadocia.from_price`, `journeys.istanbul_cappadocia_antalya.from_price`
-- [ ] **Q-HOTELS-01: Hotel names by city** (asked Oct 6, 2026)
-  - The hotels used in each city, by name.
-  - Updates: `faq.hotels.pending_note`
-  - Sample fields on the site (1): `faq.hotels.pending_note`
+- [ ] **Q-HOTELS-01: Hotel names for the remaining cities** (asked Oct 6, 2026)
+  - Typical hotels for İzmir, Çanakkale, Adana, Alanya, Ankara, and Bursa. (Hotels for Istanbul, Cappadocia, Konya, Antalya, Pamukkale, and Kuşadası were received on 2026-10-08 and are shown on the site.)
+  - Updates: `hotels`
+  - Sample fields on the site (6): `hotels[6].name`, `hotels[7].name`, `hotels[8].name`, `hotels[9].name`, `hotels[10].name`, `hotels[11].name`
 - [ ] **Q-ORDER-01: Istanbul & Cappadocia day order** (asked Oct 6, 2026)
   - Confirm the day order and overnight stops for the Istanbul & Cappadocia journey, including a night in Konya.
   - Updates: `journeys.istanbul_cappadocia`
@@ -37,8 +33,8 @@ To resolve an item: add `answer` and `answered_on` in `content/pending.yaml`, up
 
 - [ ] **ET-AIR-01: Group airfare**
   - Group fares from DFW, including domestic flights within Türkiye, and the flight schedule.
-  - Updates: `booking.included`, `faq.flights`, `journeys.*.notes`, `journeys.*.days`
-  - Sample fields on the site (9): `journeys.seven_churches.notes[0]`, `journeys.footsteps_of_paul.days[6].note`, `journeys.best_of_turkey.notes[0]`, `journeys.taste_of_turkey.notes[0]`, `journeys.west_anatolia.days[8].note`, `journeys.istanbul_cappadocia.days[8].note`, `journeys.istanbul_cappadocia_antalya.days[8].note`, `faq.flights`, `booking.included[0]`
+  - Updates: `booking.included`, `booking.airfare_note`, `faq.flights`, `faq.cost`, `journeys.*.prices`, `journeys.*.notes`, `journeys.*.days`
+  - Sample fields on the site (19): `journeys.seven_churches.prices`, `journeys.seven_churches.notes[0]`, `journeys.footsteps_of_paul.prices`, `journeys.footsteps_of_paul.days[6].note`, `journeys.catholic.prices`, `journeys.best_of_turkey.prices`, `journeys.best_of_turkey.notes[0]`, `journeys.taste_of_turkey.prices`, `journeys.taste_of_turkey.notes[0]`, `journeys.west_anatolia.prices`, `journeys.west_anatolia.days[8].note`, `journeys.istanbul_cappadocia.prices`, `journeys.istanbul_cappadocia.days[8].note`, `journeys.istanbul_cappadocia_antalya.prices`, `journeys.istanbul_cappadocia_antalya.days[8].note`, `faq.cost`, `faq.flights`, `booking.airfare_note`, `booking.included[0]`
 - [ ] **ET-TERMS-01: Our payment schedule and cancellation policy**
   - Final payment schedule and cancellation policy for our written agreement.
   - Updates: `booking.milestones`, `booking.cancellation`, `faq.payment`
@@ -66,6 +62,10 @@ To resolve an item: add `answer` and `answered_on` in `content/pending.yaml`, up
 
 ## Resolved
 
+- [x] **Q-PRICE-01: Written quote and 2027 prices** (asked Oct 3, 2026)
+  - A written quote with prices by season, so that per-person prices can be published for each journey.
+  - **Answer** (Oct 8, 2026; source: Ground operator, by email): Written quote received. 2027 prices are published per journey for three seasons; airfare is estimated until group fares are confirmed (ET-AIR-01).
+  - Updates: `journeys.*.prices`
 - [x] **Q-INCL-01: What’s included in each journey** (asked Oct 3, 2026)
   - Inclusions and exclusions for each journey.
   - **Answer** (Oct 6, 2026; source: Ground operator, by email and phone): Hotels (5-star, mostly international chains), breakfast and dinner daily, the same English-speaking guide throughout, a private coach, and entrance fees are included; lunches, tips, and insurance are not.

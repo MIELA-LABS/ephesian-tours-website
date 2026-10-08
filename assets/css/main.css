@@ -458,6 +458,18 @@ ul, ol { margin: 0; padding: 0; }
 .included h5:first-child { margin-top: 0; }
 .notes { list-style: none; display: grid; gap: .4rem; margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid var(--border); color: var(--text-muted); font-size: .98rem; }
 .itinerary__cta { width: 100%; }
+.prices h5, .hotels h5 { margin: 0 0 .6rem; font-size: 1.1rem; font-weight: 700; }
+.prices__table { width: 100%; border-collapse: collapse; margin-bottom: .6rem; }
+.prices__table th, .prices__table td { padding: .55rem 0; border-bottom: 1px solid var(--border); vertical-align: baseline; }
+.prices__table th { text-align: left; font-weight: 600; }
+.prices__table th span { display: block; color: var(--text-muted); font-size: .9rem; font-weight: 400; }
+.prices__table td { text-align: right; font-family: var(--font-display); font-size: 1.5rem; font-weight: 600; color: var(--primary); font-variant-numeric: lining-nums; white-space: nowrap; }
+.prices__note { margin: .35rem 0 0; color: var(--text-muted); font-size: .95rem; }
+.hotels__list { display: grid; gap: .45rem; margin: 0; }
+.hotels__list div { display: grid; grid-template-columns: minmax(6.5rem, auto) 1fr; gap: .75rem; }
+.hotels__list dt { font-weight: 700; }
+.hotels__list dd { margin: 0; }
+.hotels__list--faq { margin: .25rem 0 1rem; max-width: 40rem; }
 .add-ons { padding: 1.1rem 1.2rem; border: 1px dashed var(--primary); border-radius: var(--radius); }
 .add-ons h5 { margin: 0 0 .6rem; font-size: 1.1rem; font-weight: 700; }
 .add-on + .add-on { margin-top: .9rem; padding-top: .9rem; border-top: 1px solid var(--border); }

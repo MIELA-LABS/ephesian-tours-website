@@ -50,6 +50,12 @@ python3 -m venv .venv
 2. Run `.venv/bin/python build.py`. Fix anything it reports.
 3. Commit and push. GitHub Actions rebuilds and deploys automatically (see below).
 
+### Prices
+
+Each journey in `content/journeys.yaml` has `prices:` with `winter`, `spring_fall` and `summer` (USD per person, double occupancy, airfare from DFW included). The card shows “From” = the winter price (the build requires it to be the lowest). Season names and months, and the notes under the price table, are in `content/booking.yaml`. The FAQ “How much does a journey cost?” quotes the lowest prices in prose; the build fails if they no longer match.
+
+Typical hotels are listed once per overnight city in `content/sites.yaml` (`hotels:`); the build fails if an itinerary overnights in a city without an entry.
+
 ### Sample (pending) values
 
 Any price, term, or fact that is not yet confirmed carries provenance:
@@ -84,7 +90,7 @@ This removes the “Sample” badges, the preview banner, and the `noindex, nofo
 
 `.venv/bin/python build.py --packet` renders `templates/packet.html.j2` from the same `content/*.yaml` as the site and prints it to `dist/ephesian-tours-pastor-packet.pdf` (US Letter, about 10 pages) with Playwright/Chromium. Because it is generated from the same data, it cannot drift from the site:
 
-- While any price is pending, the packet shows **no prices**: “Pricing on request for your group’s size and dates”. Other pending terms read “to be confirmed”. No Sample badges.
+- Prices: each journey page shows the three season prices; the Discover overview shows “From”. A journey whose prices are still `pending` shows “Pricing on request” instead. Other pending terms read “to be confirmed”. No Sample badges.
 - While `preview_mode` is on, every page footer says “Preview edition · <month year>”. The footer also shows `site.base_url` and page numbers.
 - Wording specific to the packet lives under `packet:` in `content/site.yaml`.
 
@@ -106,7 +112,8 @@ Development tools live in `requirements-dev.txt`:
 - **Images:** add an entry to `content/media.yaml` (Wikimedia Commons file page, author, license; only CC BY, CC BY-SA, CC0, public domain, or Azim Tours’ own photos), then run `scripts/fetch_images.py`. It writes responsive WebP files to `assets/img/` and records their sizes. `credits.md` and the footer credits are generated from the same file.
 - **Brand:** `scripts/make_brand.py` regenerates `logo.svg`, `logo-dark.svg`, `favicon.svg`, `apple-touch-icon.png`, `og-image.jpg`, and the inline header mark from one definition.
 - **QA:** `scripts/qa_screens.py` takes full-page screenshots at 375/768/1440 px in light and dark mode (into `qa/`, not committed) and reports horizontal overflow and console errors.
-- **Before every push:** `scripts/check_public.py` checks that no private file is tracked and that no internal business terms appear in public files. The deploy workflow runs it too.
+- **Before every push:** `scripts/check_public.py` checks that no private file is tracked and that no internal business terms appear in public files; `scripts/check_public.py --dist` scans the built page and PDF the same way. The deploy workflow runs both.
+- **Private figures** (operator prices, pricing inputs) are never written in this repo, not even in the checker: they live in `internal/private-numbers.txt` (gitignored) and, for CI, in the repository secret `LEAK_PRIVATE_NUMBERS` (space-separated). Keep the two in sync. The check refuses to run without the list.
 
 ## Deployment (GitHub Pages)
 

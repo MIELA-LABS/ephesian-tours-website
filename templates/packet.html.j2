@@ -5,10 +5,17 @@
 {% set pk = packet %}
 {% macro term(x) -%}{{ pk.to_be_confirmed if x.sample else x.value }}{%- endmacro %}
 {% macro text(x) -%}{{ x.value }}{% if x.sample %} <em class="tbc">({{ pk.to_be_confirmed }})</em>{% endif %}{%- endmacro %}
-{% macro price(j) -%}
-  {%- if prices_on_request or j.from_price.sample or not j.from_price.display -%}
-    <strong>{{ booking.pricing_title }}.</strong> {{ booking.pricing_note }}
-  {%- else -%}From {{ j.from_price.display }} {{ j.from_price.basis }}{%- endif -%}
+{# prices are shown unless they are still pending (proposed = shown, with the airfare note) #}
+{% macro has_prices(j) -%}{{ "yes" if j.prices and j.prices.status != "pending" else "" }}{%- endmacro %}
+{% macro hotel_list(cities) -%}
+  <dl class="hl">{% for city in cities %}{% set h = hotels_by_city[city] %}<div><dt>{{ city }}</dt><dd>{% if h.name.value %}{{ h.name.value }}, or similar{% else %}Selected 5-star hotel{% endif %}</dd></div>{% endfor %}</dl>
+{%- endmacro %}
+{# typical hotels: under the day list, or in the side column for long journeys #}
+{% macro hotels_block(j) -%}
+  {% set ns = namespace(cities=[]) %}
+  {% for d in j.days if d.overnight and d.overnight not in ns.cities %}{% set ns.cities = ns.cities + [d.overnight] %}{% endfor %}
+  <h4 style="margin-top:10pt">Typical hotels</h4>
+  {{ hotel_list(ns.cities) }}
 {%- endmacro %}
 {% macro img(id, w=None) -%}{{ img_src(id, w) }}{%- endmacro %}
 {% macro mark(color) -%}
@@ -67,14 +74,14 @@
   .verse p { margin: 0 0 6pt; font: italic 500 17pt/1.3 var(--display); }
 
   /* journey pages */
-  .banner { height: 1.85in; margin-bottom: 14pt; border-radius: 6pt; overflow: hidden; }
+  .banner { height: 1.15in; margin-bottom: 14pt; border-radius: 6pt; overflow: hidden; }
   .banner img { width: 100%; height: 100%; object-fit: cover; }
   .jmeta { display: flex; justify-content: space-between; align-items: baseline; gap: 12pt; }
   .jmeta .eyebrow { margin: 0; }
   .price { margin: 6pt 0 10pt; padding: 7pt 10pt; background: var(--bg); border-left: 3px solid var(--accent); font-weight: 600; }
   .proposed { color: var(--accent); font-style: italic; font-size: 9.5pt; margin-bottom: 6pt; }
   .cols { display: grid; grid-template-columns: 1.55fr 1fr; gap: 18pt; }
-  .days li { display: grid; grid-template-columns: 34pt 1fr; gap: 6pt; padding: 3.5pt 0; border-bottom: 1px solid var(--border); font-size: 9.5pt; line-height: 1.35; }
+  .days li { display: grid; grid-template-columns: 34pt 1fr; gap: 6pt; padding: 3pt 0; border-bottom: 1px solid var(--border); font-size: 9.5pt; line-height: 1.35; }
   .days .n { color: var(--accent); font-weight: 700; }
   .days .t { font-weight: 600; }
   .days .o { color: var(--muted); font-style: italic; }
@@ -137,6 +144,17 @@
   .gtk__item { break-inside: avoid; margin-bottom: 9pt; font-size: 8.8pt; line-height: 1.38; }
   .gtk__item h4 { font-size: 9.6pt; margin-bottom: 2pt; color: var(--primary); }
   .gtk__item p { margin: 0 0 3pt; }
+  .seasons { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8pt; margin: 6pt 0 4pt; }
+  .season { padding: 6pt 9pt; background: var(--bg); border-top: 3px solid var(--accent); border-radius: 3pt; }
+  .season__name { font-weight: 700; font-size: 9.5pt; }
+  .season__months { color: var(--muted); font-size: 8.5pt; }
+  .season__price { font: 600 17pt/1.1 var(--display); color: var(--primary); font-variant-numeric: lining-nums; }
+  .pnote { margin: 0 0 10pt; color: var(--muted); font-size: 8.3pt; line-height: 1.35; }
+  .from { color: var(--primary); }
+  .hl { display: grid; grid-template-columns: 1fr 1fr; gap: 3pt 12pt; margin: 0 0 6pt; font-size: 8.6pt; line-height: 1.3; }
+  .hl div { break-inside: avoid; }
+  .hl dt { font-weight: 700; }
+  .hl dd { margin: 0; }
   .contact { margin-top: 16pt; padding: 16pt 18pt; background: var(--primary); color: #FFFDF8; border-radius: 6pt; }
   .contact h2 { font-size: 22pt; }
   .contact dl { display: grid; grid-template-columns: 1.1in 1fr; gap: 3pt 8pt; margin: 8pt 0 0; }
@@ -196,7 +214,16 @@
   <h2>{{ j.title }}</h2>
   {% if j.status == "proposed" %}<p class="proposed">{{ pk.proposed_label }}</p>{% endif %}
   <p class="lede">{{ j.summary }}</p>
-  <p class="price">{{ price(j) }}</p>
+  {% if has_prices(j) %}
+  <div class="seasons">
+    {% for s in booking.seasons %}
+    <div class="season"><div class="season__name">{{ s.name }}</div><div class="season__months">{{ s.months }}</div><div class="season__price">{{ j.prices.display(s.id) }}</div></div>
+    {% endfor %}
+  </div>
+  <p class="pnote">Per person. {{ booking.price_basis }} {{ booking.airfare_note.value }} See “What’s included on every journey.”</p>
+  {% else %}
+  <p class="price"><strong>{{ booking.pricing_title }}.</strong> {{ booking.pricing_note }}</p>
+  {% endif %}
   <div class="cols">
     <div>
       <h4>{{ pk.days_heading }}</h4>
@@ -206,12 +233,11 @@
           <span><span class="t">{{ d.title }}</span>{% if d.sample %} <em class="tbc">({{ pk.to_be_confirmed }})</em>{% endif %}{% if d.overnight %} <span class="o">· {{ d.overnight }}</span>{% endif %}{% if d.refs %}<br><span class="refs">{{ d.refs|join(" · ") }}</span>{% endif %}</span></li>
         {% endfor %}
       </ul>
+      {% if j.days|length <= 8 %}{{ hotels_block(j) }}{% endif %}
     </div>
     <div class="side">
       <h4>Highlights</h4>
       <ul class="ticks">{% for h in j.highlights %}<li>{{ text(h) }}</li>{% endfor %}</ul>
-      <h4>{{ pk.included_heading }}</h4>
-      <p style="font-size:9.5pt">Hotels, breakfast and dinner daily, your guide, a private coach, entrance fees, and flights from DFW. See “What’s included on every journey.”</p>
       {% if j.included_extra %}<h4>Also included</h4><ul class="ticks">{% for i in j.included_extra %}<li>{{ text(i) }}</li>{% endfor %}</ul>{% endif %}
       {% if j.excluded_extra %}<h4>Not included</h4><ul class="ticks ticks--muted">{% for i in j.excluded_extra %}<li>{{ text(i) }}</li>{% endfor %}</ul>{% endif %}
       {% if j.add_ons %}
@@ -222,6 +248,7 @@
       </div>
       {% endif %}
       {% for n in j.notes %}<p class="jnote">{{ n.value if n.status == "proposed" else text(n) }}</p>{% endfor %}
+      {% if j.days|length > 8 %}{{ hotels_block(j) }}{% endif %}
     </div>
   </div>
 </section>
@@ -238,21 +265,21 @@
       {% for j in journeys if j.group == "discover" %}
       <tr>
         <td class="thumb"><img src="{{ img(j.image, 480) }}" alt=""></td>
-        <td class="name"><strong>{{ j.title }}</strong>{{ j.duration_days }} days{% if j.status == "proposed" %}<br><em class="tbc">Day order {{ pk.to_be_confirmed }}</em>{% endif %}</td>
+        <td class="name"><strong>{{ j.title }}</strong>{{ j.duration_days }} days{% if has_prices(j) %} · <b class="from">From {{ j.prices.from_display }}</b>{% endif %}{% if j.status == "proposed" %}<br><em class="tbc">Day order {{ pk.to_be_confirmed }}</em>{% endif %}</td>
         <td><ul class="ticks">{% for h in j.highlights %}<li>{{ text(h) }}</li>{% endfor %}</ul></td>
       </tr>
       {% endfor %}
     </tbody>
   </table>
   <p style="margin-top:14pt"><strong>{{ custom_note.value }}</strong>{% if custom_note.sample %} <em class="tbc">(details {{ pk.to_be_confirmed }})</em>{% endif %}</p>
-  <p class="price"><strong>{{ booking.pricing_title }}.</strong> {{ booking.pricing_note }}</p>
+  <p class="pnote" style="margin-top:8pt">Prices per person. {{ booking.price_basis }} {{ booking.airfare_note.value }} {{ booking.quote_note }} Season-by-season prices are on our website.</p>
 </section>
 
 {# ---------------- 7. What's included + good to know ---------------- #}
 <section class="page">
   <p class="eyebrow">Every journey</p>
   <h2>What’s included on every journey</h2>
-  <p class="lede">{{ booking.pricing_title }}. {{ booking.pricing_note }}</p>
+  <p class="lede">{{ booking.price_basis }} {{ booking.quote_note }}</p>
   <div class="incl">
     <div>
       <h4>Included</h4>
@@ -271,6 +298,8 @@
     <div class="gtk__item">
       <h4>{{ q.question }}</h4>
       {{ q.answer|md }}
+      {% if q.include == "hotels" %}<p>Each journey page lists its typical hotels.</p>{% endif %}
+      {% if q.answer_after %}{{ q.answer_after|md }}{% endif %}
       {% if q.pending_note %}<p class="tbc">{{ q.pending_note.value }}</p>{% endif %}
     </div>
     {% endfor %}

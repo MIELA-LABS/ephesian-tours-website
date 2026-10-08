@@ -7,7 +7,7 @@
 templates/packet.html.j2 is rendered with the site's content and printed to a US Letter
 PDF by Chromium (Playwright), with the site's fonts, colors, and logo. Nothing is typed into
 the packet by hand, so it cannot drift from the site:
-  * pending prices are replaced by packet.pricing_on_request ("Pricing on request ...")
+  * season prices are shown unless still pending (then booking.pricing_title, "Pricing on request")
   * other pending terms read packet.to_be_confirmed; no "Sample" badges appear
   * while site.preview_mode is on, the footer reads "Preview edition · <Month Year>"
 The build fails if the web fonts did not load, rather than silently using fallbacks.
@@ -68,11 +68,9 @@ def make_packet(c: dict[str, Any], out: Path) -> int:
             credits.append(i)
 
     base_url = str(c["site"].base_url).rstrip("/") + "/"
-    prices_on_request = any(j.from_price.sample for j in c["journeys"])
     ctx = build.template_context(c, base_url) | {
         "img_src": img_src,
         "packet_credits": credits,
-        "prices_on_request": prices_on_request,
     }
     html = build.jinja_env().get_template("packet.html.j2").render(**ctx)
     CACHE.mkdir(exist_ok=True)

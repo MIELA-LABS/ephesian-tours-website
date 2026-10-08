@@ -1,4 +1,4 @@
-# Pricing, what's included, add-ons, and the payment timeline.
+# Pricing seasons, what's included, add-ons, and the payment timeline.
 #
 # The included / not-included lists are shared by every journey (a journey can add its own
 # lines in journeys.yaml: included_extra / excluded_extra). Source: Azim Tours, 2026-10-06.
@@ -6,10 +6,24 @@
 # (ET-TERMS-01, ET-PAY-01): they stay samples until then.
 
 booking:
+  # fallback, shown only for a journey without prices
   pricing_title: Pricing on request
   pricing_note: >-
     We prepare a written quote for your dates and group size, including round-trip flights
     from DFW.
+
+  seasons:
+    - {id: winter, name: Winter, months: Nov–Mar}
+    - {id: spring_fall, name: Spring & fall, months: "Apr–Jun, Sep–Oct"}
+    - {id: summer, name: Summer, months: Jul–Aug}
+  price_basis: Double occupancy, including round-trip airfare from DFW.
+  airfare_note:
+    value: Airfare is estimated until group fares are confirmed.
+    status: proposed
+    resolves_by: ET-AIR-01
+  quote_note: >-
+    Your written quote reflects your dates and group size. Prices are based on 20 travelers;
+    smaller groups pay a little more per person.
 
   included:
     - value: Round-trip group airfare from DFW, including domestic flights within Türkiye
@@ -17,15 +31,15 @@ booking:
       resolves_by: ET-AIR-01
     - 5-star hotels, mostly international chain hotels, centrally located; double or twin rooms
     - Breakfast and dinner every day (half board)
-    - The same experienced English-speaking guide for the whole journey, a specialist in Christian groups
-    - A private coach sized to your group, with air conditioning and Wi-Fi, and experienced drivers
+    - The same experienced English-speaking guide, a specialist in Christian groups, with you from arrival to departure
+    - A private air-conditioned coach with Wi-Fi from your arrival airport to your departure airport, with experienced drivers
     - Entrance fees for every site on the itinerary
-    - Your guide meets the group at the airport where the journey begins
+    - Porter service for your luggage at every hotel
     - Hakan as your escort from DFW and back
 
   excluded:
-    - Lunches and drinks. Plan on about $15–20 per person for lunch, more in Istanbul.
-    - Tips for the guide and driver. Plan on about $15 per person per day in total.
+    - Lunches and drinks. Plan on about $20–40 per person per day, depending on the city.
+    - "Tips: plan on about $15 per person per day ($10 for your guide, $5 for your driver)."
     - value: Travel and health insurance (strongly recommended)
       status: pending
       resolves_by: ET-INS-01
@@ -81,7 +95,7 @@ booking:
     - id: departure
       label: Departure from DFW
       when: The day your journey begins
-      body: Hakan meets your group at the airport and flies with you.
+      body: Your Ephesian Tours host meets your group at DFW and flies with you.
 
   payment_methods:
     value: [Bank transfer, Credit card]

@@ -14,9 +14,13 @@ faq:
   - id: cost
     question: How much does a journey cost?
     answer: |-
-      Every group receives a written quote, because prices depend on your dates, the size of your group, and the hotel season.
+      Our journeys start from $2,895 per person for six days and $3,995 for the eleven-day Seven Churches journey, including round-trip airfare from DFW. Prices are per person in a double room and follow three seasons: winter (November–March) is the lowest, then spring and fall (April–June and September–October), and summer (July–August). Each itinerary shows all three.
 
-      Your quote covers round-trip flights from DFW, hotels, breakfast and dinner every day, your guide, the coach, and entrance fees. Groups of 10 or more get the best per-person price.
+      The price includes round-trip airfare from DFW and domestic flights within Türkiye, 5-star hotels, breakfast and dinner every day, the same English-speaking guide from arrival to departure, a private air-conditioned coach, entrance fees, and porter service at every hotel. Not included: lunches and drinks (about $20–40 per person per day), tips (about $15 per person per day), travel and health insurance, and optional additions such as a day on Patmos.
+
+      Every group receives a written quote for its dates and group size. Prices are based on 20 travelers; smaller groups pay a little more per person.
+    status: proposed
+    resolves_by: ET-AIR-01
 
   - id: entry
     question: Do U.S. citizens need a visa to visit Turkey?
@@ -39,18 +43,17 @@ faq:
     answer: |-
       Turkish food is a highlight for most travelers: fresh vegetables and salads, grilled meats and fish, yogurt, warm bread, and dishes cooked in olive oil. Pork is rarely served.
 
-      Breakfast and dinner are included every day at your hotels. Lunch is on your own: plan on about $15–20 per person, more in Istanbul. For vegetarian, gluten-free, or allergy needs, tell your guide, who arranges them with the restaurants ahead of time. We recommend bottled water, which is easy to find everywhere.
+      Breakfast and dinner are included every day at your hotels. Lunch is on your own: plan on about $20–40 per person per day, depending on the city. For vegetarian, gluten-free, or allergy needs, tell your guide, who arranges them with the restaurants ahead of time. We recommend bottled water, which is easy to find everywhere.
+
+      In Istanbul, dinners are at local favorites such as a seafood restaurant and a traditional ocakbaşı grill, and lunches are near Sultanahmet. Elsewhere, lunch stops vary by journey.
 
   - id: hotels
     question: Where do we stay?
     answer: |-
-      In 5-star hotels, mostly international chains, centrally located. Travelers who share a room but aren’t couples get twin rooms with two beds.
-
+      In 5-star hotels, mostly international chains, centrally located. Travelers who share a room but aren’t couples get twin rooms with two beds. These are the hotels we typically use:
+    include: hotels
+    answer_after: |-
       On your last day, rooms must be vacated by noon; your luggage can be stored at the hotel until you leave.
-    pending_note:
-      value: The hotels for your journey are listed in your quote.
-      status: pending
-      resolves_by: Q-HOTELS-01
 
   - id: shopping
     question: Will there be shopping stops?
@@ -64,7 +67,7 @@ faq:
   - id: tips
     question: How much should we plan for tips?
     answer: |-
-      About $15 per person per day in total: around $10 for your guide and $4–5 for your driver.
+      About $15 per person per day in total: $10 for your guide and $5 for your driver.
 
   - id: hagia_sophia
     question: Can we visit Hagia Sophia?

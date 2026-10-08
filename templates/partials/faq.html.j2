@@ -10,7 +10,15 @@
       {% for q in faq %}
       <details class="faq__item" id="faq-{{ q.id }}">
         <summary><h3 class="faq__q">{{ q.question }}</h3>{{ m.badge(q) }}</summary>
-        <div class="faq__a">{{ q.answer|md }}{% if q.pending_note %}<p class="faq__note">{{ m.tracked(q.pending_note) }}</p>{% endif %}</div>
+        <div class="faq__a">{{ q.answer|md }}
+          {% if q.include == "hotels" %}
+          <dl class="hotels__list hotels__list--faq">
+            {% for h in hotels %}<div><dt>{{ h.city }}</dt><dd>{% if h.name.value %}{{ h.name.value }}, or similar{% else %}Selected 5-star hotel{{ m.badge(h.name) }}{% endif %}</dd></div>{% endfor %}
+          </dl>
+          {% endif %}
+          {% if q.answer_after %}{{ q.answer_after|md }}{% endif %}
+          {% if q.pending_note %}<p class="faq__note">{{ m.tracked(q.pending_note) }}</p>{% endif %}
+        </div>
       </details>
       {% endfor %}
     </div>

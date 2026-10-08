@@ -1,5 +1,6 @@
 # Journeys (tours). Base itineraries from Azim Tours (used with permission),
-# rewritten for US church groups. ALL PRICES ARE SAMPLES until Q-PRICE-01 is answered.
+# rewritten for US church groups. Prices: 2027 selling prices per season, USD per person,
+# double occupancy, round-trip airfare from DFW included (airfare estimated: ET-AIR-01).
 #
 # route: ordered site ids from sites.yaml; `by` = how the group arrives (road | air | sea)
 # days[].note / highlights / notes: plain text = confirmed, or {value, status, resolves_by}
@@ -25,9 +26,12 @@ journeys:
     tag: Our signature journey
     duration_days: 11
     duration_nights: 10
-    from_price:
-      status: pending
-      resolves_by: Q-PRICE-01
+    prices:
+      winter: 3995
+      spring_fall: 4595
+      summer: 4795
+      status: proposed
+      resolves_by: ET-AIR-01
     image: theatre_ephesus
     video: sardis_vimeo
     summary: >-
@@ -35,7 +39,7 @@ journeys:
       seven churches addressed in Revelation 2–3, ending at Troas, where the gospel first
       crossed into Europe.
     highlights:
-      - All seven churches of Revelation 2–3
+      - "All seven churches of Revelation 2–⁠3"  # word joiner keeps "2–3" on one line
       - Antioch, where believers were first called Christians
       - Tarsus, the apostle Paul’s birthplace
     route:
@@ -160,9 +164,12 @@ journeys:
     tag: Shorter journey
     duration_days: 6
     duration_nights: 5
-    from_price:
-      status: pending
-      resolves_by: Q-PRICE-01
+    prices:
+      winter: 2895
+      spring_fall: 3295
+      summer: 3595
+      status: proposed
+      resolves_by: ET-AIR-01
     image: pamukkale
     video: ephesus_vimeo
     summary: >-
@@ -245,9 +252,12 @@ journeys:
     resolves_by: Q-CATHOLIC-02
     duration_days: 7
     duration_nights: 6
-    from_price:
-      status: pending
-      resolves_by: Q-PRICE-01
+    prices:
+      winter: 3195
+      spring_fall: 3595
+      summer: 3795
+      status: proposed
+      resolves_by: ET-AIR-01
     image: house_of_mary
     summary: >-
       A pilgrimage for parishes, based in Kuşadası: Ephesus and the House of the Virgin Mary,
@@ -327,9 +337,12 @@ journeys:
     tag: Bible and history
     duration_days: 12
     duration_nights: null  # Day 12 ends with an overnight in Istanbul; flight home the next morning
-    from_price:
-      status: pending
-      resolves_by: Q-PRICE-01
+    prices:
+      winter: 4195
+      spring_fall: 4695
+      summer: 4995
+      status: proposed
+      resolves_by: ET-AIR-01
     image: cappadocia
     summary: >-
       The grand tour: the biblical sites woven together with Cappadocia’s rock-cut
@@ -461,9 +474,12 @@ journeys:
     tag: Shorter journey
     duration_days: 6
     duration_nights: null  # Day 6 ends with an overnight in Istanbul; flight home the next morning
-    from_price:
-      status: pending
-      resolves_by: Q-PRICE-01
+    prices:
+      winter: 2895
+      spring_fall: 3295
+      summer: 3495
+      status: proposed
+      resolves_by: ET-AIR-01
     image: bosphorus
     summary: >-
       A short first taste of Turkey: Ephesus and Pergamum on the Aegean, legendary Troy and
@@ -544,9 +560,12 @@ journeys:
     tag: Cultural tour
     duration_days: 8
     duration_nights: 7
-    from_price:
-      status: pending
-      resolves_by: Q-PRICE-01
+    prices:
+      winter: 3295
+      spring_fall: 3695
+      summer: 3995
+      status: proposed
+      resolves_by: ET-AIR-01
     image: priene
     summary: >-
       Three days in Istanbul, the first Ottoman capital at Bursa, and the Aegean coast:
@@ -644,9 +663,12 @@ journeys:
     tag: Cultural tour
     duration_days: 8
     duration_nights: 7
-    from_price:
-      status: pending
-      resolves_by: Q-PRICE-01
+    prices:
+      winter: 3495
+      spring_fall: 3895
+      summer: 4195
+      status: proposed
+      resolves_by: ET-AIR-01
     image: uchisar
     summary: >-
       Istanbul and the rock-cut churches of Cappadocia, then west through Konya, biblical
@@ -747,9 +769,12 @@ journeys:
     tag: Cultural tour
     duration_days: 8
     duration_nights: 7
-    from_price:
-      status: pending
-      resolves_by: Q-PRICE-01
+    prices:
+      winter: 3495
+      spring_fall: 3995
+      summer: 4195
+      status: proposed
+      resolves_by: ET-AIR-01
     image: aspendos
     summary: >-
       Istanbul, Cappadocia, and Konya, biblical Iconium, then the Turquoise Coast around
@@ -793,7 +818,7 @@ journeys:
           Morning flight to Kayseri, then Uçhisar, the Göreme valley, and Zelve, with their
           rock-cut churches. People from Cappadocia heard the apostles at Pentecost, and Peter’s
           first letter is addressed to believers here.
-        overnight: Avanos
+        overnight: Cappadocia
         refs: [Acts 2:9, 1 Pet 1:1]
       - n: 4
         title: Underground cities, then Konya

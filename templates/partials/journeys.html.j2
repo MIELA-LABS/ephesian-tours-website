@@ -31,10 +31,11 @@
               {% endfor %}
             </ul>
             <p class="journey__price">
-              {% if j.from_price.display %}
-              <span class="journey__from">from</span>
-              <span class="journey__amount">{{ j.from_price.display }}</span>{{ m.badge(j.from_price) }}
-              <span class="journey__basis">{{ j.from_price.basis }}</span>
+              {% if j.prices %}
+              <span class="journey__from">From</span>
+              <span class="journey__amount">{{ j.prices.from_display }}</span>
+              <span class="journey__from">per person</span>{{ m.badge(j.prices) }}
+              <span class="journey__basis">{{ booking.price_basis }}</span>
               {% else %}
               <span class="journey__on-request">{{ booking.pricing_title }}</span>
               <span class="journey__basis">{{ booking.pricing_note }}</span>
@@ -90,6 +91,36 @@
                   </button>
                   <figcaption class="video__credit">{{ v.credit }}{{ m.badge(v) }}</figcaption>
                 </figure>
+                {% endif %}
+
+                {% if j.prices %}
+                <div class="prices">
+                  <h5>Price per person{{ m.badge(j.prices) }}</h5>
+                  <table class="prices__table">
+                    <caption class="visually-hidden">{{ j.title }}: price per person by season</caption>
+                    <tbody>
+                      {% for s in booking.seasons %}
+                      <tr><th scope="row">{{ s.name }}<span>{{ s.months }}</span></th><td>{{ j.prices.display(s.id) }}</td></tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+                  <p class="prices__note">{{ booking.price_basis }}</p>
+                  <p class="prices__note">{{ m.tracked(booking.airfare_note) }}</p>
+                  <p class="prices__note">{{ booking.quote_note }}</p>
+                </div>
+                {% endif %}
+
+                {% set ns = namespace(cities=[]) %}
+                {% for d in j.days if d.overnight and d.overnight not in ns.cities %}{% set ns.cities = ns.cities + [d.overnight] %}{% endfor %}
+                {% if ns.cities %}
+                <div class="hotels">
+                  <h5>Typical hotels</h5>
+                  <dl class="hotels__list">
+                    {% for city in ns.cities %}{% set h = hotels_by_city[city] %}
+                    <div><dt>{{ city }}</dt><dd>{% if h.name.value %}{{ h.name.value }}, or similar{% else %}Selected 5-star hotel{{ m.badge(h.name) }}{% endif %}</dd></div>
+                    {% endfor %}
+                  </dl>
+                </div>
                 {% endif %}
 
                 <div class="included">

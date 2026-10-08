@@ -41,7 +41,51 @@ FORBIDDEN = [
     (re.compile(r"\bFOC\b"), "free-place terms"),
     (re.compile(r"\$ ?[78],?000"), "boat charter price"),
     (re.compile(r"180[–-]190"), "operator cost figures"),
+    # 2026-10-08 quote
+    (re.compile(r"F\.O\.C", re.I), "free-place terms"),
+    (re.compile(r"\b20 ?\+ ?1\b"), "free-place ratio"),
+    (re.compile(r"half[- ]board.{0,80}\$\s?\d|\$\s?\d[\d,]*(?:[–-]\d[\d,]*)?.{0,80}half[- ]board", re.I),
+     "half board priced next to a dollar figure"),
 ]
+
+# Private figures (operator land prices, pricing inputs) are NOT written in this public file.
+# They come from internal/private-numbers.txt (gitignored) or, in CI, from the GitHub Actions
+# secret LEAK_PRIVATE_NUMBERS (space-separated). The check refuses to run without them.
+PRIVATE_NUMBERS_FILE = ROOT / "internal" / "private-numbers.txt"
+# layout values are not prices: "1100px", srcset "1400w", width="1330", height: 1330
+LAYOUT_AFTER = re.compile(r"\s*(?:px|w\b|rem\b|em\b|vw\b|%)")
+LAYOUT_BEFORE = re.compile(r"(?:width|height)\s*[:=]\s*[\"']?\s*$", re.I)
+
+
+def private_numbers() -> list[str]:
+    import os
+
+    raw = os.environ.get("LEAK_PRIVATE_NUMBERS", "")
+    if not raw and PRIVATE_NUMBERS_FILE.exists():
+        raw = PRIVATE_NUMBERS_FILE.read_text(encoding="utf-8")
+    nums = []
+    for line in raw.replace(",", " ").split("\n"):
+        line = line.split("#", 1)[0]
+        nums += [t for t in line.split() if t.isdigit()]
+    if not nums:
+        sys.exit("LEAK CHECK CANNOT RUN: no private number list (internal/private-numbers.txt or $LEAK_PRIVATE_NUMBERS)")
+    return nums
+
+
+def number_pattern(nums: list[str]) -> re.Pattern[str]:
+    """Whole numbers only, with or without a thousands comma: 1300 and 1,300 match;
+    13000, 21300, 1,300.5 and the phone-number tail 555-1300 do not."""
+    alts = "|".join(f"{n[:-3]},?{n[-3:]}" if len(n) > 3 else n for n in sorted(set(nums)))
+    return re.compile(rf"(?<![\d,.])(?<!\d-)(?:{alts})(?![\d])(?!,\d)(?!\.\d)")
+
+
+def private_number_hits(line: str, pattern: re.Pattern[str]) -> list[str]:
+    hits = []
+    for m in pattern.finditer(line):
+        if LAYOUT_AFTER.match(line, m.end()) or LAYOUT_BEFORE.search(line[: m.start()]):
+            continue
+        hits.append(m.group(0))
+    return hits
 
 TEXT_SUFFIXES = {".md", ".yaml", ".yml", ".py", ".j2", ".html", ".css", ".js", ".txt", ".json", ".svg", ""}
 
@@ -80,7 +124,13 @@ def scan_dist() -> int:
     dist = ROOT / "dist"
     texts: dict[str, str] = {}
     if (dist / "index.html").exists():
-        texts["dist/index.html"] = (dist / "index.html").read_text(encoding="utf-8")
+        html = (dist / "index.html").read_text(encoding="utf-8")
+        # one text element per line: inline tags joined, block tags split, so "next to" rules
+        # look within a single element rather than a raw HTML line
+        html = re.sub(r"(?is)<(script|style)\b.*?</\1>", "\n", html)
+        html = re.sub(r"(?i)</?(?:a|strong|em|b|i|span|cite|abbr|small)\b[^>]*>", "", html)
+        html = re.sub(r"<[^>]+>", "\n", html)
+        texts["dist/index.html"] = __import__("html").unescape(html)
     pdfs = sorted(dist.glob("*.pdf"))
     if pdfs:
         try:
@@ -95,11 +145,14 @@ def scan_dist() -> int:
         print("nothing to scan in dist/: run build.py first", file=sys.stderr)
         return 1
     problems = []
+    numbers = number_pattern(private_numbers())
     for name, text in texts.items():
         for lineno, line in enumerate(text.splitlines(), 1):
             for pattern, label in FORBIDDEN:
                 if pattern.search(line):
                     problems.append(f"{name}:{lineno}: {label}: {line.strip()[:100]}")
+            if private_number_hits(line, numbers):
+                problems.append(f"{name}:{lineno}: private figure (operator price or pricing input)")
     if problems:
         print("LEAK CHECK FAILED (built output):", *problems, sep="\n  ", file=sys.stderr)
         return 1
@@ -124,6 +177,7 @@ def main() -> int:
             if meta:
                 problems.append(f"{path}: image metadata present ({', '.join(meta)}); strip it before publishing")
 
+    numbers = number_pattern(private_numbers())
     for path in files:
         p = ROOT / path
         if path == SELF or p.suffix not in TEXT_SUFFIXES or not p.is_file():
@@ -133,6 +187,8 @@ def main() -> int:
             for pattern, label in FORBIDDEN:
                 if pattern.search(line):
                     problems.append(f"{path}:{lineno}: {label}: {line.strip()[:100]}")
+            if private_number_hits(line, numbers):
+                problems.append(f"{path}:{lineno}: private figure (operator price or pricing input)")
 
     if problems:
         print("LEAK CHECK FAILED:", *problems, sep="\n  ", file=sys.stderr)

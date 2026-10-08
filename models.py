@@ -84,22 +84,27 @@ class Tracked(Provenance, Generic[T]):
         return data if isinstance(data, dict) else {"value": data}
 
 
-class Price(Provenance):
-    value: int | None = Field(default=None, gt=0)  # None = no figure published ("Pricing on request")
+class SeasonPrices(Provenance):
+    """Per-person selling price by season (USD, double occupancy, airfare from DFW included).
+    The public "From" price is the winter price, which must be the lowest."""
+
+    winter: int = Field(gt=0)
+    spring_fall: int = Field(gt=0)
+    summer: int = Field(gt=0)
     currency: Literal["USD"] = "USD"
-    basis: str | None = None
 
     @model_validator(mode="after")
-    def _empty_only_while_open(self) -> Price:
-        if self.value is None and not self.sample:
-            raise ValueError("a confirmed price needs a value")
-        if self.value is not None and not self.basis:
-            raise ValueError("a price with a value needs a basis (e.g. per person, double occupancy)")
+    def _winter_is_lowest(self) -> SeasonPrices:
+        if self.winter > min(self.spring_fall, self.summer):
+            raise ValueError("the winter price is shown as 'From', so it must be the lowest")
         return self
 
     @property
-    def display(self) -> str | None:
-        return f"${self.value:,}" if self.value is not None else None
+    def from_display(self) -> str:
+        return f"${self.winter:,}"
+
+    def display(self, season: str) -> str:
+        return f"${getattr(self, season):,}"
 
 
 class Link(Strict):
@@ -307,8 +312,14 @@ class SiteGroup(Strict):
     intro: str | None = None
 
 
+class Hotel(Strict):
+    city: str  # must match the `overnight` text used in journeys.yaml
+    name: Tracked[str | None]  # None = not named yet ("Selected 5-star hotel")
+
+
 class SitesFile(Strict):
     site_groups: list[SiteGroup]
+    hotels: list[Hotel]
     sites: list[Place]
 
 
@@ -353,7 +364,7 @@ class Journey(Provenance):
     tag: str | None = None
     duration_days: int = Field(ge=1)
     duration_nights: int | None = None
-    from_price: Price
+    prices: SeasonPrices | None = None  # None = "Pricing on request"
     image: str
     summary: str
     highlights: list[Tracked[str]] = Field(min_length=3, max_length=3)
@@ -391,6 +402,8 @@ class FaqItem(Provenance):
     question: str
     answer: str  # paragraphs separated by blank lines; [text](url) and **bold** allowed
     pending_note: Tracked[str] | None = None  # an unconfirmed line shown after the answer
+    include: Literal["hotels"] | None = None  # render a data-driven list after the answer
+    answer_after: str | None = None  # text shown after the included list
 
 
 class FaqFile(Strict):
@@ -414,9 +427,19 @@ class AddOn(Provenance):
     body: str
 
 
+class Season(Strict):
+    id: Literal["winter", "spring_fall", "summer"]
+    name: str
+    months: str
+
+
 class Booking(Strict):
-    pricing_title: str  # e.g. "Pricing on request"
-    pricing_note: str  # one line under it on every journey
+    pricing_title: str  # shown instead of prices when a journey has none ("Pricing on request")
+    pricing_note: str
+    seasons: list[Season] = Field(min_length=3, max_length=3)
+    price_basis: str  # small line under "From $X per person"
+    airfare_note: Tracked[str]
+    quote_note: str
     included: list[Tracked[str]]  # shared by every journey
     excluded: list[Tracked[str]]
     add_ons: list[AddOn] = []

@@ -11,21 +11,15 @@
 
 pending:
   # --- Open: from our ground operator ------------------------------------------
-  - id: Q-PRICE-01
-    owner: operator
-    topic: Written sample quote
-    question: >-
-      A written sample quote for one journey, with per-person prices by group size and the
-      single-room supplement.
-    asked_on: 2026-10-03
-    updates: ["journeys.*.from_price"]
-
   - id: Q-HOTELS-01
     owner: operator
-    topic: Hotel names by city
-    question: The hotels used in each city, by name.
+    topic: Hotel names for the remaining cities
+    question: >-
+      Typical hotels for İzmir, Çanakkale, Adana, Alanya, Ankara, and Bursa. (Hotels for
+      Istanbul, Cappadocia, Konya, Antalya, Pamukkale, and Kuşadası were received on
+      2026-10-08 and are shown on the site.)
     asked_on: 2026-10-06
-    updates: ["faq.hotels.pending_note"]
+    updates: ["hotels"]
 
   - id: Q-ORDER-01
     owner: operator
@@ -64,7 +58,7 @@ pending:
     owner: ephesian
     topic: Group airfare
     question: Group fares from DFW, including domestic flights within Türkiye, and the flight schedule.
-    updates: ["booking.included", "faq.flights", "journeys.*.notes", "journeys.*.days"]
+    updates: ["booking.included", "booking.airfare_note", "faq.flights", "faq.cost", "journeys.*.prices", "journeys.*.notes", "journeys.*.days"]
 
   - id: ET-TERMS-01
     owner: ephesian
@@ -103,6 +97,20 @@ pending:
     updates: ["site.form_endpoint"]
 
   # --- Resolved --------------------------------------------------------------------
+  - id: Q-PRICE-01
+    owner: operator
+    topic: Written quote and 2027 prices
+    question: >-
+      A written quote with prices by season, so that per-person prices can be published for
+      each journey.
+    asked_on: 2026-10-03
+    answer: >-
+      Written quote received. 2027 prices are published per journey for three seasons; airfare
+      is estimated until group fares are confirmed (ET-AIR-01).
+    answered_on: 2026-10-08
+    source: Ground operator, by email
+    updates: ["journeys.*.prices"]
+
   - id: Q-INCL-01
     owner: operator
     topic: What’s included in each journey

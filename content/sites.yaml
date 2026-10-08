@@ -17,6 +17,23 @@ site_groups:
     label: More places of faith
     intro: Patmos, Cappadocia, and the great city of Constantinople.
 
+# Typical hotels per overnight city (from our partner in Türkiye, 2026-10-08), always shown
+# with "or similar". `city` must match the `overnight` text in journeys.yaml (the build checks).
+# name: null = not named yet; shown as "Selected 5-star hotel" until Q-HOTELS-01 is answered.
+hotels:
+  - {city: Istanbul, name: "Radisson Blu, Elite World or Crowne Plaza"}
+  - {city: Cappadocia, name: "Utopia Cave Cappadocia, Ürgüp"}
+  - {city: Konya, name: Novotel Konya}
+  - {city: Antalya, name: Ramada Plaza Antalya}
+  - {city: Pamukkale, name: Doğa Thermal}
+  - {city: Kuşadası, name: "Charisma or Elite World Kuşadası"}
+  - {city: İzmir, name: {value: null, status: pending, resolves_by: Q-HOTELS-01}}
+  - {city: Çanakkale, name: {value: null, status: pending, resolves_by: Q-HOTELS-01}}
+  - {city: Adana, name: {value: null, status: pending, resolves_by: Q-HOTELS-01}}
+  - {city: Alanya, name: {value: null, status: pending, resolves_by: Q-HOTELS-01}}
+  - {city: Ankara, name: {value: null, status: pending, resolves_by: Q-HOTELS-01}}
+  - {city: Bursa, name: {value: null, status: pending, resolves_by: Q-HOTELS-01}}
+
 sites:
   # --- The seven churches of Revelation (Rev 2–3) ---------------------------
   - id: ephesus
