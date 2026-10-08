@@ -3,6 +3,7 @@
 
     python scripts/check_public.py           # tracked and addable files
     python scripts/check_public.py --dist    # the BUILT site and packet PDF (run after build.py --packet)
+    python scripts/check_public.py --staged  # lines added in the staged commit (run before git commit)
 
 Fails (exit 1) if
   * a private path (CLAUDE.md, internal/, original photos, ...) is tracked or would be added,
@@ -73,8 +74,8 @@ def private_numbers() -> list[str]:
 
 
 def number_pattern(nums: list[str]) -> re.Pattern[str]:
-    """Whole numbers only, with or without a thousands comma: 1300 and 1,300 match;
-    13000, 21300, 1,300.5 and the phone-number tail 555-1300 do not."""
+    """Whole numbers only, with or without a thousands comma: for a listed 1234, both 1234 and
+    1,234 match; 12340, 21234, 1,234.5 and a phone-number tail like 555-1234 do not."""
     alts = "|".join(f"{n[:-3]},?{n[-3:]}" if len(n) > 3 else n for n in sorted(set(nums)))
     return re.compile(rf"(?<![\d,.])(?<!\d-)(?:{alts})(?![\d])(?!,\d)(?!\.\d)")
 
@@ -160,9 +161,31 @@ def scan_dist() -> int:
     return 0
 
 
+def scan_staged() -> int:
+    """Scan the lines added in the staged commit (git diff --cached), the checker included."""
+    diff = subprocess.run(["git", "diff", "--cached", "-U0"], cwd=ROOT, capture_output=True, text=True, check=True).stdout
+    numbers = number_pattern(private_numbers())
+    problems, current = [], "?"
+    for line in diff.splitlines():
+        if line.startswith("+++ b/"):
+            current = line[6:]
+        elif line.startswith("+") and not line.startswith("+++"):
+            if private_number_hits(line, numbers):
+                problems.append(f"{current}: private figure (operator price or pricing input)")
+            if current != SELF:
+                problems += [f"{current}: {label}" for pattern, label in FORBIDDEN if pattern.search(line)]
+    if problems:
+        print("LEAK CHECK FAILED (staged changes):", *problems, sep="\n  ", file=sys.stderr)
+        return 1
+    print("leak check OK (staged changes)")
+    return 0
+
+
 def main() -> int:
     if "--dist" in sys.argv[1:]:
         return scan_dist()
+    if "--staged" in sys.argv[1:]:
+        return scan_staged()
     problems: list[str] = []
     files = candidate_files()
 
@@ -178,6 +201,10 @@ def main() -> int:
                 problems.append(f"{path}: image metadata present ({', '.join(meta)}); strip it before publishing")
 
     numbers = number_pattern(private_numbers())
+    for line_no, line in enumerate((ROOT / SELF).read_text(encoding="utf-8").splitlines(), 1):
+        if private_number_hits(line, numbers):
+            problems.append(f"{SELF}:{line_no}: private figure (operator price or pricing input)")
+
     for path in files:
         p = ROOT / path
         if path == SELF or p.suffix not in TEXT_SUFFIXES or not p.is_file():
