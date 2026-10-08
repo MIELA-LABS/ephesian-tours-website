@@ -26,11 +26,11 @@ OUT = ROOT / "assets" / "img" / "hosts"
 
 # crop boxes in original pixels (left, top, right, bottom)
 PHOTOS = {
-    "hakan": {"file": "hakan-original.jpg", "crop": (0, 40, 1024, 1320), "warm": None},
-    # tighter on face and shoulders to keep the porch background to a minimum
-    "ece": {"file": "ece-original.jpg", "crop": (330, 340, 1424, 1708), "warm": (1.03, 1.0, 0.96)},
+    "hakan": {"file": "hakan-original.jpg", "crop": (0, 40, 1024, 1320), "warm": None, "widths": [480, 960]},
+    # 2026-10-08 photo: 4:5 head and shoulders at full height; the right edge stops before the
+    # man in the blue shirt. Only 716 px wide after cropping, so it is never upscaled past that.
+    "ece": {"file": "ece-2-original.jpg", "crop": (256, 0, 972, 895), "warm": (1.03, 1.0, 0.96), "widths": [480, 716]},
 }
-WIDTHS = [480, 960]
 
 
 def to_srgb(img: Image.Image) -> Image.Image:
@@ -69,9 +69,10 @@ def main() -> int:
             return 1
         base = warm(to_srgb(Image.open(src)), spec["warm"])
         portrait = base.crop(spec["crop"])
-        for w in WIDTHS:
+        widths = [w for w in spec["widths"] if w <= portrait.width]
+        for w in widths:
             save_clean(portrait, OUT / f"{name}-{w}.webp", w)
-        print(f"{name}: portrait {portrait.width}x{portrait.height} -> {', '.join(f'{name}-{w}.webp' for w in WIDTHS)}")
+        print(f"{name}: portrait {portrait.width}x{portrait.height} -> {', '.join(f'{name}-{w}.webp' for w in widths)}")
 
     return 0
 

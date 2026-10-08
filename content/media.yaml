@@ -317,11 +317,11 @@ images:
     license: © Ephesian Tours. All rights reserved.
   - id: ece
     subject: Ece Yorgancı
-    alt: Portrait of Ece Yorgancı, smiling, with her hair in braids
+    alt: Portrait of Ece Yorgancı, smiling, with her hair pulled back
     file: hosts/ece
-    widths: [480, 960]
-    width: 960
-    height: 1200
+    widths: [480, 716]
+    width: 716
+    height: 895
     author: "Hakan & Ece Yorgancı"
     license: © Ephesian Tours. All rights reserved.
   # --- Photos courtesy of Azim Tours (used with permission; originals kept outside the repo) ---
