@@ -14,7 +14,6 @@ Every image and video used on the site, with its source and license.
 | `hierapolis` | Hierapolis ruins | Carole Raddato from FRANKFURT, Germany | [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0) | [link](<https://commons.wikimedia.org/wiki/File:The_Roman_theatre,_built_in_the_2nd_century_AD_under_Hadrian_on_the_ruins_of_an_earlier_theatre,_later_renovated_under_Septimius_Severus,_Hierapolis,_Turkey_(17033619498).jpg>) |
 | `cappadocia` | Cappadocia balloons and fairy chimneys | Michael Day | [CC BY 2.0](https://creativecommons.org/licenses/by/2.0) | [link](<https://commons.wikimedia.org/wiki/File:Fairy_Chimneys_(6648807241).jpg>) |
 | `house-of-mary` | House of the Virgin Mary exterior | eleesege | [CC BY 3.0](https://creativecommons.org/licenses/by/3.0) | [link](<https://commons.wikimedia.org/wiki/File:Virgin_Marys_House_near_Ephesus_-_panoramio.jpg>) |
-| `hagia-sophia` | Hagia Sophia exterior | Arild Vågen | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) | [link](<https://commons.wikimedia.org/wiki/File:Hagia_Sophia_Mars_2013.jpg>) |
 | `laodicea` | Laodicea columns | Dosseman | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [link](<https://commons.wikimedia.org/wiki/File:Laodikeia_ad_Lycum_Syria_street_4752.jpg>) |
 | `pergamum` | Pergamum acropolis and theater | Antoloji | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [link](<https://commons.wikimedia.org/wiki/File:Acropolis_amphitheatre_of_Pergamon_(2020).jpg>) |
 | `patmos` | Patmos, Chora and the Monastery of St. John | Valeria Casali | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [link](<https://commons.wikimedia.org/wiki/File:Chora_di_Patmos_con_il_Monastero_di_San_Giovanni_il_teologo_2.jpg>) |
@@ -36,8 +35,23 @@ Every image and video used on the site, with its source and license.
 | `aspendos` | Roman theater, Aspendos | Lee Vilenski | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [link](<https://commons.wikimedia.org/wiki/File:Aspendos_Theatre,_Turkey_(86552).jpg>) |
 | `uchisar` | Uçhisar, Cappadocia | Bernard Gagnon | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) | [link](<https://commons.wikimedia.org/wiki/File:U%C3%A7hisar_Castle_03.jpg>) |
 | `bosphorus` | Istanbul from the Bosphorus | Moonik | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) | [link](<https://commons.wikimedia.org/wiki/File:Sultanahmet_ferry_on_the_Bosphorus_in_Istanbul,_Turkey_001.jpg>) |
+| `curetes` | Curetes Street, Ephesus | shankar s. from Dubai, United Arab Emirates | [CC BY 2.0](https://creativecommons.org/licenses/by/2.0) | [link](<https://commons.wikimedia.org/wiki/File:Looking_down_the_Street_of_Curetes_(16314212482).jpg>) |
+| `hagia-sophia-interior` | Hagia Sophia, the nave and great dome | Jorge Láscar | [CC BY 2.0](https://creativecommons.org/licenses/by/2.0) | [link](<https://commons.wikimedia.org/wiki/File:Central_nave_-_Hagia_Sophia_(8291196158).jpg>) |
 | `hosts/hakan` | Hakan Yorgancı | Hakan & Ece Yorgancı | © Ephesian Tours. All rights reserved. | our own photo |
 | `hosts/ece` | Ece Yorgancı | Hakan & Ece Yorgancı | © Ephesian Tours. All rights reserved. | our own photo |
+| `partner/01-ephesus-celsus` | Ephesus, the Library of Celsus | Azim Tours | Photos courtesy of Azim Tours | provided by Azim Tours, used with permission |
+| `partner/02-troy` | Troy | Azim Tours | Photos courtesy of Azim Tours | provided by Azim Tours, used with permission |
+| `partner/03-istanbul-dolmabahce` | Istanbul, Dolmabahçe Palace | Azim Tours | Photos courtesy of Azim Tours | provided by Azim Tours, used with permission |
+| `partner/04-duden-waterfall` | Düden Waterfall, Antalya | Azim Tours | Photos courtesy of Azim Tours | provided by Azim Tours, used with permission |
+| `partner/05-ephesus-teaching` | Teaching on an ancient marble street | Azim Tours | Photos courtesy of Azim Tours | provided by Azim Tours, used with permission |
+| `partner/06-hierapolis-group-ruins` | A group gathered among the ruins of Hierapolis | Azim Tours | Photos courtesy of Azim Tours | provided by Azim Tours, used with permission |
+| `partner/07-sardis-gymnasium` | Sardis, the Roman gymnasium | Azim Tours | Photos courtesy of Azim Tours | provided by Azim Tours, used with permission |
+| `partner/08-village-grapes` | A warm welcome in a village near Ephesus | Azim Tours | Photos courtesy of Azim Tours | provided by Azim Tours, used with permission |
+| `partner/09-mosaic-oceanus-tethys` | A Roman mosaic of Oceanus and Tethys | Azim Tours | Photos courtesy of Azim Tours | provided by Azim Tours, used with permission |
+| `partner/10-aphrodisias-tetrapylon` | Aphrodisias, the Tetrapylon gate | Azim Tours | Photos courtesy of Azim Tours | provided by Azim Tours, used with permission |
+| `partner/11-pergamum-vaults` | Pergamum, the vaulted passages of the acropolis | Azim Tours | Photos courtesy of Azim Tours | provided by Azim Tours, used with permission |
+| `partner/12-hierapolis-theater` | The theater at Hierapolis | Azim Tours | Photos courtesy of Azim Tours | provided by Azim Tours, used with permission |
+| `partner/13-ephesus-hadrian-temple` | Ephesus, the Temple of Hadrian | Azim Tours | Photos courtesy of Azim Tours | provided by Azim Tours, used with permission |
 
 ## Videos
 

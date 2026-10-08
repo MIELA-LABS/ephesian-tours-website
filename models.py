@@ -30,7 +30,9 @@ from pydantic import BaseModel, ConfigDict, Field, HttpUrl, StringConstraints, f
 
 T = TypeVar("T")
 
-Status = Literal["confirmed", "pending", "proposed"]
+# tracked = the public wording is final (no badge), but the underlying item is still being
+# worked on internally and stays listed in PENDING.md under its resolves_by id
+Status = Literal["confirmed", "pending", "proposed", "tracked"]
 SlugId = Annotated[str, StringConstraints(pattern=r"^[a-z][a-z0-9_]*$")]
 QuestionId = Annotated[str, StringConstraints(pattern=r"^(Q|ET)-[A-Z]+-\d{2}$")]
 
@@ -72,7 +74,7 @@ class Provenance(Strict):
     @property
     def sample(self) -> bool:
         """True when the value is not final and should carry a "Sample" badge in preview mode."""
-        return self.status != "confirmed"
+        return self.status in ("pending", "proposed")
 
 
 class Tracked(Provenance, Generic[T]):
@@ -199,6 +201,12 @@ class HowItWorks(Strict):
     leader_note: Tracked[str]
 
 
+class Gallery(Strict):
+    heading: str
+    note: str  # e.g. "Photos courtesy of Azim Tours"
+    photos: list[str] = Field(min_length=1)  # image ids, in order
+
+
 class Partner(Strict):
     name: str
     location: str
@@ -207,6 +215,7 @@ class Partner(Strict):
     license_body: str
     summary: str
     facts: list[Tracked[str]]
+    gallery: Gallery
 
 
 class Person(Strict):
@@ -258,6 +267,9 @@ class Packet(Strict):
     discover_intro: str
     edition_label: str  # footer label while preview_mode is on, e.g. "Preview edition"
     good_to_know: list[str] = []  # faq ids printed in the packet's "Good to know" block
+    partner_photos: list[str] = []  # image ids for the packet's partner photo grid
+    hagia_sophia_image: str | None = None  # image id shown on the "Why Türkiye" page
+    hagia_sophia_caption: str = ""
     contact_intro: str
 
 
@@ -433,6 +445,11 @@ class Season(Strict):
     months: str
 
 
+class CancellationRow(Strict):
+    when: str
+    refund: str
+
+
 class Booking(Strict):
     pricing_title: str  # shown instead of prices when a journey has none ("Pricing on request")
     pricing_note: str
@@ -444,10 +461,13 @@ class Booking(Strict):
     excluded: list[Tracked[str]]
     add_ons: list[AddOn] = []
     milestones: list[Milestone]
-    payment_methods: Tracked[list[str]]
-    minimum_group: Tracked[str]
-    cancellation: Tracked[str]
+    payment_methods: Tracked[str]
+    minimum_group: str
+    cancellation_intro: str
+    cancellation: list[CancellationRow] = Field(min_length=1)
+    cancellation_note: str
     insurance_note: Tracked[str]
+    itinerary_footer: str  # one quiet line at the end of every itinerary
 
 
 class BookingFile(Strict):
@@ -466,6 +486,7 @@ class Image(Strict):
     width: int | None = None  # intrinsic size of the largest rendition (set by fetch_images.py)
     height: int | None = None
     position: str = "center"  # CSS object-position for cropping
+    crop_caption_bar: bool = False  # partner photos: remove a white caption bar at the bottom
     source_url: HttpUrl | None = None
     author: str | None = None
     license: str | None = None
@@ -524,6 +545,25 @@ class PendingFile(Strict):
     pending: list[PendingItem]
 
 
+# --- partner_reviews.yaml -------------------------------------------------------
+
+
+class PartnerReview(Strict):
+    quote: str  # verbatim, including the reviewer's own spelling; shorten only with "…"
+    attribution: str  # exactly as given, e.g. "Best of Turkey guest, via Azim Tours"
+    image: str  # thumbnail: an image id from the partner gallery
+
+
+class PartnerReviews(Strict):
+    heading: str
+    note: str  # makes clear these are reviews of the partner's tours
+    items: list[PartnerReview] = Field(min_length=1)
+
+
+class PartnerReviewsFile(Strict):
+    partner_reviews: PartnerReviews
+
+
 # file stem -> model, in load order
 CONTENT_FILES: dict[str, type[Strict]] = {
     "site": SiteFile,
@@ -533,4 +573,5 @@ CONTENT_FILES: dict[str, type[Strict]] = {
     "booking": BookingFile,
     "media": MediaFile,
     "pending": PendingFile,
+    "partner_reviews": PartnerReviewsFile,
 }

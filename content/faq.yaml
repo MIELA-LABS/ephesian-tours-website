@@ -19,7 +19,7 @@ faq:
       The price includes round-trip airfare from DFW and domestic flights within Türkiye, 5-star hotels, breakfast and dinner every day, the same English-speaking guide from arrival to departure, a private air-conditioned coach, entrance fees, and porter service at every hotel. Not included: lunches and drinks (about $20–40 per person per day), tips (about $15 per person per day), travel and health insurance, and optional additions such as a day on Patmos.
 
       Every group receives a written quote for its dates and group size. Prices are based on 20 travelers; smaller groups pay a little more per person.
-    status: proposed
+    status: tracked
     resolves_by: ET-AIR-01
 
   - id: entry
@@ -53,16 +53,16 @@ faq:
       In 5-star hotels, mostly international chains, centrally located. Travelers who share a room but aren’t couples get twin rooms with two beds. These are the hotels we typically use:
     include: hotels
     answer_after: |-
+      Single rooms are available for an additional charge; ask us and we’ll include it in your quote.
+
       On your last day, rooms must be vacated by noon; your luggage can be stored at the hotel until you leave.
 
   - id: shopping
     question: Will there be shopping stops?
     answer: |-
       Some days include relaxed shopping time at local workshops and boutiques, such as carpets, ceramics, leather, and jewelry. It’s entirely optional and never pressured: browse, buy, or simply enjoy a cup of tea.
-    pending_note:
-      value: Ask us if your group would rather skip shopping time.
-      status: pending
-      resolves_by: Q-SHOP-01
+    answer_after: |-
+      Shopping time is always optional, and no one is ever expected to buy.
 
   - id: tips
     question: How much should we plan for tips?
@@ -107,8 +107,8 @@ faq:
   - id: flights
     question: Do you arrange flights from Dallas–Fort Worth?
     answer: |-
-      Yes. We book all flights for your group, including the domestic connections within Türkiye, and Hakan flies with you. Group fare details are being finalized.
-    status: pending
+      Yes. We book all flights for your group, including the domestic connections within Türkiye, and Hakan flies with you. Airfare in our prices is estimated until group fares are confirmed; your written quote shows the final figure.
+    status: tracked
     resolves_by: ET-AIR-01
 
   - id: health
@@ -119,17 +119,11 @@ faq:
   - id: payment
     question: How do payments work?
     answer: |-
-      Payments are spread out over the months before departure; see the Booking and Payments timeline above. Your payment schedule and cancellation terms are set out in your written agreement.
-    status: pending
-    resolves_by: ET-TERMS-01
-    pending_note:
-      value: Accepted payment methods will be confirmed with your group’s registration details.
-      status: pending
-      resolves_by: ET-PAY-01
+      A $500 deposit per person at registration reserves your place. The final balance is due 90 days before departure, and group airline tickets are issued after that. You can pay by check, bank transfer, or credit card.
+
+      If you need to cancel (per traveler, from the date we receive written notice): 90 days or more before departure, we refund everything except $250 of the deposit; from 89 to 60 days before departure, we refund 50% of the journey price; 59 days or less before departure, there is no refund. We strongly recommend travel insurance, including ‘cancel for any reason’ coverage, to protect your payments.
 
   - id: insurance
     question: Do we need travel insurance?
     answer: |-
-      We strongly recommend comprehensive travel and health insurance, including trip cancellation, medical, and emergency evacuation coverage. Most U.S. health plans, including Medicare, provide little or no coverage abroad.
-    status: pending
-    resolves_by: ET-INS-01
+      Strongly recommended. Choose comprehensive travel and health insurance, including trip cancellation (ideally ‘cancel for any reason’), medical, and emergency evacuation coverage. Most U.S. health plans, including Medicare, provide little or no coverage abroad.

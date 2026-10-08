@@ -157,6 +157,11 @@ def cross_check(c: dict[str, Any]) -> tuple[list[str], dict[str, list[str]]]:
     image_refs += [(f"sites.{s.id}.image", s.image) for s in c["sites"] if s.image]
     image_refs += [(f"videos.{v.id}.poster", v.poster) for v in c["videos"]]
     image_refs += [(f"hosts.people.{p.id}.photo", p.photo.value) for p in c["hosts"].people]
+    image_refs += [("partner.gallery.photos", i) for i in c["partner"].gallery.photos]
+    image_refs += [("partner_reviews.items.image", r.image) for r in c["partner_reviews"].items]
+    image_refs += [("packet.partner_photos", i) for i in c["packet"].partner_photos]
+    if c["packet"].hagia_sophia_image:
+        image_refs.append(("packet.hagia_sophia_image", c["packet"].hagia_sophia_image))
     for where, image_id in image_refs:
         if image_id not in image_ids:
             errors.append(f"{where}: unknown image '{image_id}' (add it to media.yaml)")
@@ -210,13 +215,13 @@ def cross_check(c: dict[str, Any]) -> tuple[list[str], dict[str, list[str]]]:
         if item is None:
             errors.append(f"{where}: resolves_by '{node.resolves_by}' is not in pending.yaml")
             continue
-        tagged[item.id].append(where)
+        tagged[item.id].append(where + (" (tracked)" if node.status == "tracked" else ""))
         if not any(covers(parse_pattern(p), path) for p in item.updates):
             warnings.append(f"{where}: not listed in {item.id}.updates")
-        if node.sample and item.resolved:
+        if node.status != "confirmed" and item.resolved:
             warnings.append(f"{where}: {item.id} has been answered; update the value and mark it confirmed")
-        if not node.sample and not item.resolved:
-            errors.append(f"{where}: marked confirmed but {item.id} has no answer yet")
+        if node.status == "confirmed" and not item.resolved:
+            errors.append(f"{where}: marked confirmed but {item.id} has no answer yet (use status: tracked for final wording)")
 
     for item in c["pending"]:
         for pattern in item.updates:
@@ -325,14 +330,15 @@ def write_dist(html: str) -> None:
 def write_pending_md(c: dict[str, Any], tagged: dict[str, list[str]]) -> None:
     items = c["pending"]
     open_items = [p for p in items if not p.resolved]
-    n_fields = sum(len(tagged.get(p.id, [])) for p in open_items)
+    n_fields = sum(1 for p in open_items for f in tagged.get(p.id, []) if not f.endswith("(tracked)"))
     lines = [
         GENERATED_NOTE.format(src="pending.yaml"),
         "",
         "# Pending items",
         "",
         f"{len(open_items)} open items · {len(items) - len(open_items)} resolved · "
-        f"{n_fields} fields on the site currently show a **Sample** badge in preview mode.",
+        f"{n_fields} fields on the site currently show a **Sample** badge in preview mode. "
+        "Fields marked (tracked) show final wording without a badge but stay listed here.",
         "",
         "To resolve an item: add `answer` and `answered_on` in `content/pending.yaml`, update the "
         "fields listed under it with real values and `status: confirmed`, then run `python build.py`.",
@@ -351,7 +357,7 @@ def write_pending_md(c: dict[str, Any], tagged: dict[str, list[str]]) -> None:
         out.append("  - Updates: " + ", ".join(f"`{u}`" for u in p.updates))
         fields = tagged.get(p.id, [])
         if fields and not p.resolved:
-            out.append(f"  - Sample fields on the site ({len(fields)}): " + ", ".join(f"`{f}`" for f in fields))
+            out.append(f"  - Fields on the site ({len(fields)}): " + ", ".join(f"`{f}`" for f in fields))
         return out
 
     groups = [
@@ -384,7 +390,8 @@ def write_credits_md(c: dict[str, Any]) -> None:
         lines += ["| Image | Subject | Author | License | Source |", "|---|---|---|---|---|"]
         for i in ready:
             lic = f"[{i.license}]({i.license_url})" if i.license_url else i.license
-            src = f"[link](<{i.source_url}>)" if i.source_url else "our own photo"
+            src = (f"[link](<{i.source_url}>)" if i.source_url
+                   else "provided by Azim Tours, used with permission" if i.author == "Azim Tours" else "our own photo")
             lines.append(f"| `{i.file}` | {i.subject} | {i.author} | {lic} | {src} |")
     else:
         lines.append("No images sourced yet.")

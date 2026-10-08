@@ -126,8 +126,8 @@
   .facts li::before { content: "✓"; position: absolute; left: 0; color: var(--olive); font-weight: 700; }
 
   /* booking + contact */
-  .timeline { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10pt; margin: 12pt 0; }
-  .ms { padding: 10pt; background: var(--bg); border-top: 3px solid var(--primary); border-radius: 4pt; font-size: 9.2pt; }
+  .timeline { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10pt; margin: 10pt 0; }
+  .ms { padding: 7pt 10pt; background: var(--bg); border-top: 3px solid var(--primary); border-radius: 4pt; font-size: 9.2pt; }
   .ms:last-child { border-top-color: var(--accent); }
   .ms h4 { font: 600 13pt/1.1 var(--display); margin-bottom: 4pt; }
   .terms { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10pt; font-size: 9.2pt; }
@@ -155,12 +155,23 @@
   .hl div { break-inside: avoid; }
   .hl dt { font-weight: 700; }
   .hl dd { margin: 0; }
-  .contact { margin-top: 16pt; padding: 16pt 18pt; background: var(--primary); color: #FFFDF8; border-radius: 6pt; }
-  .contact h2 { font-size: 22pt; }
-  .contact dl { display: grid; grid-template-columns: 1.1in 1fr; gap: 3pt 8pt; margin: 8pt 0 0; }
+  .ctable { margin-top: 2pt; }
+  .ctable td, .ctable th { padding: 3pt 8pt 3pt 0; font-size: 9pt; }
+  .ctable td:first-child { width: 55%; }
+  .hs { margin: 12pt 0 0; break-inside: avoid; }
+  .hs img { width: 100%; height: 1.75in; object-fit: cover; object-position: center 12%; border-radius: 6pt; }
+  .hs figcaption { margin-top: 5pt; color: var(--muted); font-size: 8.8pt; font-style: italic; }
+  .pgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 7pt; margin-top: 4pt; }
+  .pgrid figure { margin: 0; }
+  .pgrid img { width: 100%; height: 1.3in; object-fit: cover; border-radius: 4pt; }
+  .pgrid figure { break-inside: avoid; }
+  .pgrid figcaption { margin-top: 2pt; font-size: 7.8pt; color: var(--muted); line-height: 1.25; }
+  .contact { margin-top: 10pt; padding: 12pt 16pt; background: var(--primary); color: #FFFDF8; border-radius: 6pt; }
+  .contact h2 { font-size: 19pt; }
+  .contact dl { display: grid; grid-template-columns: 1.1in 1fr; gap: 1pt 8pt; margin: 6pt 0 0; }
   .contact dt { font-weight: 700; opacity: .85; }
   .contact dd { margin: 0; }
-  .fine { margin-top: 12pt; color: var(--muted); font-size: 7.5pt; line-height: 1.4; }
+  .fine { margin-top: 6pt; color: var(--muted); font-size: 7pt; line-height: 1.35; }
 </style>
 </head>
 <body>
@@ -201,6 +212,12 @@
     <p>“{{ verse.text }}”</p>
     <div class="refs">{{ verse.ref }}</div>
   </div>
+  {% if pk.hagia_sophia_image %}
+  <figure class="hs">
+    <img src="{{ img(pk.hagia_sophia_image) }}" alt="">
+    <figcaption>{{ pk.hagia_sophia_caption }}</figcaption>
+  </figure>
+  {% endif %}
 </section>
 
 {# ---------------- 3–5. Bible journeys ---------------- #}
@@ -233,6 +250,7 @@
           <span><span class="t">{{ d.title }}</span>{% if d.sample %} <em class="tbc">({{ pk.to_be_confirmed }})</em>{% endif %}{% if d.overnight %} <span class="o">· {{ d.overnight }}</span>{% endif %}{% if d.refs %}<br><span class="refs">{{ d.refs|join(" · ") }}</span>{% endif %}</span></li>
         {% endfor %}
       </ul>
+      <p class="jnote" style="margin-top:4pt">{{ booking.itinerary_footer }}</p>
       {% if j.days|length <= 8 %}{{ hotels_block(j) }}{% endif %}
     </div>
     <div class="side">
@@ -363,7 +381,15 @@
     </div>
   </div>
   <hr class="rule">
-  <hr class="rule">
+  {% if pk.partner_photos %}
+  <h4 style="margin-top:10pt">{{ partner.gallery.heading }}</h4>
+  <div class="pgrid">
+    {% for pid in pk.partner_photos %}
+    <figure><img src="{{ img(pid) }}" alt=""><figcaption>{{ images_by_id[pid].subject }}</figcaption></figure>
+    {% endfor %}
+  </div>
+  <p class="pnote" style="margin-top:8pt">{{ partner.gallery.note }}</p>
+  {% endif %}
   <p style="color:var(--muted);font-size:9.5pt">{{ site.partner_line }}. Land arrangements operated by {{ partner.name }}, {{ partner.location }} (TÜRSAB license no. {{ partner.license_no.value }}).</p>
 </section>
 
@@ -376,18 +402,24 @@
     {% for ms in booking.milestones %}
     <div class="ms">
       <h4>{{ ms.label }}</h4>
-      <div>{% if ms.when.sample %}<span class="tbc">Timing {{ pk.to_be_confirmed }}</span>{% else %}{{ ms.when.value }}{% endif %}</div>
-      {% if ms.amount %}<div>{% if ms.amount.sample %}<span class="tbc">Amount {{ pk.to_be_confirmed }}</span>{% else %}<strong>{{ ms.amount.value }}</strong>{% endif %}</div>{% endif %}
+      <div>{{ ms.when.value }}</div>
+      {% if ms.amount %}<div><strong>{{ ms.amount.value }}</strong></div>{% endif %}
       {% if ms.body %}<div style="color:var(--muted);margin-top:3pt">{{ ms.body }}</div>{% endif %}
     </div>
     {% endfor %}
   </div>
   <div class="terms">
-    <div><strong>Minimum group size</strong>{{ term(booking.minimum_group) }}</div>
-    <div><strong>Payment methods</strong>{{ pk.to_be_confirmed if booking.payment_methods.sample else booking.payment_methods.value|join(", ") }}</div>
-    <div><strong>Cancellation</strong>{{ term(booking.cancellation) }}</div>
+    <div><strong>Payment methods</strong>{{ booking.payment_methods.value }}</div>
+    <div><strong>Group size</strong>{{ booking.minimum_group }}</div>
+    <div><strong>Travel insurance</strong>{{ booking.insurance_note.value }}</div>
   </div>
-  <p class="callout" style="font-size:9.5pt"><strong>Travel insurance.</strong> {{ booking.insurance_note.value }}</p>
+  <h4 style="margin-top:12pt">Cancellation policy</h4>
+  <p style="font-size:9pt;color:var(--muted);margin-bottom:4pt">{{ booking.cancellation_intro }}</p>
+  <table class="ctable">
+    <thead><tr><th>When you cancel</th><th>What is refunded</th></tr></thead>
+    <tbody>{% for row in booking.cancellation %}<tr><td>{{ row.when }}</td><td>{{ row.refund }}</td></tr>{% endfor %}</tbody>
+  </table>
+  <p class="callout" style="font-size:9.5pt;margin-top:8pt;padding:7pt 10pt">{{ booking.cancellation_note }}</p>
 
   <div class="contact">
     <p class="eyebrow" style="color:#F0AC86">{{ sections.contact.eyebrow }}</p>
@@ -403,7 +435,8 @@
   </div>
 
   <p class="fine">{{ site.scripture_notice }}<br>
-    Photos: {% for c in packet_credits %}{{ c.subject }} by {{ c.author }} ({{ c.license }}, Wikimedia Commons){% if not loop.last %}; {% endif %}{% endfor %}.</p>
+    Photos: {% for c in packet_credits %}{{ c.subject }} by {{ c.author }} ({{ c.license }}, Wikimedia Commons){% if not loop.last %}; {% endif %}{% endfor %}.
+    {% if pk.partner_photos %}Tour photos on the partner page courtesy of Azim Tours.{% endif %}</p>
 </section>
 
 </body>

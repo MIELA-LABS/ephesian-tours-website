@@ -8,6 +8,7 @@
 #
 # When an answer arrives: fill in `answer`, `answered_on` and `source`, update the listed
 # fields with the real values and status: confirmed, then rebuild.
+# Fields with status: tracked show final wording without a badge; their item stays open here.
 
 pending:
   # --- Open: from our ground operator ------------------------------------------
@@ -20,29 +21,6 @@ pending:
       2026-10-08 and are shown on the site.)
     asked_on: 2026-10-06
     updates: ["hotels"]
-
-  - id: Q-ORDER-01
-    owner: operator
-    topic: Istanbul & Cappadocia day order
-    question: >-
-      Confirm the day order and overnight stops for the Istanbul & Cappadocia journey,
-      including a night in Konya.
-    asked_on: 2026-10-06
-    updates: ["journeys.istanbul_cappadocia"]
-
-  - id: Q-CATHOLIC-02
-    owner: operator
-    topic: Catholic pilgrimage day order
-    question: Confirm the day order of our 7-day Ephesus & the House of Mary pilgrimage.
-    asked_on: 2026-10-06
-    updates: ["journeys.catholic"]
-
-  - id: Q-SHOP-01
-    owner: operator
-    topic: Shopping time
-    question: Whether a group can leave out shopping time on its journey.
-    asked_on: 2026-10-06
-    updates: ["faq.shopping.pending_note"]
 
   - id: Q-MEDIA-01
     owner: operator
@@ -60,30 +38,6 @@ pending:
     question: Group fares from DFW, including domestic flights within Türkiye, and the flight schedule.
     updates: ["booking.included", "booking.airfare_note", "faq.flights", "faq.cost", "journeys.*.prices", "journeys.*.notes", "journeys.*.days"]
 
-  - id: ET-TERMS-01
-    owner: ephesian
-    topic: Our payment schedule and cancellation policy
-    question: Final payment schedule and cancellation policy for our written agreement.
-    updates: ["booking.milestones", "booking.cancellation", "faq.payment"]
-
-  - id: ET-PAY-01
-    owner: ephesian
-    topic: Payment methods
-    question: Accepted payment methods, once the company’s accounts are set up.
-    updates: ["booking.payment_methods", "faq.payment.pending_note"]
-
-  - id: ET-INS-01
-    owner: ephesian
-    topic: Travel insurance
-    question: Whether travel and health insurance is required or recommended.
-    updates: ["booking.excluded", "booking.insurance_note", "faq.insurance"]
-
-  - id: ET-LEADER-01
-    owner: ephesian
-    topic: Complimentary place for the group leader
-    question: Final wording for the complimentary place offered to a pastor or group leader.
-    updates: ["how_it_works.leader_note", "journeys.*.notes"]
-
   - id: ET-CONTACT-01
     owner: ephesian
     topic: Contact email and phone
@@ -97,6 +51,76 @@ pending:
     updates: ["site.form_endpoint"]
 
   # --- Resolved --------------------------------------------------------------------
+  - id: Q-CATHOLIC-02
+    owner: operator
+    topic: Catholic pilgrimage day order
+    question: Confirm the day order of our 7-day Ephesus & the House of Mary pilgrimage.
+    asked_on: 2026-10-06
+    answer: Our 7-day program was priced by our partner in Türkiye.
+    answered_on: 2026-10-08
+    source: Ground operator, by email
+    updates: ["journeys.catholic"]
+
+  - id: Q-ORDER-01
+    owner: operator
+    topic: Istanbul & Cappadocia day order
+    question: Confirm the day order and overnight stops for the Istanbul & Cappadocia journey.
+    asked_on: 2026-10-06
+    answer: >-
+      Our day order is final as published; every itinerary notes that day order may be adjusted
+      to suit your dates.
+    answered_on: 2026-10-08
+    source: Ephesian Tours
+    updates: ["journeys.istanbul_cappadocia"]
+
+  - id: Q-SHOP-01
+    owner: operator
+    topic: Shopping time
+    question: Whether shopping time is optional for a group.
+    asked_on: 2026-10-06
+    answer: Shopping time is always optional, and no one is ever expected to buy.
+    answered_on: 2026-10-08
+    source: Ephesian Tours
+    updates: ["faq.shopping"]
+
+  - id: ET-TERMS-01
+    owner: ephesian
+    topic: Our payment schedule and cancellation policy
+    question: Final payment schedule and cancellation policy for travelers.
+    answer: >-
+      $500 deposit at registration; final balance 90 days before departure; cancellation refunds
+      by notice date as published.
+    answered_on: 2026-10-08
+    source: Ephesian Tours
+    updates: ["booking.milestones", "booking.cancellation", "faq.payment"]
+
+  - id: ET-PAY-01
+    owner: ephesian
+    topic: Payment methods
+    question: Accepted payment methods.
+    answer: Check, bank transfer, or credit card.
+    answered_on: 2026-10-08
+    source: Ephesian Tours
+    updates: ["booking.payment_methods", "faq.payment"]
+
+  - id: ET-INS-01
+    owner: ephesian
+    topic: Travel insurance
+    question: Whether travel and health insurance is required or recommended.
+    answer: Strongly recommended.
+    answered_on: 2026-10-08
+    source: Ephesian Tours
+    updates: ["booking.insurance_note", "faq.insurance"]
+
+  - id: ET-LEADER-01
+    owner: ephesian
+    topic: Complimentary place for the group leader
+    question: Final wording for the complimentary place offered to a pastor or group leader.
+    answer: “Ask about a complimentary place for your pastor or group leader.”
+    answered_on: 2026-10-08
+    source: Ephesian Tours
+    updates: ["how_it_works.leader_note", "journeys.*.notes"]
+
   - id: Q-PRICE-01
     owner: operator
     topic: Written quote and 2027 prices

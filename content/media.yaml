@@ -69,16 +69,6 @@ images:
     author: "eleesege"
     license: CC BY 3.0
     license_url: https://creativecommons.org/licenses/by/3.0
-  - id: hagia_sophia
-    subject: Hagia Sophia exterior
-    alt: The domes and minarets of Hagia Sophia in Istanbul
-    file: hagia-sophia
-    width: 1600
-    height: 1068
-    source_url: https://commons.wikimedia.org/wiki/File:Hagia_Sophia_Mars_2013.jpg
-    author: "Arild Vågen"
-    license: CC BY-SA 3.0
-    license_url: https://creativecommons.org/licenses/by-sa/3.0
   - id: laodicea
     subject: Laodicea columns
     alt: Columns lining the restored Syria Street at Laodicea
@@ -291,6 +281,28 @@ images:
     license: CC BY-SA 3.0
     license_url: https://creativecommons.org/licenses/by-sa/3.0
 
+  - id: curetes
+    subject: Curetes Street, Ephesus
+    alt: The marble Curetes Street in Ephesus, lined with columns and ruins, running down toward the Library of Celsus
+    file: curetes
+    width: 1600
+    height: 1060
+    source_url: https://commons.wikimedia.org/wiki/File:Looking_down_the_Street_of_Curetes_(16314212482).jpg
+    author: "shankar s. from Dubai, United Arab Emirates"
+    license: CC BY 2.0
+    license_url: https://creativecommons.org/licenses/by/2.0
+  - id: hagia_sophia_interior
+    subject: Hagia Sophia, the nave and great dome
+    alt: The vast nave of Hagia Sophia in Istanbul, with light pouring in beneath the great dome
+    file: hagia-sophia-interior
+    width: 2000
+    height: 1328
+    widths: [800, 1400, 2000]
+    source_url: https://commons.wikimedia.org/wiki/File:Central_nave_-_Hagia_Sophia_(8291196158).jpg
+    author: "Jorge Láscar"
+    license: CC BY 2.0
+    license_url: https://creativecommons.org/licenses/by/2.0
+
   # --- Our own photos (no source URL; originals are kept outside the repo) ---
   - id: hakan
     subject: Hakan Yorgancı
@@ -310,6 +322,126 @@ images:
     height: 1200
     author: "Hakan & Ece Yorgancı"
     license: © Ephesian Tours. All rights reserved.
+  # --- Photos courtesy of Azim Tours (used with permission; originals kept outside the repo) ---
+  - id: partner_01
+    subject: Ephesus, the Library of Celsus
+    alt: A tour group standing on the marble street in front of the Library of Celsus at Ephesus
+    file: partner/01-ephesus-celsus
+    width: 1320
+    height: 988
+    widths: [640, 1024, 1320]
+    author: "Azim Tours"
+    license: Photos courtesy of Azim Tours
+  - id: partner_02
+    subject: Troy
+    alt: A tour group smiling in front of the wooden horse at Troy
+    file: partner/02-troy
+    width: 1320
+    height: 986
+    widths: [640, 1024, 1320]
+    author: "Azim Tours"
+    license: Photos courtesy of Azim Tours
+    crop_caption_bar: true
+  - id: partner_03
+    subject: Istanbul, Dolmabahçe Palace
+    alt: A tour group in the gardens of Dolmabahçe Palace in Istanbul
+    file: partner/03-istanbul-dolmabahce
+    width: 1320
+    height: 984
+    widths: [640, 1024, 1320]
+    author: "Azim Tours"
+    license: Photos courtesy of Azim Tours
+  - id: partner_04
+    subject: Düden Waterfall, Antalya
+    alt: A tour group in sun hats in front of the cascades of the Düden Waterfall near Antalya
+    file: partner/04-duden-waterfall
+    width: 1320
+    height: 994
+    widths: [640, 1024, 1320]
+    author: "Azim Tours"
+    license: Photos courtesy of Azim Tours
+    crop_caption_bar: true
+  - id: partner_05
+    subject: Teaching on an ancient marble street
+    alt: A guide pointing out a detail to young travelers gathered on an ancient marble-paved street
+    file: partner/05-ephesus-teaching
+    width: 1320
+    height: 1977
+    widths: [640, 1024, 1320]
+    author: "Azim Tours"
+    license: Photos courtesy of Azim Tours
+  - id: partner_06
+    subject: A group gathered among the ruins of Hierapolis
+    alt: A large tour group seated on ancient stone blocks among the ruins of Hierapolis, with the valley beyond
+    file: partner/06-hierapolis-group-ruins
+    width: 1320
+    height: 971
+    widths: [640, 1024, 1320]
+    author: "Azim Tours"
+    license: Photos courtesy of Azim Tours
+  - id: partner_07
+    subject: Sardis, the Roman gymnasium
+    alt: A tour group standing in front of the restored marble court of the gymnasium at Sardis at sunset
+    file: partner/07-sardis-gymnasium
+    width: 1320
+    height: 995
+    widths: [640, 1024, 1320]
+    author: "Azim Tours"
+    license: Photos courtesy of Azim Tours
+  - id: partner_08
+    subject: A warm welcome in a village near Ephesus
+    alt: Travelers and local villagers smiling together, some holding bunches of grapes
+    file: partner/08-village-grapes
+    width: 1320
+    height: 977
+    widths: [640, 1024, 1320]
+    author: "Azim Tours"
+    license: Photos courtesy of Azim Tours
+  - id: partner_09
+    subject: A Roman mosaic of Oceanus and Tethys
+    alt: A detail of a Roman floor mosaic showing the faces of the sea deities Oceanus and Tethys
+    file: partner/09-mosaic-oceanus-tethys
+    width: 800
+    height: 600
+    widths: [640, 800]
+    author: "Azim Tours"
+    license: Photos courtesy of Azim Tours
+  - id: partner_10
+    subject: Aphrodisias, the Tetrapylon gate
+    alt: A tour group standing before the columns of the Tetrapylon gate at Aphrodisias
+    file: partner/10-aphrodisias-tetrapylon
+    width: 800
+    height: 671
+    widths: [640, 800]
+    author: "Azim Tours"
+    license: Photos courtesy of Azim Tours
+  - id: partner_11
+    subject: Pergamum, the vaulted passages of the acropolis
+    alt: A tour group in a long stone passage with arched vaults at Pergamum
+    file: partner/11-pergamum-vaults
+    width: 1600
+    height: 1200
+    widths: [640, 1024, 1600]
+    author: "Azim Tours"
+    license: Photos courtesy of Azim Tours
+  - id: partner_12
+    subject: The theater at Hierapolis
+    alt: A tour group on the upper seats of the theater at Hierapolis, overlooking the plain
+    file: partner/12-hierapolis-theater
+    width: 1600
+    height: 1200
+    widths: [640, 1024, 1600]
+    author: "Azim Tours"
+    license: Photos courtesy of Azim Tours
+  - id: partner_13
+    subject: Ephesus, the Temple of Hadrian
+    alt: A tour group in front of the carved arch of the Temple of Hadrian at Ephesus
+    file: partner/13-ephesus-hadrian-temple
+    width: 960
+    height: 720
+    widths: [640, 960]
+    author: "Azim Tours"
+    license: Photos courtesy of Azim Tours
 
 videos:
   # These are NOT Azim Tours' own footage: Azim's site embeds them from the videographer's
@@ -324,7 +456,7 @@ videos:
     source_url: https://vimeo.com/180284772
     credit: "Video: Yasin İlcebay / Vimeo"
     license: Embedded via Vimeo’s official player; all rights reserved by the author
-    status: pending
+    status: tracked
     resolves_by: Q-MEDIA-01
   - id: sardis_vimeo
     video_id: "142346598"
@@ -335,5 +467,5 @@ videos:
     source_url: https://vimeo.com/142346598
     credit: "Video: Yasin İlcebay / Vimeo"
     license: Embedded via Vimeo’s official player; all rights reserved by the author
-    status: pending
+    status: tracked
     resolves_by: Q-MEDIA-01

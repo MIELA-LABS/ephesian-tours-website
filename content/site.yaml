@@ -15,7 +15,7 @@ site:
   # true  -> "Sample" badges, preview banner, and <meta name="robots" content="noindex, nofollow">
   # false -> clean production page (the build warns if anything is still pending)
   preview_mode: true
-  preview_banner: Preview — itineraries and pricing are samples pending confirmation.
+  preview_banner: "Preview: our new website is launching soon."
 
   brand_line: An open door to the lands of the Bible.
   brand_line_ref: Rev 3:8
@@ -159,10 +159,7 @@ how_it_works:
       body: >-
         We fly home as one group, with photos, friendships, and a Bible that will never read
         quite the same again.
-  leader_note:
-    value: Ask about a complimentary place for your pastor or group leader.
-    status: proposed
-    resolves_by: ET-LEADER-01
+  leader_note: Ask about a complimentary place for your pastor or group leader.
 
 partner:
   name: Azim Tours
@@ -184,6 +181,12 @@ partner:
     - Ferry and island services to Samos and Patmos since 1987
     - Their own vehicles, professional guides, and long-standing hotel relationships
     - The same experienced English-speaking guide for your whole journey, a specialist in Christian groups
+  gallery:
+    heading: On the road with our partner’s guests
+    note: >-
+      Photos courtesy of Azim Tours, from tours they have operated for their own guests.
+    photos: [partner_01, partner_05, partner_13, partner_07, partner_06, partner_12, partner_10,
+             partner_11, partner_02, partner_03, partner_04, partner_08, partner_09]
 
 hosts:
   intro:
@@ -301,6 +304,11 @@ packet:
     Turquoise Coast. Full day-by-day itineraries are on our website.
   edition_label: Preview edition
   good_to_know: [fitness, food, hotels, tips, shopping]
+  partner_photos: [partner_01, partner_05, partner_07, partner_10, partner_12, partner_13]
+  hagia_sophia_image: hagia_sophia_interior
+  hagia_sophia_caption: >-
+    Hagia Sophia, Istanbul: completed in AD 537, a functioning mosque since 2020, and open to
+    visitors outside prayer times.
   contact_intro: >-
     Tell us about your congregation and the journey you have in mind, and we’ll plan it
     together.

@@ -60,6 +60,8 @@ def make_packet(c: dict[str, Any], out: Path) -> int:
         return jpg.as_uri()
 
     used = [c["hero"].image] + [j.image for j in c["journeys"]]
+    if c["packet"].hagia_sophia_image:
+        used.append(c["packet"].hagia_sophia_image)
     credits, seen = [], set()
     for image_id in used:
         i = images[image_id]

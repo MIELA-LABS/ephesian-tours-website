@@ -27,12 +27,12 @@ hotels:
   - {city: Antalya, name: Ramada Plaza Antalya}
   - {city: Pamukkale, name: Doğa Thermal}
   - {city: Kuşadası, name: "Charisma or Elite World Kuşadası"}
-  - {city: İzmir, name: {value: null, status: pending, resolves_by: Q-HOTELS-01}}
-  - {city: Çanakkale, name: {value: null, status: pending, resolves_by: Q-HOTELS-01}}
-  - {city: Adana, name: {value: null, status: pending, resolves_by: Q-HOTELS-01}}
-  - {city: Alanya, name: {value: null, status: pending, resolves_by: Q-HOTELS-01}}
-  - {city: Ankara, name: {value: null, status: pending, resolves_by: Q-HOTELS-01}}
-  - {city: Bursa, name: {value: null, status: pending, resolves_by: Q-HOTELS-01}}
+  - {city: İzmir, name: {value: null, status: tracked, resolves_by: Q-HOTELS-01}}
+  - {city: Çanakkale, name: {value: null, status: tracked, resolves_by: Q-HOTELS-01}}
+  - {city: Adana, name: {value: null, status: tracked, resolves_by: Q-HOTELS-01}}
+  - {city: Alanya, name: {value: null, status: tracked, resolves_by: Q-HOTELS-01}}
+  - {city: Ankara, name: {value: null, status: tracked, resolves_by: Q-HOTELS-01}}
+  - {city: Bursa, name: {value: null, status: tracked, resolves_by: Q-HOTELS-01}}
 
 sites:
   # --- The seven churches of Revelation (Rev 2–3) ---------------------------
@@ -332,7 +332,7 @@ sites:
     featured: true
     lat: 41.0086
     lng: 28.9802
-    image: hagia_sophia
+    image: hagia_sophia_interior
     history: >-
       As Constantinople, this city was the capital of the Christian Roman (Byzantine) Empire
       for more than a thousand years. Its crowning landmark, Hagia Sophia, was completed

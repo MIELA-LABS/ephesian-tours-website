@@ -12,25 +12,35 @@
         <span class="timeline__dot" aria-hidden="true"></span>
         <h3 class="timeline__label">{{ ms.label }}</h3>
         <p class="timeline__when">{{ m.tracked(ms.when) }}</p>
-        {% if ms.amount %}<p class="timeline__amount">{{ m.tracked(ms.amount) }}</p>{% endif %}
+        {% if ms.amount %}<p class="timeline__amount">{{ ms.amount.value }}</p>{% endif %}
         {% if ms.body %}<p class="timeline__body">{{ ms.body }}</p>{% endif %}
       </li>
       {% endfor %}
     </ol>
     <dl class="terms reveal">
       <div>
-        <dt>Minimum group size</dt>
-        <dd>{{ m.tracked(booking.minimum_group) }}</dd>
-      </div>
-      <div>
         <dt>Payment methods</dt>
-        <dd>{{ booking.payment_methods.value|join(", ") }}{{ m.badge(booking.payment_methods) }}</dd>
+        <dd>{{ booking.payment_methods.value }}</dd>
       </div>
       <div>
-        <dt>Cancellation</dt>
-        <dd>{{ m.tracked(booking.cancellation) }}</dd>
+        <dt>Group size</dt>
+        <dd>{{ booking.minimum_group }}</dd>
+      </div>
+      <div>
+        <dt>Travel insurance</dt>
+        <dd>{{ booking.insurance_note.value }}</dd>
       </div>
     </dl>
-    <p class="callout callout--insurance reveal"><strong>Travel insurance.</strong> {{ m.tracked(booking.insurance_note) }}</p>
+    <div class="cancel reveal">
+      <h3 class="cancel__title">Cancellation policy</h3>
+      <p class="cancel__intro">{{ booking.cancellation_intro }}</p>
+      <table class="cancel__table">
+        <thead><tr><th scope="col">When you cancel</th><th scope="col">What is refunded</th></tr></thead>
+        <tbody>
+          {% for row in booking.cancellation %}<tr><td>{{ row.when }}</td><td>{{ row.refund }}</td></tr>{% endfor %}
+        </tbody>
+      </table>
+      <p class="callout callout--insurance">{{ booking.cancellation_note }}</p>
+    </div>
   </div>
 </section>

@@ -1,0 +1,32 @@
+# Guest reviews of Azim Tours, our ground operator, published on azimtours.com and used with
+# permission. These are reviews of Azim Tours' own tours, NOT of Ephesian Tours. They appear only
+# in the "Our partner" section, always attributed to Azim Tours' guests.
+# Quote verbatim (keep the reviewer's own spelling); shorten only with an ellipsis (…).
+# No invented names, dates, cities or star ratings. Add more reviews by adding items.
+
+partner_reviews:
+  heading: What Azim Tours’ guests say
+  note: Reviews of tours operated by Azim Tours, shared with their permission.
+  items:
+    - quote: >-
+        We just came back from the Best of Turkey trip. What an amazing experience. They said
+        they are the biggest museum in the world, and probably they are. Every place we were, we
+        learned about the history behind it, as our guide, Isa was very knowledgeable of his
+        culture and country. The driver was always helpful and courteous. The only down part is
+        that it was too short. Definitely going back to build and share more amazing
+        experiences.
+      attribution: Best of Turkey guest, via Azim Tours
+      image: partner_01
+    - quote: >-
+        We just returned from your Best of Turkey trip. It was our first tour trip and we were
+        not disappointed. Our tour guide, Isa, was extremely knowledgeable, funny, and absolutely
+        made the trip. The landscape was stunning, especially Cappadocia. I can't stop talking
+        about it!
+      attribution: Best of Turkey guest, via Azim Tours
+      image: partner_10
+    - quote: >-
+        I just want to let you know that my trip to Turkey was absolutely fabulous. Our guide
+        Ibrihim was so knowledgeable about the country. We knew we were in good hands with him as
+        our guide. Thank you for providing such a wonderful trip for such a good price.
+      attribution: Best of Turkey guest, via Azim Tours
+      image: partner_12

@@ -2,8 +2,8 @@
 #
 # The included / not-included lists are shared by every journey (a journey can add its own
 # lines in journeys.yaml: included_extra / excluded_extra). Source: Azim Tours, 2026-10-06.
-# The payment timeline and cancellation terms are OUR policy, still being finalized
-# (ET-TERMS-01, ET-PAY-01): they stay samples until then.
+# The payment timeline, cancellation policy and payment methods are Ephesian Tours' own terms
+# with travelers (2026-10-08), not the ground operator's.
 
 booking:
   # fallback, shown only for a journey without prices
@@ -19,7 +19,7 @@ booking:
   price_basis: Double occupancy, including round-trip airfare from DFW.
   airfare_note:
     value: Airfare is estimated until group fares are confirmed.
-    status: proposed
+    status: tracked
     resolves_by: ET-AIR-01
   quote_note: >-
     Your written quote reflects your dates and group size. Prices are based on 20 travelers;
@@ -27,7 +27,7 @@ booking:
 
   included:
     - value: Round-trip group airfare from DFW, including domestic flights within Türkiye
-      status: proposed
+      status: tracked
       resolves_by: ET-AIR-01
     - 5-star hotels, mostly international chain hotels, centrally located; double or twin rooms
     - Breakfast and dinner every day (half board)
@@ -40,9 +40,7 @@ booking:
   excluded:
     - Lunches and drinks. Plan on about $20–40 per person per day, depending on the city.
     - "Tips: plan on about $15 per person per day ($10 for your guide, $5 for your driver)."
-    - value: Travel and health insurance (strongly recommended)
-      status: pending
-      resolves_by: ET-INS-01
+    - Travel and health insurance (strongly recommended)
     - Optional additions, such as a day on Patmos
     - Personal expenses and optional shopping
 
@@ -63,58 +61,38 @@ booking:
   milestones:
     - id: deposit
       label: Deposit
-      when:
-        value: At registration, about 9–10 months before departure
-        status: pending
-        resolves_by: ET-TERMS-01
-      amount:
-        value: To be confirmed
-        status: pending
-        resolves_by: ET-TERMS-01
+      when: At registration
+      amount: $500 per person
       body: Reserves your place in the group.
-
-    - id: interim
-      label: Second payment
-      when:
-        value: About 4–5 months before departure
-        status: pending
-        resolves_by: ET-TERMS-01
-      amount:
-        value: Amount to be confirmed
-        status: pending
-        resolves_by: ET-TERMS-01
 
     - id: final
       label: Final balance
-      when:
-        value: 60–90 days before departure
-        status: pending
-        resolves_by: ET-TERMS-01
-      body: Group airline tickets are issued at this stage.
+      when: Due 90 days before departure
+      body: Group airline tickets are issued after this.
 
     - id: departure
       label: Departure from DFW
       when: The day your journey begins
-      body: Your Ephesian Tours host meets your group at DFW and flies with you.
+      body: Your Ephesian Tours host meets your group at the airport and flies with you.
 
-  payment_methods:
-    value: [Bank transfer, Credit card]
-    status: pending
-    resolves_by: ET-PAY-01
+  payment_methods: Check, bank transfer, or credit card.
 
-  minimum_group:
-    value: >-
-      10 travelers for the best per-person price; smaller groups can still travel, at a higher
-      per-person price
+  minimum_group: >-
+    Groups of 10 or more travelers get the best price. Smaller groups can still travel, at a
+    higher per-person price.
 
+  cancellation_intro: Per traveler, from the date we receive written notice.
   cancellation:
-    value: Your payment schedule and cancellation terms are set out in your written agreement.
-    status: pending
-    resolves_by: ET-TERMS-01
+    - when: 90 days or more before departure
+      refund: Everything except $250 of the deposit
+    - when: 89 to 60 days before departure
+      refund: 50% of the journey price
+    - when: 59 days or less before departure
+      refund: No refund
+  cancellation_note: >-
+    We strongly recommend travel insurance, including ‘cancel for any reason’ coverage, to
+    protect your payments.
 
-  insurance_note:
-    value: >-
-      We strongly recommend travel and health insurance that covers trip cancellation, medical
-      care abroad, and emergency evacuation, purchased soon after your deposit.
-    status: pending
-    resolves_by: ET-INS-01
+  insurance_note: Strongly recommended.
+
+  itinerary_footer: Day order may be adjusted to suit your dates.

@@ -100,6 +100,10 @@ This removes the “Sample” badges, the preview banner, and the `noindex, nofo
 
 Originals stay outside the repo in `internal/photos/` (gitignored). `scripts/process_host_photos.py` crops them, applies only a light global color balance (no retouching), converts to sRGB, and writes metadata-free WebP files to `assets/img/hosts/`. `scripts/check_public.py` fails if any `*-original.*` file is about to be committed, or if any public image still contains EXIF, GPS, or XMP data.
 
+## Partner photos and reviews
+
+The “Our partner” gallery uses tour photos courtesy of Azim Tours (with permission). Originals stay in `internal/photos/partner/` (gitignored); `scripts/process_partner_photos.py` writes metadata-free WebP files to `assets/img/partner/` (caption bars cropped where `crop_caption_bar: true`, never upscaled). Gallery order and the packet’s photo grid are set in `content/site.yaml` (`partner.gallery`, `packet.partner_photos`). Guest reviews of Azim Tours live in `content/partner_reviews.yaml`: quote verbatim, attribute exactly, and show them only in the partner section; add more reviews by adding items.
+
 ## Images, brand assets, and QA
 
 Development tools live in `requirements-dev.txt`:

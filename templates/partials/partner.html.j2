@@ -19,5 +19,47 @@
       </p>
       <p class="partner__note">{{ partner.license_body }}</p>
     </div>
+
+    {% set g = partner.gallery %}
+    <div class="gallery reveal" data-gallery role="region" aria-roledescription="carousel" aria-labelledby="gallery-title">
+      <div class="gallery__head">
+        <h3 class="gallery__title" id="gallery-title">{{ g.heading }}</h3>
+        <p class="gallery__note">{{ g.note }}</p>
+      </div>
+      <div class="gallery__track" data-gallery-track tabindex="0" aria-label="{{ g.heading }}: use the arrow keys to move between photos">
+        {% for pid in g.photos %}
+        <figure class="gallery__slide" role="group" aria-roledescription="slide" aria-label="{{ loop.index }} of {{ g.photos|length }}">
+          {{ m.img(pid, "(min-width: 1100px) 64rem, 100vw", "gallery__img", lazy=not loop.first) }}
+          <figcaption class="gallery__caption">{{ images_by_id[pid].subject }}</figcaption>
+        </figure>
+        {% endfor %}
+      </div>
+      <div class="gallery__controls">
+        <button class="gallery__btn" type="button" data-gallery-prev aria-label="Previous photo">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+        </button>
+        <p class="gallery__count" aria-live="polite"><span data-gallery-index>1</span> / {{ g.photos|length }}</p>
+        <button class="gallery__btn" type="button" data-gallery-next aria-label="Next photo">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+
+    {% set r = partner_reviews %}
+    <div class="reviews reveal" aria-labelledby="reviews-title">
+      <h3 class="reviews__title" id="reviews-title">{{ r.heading }}</h3>
+      <p class="reviews__note">{{ r.note }}</p>
+      <ul class="reviews__list">
+        {% for rv in r.items %}
+        <li class="review">
+          <figure>
+            {{ m.img(rv.image, "6rem", "review__img") }}
+            <blockquote class="review__quote"><p>“{{ rv.quote }}”</p></blockquote>
+            <figcaption class="review__by">{{ rv.attribution }}</figcaption>
+          </figure>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
   </div>
 </section>

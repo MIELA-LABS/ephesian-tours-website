@@ -38,6 +38,15 @@
 {%- endmacro %}
 
 {# Brand mark: open arched doorway. Uses currentColor so it follows the theme. #}
+{# Responsive <img> with explicit lazy/eager control (no fetchpriority), e.g. for gallery slides. #}
+{% macro img(image_id, sizes, cls="", lazy=true) -%}
+  {%- set i = images_by_id[image_id] -%}
+  <img class="{{ cls }}" src="./assets/img/{{ i.file }}-{{ i.widths[0] }}.webp"
+    srcset="{% for w in i.widths %}./assets/img/{{ i.file }}-{{ w }}.webp {{ w }}w{% if not loop.last %}, {% endif %}{% endfor %}"
+    sizes="{{ sizes }}" alt="{{ i.alt }}"{% if i.width %} width="{{ i.width }}" height="{{ i.height }}"{% endif %}
+    {%- if lazy %} loading="lazy"{% endif %} decoding="async">
+{%- endmacro %}
+
 {% macro mark(cls="mark", title=none) -%}
   {% include "partials/_mark.svg.j2" %}
 {%- endmacro %}

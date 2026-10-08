@@ -84,9 +84,13 @@ def main() -> int:
                       return [...document.querySelectorAll('body *')]
                         .filter(el => { const r = el.getBoundingClientRect(); return r.width && r.right > w + 1; })
                         .filter(el => !el.closest('.leaflet-container, .form__hp, .skip-link, .visually-hidden'))
+                        // content inside its own horizontal scroller (e.g. the gallery track) is meant to extend off-screen
+                        .filter(el => { for (let a = el.parentElement; a && a !== document.body && a !== document.documentElement; a = a.parentElement) { const o = getComputedStyle(a).overflowX; if (o === 'auto' || o === 'scroll' || o === 'hidden') return false; } return true; })
                         .slice(0, 5).map(el => el.tagName.toLowerCase() + '.' + [...el.classList].join('.'));
                     }"""
                 )
+                if page.evaluate("document.documentElement.scrollWidth > document.documentElement.clientWidth + 1"):
+                    problems.append(f"{width}px {theme}: the page scrolls horizontally")
                 if overflow:
                     problems.append(f"{width}px {theme}: horizontal overflow from {', '.join(overflow)}")
                 problems += [f"{width}px {theme}: console: {e}" for e in errors]

@@ -183,6 +183,39 @@
     });
   });
 
+  /* ---------- Partner photo gallery (scroll-snap; no autoplay) ---------- */
+  $$("[data-gallery]").forEach(function (g) {
+    var track = $("[data-gallery-track]", g);
+    var slides = $$(".gallery__slide", g);
+    var prev = $("[data-gallery-prev]", g);
+    var next = $("[data-gallery-next]", g);
+    var label = $("[data-gallery-index]", g);
+    if (!track || !slides.length) return;
+    function current() { return Math.round(track.scrollLeft / track.clientWidth); }
+    function update() {
+      var i = Math.max(0, Math.min(slides.length - 1, current()));
+      label.textContent = String(i + 1);
+      prev.disabled = i === 0;
+      next.disabled = i === slides.length - 1;
+    }
+    function go(i) {
+      i = Math.max(0, Math.min(slides.length - 1, i));
+      track.scrollTo({ left: i * track.clientWidth, behavior: reduceMotion ? "auto" : "smooth" });
+    }
+    prev.addEventListener("click", function () { go(current() - 1); });
+    next.addEventListener("click", function () { go(current() + 1); });
+    track.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowLeft") { e.preventDefault(); go(current() - 1); }
+      if (e.key === "ArrowRight") { e.preventDefault(); go(current() + 1); }
+      if (e.key === "Home") { e.preventDefault(); go(0); }
+      if (e.key === "End") { e.preventDefault(); go(slides.length - 1); }
+    });
+    var t;
+    track.addEventListener("scroll", function () { clearTimeout(t); t = setTimeout(update, 60); }, { passive: true });
+    window.addEventListener("resize", update);
+    update();
+  });
+
   /* ---------- Contact form helpers ---------- */
   var form = $("[data-form]");
   var journeySelect = $("[data-journey-select]");

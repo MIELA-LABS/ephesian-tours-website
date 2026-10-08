@@ -30,7 +30,7 @@ journeys:
       winter: 3995
       spring_fall: 4595
       summer: 4795
-      status: proposed
+      status: tracked
       resolves_by: ET-AIR-01
     image: theatre_ephesus
     video: sardis_vimeo
@@ -149,11 +149,9 @@ journeys:
     add_ons: [house_of_mary]
     notes:
       - value: Group flights depart DFW the evening before Day 1.
-        status: pending
+        status: tracked
         resolves_by: ET-AIR-01
-      - value: Ask about a complimentary place for your pastor or group leader.
-        status: proposed
-        resolves_by: ET-LEADER-01
+      - Ask about a complimentary place for your pastor or group leader.
 
 
   # =========================================================================
@@ -168,9 +166,9 @@ journeys:
       winter: 2895
       spring_fall: 3295
       summer: 3595
-      status: proposed
+      status: tracked
       resolves_by: ET-AIR-01
-    image: pamukkale
+    image: curetes
     video: ephesus_vimeo
     summary: >-
       A focused journey for groups with less time: Istanbul, Hierapolis, and five of the seven
@@ -232,14 +230,12 @@ journeys:
         body: >-
           Transfer to İzmir airport and fly home to Dallas–Fort Worth via Istanbul.
         note:
-          value: Return flight timing is confirmed with your quote.
-          status: pending
+          value: Return flight times are in your quote.
+          status: tracked
           resolves_by: ET-AIR-01
     add_ons: [house_of_mary, patmos]
     notes:
-      - value: Ask about a complimentary place for your pastor or group leader.
-        status: proposed
-        resolves_by: ET-LEADER-01
+      - Ask about a complimentary place for your pastor or group leader.
 
 
   # =========================================================================
@@ -248,15 +244,13 @@ journeys:
     title: Ephesus & the House of Mary
     subtitle: A Catholic pilgrimage to Ephesus, the House of Mary, and Istanbul
     tag: Catholic pilgrimage
-    status: proposed
-    resolves_by: Q-CATHOLIC-02
     duration_days: 7
     duration_nights: 6
     prices:
       winter: 3195
       spring_fall: 3595
       summer: 3795
-      status: proposed
+      status: tracked
       resolves_by: ET-AIR-01
     image: house_of_mary
     summary: >-
@@ -325,9 +319,7 @@ journeys:
     add_ons: [patmos]
     notes:
       - Mass at the House of Mary can be added to any of our journeys. There is no fee; groups customarily leave a donation.
-      - value: Ask about a complimentary place for your priest or group leader.
-        status: proposed
-        resolves_by: ET-LEADER-01
+      - Ask about a complimentary place for your priest or group leader.
 
   # =========================================================================
   - id: best_of_turkey
@@ -341,7 +333,7 @@ journeys:
       winter: 4195
       spring_fall: 4695
       summer: 4995
-      status: proposed
+      status: tracked
       resolves_by: ET-AIR-01
     image: cappadocia
     summary: >-
@@ -458,12 +450,10 @@ journeys:
     excluded_extra:
       - Optional excursions (balloon flight, Topkapı Palace, Perge and Aspendos, Bosphorus cruise)
     notes:
-      - value: The flight home to DFW departs the morning after Day 12; timing is being confirmed.
-        status: pending
+      - value: The flight home to DFW departs the morning after Day 12; exact times are in your quote.
+        status: tracked
         resolves_by: ET-AIR-01
-      - value: Ask about a complimentary place for your pastor or group leader.
-        status: proposed
-        resolves_by: ET-LEADER-01
+      - Ask about a complimentary place for your pastor or group leader.
 
 
   # =========================================================================
@@ -478,7 +468,7 @@ journeys:
       winter: 2895
       spring_fall: 3295
       summer: 3495
-      status: proposed
+      status: tracked
       resolves_by: ET-AIR-01
     image: bosphorus
     summary: >-
@@ -545,12 +535,10 @@ journeys:
       - Optional excursions (Ephesus Museum and Şirince, Bosphorus cruise, evening show, Topkapı Palace)
     add_ons: [house_of_mary]
     notes:
-      - value: The flight home to DFW departs the morning after Day 6; timing is being confirmed.
-        status: pending
+      - value: The flight home to DFW departs the morning after Day 6; exact times are in your quote.
+        status: tracked
         resolves_by: ET-AIR-01
-      - value: Ask about a complimentary place for your pastor or group leader.
-        status: proposed
-        resolves_by: ET-LEADER-01
+      - Ask about a complimentary place for your pastor or group leader.
 
   # =========================================================================
   - id: west_anatolia
@@ -564,7 +552,7 @@ journeys:
       winter: 3295
       spring_fall: 3695
       summer: 3995
-      status: proposed
+      status: tracked
       resolves_by: ET-AIR-01
     image: priene
     summary: >-
@@ -641,23 +629,19 @@ journeys:
           Transfer to İzmir airport for the flight home, or continue on a cruise to the Greek
           islands and Athens.
         note:
-          value: Return flights to DFW, and the cruise option, are being confirmed.
-          status: pending
+          value: Return flights to DFW, or the cruise option, are arranged in your quote.
+          status: tracked
           resolves_by: ET-AIR-01
     included_extra:
       - Bosphorus cruise
     excluded_extra:
       - Greek islands cruise option
     notes:
-      - value: Ask about a complimentary place for your pastor or group leader.
-        status: proposed
-        resolves_by: ET-LEADER-01
+      - Ask about a complimentary place for your pastor or group leader.
 
   # =========================================================================
   - id: istanbul_cappadocia
     group: discover
-    status: proposed
-    resolves_by: Q-ORDER-01
     title: Istanbul & Cappadocia
     subtitle: Istanbul, Cappadocia, Iconium, Hierapolis, and Ephesus
     tag: Cultural tour
@@ -667,7 +651,7 @@ journeys:
       winter: 3495
       spring_fall: 3895
       summer: 4195
-      status: proposed
+      status: tracked
       resolves_by: ET-AIR-01
     image: uchisar
     summary: >-
@@ -677,12 +661,6 @@ journeys:
       - Cappadocia’s rock-cut churches and underground cities
       - Konya, biblical Iconium, where Paul and Barnabas preached
       - Hierapolis and Ephesus
-    itinerary_note:
-      value: >-
-        We’ve added a night in Konya to break up the long drive west. Final day order is
-        confirmed with your quote.
-      status: proposed
-      resolves_by: Q-ORDER-01
     route:
       - istanbul
       - {site: kayseri, by: air}
@@ -750,16 +728,14 @@ journeys:
           Transfer to İzmir airport for the flight home, or embark on a cruise to the Greek
           islands.
         note:
-          value: Return flights to DFW, and the cruise option, are being confirmed.
-          status: pending
+          value: Return flights to DFW, or the cruise option, are arranged in your quote.
+          status: tracked
           resolves_by: ET-AIR-01
     excluded_extra:
       - Greek islands cruise option
     add_ons: [house_of_mary]
     notes:
-      - value: Ask about a complimentary place for your pastor or group leader.
-        status: proposed
-        resolves_by: ET-LEADER-01
+      - Ask about a complimentary place for your pastor or group leader.
 
   # =========================================================================
   - id: istanbul_cappadocia_antalya
@@ -773,7 +749,7 @@ journeys:
       winter: 3495
       spring_fall: 3995
       summer: 4195
-      status: proposed
+      status: tracked
       resolves_by: ET-AIR-01
     image: aspendos
     summary: >-
@@ -849,12 +825,10 @@ journeys:
         title: Fly to Istanbul and home
         body: Transfer to Antalya airport for the flight to Istanbul and on home to Dallas–Fort Worth.
         note:
-          value: Return flight timing to DFW is being confirmed.
-          status: pending
+          value: Return flight times to DFW are in your quote.
+          status: tracked
           resolves_by: ET-AIR-01
     notes:
-      - value: Ask about a complimentary place for your pastor or group leader.
-        status: proposed
-        resolves_by: ET-LEADER-01
+      - Ask about a complimentary place for your pastor or group leader.
 
 custom_note: Every journey can be combined with another or customized for your church.

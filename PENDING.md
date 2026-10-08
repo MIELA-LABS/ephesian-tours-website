@@ -2,7 +2,7 @@
 
 # Pending items
 
-12 open items · 13 resolved · 55 fields on the site currently show a **Sample** badge in preview mode.
+5 open items · 20 resolved · 3 fields on the site currently show a **Sample** badge in preview mode. Fields marked (tracked) show final wording without a badge but stay listed here.
 
 To resolve an item: add `answer` and `answered_on` in `content/pending.yaml`, update the fields listed under it with real values and `status: confirmed`, then run `python build.py`.
 
@@ -11,57 +11,57 @@ To resolve an item: add `answer` and `answered_on` in `content/pending.yaml`, up
 - [ ] **Q-HOTELS-01: Hotel names for the remaining cities** (asked Oct 6, 2026)
   - Typical hotels for İzmir, Çanakkale, Adana, Alanya, Ankara, and Bursa. (Hotels for Istanbul, Cappadocia, Konya, Antalya, Pamukkale, and Kuşadası were received on 2026-10-08 and are shown on the site.)
   - Updates: `hotels`
-  - Sample fields on the site (6): `hotels[6].name`, `hotels[7].name`, `hotels[8].name`, `hotels[9].name`, `hotels[10].name`, `hotels[11].name`
-- [ ] **Q-ORDER-01: Istanbul & Cappadocia day order** (asked Oct 6, 2026)
-  - Confirm the day order and overnight stops for the Istanbul & Cappadocia journey, including a night in Konya.
-  - Updates: `journeys.istanbul_cappadocia`
-  - Sample fields on the site (2): `journeys.istanbul_cappadocia`, `journeys.istanbul_cappadocia.itinerary_note`
-- [ ] **Q-CATHOLIC-02: Catholic pilgrimage day order** (asked Oct 6, 2026)
-  - Confirm the day order of our 7-day Ephesus & the House of Mary pilgrimage.
-  - Updates: `journeys.catholic`
-  - Sample fields on the site (1): `journeys.catholic`
-- [ ] **Q-SHOP-01: Shopping time** (asked Oct 6, 2026)
-  - Whether a group can leave out shopping time on its journey.
-  - Updates: `faq.shopping.pending_note`
-  - Sample fields on the site (1): `faq.shopping.pending_note`
+  - Fields on the site (6): `hotels[6].name (tracked)`, `hotels[7].name (tracked)`, `hotels[8].name (tracked)`, `hotels[9].name (tracked)`, `hotels[10].name (tracked)`, `hotels[11].name (tracked)`
 - [ ] **Q-MEDIA-01: Photos and videos** (asked Oct 3, 2026)
   - Original photos and videos for the site. Until then, the two videos remain credited embeds from their author’s own Vimeo account.
   - Updates: `videos`
-  - Sample fields on the site (2): `videos.ephesus_vimeo`, `videos.sardis_vimeo`
+  - Fields on the site (2): `videos.ephesus_vimeo (tracked)`, `videos.sardis_vimeo (tracked)`
 
 ## Ephesian Tours to-do
 
 - [ ] **ET-AIR-01: Group airfare**
   - Group fares from DFW, including domestic flights within Türkiye, and the flight schedule.
   - Updates: `booking.included`, `booking.airfare_note`, `faq.flights`, `faq.cost`, `journeys.*.prices`, `journeys.*.notes`, `journeys.*.days`
-  - Sample fields on the site (19): `journeys.seven_churches.prices`, `journeys.seven_churches.notes[0]`, `journeys.footsteps_of_paul.prices`, `journeys.footsteps_of_paul.days[6].note`, `journeys.catholic.prices`, `journeys.best_of_turkey.prices`, `journeys.best_of_turkey.notes[0]`, `journeys.taste_of_turkey.prices`, `journeys.taste_of_turkey.notes[0]`, `journeys.west_anatolia.prices`, `journeys.west_anatolia.days[8].note`, `journeys.istanbul_cappadocia.prices`, `journeys.istanbul_cappadocia.days[8].note`, `journeys.istanbul_cappadocia_antalya.prices`, `journeys.istanbul_cappadocia_antalya.days[8].note`, `faq.cost`, `faq.flights`, `booking.airfare_note`, `booking.included[0]`
-- [ ] **ET-TERMS-01: Our payment schedule and cancellation policy**
-  - Final payment schedule and cancellation policy for our written agreement.
-  - Updates: `booking.milestones`, `booking.cancellation`, `faq.payment`
-  - Sample fields on the site (7): `faq.payment`, `booking.milestones.deposit.when`, `booking.milestones.deposit.amount`, `booking.milestones.interim.when`, `booking.milestones.interim.amount`, `booking.milestones.final.when`, `booking.cancellation`
-- [ ] **ET-PAY-01: Payment methods**
-  - Accepted payment methods, once the company’s accounts are set up.
-  - Updates: `booking.payment_methods`, `faq.payment.pending_note`
-  - Sample fields on the site (2): `faq.payment.pending_note`, `booking.payment_methods`
-- [ ] **ET-INS-01: Travel insurance**
-  - Whether travel and health insurance is required or recommended.
-  - Updates: `booking.excluded`, `booking.insurance_note`, `faq.insurance`
-  - Sample fields on the site (3): `faq.insurance`, `booking.excluded[2]`, `booking.insurance_note`
-- [ ] **ET-LEADER-01: Complimentary place for the group leader**
-  - Final wording for the complimentary place offered to a pastor or group leader.
-  - Updates: `how_it_works.leader_note`, `journeys.*.notes`
-  - Sample fields on the site (9): `how_it_works.leader_note`, `journeys.seven_churches.notes[1]`, `journeys.footsteps_of_paul.notes[0]`, `journeys.catholic.notes[1]`, `journeys.best_of_turkey.notes[1]`, `journeys.taste_of_turkey.notes[1]`, `journeys.west_anatolia.notes[0]`, `journeys.istanbul_cappadocia.notes[0]`, `journeys.istanbul_cappadocia_antalya.notes[0]`
+  - Fields on the site (19): `journeys.seven_churches.prices (tracked)`, `journeys.seven_churches.notes[0] (tracked)`, `journeys.footsteps_of_paul.prices (tracked)`, `journeys.footsteps_of_paul.days[6].note (tracked)`, `journeys.catholic.prices (tracked)`, `journeys.best_of_turkey.prices (tracked)`, `journeys.best_of_turkey.notes[0] (tracked)`, `journeys.taste_of_turkey.prices (tracked)`, `journeys.taste_of_turkey.notes[0] (tracked)`, `journeys.west_anatolia.prices (tracked)`, `journeys.west_anatolia.days[8].note (tracked)`, `journeys.istanbul_cappadocia.prices (tracked)`, `journeys.istanbul_cappadocia.days[8].note (tracked)`, `journeys.istanbul_cappadocia_antalya.prices (tracked)`, `journeys.istanbul_cappadocia_antalya.days[8].note (tracked)`, `faq.cost (tracked)`, `faq.flights (tracked)`, `booking.airfare_note (tracked)`, `booking.included[0] (tracked)`
 - [ ] **ET-CONTACT-01: Contact email and phone**
   - Final public email address and phone number for inquiries.
   - Updates: `contact.email`, `contact.phone`
-  - Sample fields on the site (2): `contact.email`, `contact.phone`
+  - Fields on the site (2): `contact.email`, `contact.phone`
 - [ ] **ET-FORM-01: Contact form connection**
   - Create the Formspree form and add its endpoint URL.
   - Updates: `site.form_endpoint`
-  - Sample fields on the site (1): `site.form_endpoint`
+  - Fields on the site (1): `site.form_endpoint`
 
 ## Resolved
 
+- [x] **Q-CATHOLIC-02: Catholic pilgrimage day order** (asked Oct 6, 2026)
+  - Confirm the day order of our 7-day Ephesus & the House of Mary pilgrimage.
+  - **Answer** (Oct 8, 2026; source: Ground operator, by email): Our 7-day program was priced by our partner in Türkiye.
+  - Updates: `journeys.catholic`
+- [x] **Q-ORDER-01: Istanbul & Cappadocia day order** (asked Oct 6, 2026)
+  - Confirm the day order and overnight stops for the Istanbul & Cappadocia journey.
+  - **Answer** (Oct 8, 2026; source: Ephesian Tours): Our day order is final as published; every itinerary notes that day order may be adjusted to suit your dates.
+  - Updates: `journeys.istanbul_cappadocia`
+- [x] **Q-SHOP-01: Shopping time** (asked Oct 6, 2026)
+  - Whether shopping time is optional for a group.
+  - **Answer** (Oct 8, 2026; source: Ephesian Tours): Shopping time is always optional, and no one is ever expected to buy.
+  - Updates: `faq.shopping`
+- [x] **ET-TERMS-01: Our payment schedule and cancellation policy**
+  - Final payment schedule and cancellation policy for travelers.
+  - **Answer** (Oct 8, 2026; source: Ephesian Tours): $500 deposit at registration; final balance 90 days before departure; cancellation refunds by notice date as published.
+  - Updates: `booking.milestones`, `booking.cancellation`, `faq.payment`
+- [x] **ET-PAY-01: Payment methods**
+  - Accepted payment methods.
+  - **Answer** (Oct 8, 2026; source: Ephesian Tours): Check, bank transfer, or credit card.
+  - Updates: `booking.payment_methods`, `faq.payment`
+- [x] **ET-INS-01: Travel insurance**
+  - Whether travel and health insurance is required or recommended.
+  - **Answer** (Oct 8, 2026; source: Ephesian Tours): Strongly recommended.
+  - Updates: `booking.insurance_note`, `faq.insurance`
+- [x] **ET-LEADER-01: Complimentary place for the group leader**
+  - Final wording for the complimentary place offered to a pastor or group leader.
+  - **Answer** (Oct 8, 2026; source: Ephesian Tours): “Ask about a complimentary place for your pastor or group leader.”
+  - Updates: `how_it_works.leader_note`, `journeys.*.notes`
 - [x] **Q-PRICE-01: Written quote and 2027 prices** (asked Oct 3, 2026)
   - A written quote with prices by season, so that per-person prices can be published for each journey.
   - **Answer** (Oct 8, 2026; source: Ground operator, by email): Written quote received. 2027 prices are published per journey for three seasons; airfare is estimated until group fares are confirmed (ET-AIR-01).

@@ -59,7 +59,7 @@ def fetch(url: str) -> Image.Image:
 
 def set_size(text: str, image_id: str, w: int, h: int) -> str:
     """Write width/height into the image's block in media.yaml, keeping comments intact."""
-    block = re.compile(rf"(  - id: {re.escape(image_id)}\n(?:    .*\n)*?)(?=  - id: |\n\S|\Z)")
+    block = re.compile(rf"(  - id: {re.escape(image_id)}\n(?:    .*\n)*?)(?=  - id: |\n|  #|\S|\Z)")
     m = block.search(text)
     if not m:
         raise SystemExit(f"media.yaml: block for '{image_id}' not found")

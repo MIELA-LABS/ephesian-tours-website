@@ -481,6 +481,7 @@ ul, ol { margin: 0; padding: 0; }
 .journey-group__header { display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 1.25rem; margin-bottom: 1.5rem; padding-bottom: .75rem; border-bottom: 1px solid var(--border); }
 .journey-group__header h3 { margin: 0; }
 .journey-group__header p { margin: 0; color: var(--text-muted); }
+.itinerary__footer { margin: .25rem 0 0; color: var(--text-muted); font-size: .95rem; font-style: italic; }
 .itinerary__note { max-width: 48rem; padding: .55rem .85rem; background: var(--bg-alt); border-left: 3px solid var(--accent); border-radius: 0 var(--radius) var(--radius) 0; }
 .custom-note { margin: 2.5rem 0 0; font-size: 1.15rem; text-align: center; }
 
@@ -540,6 +541,46 @@ ul, ol { margin: 0; padding: 0; }
 .partner { display: grid; gap: 2.5rem; }
 @media (min-width: 900px) { .partner { grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); align-items: center; } }
 .partner__text .checklist { margin-top: 1.5rem; }
+.gallery, .reviews { grid-column: 1 / -1; }
+
+/* partner photo gallery: scroll-snap, one photo at a time */
+.gallery { margin-top: 1rem; }
+.gallery__head { display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 1.25rem; margin-bottom: 1rem; }
+.gallery__title { margin: 0; }
+.gallery__note { margin: 0; color: var(--text-muted); font-size: .95rem; }
+.gallery__track {
+  display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth;
+  border-radius: var(--radius-lg); background: #1B1916; scrollbar-width: none; overscroll-behavior-x: contain;
+}
+.gallery__track::-webkit-scrollbar { display: none; }
+.gallery__track:focus-visible { outline: 3px solid var(--focus); outline-offset: 4px; }
+.gallery__slide { flex: 0 0 100%; margin: 0; scroll-snap-align: center; scroll-snap-stop: always; position: relative; aspect-ratio: 3 / 2; }
+.gallery__img { width: 100%; height: 100%; object-fit: contain; }
+.gallery__caption {
+  position: absolute; left: 0; right: 0; bottom: 0; padding: 2.5rem 1.25rem 1rem;
+  background: linear-gradient(180deg, transparent, rgb(14 18 24 / .8)); color: #FFFDF8; font-weight: 600;
+}
+.gallery__controls { display: flex; align-items: center; justify-content: center; gap: 1.25rem; margin-top: .9rem; }
+.gallery__btn {
+  display: grid; place-items: center; width: 3rem; height: 3rem; border: 2px solid var(--primary); border-radius: 50%;
+  background: var(--surface); color: var(--primary); cursor: pointer;
+}
+.gallery__btn svg { width: 1.3rem; height: 1.3rem; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+.gallery__btn:hover { background: var(--primary); color: var(--on-primary); }
+.gallery__btn:disabled { opacity: .4; cursor: default; background: var(--surface); color: var(--primary); }
+.gallery__count { margin: 0; min-width: 4.5rem; text-align: center; font-weight: 700; font-variant-numeric: lining-nums tabular-nums; }
+@media (prefers-reduced-motion: reduce) { .gallery__track { scroll-behavior: auto; } }
+
+/* guest reviews of the partner */
+.reviews { margin-top: 1.5rem; }
+.reviews__title { margin-bottom: .2rem; }
+.reviews__note { color: var(--text-muted); font-size: .95rem; }
+.reviews__list { list-style: none; display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr)); margin-top: 1rem; }
+.review figure { height: 100%; margin: 0; padding: 1.25rem; background: var(--surface); border-radius: var(--radius-lg); box-shadow: var(--shadow); display: grid; grid-template-columns: 4.5rem 1fr; gap: .4rem 1rem; align-content: start; }
+.review__img { grid-row: span 2; width: 4.5rem; height: 4.5rem; object-fit: cover; border-radius: var(--radius); }
+.review__quote { margin: 0; grid-column: 2; font-size: 1rem; }
+.review__quote p { margin: 0; }
+.review__by { grid-column: 2; color: var(--text-muted); font-size: .92rem; font-weight: 600; }
 .partner__aside { padding: 2rem; background: var(--surface); border-radius: var(--radius-lg); box-shadow: var(--shadow); text-align: center; }
 .partner__since { margin: 0; display: flex; flex-direction: column; align-items: center; color: var(--text-muted); }
 .partner__since-label { font-size: .9rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
@@ -562,13 +603,21 @@ ul, ol { margin: 0; padding: 0; }
 .timeline__amount { margin-bottom: .3rem; color: var(--primary); font-weight: 700; font-size: 1.1rem; }
 .timeline__body { color: var(--text-muted); }
 @media (min-width: 900px) {
-  .timeline { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.5rem; padding: 2.25rem 0 0; }
+  .timeline { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; padding: 2.25rem 0 0; }
   .timeline::before { left: .5rem; right: 12%; top: .5rem; bottom: auto; width: auto; height: 2px; }
   .timeline__dot { left: 0; top: -2.25rem; }
 }
 .terms { display: grid; gap: 1rem 2rem; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); margin: 3rem 0 0; padding-top: 2rem; border-top: 1px solid var(--border); }
 .terms dt { font-weight: 700; }
 .terms dd { margin: .2rem 0 0; color: var(--text-muted); }
+
+.cancel { margin-top: 2.5rem; }
+.cancel__title { font-size: 1.6rem; margin-bottom: .25rem; }
+.cancel__intro { color: var(--text-muted); }
+.cancel__table { width: 100%; max-width: 46rem; border-collapse: collapse; margin: .75rem 0 0; }
+.cancel__table th, .cancel__table td { padding: .75rem 1rem .75rem 0; border-bottom: 1px solid var(--border); text-align: left; vertical-align: top; }
+.cancel__table th { color: var(--text-muted); font-size: .9rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+.cancel__table td:first-child { font-weight: 600; width: 45%; }
 
 /* ---------- FAQ ---------- */
 .section--faq { background: var(--bg-alt); }
@@ -685,9 +734,11 @@ ul, ol { margin: 0; padding: 0; }
 @media (max-width: 1099px) { .site-footer { padding-bottom: 6rem; } }
 
 /* ---------- Scroll reveal ---------- */
-.js .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
-.js .reveal.is-visible { opacity: 1; transform: none; }
-@media (prefers-reduced-motion: reduce) { .js .reveal { opacity: 1; transform: none; } }
+/* Content is always visible: the effect only slides an already-visible element a few pixels.
+   With JS off, in screenshots and in link previews, everything shows at rest. */
+.js .reveal:not(.is-visible) { transform: translateY(12px); }
+.js .reveal { transition: transform .6s ease; }
+@media (prefers-reduced-motion: reduce) { .js .reveal, .js .reveal:not(.is-visible) { transform: none; transition: none; } }
 
 /* ---------- Utilities ---------- */
 .visually-hidden {
