@@ -112,8 +112,8 @@ Development tools live in `requirements-dev.txt`:
 - **Images:** add an entry to `content/media.yaml` (Wikimedia Commons file page, author, license; only CC BY, CC BY-SA, CC0, public domain, or Azim Tours’ own photos), then run `scripts/fetch_images.py`. It writes responsive WebP files to `assets/img/` and records their sizes. `credits.md` and the footer credits are generated from the same file.
 - **Brand:** `scripts/make_brand.py` regenerates `logo.svg`, `logo-dark.svg`, `favicon.svg`, `apple-touch-icon.png`, `og-image.jpg`, and the inline header mark from one definition.
 - **QA:** `scripts/qa_screens.py` takes full-page screenshots at 375/768/1440 px in light and dark mode (into `qa/`, not committed) and reports horizontal overflow and console errors.
-- **Before every push:** `scripts/check_public.py` checks that no private file is tracked and that no internal business terms appear in public files; `scripts/check_public.py --dist` scans the built page and PDF the same way. The deploy workflow runs both.
-- **Private figures** (operator prices, pricing inputs) are never written in this repo, not even in the checker: they live in `internal/private-numbers.txt` (gitignored) and, for CI, in the repository secret `LEAK_PRIVATE_NUMBERS` (space-separated). Keep the two in sync. The check refuses to run without the list.
+- **Before every push:** `scripts/check_public.py` checks that no private file is tracked, that public images carry no EXIF/GPS data, and that no private term or figure appears in public files; `--dist` scans the built page and PDF and `--staged` the lines of a commit before it is made. The deploy workflow runs the first two.
+- **Private terms and figures** are never written in this repo, not even in the checker: they live in `internal/private-patterns.txt` (gitignored; plain numbers and `re:` regex lines) and, for CI, in the repository secret `LEAK_PRIVATE_PATTERNS`. After editing the file, update the secret with `gh secret set LEAK_PRIVATE_PATTERNS < internal/private-patterns.txt`. The check refuses to run without the list, and its reports name only the file and line.
 
 ## Deployment (GitHub Pages)
 

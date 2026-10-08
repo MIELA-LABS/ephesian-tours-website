@@ -7,12 +7,19 @@
 
 Fails (exit 1) if
   * a private path (CLAUDE.md, internal/, original photos, ...) is tracked or would be added,
-  * a public file mentions private business terms (partnership model, rates, fam trip, ...), or
-  * a public image still carries EXIF/GPS/XMP metadata (the hosts' photos were taken at home).
+  * a public image still carries EXIF/GPS/XMP metadata, or
+  * a public file, the built site, or the PDF contains a private term or figure.
+
+The private terms and figures are deliberately NOT in this file (it is public). They are loaded
+from internal/private-patterns.txt (gitignored) or, in CI, from the GitHub Actions secret
+LEAK_PRIVATE_PATTERNS. The check refuses to run without them. Reports name the file and line
+only, never the matched text, because CI logs of a public repo are public too.
 """
 
 from __future__ import annotations
 
+import html as html_lib
+import os
 import re
 import subprocess
 import sys
@@ -22,73 +29,53 @@ ROOT = Path(__file__).resolve().parent.parent
 SELF = Path(__file__).resolve().relative_to(ROOT).as_posix()
 
 PRIVATE_PATHS = re.compile(r"^(CLAUDE\.md|CLAUDE\.local\.md|internal/|\.env)|-original\.(jpe?g|png|heic|webp)$", re.I)
+PRIVATE_LIST_FILE = ROOT / "internal" / "private-patterns.txt"
+PRIVATE_LIST_ENV = "LEAK_PRIVATE_PATTERNS"
 
-# Business terms that must never appear in public files.
-FORBIDDEN = [
-    (re.compile(r"(?<!great )\bcommissions?\b", re.I), "commission terms"),
-    (re.compile(r"\bprofit[- ]?shar", re.I), "profit-share terms"),
-    (re.compile(r"\bshare partner", re.I), "partnership model"),
-    (re.compile(r"\bexclusivity\b", re.I), "exclusivity terms"),
-    (re.compile(r"\bfam trip", re.I), "fam trip"),
-    (re.compile(r"\bQ-(MODEL|FAM)-\d+", re.I), "internal-only question id"),
-    (re.compile(r"\bmark-up\b|\bmarkups? (?:rate|of|on)\b|\bmargins? (?:rate|of|on)\b", re.I), "pricing margins"),
-    # operator terms from the 2026-10-06 answers (private)
-    (re.compile(r"KDV"), "Turkish VAT"),
-    (re.compile(r"\bVAT\b"), "VAT"),
-    (re.compile(r"\bnet (?:cost|price|rate)s?\b", re.I), "net pricing"),
-    (re.compile(r"\b35 ?%"), "operator payment terms"),
-    (re.compile(r"no-show", re.I), "operator cancellation terms"),
-    (re.compile(r"\bcharter", re.I), "boat charter cost basis"),
-    (re.compile(r"\bFOC\b"), "free-place terms"),
-    (re.compile(r"\$ ?[78],?000"), "boat charter price"),
-    (re.compile(r"180[–-]190"), "operator cost figures"),
-    # 2026-10-08 quote
-    (re.compile(r"F\.O\.C", re.I), "free-place terms"),
-    (re.compile(r"\b20 ?\+ ?1\b"), "free-place ratio"),
-    (re.compile(r"half[- ]board.{0,80}\$\s?\d|\$\s?\d[\d,]*(?:[–-]\d[\d,]*)?.{0,80}half[- ]board", re.I),
-     "half board priced next to a dollar figure"),
-]
-
-# Private figures (operator land prices, pricing inputs) are NOT written in this public file.
-# They come from internal/private-numbers.txt (gitignored) or, in CI, from the GitHub Actions
-# secret LEAK_PRIVATE_NUMBERS (space-separated). The check refuses to run without them.
-PRIVATE_NUMBERS_FILE = ROOT / "internal" / "private-numbers.txt"
-# layout values are not prices: "1100px", srcset "1400w", width="1330", height: 1330
+# layout values are not figures: "1100px", srcset "1400w", width="1330", height: 1330
 LAYOUT_AFTER = re.compile(r"\s*(?:px|w\b|rem\b|em\b|vw\b|%)")
 LAYOUT_BEFORE = re.compile(r"(?:width|height)\s*[:=]\s*[\"']?\s*$", re.I)
 
-
-def private_numbers() -> list[str]:
-    import os
-
-    raw = os.environ.get("LEAK_PRIVATE_NUMBERS", "")
-    if not raw and PRIVATE_NUMBERS_FILE.exists():
-        raw = PRIVATE_NUMBERS_FILE.read_text(encoding="utf-8")
-    nums = []
-    for line in raw.replace(",", " ").split("\n"):
-        line = line.split("#", 1)[0]
-        nums += [t for t in line.split() if t.isdigit()]
-    if not nums:
-        sys.exit("LEAK CHECK CANNOT RUN: no private number list (internal/private-numbers.txt or $LEAK_PRIVATE_NUMBERS)")
-    return nums
-
-
-def number_pattern(nums: list[str]) -> re.Pattern[str]:
-    """Whole numbers only, with or without a thousands comma: for a listed 1234, both 1234 and
-    1,234 match; 12340, 21234, 1,234.5 and a phone-number tail like 555-1234 do not."""
-    alts = "|".join(f"{n[:-3]},?{n[-3:]}" if len(n) > 3 else n for n in sorted(set(nums)))
-    return re.compile(rf"(?<![\d,.])(?<!\d-)(?:{alts})(?![\d])(?!,\d)(?!\.\d)")
-
-
-def private_number_hits(line: str, pattern: re.Pattern[str]) -> list[str]:
-    hits = []
-    for m in pattern.finditer(line):
-        if LAYOUT_AFTER.match(line, m.end()) or LAYOUT_BEFORE.search(line[: m.start()]):
-            continue
-        hits.append(m.group(0))
-    return hits
-
 TEXT_SUFFIXES = {".md", ".yaml", ".yml", ".py", ".j2", ".html", ".css", ".js", ".txt", ".json", ".svg", ""}
+
+
+class PrivateList:
+    """Numbers and regular expressions loaded from the private list."""
+
+    def __init__(self, raw: str) -> None:
+        self.numbers: list[str] = []
+        self.patterns: list[re.Pattern[str]] = []
+        for line in raw.splitlines():
+            line = line.strip()
+            if not line or line.startswith("#"):
+                continue
+            if line.startswith("re-cs:"):
+                self.patterns.append(re.compile(line[6:].strip()))
+            elif line.startswith("re:"):
+                self.patterns.append(re.compile(line[3:].strip(), re.I))
+            else:
+                self.numbers += [t for t in line.replace(",", "").split() if t.isdigit()]
+        if not (self.numbers or self.patterns):
+            sys.exit(f"LEAK CHECK CANNOT RUN: no private list ({PRIVATE_LIST_FILE.relative_to(ROOT)} or ${PRIVATE_LIST_ENV})")
+        alts = "|".join(f"{n[:-3]},?{n[-3:]}" if len(n) > 3 else n for n in sorted(set(self.numbers)))
+        # whole numbers only, with or without a thousands comma; not inside longer numbers,
+        # decimals, or a phone-number tail such as 555-1234
+        self.number_re = re.compile(rf"(?<![\d,.])(?<!\d-)(?:{alts})(?![\d])(?!,\d)(?!\.\d)") if alts else None
+
+    def hits(self, line: str) -> int:
+        n = sum(1 for p in self.patterns if p.search(line))
+        if self.number_re:
+            for m in self.number_re.finditer(line):
+                if not (LAYOUT_AFTER.match(line, m.end()) or LAYOUT_BEFORE.search(line[: m.start()])):
+                    n += 1
+        return n
+
+
+def load_private_list() -> PrivateList:
+    raw = os.environ.get(PRIVATE_LIST_ENV, "")
+    if not raw.strip() and PRIVATE_LIST_FILE.exists():
+        raw = PRIVATE_LIST_FILE.read_text(encoding="utf-8")
+    return PrivateList(raw)
 
 
 def candidate_files() -> list[str]:
@@ -120,18 +107,30 @@ def image_metadata(path: Path) -> list[str]:
     return found
 
 
-def scan_dist() -> int:
-    """Scan dist/index.html and the text of every PDF in dist/ for forbidden terms."""
+def scan_text(name: str, text: str, private: PrivateList) -> list[str]:
+    return [f"{name}:{n}: private term or figure" for n, line in enumerate(text.splitlines(), 1) if private.hits(line)]
+
+
+def report(problems: list[str], ok: str) -> int:
+    if problems:
+        print("LEAK CHECK FAILED:", *problems, sep="\n  ", file=sys.stderr)
+        return 1
+    print(f"leak check OK ({ok})")
+    return 0
+
+
+def scan_dist(private: PrivateList) -> int:
+    """Scan dist/index.html and the text of every PDF in dist/."""
     dist = ROOT / "dist"
     texts: dict[str, str] = {}
     if (dist / "index.html").exists():
-        html = (dist / "index.html").read_text(encoding="utf-8")
-        # one text element per line: inline tags joined, block tags split, so "next to" rules
+        page = (dist / "index.html").read_text(encoding="utf-8")
+        # one text element per line: inline tags joined, block tags split, so proximity rules
         # look within a single element rather than a raw HTML line
-        html = re.sub(r"(?is)<(script|style)\b.*?</\1>", "\n", html)
-        html = re.sub(r"(?i)</?(?:a|strong|em|b|i|span|cite|abbr|small)\b[^>]*>", "", html)
-        html = re.sub(r"<[^>]+>", "\n", html)
-        texts["dist/index.html"] = __import__("html").unescape(html)
+        page = re.sub(r"(?is)<(script|style)\b.*?</\1>", "\n", page)
+        page = re.sub(r"(?i)</?(?:a|strong|em|b|i|span|cite|abbr|small)\b[^>]*>", "", page)
+        page = re.sub(r"<[^>]+>", "\n", page)
+        texts["dist/index.html"] = html_lib.unescape(page)
     pdfs = sorted(dist.glob("*.pdf"))
     if pdfs:
         try:
@@ -141,87 +140,49 @@ def scan_dist() -> int:
             return 1
         for pdf in pdfs:
             with pymupdf.open(pdf) as doc:
-                texts[f"dist/{pdf.name}"] = "\n".join(page.get_text() for page in doc)
+                texts[f"dist/{pdf.name}"] = "\n".join(p.get_text() for p in doc)
     if not texts:
         print("nothing to scan in dist/: run build.py first", file=sys.stderr)
         return 1
-    problems = []
-    numbers = number_pattern(private_numbers())
-    for name, text in texts.items():
-        for lineno, line in enumerate(text.splitlines(), 1):
-            for pattern, label in FORBIDDEN:
-                if pattern.search(line):
-                    problems.append(f"{name}:{lineno}: {label}: {line.strip()[:100]}")
-            if private_number_hits(line, numbers):
-                problems.append(f"{name}:{lineno}: private figure (operator price or pricing input)")
-    if problems:
-        print("LEAK CHECK FAILED (built output):", *problems, sep="\n  ", file=sys.stderr)
-        return 1
-    print(f"leak check OK (built output: {', '.join(texts)})")
-    return 0
+    problems = [p for name, text in texts.items() for p in scan_text(name, text, private)]
+    return report(problems, f"built output: {', '.join(texts)}")
 
 
-def scan_staged() -> int:
-    """Scan the lines added in the staged commit (git diff --cached), the checker included."""
+def scan_staged(private: PrivateList) -> int:
+    """Scan the lines added in the staged commit (git diff --cached)."""
     diff = subprocess.run(["git", "diff", "--cached", "-U0"], cwd=ROOT, capture_output=True, text=True, check=True).stdout
-    numbers = number_pattern(private_numbers())
     problems, current = [], "?"
     for line in diff.splitlines():
         if line.startswith("+++ b/"):
             current = line[6:]
-        elif line.startswith("+") and not line.startswith("+++"):
-            if private_number_hits(line, numbers):
-                problems.append(f"{current}: private figure (operator price or pricing input)")
-            if current != SELF:
-                problems += [f"{current}: {label}" for pattern, label in FORBIDDEN if pattern.search(line)]
-    if problems:
-        print("LEAK CHECK FAILED (staged changes):", *problems, sep="\n  ", file=sys.stderr)
-        return 1
-    print("leak check OK (staged changes)")
-    return 0
+        elif line.startswith("+") and not line.startswith("+++") and private.hits(line):
+            problems.append(f"{current}: private term or figure in an added line")
+    return report(problems, "staged changes")
 
 
 def main() -> int:
+    private = load_private_list()
     if "--dist" in sys.argv[1:]:
-        return scan_dist()
+        return scan_dist(private)
     if "--staged" in sys.argv[1:]:
-        return scan_staged()
+        return scan_staged(private)
+
     problems: list[str] = []
     files = candidate_files()
-
-    for path in files:
-        if PRIVATE_PATHS.search(path):
-            problems.append(f"PRIVATE FILE tracked or addable: {path}")
-
     for path in files:
         p = ROOT / path
-        if p.suffix.lower() in {".webp", ".jpg", ".jpeg", ".png"} and p.is_file():
+        if PRIVATE_PATHS.search(path):
+            problems.append(f"PRIVATE FILE tracked or addable: {path}")
+            continue
+        if not p.is_file():
+            continue
+        if p.suffix.lower() in {".webp", ".jpg", ".jpeg", ".png"}:
             meta = image_metadata(p)
             if meta:
                 problems.append(f"{path}: image metadata present ({', '.join(meta)}); strip it before publishing")
-
-    numbers = number_pattern(private_numbers())
-    for line_no, line in enumerate((ROOT / SELF).read_text(encoding="utf-8").splitlines(), 1):
-        if private_number_hits(line, numbers):
-            problems.append(f"{SELF}:{line_no}: private figure (operator price or pricing input)")
-
-    for path in files:
-        p = ROOT / path
-        if path == SELF or p.suffix not in TEXT_SUFFIXES or not p.is_file():
-            continue
-        text = p.read_text(encoding="utf-8", errors="ignore")
-        for lineno, line in enumerate(text.splitlines(), 1):
-            for pattern, label in FORBIDDEN:
-                if pattern.search(line):
-                    problems.append(f"{path}:{lineno}: {label}: {line.strip()[:100]}")
-            if private_number_hits(line, numbers):
-                problems.append(f"{path}:{lineno}: private figure (operator price or pricing input)")
-
-    if problems:
-        print("LEAK CHECK FAILED:", *problems, sep="\n  ", file=sys.stderr)
-        return 1
-    print(f"leak check OK ({len(files)} public files scanned)")
-    return 0
+        elif p.suffix in TEXT_SUFFIXES:
+            problems += scan_text(path, p.read_text(encoding="utf-8", errors="ignore"), private)
+    return report(problems, f"{len(files)} public files scanned")
 
 
 if __name__ == "__main__":

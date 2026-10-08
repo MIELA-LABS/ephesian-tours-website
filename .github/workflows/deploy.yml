@@ -44,7 +44,7 @@ jobs:
       - name: Leak guard (no private files or business terms in the public repo)
         run: python scripts/check_public.py
         env:
-          LEAK_PRIVATE_NUMBERS: ${{ secrets.LEAK_PRIVATE_NUMBERS }}
+          LEAK_PRIVATE_PATTERNS: ${{ secrets.LEAK_PRIVATE_PATTERNS }}
 
       - id: pages
         uses: actions/configure-pages@v6
@@ -62,7 +62,7 @@ jobs:
       - name: Leak guard on the built site and PDF
         run: python scripts/check_public.py --dist
         env:
-          LEAK_PRIVATE_NUMBERS: ${{ secrets.LEAK_PRIVATE_NUMBERS }}
+          LEAK_PRIVATE_PATTERNS: ${{ secrets.LEAK_PRIVATE_PATTERNS }}
 
       - uses: actions/upload-pages-artifact@v5
         with:
