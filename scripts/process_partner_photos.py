@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Export the partner (Azim Tours) tour photos as metadata-free WebP files for the gallery.
+"""Export local photos (the partner gallery, and any image with `local_original`) as
+metadata-free WebP files.
 
     python scripts/process_partner_photos.py [--src internal/photos/partner]
 
@@ -51,7 +52,7 @@ def crop_caption_bar(img: Image.Image) -> tuple[Image.Image, int]:
     w, h = gray.size
     bottom = h
     for y in range(h - 1, int(h * 0.75), -1):
-        row = sorted(gray.crop((0, y, w, y + 1)).getdata())
+        row = sorted(gray.crop((0, y, w, y + 1)).get_flattened_data())
         if row[len(row) // 2] < 235:  # first photographic row from the bottom
             bottom = y + 1
             break
@@ -84,10 +85,14 @@ def main() -> int:
     text = MEDIA.read_text(encoding="utf-8")
     for item in media["images"]:
         file = item.get("file") or ""
-        if not file.startswith("partner/"):
+        if item.get("local_original"):  # a single photo kept in internal/photos/
+            originals = [ROOT / "internal" / "photos" / item["local_original"]]
+            originals = [o for o in originals if o.exists()]
+        elif file.startswith("partner/"):
+            name = file.split("/", 1)[1]
+            originals = list(args.src.glob(f"{name}*-original.*")) or list(args.src.glob(f"{name[:2]}-*-original.*"))
+        else:
             continue
-        name = file.split("/", 1)[1]
-        originals = list(args.src.glob(f"{name}*-original.*")) or list(args.src.glob(f"{name[:2]}-*-original.*"))
         if len(originals) != 1:
             print(f"{item['id']}: expected one original for {name} in {args.src}, found {len(originals)}", file=sys.stderr)
             return 1
@@ -96,7 +101,7 @@ def main() -> int:
         widths = [w for w in item["widths"] if w <= img.width]
         if not widths or widths[-1] < img.width and len(widths) < len(item["widths"]):
             widths.append(img.width)  # top size = original width, never upscaled
-        (OUT / "partner").mkdir(parents=True, exist_ok=True)
+        (OUT / file).parent.mkdir(parents=True, exist_ok=True)
         for w in widths:
             save_clean(img, OUT / f"{file}-{w}.webp", w)
         if widths != item["widths"]:

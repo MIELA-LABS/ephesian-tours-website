@@ -35,8 +35,6 @@ Every image and video used on the site, with its source and license.
 | `aspendos` | Roman theater, Aspendos | Lee Vilenski | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [link](<https://commons.wikimedia.org/wiki/File:Aspendos_Theatre,_Turkey_(86552).jpg>) |
 | `uchisar` | Uçhisar, Cappadocia | Bernard Gagnon | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) | [link](<https://commons.wikimedia.org/wiki/File:U%C3%A7hisar_Castle_03.jpg>) |
 | `curetes` | Curetes Street, Ephesus | shankar s. from Dubai, United Arab Emirates | [CC BY 2.0](https://creativecommons.org/licenses/by/2.0) | [link](<https://commons.wikimedia.org/wiki/File:Looking_down_the_Street_of_Curetes_(16314212482).jpg>) |
-| `hagia-sophia-interior` | Hagia Sophia, the nave and great dome | Jorge Láscar | [CC BY 2.0](https://creativecommons.org/licenses/by/2.0) | [link](<https://commons.wikimedia.org/wiki/File:Central_nave_-_Hagia_Sophia_(8291196158).jpg>) |
-| `hagia-sophia-dome` | Hagia Sophia, the great dome and semidomes | Jorge Láscar | [CC BY 2.0](https://creativecommons.org/licenses/by/2.0) | [link](<https://commons.wikimedia.org/wiki/File:Hagia_Sophia%27s_30.6m_%E2%8C%80_main_dome_and_semidomes_(8393605687).jpg>) |
 | `hosts/hakan` | Hakan Yorgancı | Hakan & Ece Yorgancı | © Ephesian Tours. All rights reserved. | our own photo |
 | `hosts/ece` | Ece Yorgancı | Hakan & Ece Yorgancı | © Ephesian Tours. All rights reserved. | our own photo |
 | `partner/01-ephesus-celsus` | Ephesus, the Library of Celsus | Azim Tours | Photos courtesy of Azim Tours | provided by Azim Tours, used with permission |
@@ -52,6 +50,10 @@ Every image and video used on the site, with its source and license.
 | `partner/11-pergamum-vaults` | Pergamum, the vaulted passages of the acropolis | Azim Tours | Photos courtesy of Azim Tours | provided by Azim Tours, used with permission |
 | `partner/12-hierapolis-theater` | The theater at Hierapolis | Azim Tours | Photos courtesy of Azim Tours | provided by Azim Tours, used with permission |
 | `partner/13-ephesus-hadrian-temple` | Ephesus, the Temple of Hadrian | Azim Tours | Photos courtesy of Azim Tours | provided by Azim Tours, used with permission |
+
+### Source being confirmed (no credit shown)
+
+- `hagia-sophia`: Hagia Sophia, the nave from the upper gallery (Q-PHOTO-HAGIA)
 
 ## Videos
 

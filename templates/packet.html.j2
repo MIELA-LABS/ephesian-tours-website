@@ -158,9 +158,10 @@
   .ctable { margin-top: 2pt; }
   .ctable td, .ctable th { padding: 3pt 8pt 3pt 0; font-size: 9pt; }
   .ctable td:first-child { width: 55%; }
-  .hs { margin: 12pt 0 0; break-inside: avoid; }
-  .hs img { width: 100%; height: 1.75in; object-fit: cover; object-position: center 12%; border-radius: 6pt; }
-  .hs figcaption { margin-top: 5pt; color: var(--muted); font-size: 8.8pt; font-style: italic; }
+  /* image beside its caption: a 1.75:1 frame keeps the dome, the roundels and the chandeliers */
+  .hs { display: grid; grid-template-columns: 3.8in 1fr; gap: 14pt; align-items: end; margin: 10pt 0 0; break-inside: avoid; }
+  .hs img { width: 3.8in; height: 2.17in; object-fit: cover; object-position: 100% 30%; border-radius: 6pt; }
+  .hs figcaption { color: var(--muted); font-size: 9.5pt; font-style: italic; line-height: 1.45; }
   .pgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 7pt; margin-top: 4pt; }
   .pgrid figure { margin: 0; }
   .pgrid img { width: 100%; height: 1.3in; object-fit: cover; border-radius: 4pt; }

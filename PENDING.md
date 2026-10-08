@@ -2,7 +2,7 @@
 
 # Pending items
 
-5 open items · 20 resolved · 3 fields on the site currently show a **Sample** badge in preview mode. Fields marked (tracked) show final wording without a badge but stay listed here.
+6 open items · 20 resolved · 3 fields on the site currently show a **Sample** badge in preview mode. Fields marked (tracked) show final wording without a badge but stay listed here.
 
 To resolve an item: add `answer` and `answered_on` in `content/pending.yaml`, update the fields listed under it with real values and `status: confirmed`, then run `python build.py`.
 
@@ -19,6 +19,10 @@ To resolve an item: add `answer` and `answered_on` in `content/pending.yaml`, up
 
 ## Ephesian Tours to-do
 
+- [ ] **Q-PHOTO-HAGIA: Hagia Sophia interior photo** (asked Oct 8, 2026)
+  - Confirm source/license or replace before public launch.
+  - Updates: `images.hagia_sophia`
+  - Fields on the site (1): `images.hagia_sophia (tracked)`
 - [ ] **ET-AIR-01: Group airfare**
   - Group fares from DFW, including domestic flights within Türkiye, and the flight schedule.
   - Updates: `booking.included`, `booking.airfare_note`, `faq.flights`, `faq.cost`, `journeys.*.prices`, `journeys.*.notes`, `journeys.*.days`

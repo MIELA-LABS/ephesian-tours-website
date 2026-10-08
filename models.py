@@ -34,7 +34,7 @@ T = TypeVar("T")
 # worked on internally and stays listed in PENDING.md under its resolves_by id
 Status = Literal["confirmed", "pending", "proposed", "tracked"]
 SlugId = Annotated[str, StringConstraints(pattern=r"^[a-z][a-z0-9_]*$")]
-QuestionId = Annotated[str, StringConstraints(pattern=r"^(Q|ET)-[A-Z]+-\d{2}$")]
+QuestionId = Annotated[str, StringConstraints(pattern=r"^(Q|ET)-[A-Z]+-(\d{2}|[A-Z]+)$")]
 
 # Scripture references, e.g. "Rev 2–3", "Acts 13:13–14", "1 Pet 1:1". En dashes only.
 SCRIPTURE_BOOKS = {"Acts", "Rev", "Eph", "Col", "John", "1 Pet"}
@@ -477,7 +477,7 @@ class BookingFile(Strict):
 # --- media.yaml ------------------------------------------------------------
 
 
-class Image(Strict):
+class Image(Provenance):
     id: SlugId
     subject: str
     alt: str
@@ -487,6 +487,7 @@ class Image(Strict):
     height: int | None = None
     position: str = "center"  # CSS object-position for cropping
     crop_caption_bar: bool = False  # partner photos: remove a white caption bar at the bottom
+    local_original: str | None = None  # file name in internal/photos/ (processed by process_partner_photos.py)
     source_url: HttpUrl | None = None
     author: str | None = None
     license: str | None = None
@@ -494,9 +495,10 @@ class Image(Strict):
 
     @model_validator(mode="after")
     def _sourced_needs_credit(self) -> Image:
-        # source_url may be omitted only for our own photos (e.g. the hosts' portraits)
-        if self.file and not (self.author and self.license):
-            raise ValueError(f"image '{self.id}' has a file but no author/license")
+        # source_url may be omitted only for our own photos (e.g. the hosts' portraits);
+        # author/license may be omitted only while the source is tracked under a pending item
+        if self.file and self.status == "confirmed" and not (self.author and self.license):
+            raise ValueError(f"image '{self.id}' has a file but no author/license (or track it with resolves_by)")
         return self
 
     @property

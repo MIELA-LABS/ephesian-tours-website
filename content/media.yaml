@@ -281,29 +281,22 @@ images:
     author: "shankar s. from Dubai, United Arab Emirates"
     license: CC BY 2.0
     license_url: https://creativecommons.org/licenses/by/2.0
-  - id: hagia_sophia_interior
-    subject: Hagia Sophia, the nave and great dome
-    alt: The vast nave of Hagia Sophia in Istanbul, with light pouring in beneath the great dome
-    file: hagia-sophia-interior
-    width: 2000
-    height: 1328
-    widths: [800, 1400, 2000]
-    source_url: https://commons.wikimedia.org/wiki/File:Central_nave_-_Hagia_Sophia_(8291196158).jpg
-    author: "Jorge Láscar"
-    license: CC BY 2.0
-    license_url: https://creativecommons.org/licenses/by/2.0
 
-  - id: hagia_sophia_dome
-    subject: Hagia Sophia, the great dome and semidomes
-    alt: Looking up into Hagia Sophia's great dome, ringed with windows, framed by golden semidomes
-    file: hagia-sophia-dome
-    width: 2000
-    height: 1328
-    widths: [800, 1400, 2000]
-    source_url: https://commons.wikimedia.org/wiki/File:Hagia_Sophia%27s_30.6m_%E2%8C%80_main_dome_and_semidomes_(8393605687).jpg
-    author: "Jorge Láscar"
-    license: CC BY 2.0
-    license_url: https://creativecommons.org/licenses/by/2.0
+
+  - id: hagia_sophia
+    subject: Hagia Sophia, the nave from the upper gallery
+    alt: >-
+      Hagia Sophia's nave seen from the upper gallery, with the great dome, golden semidomes,
+      large calligraphy roundels, and rings of hanging chandeliers below
+    file: hagia-sophia
+    width: 1264
+    height: 848
+    local_original: hagia-sophia-hakan-original.jpg
+    widths: [640, 1264]
+    position: 100% 50%
+    # source and license not yet confirmed: no credit shown; replace or confirm before launch
+    status: tracked
+    resolves_by: Q-PHOTO-HAGIA
 
   # --- Our own photos (no source URL; originals are kept outside the repo) ---
   - id: hakan

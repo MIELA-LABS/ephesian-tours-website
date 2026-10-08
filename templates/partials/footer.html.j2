@@ -25,7 +25,7 @@
     <details class="credits">
       <summary>Photo, map, and video credits</summary>
       <ul>
-        {% for i in images if i.ready %}
+        {% for i in images if i.ready and i.author %}
         <li>{{ i.subject }}: {{ i.author }}, {% if i.source_url %}<a href="{{ i.source_url }}" target="_blank" rel="noopener">source</a>, {% endif %}{% if i.license_url %}<a href="{{ i.license_url }}" target="_blank" rel="noopener">{{ i.license }}</a>{% else %}{{ i.license }}{% endif %}</li>
         {% endfor %}
         {% for v in videos %}

@@ -385,7 +385,8 @@ def write_credits_md(c: dict[str, Any]) -> None:
         "## Images",
         "",
     ]
-    ready = [i for i in c["images"] if i.ready]
+    ready = [i for i in c["images"] if i.ready and i.author]
+    unconfirmed = [i for i in c["images"] if i.ready and not i.author]
     if ready:
         lines += ["| Image | Subject | Author | License | Source |", "|---|---|---|---|---|"]
         for i in ready:
@@ -395,6 +396,9 @@ def write_credits_md(c: dict[str, Any]) -> None:
             lines.append(f"| `{i.file}` | {i.subject} | {i.author} | {lic} | {src} |")
     else:
         lines.append("No images sourced yet.")
+    if unconfirmed:
+        lines += ["", "### Source being confirmed (no credit shown)", ""]
+        lines += [f"- `{i.file}`: {i.subject} ({i.resolves_by})" for i in unconfirmed]
     pending_imgs = [i for i in c["images"] if not i.ready]
     if pending_imgs:
         lines += ["", "### Not yet sourced (placeholders on the site)", ""]
